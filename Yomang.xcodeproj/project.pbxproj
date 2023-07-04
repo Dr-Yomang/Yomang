@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */; };
+		AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 		AD0ADC522A544F810030B1F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
+				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 			);
