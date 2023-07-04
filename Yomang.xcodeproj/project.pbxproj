@@ -55,6 +55,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AD0ADC5A2A5450630030B1F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		AD46BA0D2A52F9DD001D3894 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +81,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
+				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD0ADC532A544F8F0030B1F9 /* Extensions */,
 				AD0ADC522A544F810030B1F9 /* Utils */,
 				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
