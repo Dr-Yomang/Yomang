@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1288792A592A620054FD6B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1288782A592A620054FD6B /* FirebaseAnalytics */; };
+		2F12887B2A592A620054FD6B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2F12887A2A592A620054FD6B /* FirebaseAuth */; };
+		2F12887D2A592A620054FD6B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2F12887C2A592A620054FD6B /* FirebaseDatabase */; };
+		2F12887F2A592A620054FD6B /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F12887E2A592A620054FD6B /* FirebaseDatabaseSwift */; };
+		2F1288812A592A620054FD6B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1288802A592A620054FD6B /* FirebaseFirestore */; };
+		2F1288832A592A620054FD6B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1288822A592A620054FD6B /* FirebaseFirestoreSwift */; };
+		2F1288852A592A620054FD6B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1288842A592A620054FD6B /* FirebaseStorage */; };
+		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
+		2F12888A2A592AD70054FD6B /* YomangImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangImg.swift */; };
+		2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -14,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2F1288892A592AD70054FD6B /* YomangImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangImg.swift; sourceTree = "<group>"; };
+		2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,12 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F12887F2A592A620054FD6B /* FirebaseDatabaseSwift in Frameworks */,
+				2F12887D2A592A620054FD6B /* FirebaseDatabase in Frameworks */,
+				2F1288792A592A620054FD6B /* FirebaseAnalytics in Frameworks */,
+				2F1288812A592A620054FD6B /* FirebaseFirestore in Frameworks */,
+				2F1288852A592A620054FD6B /* FirebaseStorage in Frameworks */,
+				2F12887B2A592A620054FD6B /* FirebaseAuth in Frameworks */,
+				2F1288832A592A620054FD6B /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1288862A592A680054FD6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F1288872A592A720054FD6B /* User.swift */,
+				2F1288892A592AD70054FD6B /* YomangImg.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AD46BA0D2A52F9DD001D3894 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +80,8 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
+				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
+				2F1288862A592A680054FD6B /* Model */,
 				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
 				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
 				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
@@ -83,6 +114,15 @@
 			dependencies = (
 			);
 			name = Yomang;
+			packageProductDependencies = (
+				2F1288782A592A620054FD6B /* FirebaseAnalytics */,
+				2F12887A2A592A620054FD6B /* FirebaseAuth */,
+				2F12887C2A592A620054FD6B /* FirebaseDatabase */,
+				2F12887E2A592A620054FD6B /* FirebaseDatabaseSwift */,
+				2F1288802A592A620054FD6B /* FirebaseFirestore */,
+				2F1288822A592A620054FD6B /* FirebaseFirestoreSwift */,
+				2F1288842A592A620054FD6B /* FirebaseStorage */,
+			);
 			productName = Yomang;
 			productReference = AD46BA162A52F9DD001D3894 /* Yomang.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +151,9 @@
 				Base,
 			);
 			mainGroup = AD46BA0D2A52F9DD001D3894;
+			packageReferences = (
+				2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AD46BA172A52F9DD001D3894 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +170,7 @@
 			files = (
 				AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */,
 				AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */,
+				2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +182,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
+				2F1288882A592A720054FD6B /* User.swift in Sources */,
+				2F12888A2A592AD70054FD6B /* YomangImg.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +321,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,6 +329,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,6 +355,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +363,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,6 +395,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2F1288782A592A620054FD6B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		2F12887A2A592A620054FD6B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2F12887C2A592A620054FD6B /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		2F12887E2A592A620054FD6B /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		2F1288802A592A620054FD6B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		2F1288822A592A620054FD6B /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		2F1288842A592A620054FD6B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD46BA0E2A52F9DD001D3894 /* Project object */;
 }
