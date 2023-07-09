@@ -1,9 +1,16 @@
+//
+//  AppleLoginButtonView.swift
+//  Yomang
+//
+//  Created by NemoSquare on 7/8/23.
+//
+
 import SwiftUI
 import CryptoKit
 import FirebaseAuth
 import AuthenticationServices
 
-struct ContentView: View {
+struct AppleLoginButtonView: View {
     
     private func randomNonceString(length: Int = 32) -> String {
       precondition(length > 0)
@@ -98,8 +105,8 @@ struct ContentView: View {
 }
 
 
-struct AppleLoginView_Previews: PreviewProvider {
+struct AppleLoginButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AppleLoginButtonView()
     }
 }
