@@ -21,10 +21,20 @@ struct YomangApp: App {
     
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @State var matchingID: String? = nil
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(matchingID: $matchingID).onOpenURL { url in
+                if (url.scheme! == "YomanglabYomang" && url.host! == "share") {
+                    if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+                        for query in components.queryItems! {
+                            matchingID = query.value ?? nil
+                            //YomanglabYomang://share?value="사용자코드" 포맷으로 링크 만들어서 던지면 됨
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -20,6 +20,7 @@
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FC2EFC42A598056008E1056 /* AppleLoginSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC32A598056008E1056 /* AppleLoginSessionTestView.swift */; };
+		2FDD6F3F2A5BC9300065F947 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 2FDD6F3E2A5BC9300065F947 /* FirebaseDynamicLinks */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yomang.entitlements; sourceTree = "<group>"; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FC2EFC32A598056008E1056 /* AppleLoginSessionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginSessionTestView.swift; sourceTree = "<group>"; };
+		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 				2F12887F2A592A620054FD6B /* FirebaseDatabaseSwift in Frameworks */,
 				2F12887D2A592A620054FD6B /* FirebaseDatabase in Frameworks */,
 				2F1288792A592A620054FD6B /* FirebaseAnalytics in Frameworks */,
+				2FDD6F3F2A5BC9300065F947 /* FirebaseDynamicLinks in Frameworks */,
 				2F1288812A592A620054FD6B /* FirebaseFirestore in Frameworks */,
 				2F1288852A592A620054FD6B /* FirebaseStorage in Frameworks */,
 				2F12887B2A592A620054FD6B /* FirebaseAuth in Frameworks */,
@@ -92,11 +95,19 @@
 			path = TestView;
 			sourceTree = "<group>";
 		};
+		2FDD6F3D2A5BC9300065F947 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD46BA0D2A52F9DD001D3894 = {
 			isa = PBXGroup;
 			children = (
 				AD46BA182A52F9DD001D3894 /* Yomang */,
 				AD46BA172A52F9DD001D3894 /* Products */,
+				2FDD6F3D2A5BC9300065F947 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +122,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
+				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
 				2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */,
 				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
 				2FC2EFBE2A596115008E1056 /* View */,
@@ -157,6 +169,7 @@
 				2F1288802A592A620054FD6B /* FirebaseFirestore */,
 				2F1288822A592A620054FD6B /* FirebaseFirestoreSwift */,
 				2F1288842A592A620054FD6B /* FirebaseStorage */,
+				2FDD6F3E2A5BC9300065F947 /* FirebaseDynamicLinks */,
 			);
 			productName = Yomang;
 			productReference = AD46BA162A52F9DD001D3894 /* Yomang.app */;
@@ -355,6 +368,7 @@
 				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yomang/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,6 +404,7 @@
 				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yomang/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -482,6 +497,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		2FDD6F3E2A5BC9300065F947 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1288772A592A620054FD6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
