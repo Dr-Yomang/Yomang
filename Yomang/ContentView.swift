@@ -5,12 +5,14 @@ import AuthenticationServices
 
 struct ContentView: View {
     
-    @Binding var matchingID : String?
+    @Binding var matchingIDTest : String?
+    @State var nowuser = Auth.auth().currentUser
     
     var body: some View{
         VStack{
             AppleLoginButtonView()
-            Text(matchingID ?? "noID")
+            Text(matchingIDTest ?? "noID")
+            Text(nowuser?.uid ?? "No")
         }
     }
 }
@@ -18,6 +20,6 @@ struct ContentView: View {
 
 struct AppleLoginView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(matchingID: .constant(""))
+        ContentView(matchingIDTest: .constant(nil))
     }
 }

@@ -58,7 +58,7 @@ struct AppleLoginButtonView: View {
        }
     
     var body: some View {
-        SignInWithAppleButton(SignInWithAppleButton.Label.signUp,
+        SignInWithAppleButton(SignInWithAppleButton.Label.signIn,
             onRequest: { request in
                 let nonce = randomNonceString()
                 currentNonce = nonce
@@ -100,7 +100,7 @@ struct AppleLoginButtonView: View {
                                                       break
                                               }
             }
-        ).frame(height:100).aspectRatio(contentMode: .fit)
+        )
     }
 }
 
