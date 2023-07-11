@@ -177,11 +177,6 @@ struct LinkView: View {
         timer.fire()
     }
     
-    private func shareLink() {
-        let activityViewController = UIActivityViewController(activityItems: [userCode], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
-    }
-    
 }
 
 
