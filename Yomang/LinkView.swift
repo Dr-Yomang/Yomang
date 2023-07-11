@@ -12,11 +12,9 @@ struct LinkView: View {
     @State private var displayedText: String = ""
     @State private var fullText: String = ""
     @State private var buttonText: String = ""
-    @State private var nickname: String = ""
+    @State var nickname: String = ""
     @State private var userCode: String = "sdkfk10dkf0s3nd9ne"
-    @FocusState private var isTextFieldFocused: Bool
     let typingInterval = 0.05
-    let nicknameLimit = 10
     
     var body: some View {
         ZStack {
@@ -41,37 +39,7 @@ struct LinkView: View {
                         .multilineTextAlignment(.center)
                     
                     if flowCount == 1 {
-                        VStack{
-                            ZStack {
-                                if nickname.isEmpty {
-                                    Text("입력하기")
-                                        .foregroundColor(.gray)
-                                        .font(.title3)
-                                }
-                                TextField("", text: $nickname)
-                                    .focused($isTextFieldFocused)
-                                    .foregroundColor(.white)
-                                    .multilineTextAlignment(.center)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .font(.title)
-                                    .frame(height: 60)
-                                    .onAppear {
-                                        isTextFieldFocused = true
-                                    }
-                                    .onChange(of: nickname) { _ in
-                                        if nickname.count > nicknameLimit {
-                                            let limitedText = nickname.dropLast()
-                                            nickname = String(limitedText)
-                                        }
-                                    }
-                            }
-                            Rectangle()
-                                .frame(height: 1)
-                                .foregroundColor(.white)
-                                .scaleEffect(1.1)
-                                .offset(y: -20)
-                        }.fixedSize()
+                        NicknameTextFieldView(nickname: $nickname)
                     }
                     Spacer()
                 }
@@ -95,39 +63,8 @@ struct LinkView: View {
             
             VStack {
                 Spacer()
-                if flowCount == 2 {
-                    Button(action: {
-                        flowCount -= 1
-                    })
-                    {
-                        RoundedRectangle(cornerRadius: 8)
-                            .foregroundColor(.gray)
-                            .frame(height: 56)
-                            .overlay(
-                                Text("제 별명이 아니에요")
-                                    .foregroundColor(.white)
-                                    .font(.title2)
-                                    .bold()
-                            )
-                            .opacity(displayedText < fullText ? 0.2 : 1.0)
-                        
-                    }
-                    .disabled(displayedText < fullText)
-                    ShareLink(item: "share") {
-                        RoundedRectangle(cornerRadius: 8)
-                            .foregroundColor(.white)
-                            .frame(height: 56)
-                            .overlay(
-                                Text(buttonText)
-                                    .foregroundColor(.black)
-                                    .font(.title2)
-                                    .bold()
-                            )
-                            .opacity(displayedText < fullText ? 0.2 : 1.0)
-                    }
-                    .disabled(displayedText < fullText)
-                }
-                else {
+                switch flowCount {
+                case 0, 1:
                     Button(action: {
                         flowCount += 1
                     })
@@ -146,7 +83,77 @@ struct LinkView: View {
                     }
                     .disabled(displayedText < fullText)
                     .disabled(flowCount == 1 && nickname.count == 0)
+                    
+                case 2:
+                    Button(action: {
+                        flowCount -= 1
+                    })
+                    {
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.gray)
+                            .frame(height: 56)
+                            .overlay(
+                                Text("제 별명이 아니에요")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                                    .bold()
+                            )
+                            .opacity(displayedText < fullText ? 0.2 : 0.5)
+                        
+                    }
+                    .disabled(displayedText < fullText)
+                    ShareLink(item: "share") {
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.white)
+                            .frame(height: 56)
+                            .overlay(
+                                Text(buttonText)
+                                    .foregroundColor(.black)
+                                    .font(.title2)
+                                    .bold()
+                            )
+                            .opacity(displayedText < fullText ? 0.2 : 1.0)
+                    }
+                    .disabled(displayedText < fullText)
+                    .simultaneousGesture(TapGesture().onEnded() {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
+                    })
+                    
+                case 3:
+                    ShareLink(item: userCode) {
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.gray)
+                            .frame(height: 56)
+                            .overlay(
+                                Text("연결 링크 공유하기")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                                    .bold()
+                            )
+                            .opacity(displayedText < fullText ? 0.1 : 0.5)
+                    }
+                    .disabled(displayedText < fullText)
+                    
+                    Button(action: {
+                        
+                    }) {
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(.white)
+                            .frame(height: 56)
+                            .overlay(
+                                Text(buttonText)
+                                    .foregroundColor(.black)
+                                    .font(.title2)
+                                    .bold()
+                            )
+                            .opacity(displayedText < fullText ? 0.2 : 1.0)
+                            .opacity(flowCount == 1 && nickname.count == 0 ? 0.2 : 1.0)
+                    }
+                    .disabled(displayedText < fullText)
+                    
+                default: EmptyView()
                 }
+                
             }//VStack
             .onAppear {
                 buttonText = "다음으로"
@@ -177,6 +184,46 @@ struct LinkView: View {
         timer.fire()
     }
     
+}
+
+struct NicknameTextFieldView: View {
+    @Binding var nickname: String
+    @FocusState private var isTextFieldFocused: Bool
+    let nicknameLimit = 10
+    
+    var body: some View {
+        VStack{
+            ZStack {
+                if nickname.isEmpty {
+                    Text("입력하기")
+                        .foregroundColor(.gray)
+                        .font(.title3)
+                }
+                TextField("", text: $nickname)
+                    .focused($isTextFieldFocused)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .font(.title)
+                    .frame(height: 60)
+                    .onAppear {
+                        isTextFieldFocused = true
+                    }
+                    .onChange(of: nickname) { _ in
+                        if nickname.count > nicknameLimit {
+                            let limitedText = nickname.dropLast()
+                            nickname = String(limitedText)
+                        }
+                    }
+            }
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(.white)
+                .scaleEffect(1.1)
+                .offset(y: -20)
+        }.fixedSize()
+    }
 }
 
 
