@@ -11,7 +11,7 @@ import SwiftUI
 struct YomangApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LinkView()
         }
     }
 }
