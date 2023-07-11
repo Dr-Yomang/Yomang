@@ -14,6 +14,8 @@ struct LinkView: View {
     @State private var buttonText: String = ""
     @State var nickname: String = ""
     @State private var userCode: String = "sdkfk10dkf0s3nd9ne"
+    @State private var jumpToggle: Bool = false
+    @State private var rotationToggle: Bool = false
     let typingInterval = 0.05
     
     var body: some View {
@@ -27,11 +29,27 @@ struct LinkView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 180, height: 240)
-                    .offset(y: -64)
+                    .offset(y: -48)
                     .padding()
+                    .rotationEffect(Angle.degrees(rotationToggle ? 1.0 : -1.0))
+                    .offset(y: jumpToggle ? 5 : -5)
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 0.3).repeatCount(5, autoreverses: true)) {
+                            rotationToggle.toggle()
+                        }
+                    }
+                    .onChange(of: flowCount) { newValue in
+                        withAnimation(.easeInOut(duration: 0.3).repeatCount(5, autoreverses: true)) {
+                            if newValue == 2 {
+                                jumpToggle.toggle()
+                            } else {
+                                rotationToggle.toggle()
+                            }
+                        }
+                    }
                 
                 VStack {
-                    Spacer().frame(height: 32)
+                    Spacer().frame(height: 48)
                     Text(displayedText)
                         .foregroundColor(.white)
                         .font(.title)
