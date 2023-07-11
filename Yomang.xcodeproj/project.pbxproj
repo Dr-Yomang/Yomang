@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ABBECF12A5D31F60089FC7C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF02A5D31F60089FC7C /* LoginView.swift */; };
+		8ABBECF32A5D32080089FC7C /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF22A5D32080089FC7C /* LinkView.swift */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8ABBECF02A5D31F60089FC7C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8ABBECF22A5D32080089FC7C /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
 				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
 				AD46BA1F2A52F9DE001D3894 /* Preview Content */,
+				8ABBECF02A5D31F60089FC7C /* LoginView.swift */,
+				8ABBECF22A5D32080089FC7C /* LinkView.swift */,
 			);
 			path = Yomang;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABBECF12A5D31F60089FC7C /* LoginView.swift in Sources */,
 				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
+				8ABBECF32A5D32080089FC7C /* LinkView.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
