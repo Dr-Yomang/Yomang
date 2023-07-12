@@ -37,7 +37,7 @@ struct YourYomangAnmiation: View {
             }
             Rectangle()
                 .fill(yomangImages[index])
-                .frame(width: 350, height: 350)
+                .frame(width: 330, height: 330)
                 .overlay(
                     ZStack {
                         Color.white
@@ -61,7 +61,7 @@ struct YourYomangAnmiation: View {
                 .gesture(DragGesture()
                     .onChanged { gesture in
                         self.dragHeight = gesture.translation.height
-                        withAnimation {
+                        withAnimation(.easeInOut(duration: 0.1)) {
                             isSwipping = true
                             if dragHeight > 0 {
                                 isSwipeDown = true
