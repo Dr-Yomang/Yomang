@@ -24,7 +24,15 @@ struct LinkView: View {
                 Rectangle()
                     .foregroundColor(.black)
                     .ignoresSafeArea()
-                
+                    .overlay(
+                        Image("YomangMoon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 1600, height: 1600)
+                            .offset(y: 820)
+                            .opacity(0.8)
+                            .ignoresSafeArea()
+                    )
                 Image("Yotto_gown")
                     .resizable()
                     .scaledToFit()
@@ -33,6 +41,7 @@ struct LinkView: View {
                     .padding()
                     .rotationEffect(Angle.degrees(rotationToggle ? 1.0 : -1.0))
                     .offset(y: jumpToggle ? 5 : -5)
+                    .shadow(color: .gray, radius: 6, x: 0, y: 4)
                     .onAppear {
                         withAnimation(.easeInOut(duration: 0.3).repeatCount(5, autoreverses: true)) {
                             rotationToggle.toggle()
@@ -53,8 +62,9 @@ struct LinkView: View {
                     Text(displayedText)
                         .foregroundColor(.white)
                         .font(.title)
-                        .bold()
+                        .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
+                        .shadow(color: .gray, radius: 4, x: 0, y: 2)
                     
                     if flowCount == 1 {
                         NicknameTextFieldView(nickname: $nickname)
@@ -93,7 +103,7 @@ struct LinkView: View {
                             .overlay(
                                 Text(buttonText)
                                     .foregroundColor(.black)
-                                    .font(.title2)
+                                    .font(.title3)
                                     .bold()
                             )
                             .opacity(displayedText < fullText ? 0.2 : 1.0)
@@ -113,7 +123,7 @@ struct LinkView: View {
                             .overlay(
                                 Text("제 별명이 아니에요")
                                     .foregroundColor(.white)
-                                    .font(.title2)
+                                    .font(.title3)
                                     .bold()
                             )
                             .opacity(displayedText < fullText ? 0.2 : 0.5)
@@ -127,7 +137,7 @@ struct LinkView: View {
                             .overlay(
                                 Text(buttonText)
                                     .foregroundColor(.black)
-                                    .font(.title2)
+                                    .font(.title3)
                                     .bold()
                             )
                             .opacity(displayedText < fullText ? 0.2 : 1.0)
@@ -145,7 +155,7 @@ struct LinkView: View {
                             .overlay(
                                 Text("연결 링크 공유하기")
                                     .foregroundColor(.white)
-                                    .font(.title2)
+                                    .font(.title3)
                                     .bold()
                             )
                             .opacity(displayedText < fullText ? 0.1 : 0.5)
@@ -161,7 +171,7 @@ struct LinkView: View {
                             .overlay(
                                 Text(buttonText)
                                     .foregroundColor(.black)
-                                    .font(.title2)
+                                    .font(.title3)
                                     .bold()
                             )
                             .opacity(displayedText < fullText ? 0.2 : 1.0)
@@ -243,8 +253,6 @@ struct NicknameTextFieldView: View {
         }.fixedSize()
     }
 }
-
-
 
 struct LinkView_Previews: PreviewProvider {
     static var previews: some View {
