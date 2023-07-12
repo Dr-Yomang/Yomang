@@ -22,7 +22,7 @@ struct YomangAnimation: View {
                     .tag(1)
             }.ignoresSafeArea()
             .accentColor(Color.white)
-            .navigationTitle(selectedTabTag == 0 ? "너의 요망" : "나의 요망")
+            .navigationTitle(selectedTabTag == 0 ? "너 요망" : "나 요망")
             .tabViewStyle(.page(indexDisplayMode: .always))
             .navigationBarTitleDisplayMode(.large)
             .indexViewStyle(.page(backgroundDisplayMode: .always))
