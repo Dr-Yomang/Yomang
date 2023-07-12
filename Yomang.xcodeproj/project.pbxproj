@@ -11,6 +11,7 @@
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
 		AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */; };
+		ADC347582A5E4B38008F9624 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC347572A5E4B38008F9624 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
+				ADC347562A5E4B2A008F9624 /* View */,
 				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
 				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
 				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ADC347562A5E4B2A008F9624 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADC347572A5E4B38008F9624 /* SettingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC347582A5E4B38008F9624 /* SettingView.swift in Sources */,
 				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 			);

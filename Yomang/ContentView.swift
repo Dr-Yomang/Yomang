@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            NavigationLink {
+                SettingView()
+            } label: {
+                Text("설정 및 개인정보")
+            }
+
         }
-        .padding()
     }
 }
 
