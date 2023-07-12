@@ -16,6 +16,7 @@ struct LinkView: View {
     @State private var userCode: String = "sdkfk10dkf0s3nd9ne"
     @State private var jumpToggle: Bool = false
     @State private var rotationToggle: Bool = false
+    @Binding var navigate: Bool
     let typingInterval = 0.05
     
     var body: some View {
@@ -54,6 +55,11 @@ struct LinkView: View {
                             } else {
                                 rotationToggle.toggle()
                             }
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.2).repeatCount(6, autoreverses: true)) {
+                            jumpToggle.toggle()
                         }
                     }
                 
@@ -163,7 +169,7 @@ struct LinkView: View {
                     .disabled(displayedText < fullText)
                     
                     Button(action: {
-                        
+                        navigate = true
                     }) {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.white)
@@ -256,6 +262,6 @@ struct NicknameTextFieldView: View {
 
 struct LinkView_Previews: PreviewProvider {
     static var previews: some View {
-        LinkView()
+        LinkView(navigate: .constant(false))
     }
 }

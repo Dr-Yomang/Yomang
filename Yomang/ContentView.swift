@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var navigate: Bool = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        if !navigate {
+            LinkView(navigate: $navigate)
+        } else {
+            YomangAnimation()
         }
-        .padding()
     }
 }
 

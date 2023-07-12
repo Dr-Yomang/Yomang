@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct YomangApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            LinkView()
+           ContentView()
         }
     }
 }
