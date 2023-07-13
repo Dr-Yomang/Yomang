@@ -11,6 +11,7 @@
 		8ABBECF72A5EB1080089FC7C /* YourYomangAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF62A5EB1080089FC7C /* YourYomangAnimation.swift */; };
 		8ABBECFD2A5EC0B40089FC7C /* MyYomangAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECFC2A5EC0B40089FC7C /* MyYomangAnimation.swift */; };
 		8ABBECFF2A5EC0CE0089FC7C /* YomangAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECFE2A5EC0CE0089FC7C /* YomangAnimation.swift */; };
+		8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47C82A5FD59200A2508A /* MotionObserver.swift */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		8ABBECF62A5EB1080089FC7C /* YourYomangAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangAnimation.swift; sourceTree = "<group>"; };
 		8ABBECFC2A5EC0B40089FC7C /* MyYomangAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangAnimation.swift; sourceTree = "<group>"; };
 		8ABBECFE2A5EC0CE0089FC7C /* YomangAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangAnimation.swift; sourceTree = "<group>"; };
+		8ADF47C82A5FD59200A2508A /* MotionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionObserver.swift; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				8ABBECFE2A5EC0CE0089FC7C /* YomangAnimation.swift */,
 				8ABBECFC2A5EC0B40089FC7C /* MyYomangAnimation.swift */,
 				8ABBECF62A5EB1080089FC7C /* YourYomangAnimation.swift */,
+				8ADF47C82A5FD59200A2508A /* MotionObserver.swift */,
 			);
 			path = Yomang;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
 				8ABBECFF2A5EC0CE0089FC7C /* YomangAnimation.swift in Sources */,
 				8ABBECF72A5EB1080089FC7C /* YourYomangAnimation.swift in Sources */,
+				8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */,
 				8ABBECF32A5D32080089FC7C /* LinkView.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 				8ABBECFD2A5EC0B40089FC7C /* MyYomangAnimation.swift in Sources */,
