@@ -71,6 +71,10 @@ struct LinkView: View {
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
                         .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                        //나중에 제거하기 아래 코드
+                        .onTapGesture {
+                            navigate = true
+                        }
                     
                     if flowCount == 1 {
                         NicknameTextFieldView(nickname: $nickname)
