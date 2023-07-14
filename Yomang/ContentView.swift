@@ -14,7 +14,7 @@ struct ContentView: View {
         if !navigate {
             LinkView(navigate: $navigate)
         } else {
-            YomangAnimation()
+            YomangView()
         }
     }
 }
