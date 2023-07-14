@@ -1,5 +1,5 @@
 //
-//  AnimationView.swift
+//  MyYomangView.swift
 //  Yomang
 //
 //  Created by 최민규 on 2023/07/12.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct YourYomangAnmiation: View {
+struct MyYomangView: View {
     
     @StateObject var motionData = MotionObserver()
-    let yourYomangImages: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
-    let yourYomangImagesDate: [String] = ["2023-07-13", "2023-07-12", "2023-07-11", "2023-07-10", "2023-07-09", "2023-07-08"]
+    let myYomangImages: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
+    let myYomangImagesDate: [String] = ["2023-07-13", "2023-07-12", "2023-07-11", "2023-07-10", "2023-07-09", "2023-07-08"]
     @State private var index: Int = 0
     @State private var dragHeight : CGFloat = .zero
     @State private var isSwipping: Bool = false
@@ -20,6 +20,7 @@ struct YourYomangAnmiation: View {
     @State private var isSwipeRight: Bool = false
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
+
     
     var body: some View {
         ZStack {
@@ -32,17 +33,17 @@ struct YourYomangAnmiation: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 1800, height: 1800)
-                            .offset(x: proxy.size.width / 2, y: 1050)
+                            .offset(x: -proxy.size.width / 2, y: 1050)
                             .opacity(1)
                             .ignoresSafeArea()
                     )
                 }
             }
             Rectangle()
-                .fill(yourYomangImages[index])
+                .fill(myYomangImages[index])
                 .frame(width: 330, height: 330)
                 .overlay(
-                    Text(yourYomangImagesDate[index])
+                    Text(myYomangImagesDate[index])
                         .foregroundColor(.white)
                         .font(.title3)
                         .bold()
@@ -69,7 +70,7 @@ struct YourYomangAnmiation: View {
                     perspective: 0.3
                 )
                 .rotation3DEffect(
-                    Angle(degrees: -CGFloat(motionData.movingOffset.width * 1.5)),
+                    Angle(degrees: -CGFloat(motionData.movingOffset.width * 2)),
                     axis: (x: 0.0, y: 1.0, z: 0.0),
                     anchor: .center,
                     perspective: 0.1
@@ -82,7 +83,7 @@ struct YourYomangAnmiation: View {
                 .gesture(DragGesture()
                     .onChanged { gesture in
                         self.dragHeight = gesture.translation.height
-                        withAnimation(.easeInOut(duration: 0.1)) {
+                        withAnimation(.easeInOut(duration: 0.1))  {
                             isSwipping = true
                             if dragHeight > 0 {
                                 isSwipeDown = true
@@ -101,9 +102,9 @@ struct YourYomangAnmiation: View {
                             isSwipeDown = false
                             isDateActive = true
                             if dragHeight > 0 {
-                                index = (index - 1 + yourYomangImages.count) % yourYomangImages.count
+                                index = (index - 1 + myYomangImages.count) % myYomangImages.count
                             } else {
-                                index = (index + 1) % yourYomangImages.count
+                                index = (index + 1) % myYomangImages.count
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                                 withAnimation(.easeInOut(duration: 1)) {
@@ -118,8 +119,8 @@ struct YourYomangAnmiation: View {
     }
 }
 
-struct YourYomangAnimation_Previews: PreviewProvider {
+struct MyYomangView_Previews: PreviewProvider {
     static var previews: some View {
-        YourYomangAnmiation()
+        MyYomangView()
     }
 }

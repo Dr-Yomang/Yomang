@@ -12,7 +12,7 @@ struct YomangApp: App {
     
     var body: some Scene {
         WindowGroup {
-           YomangAnimation()
+           TabViewStyle()
         }
     }
 }
