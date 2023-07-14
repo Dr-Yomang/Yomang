@@ -61,6 +61,10 @@ struct YourYomangView: View {
                             .offset(x: 10, y: 60)
                     }.opacity(isSwipping ? 1 : 0)
                 )
+                .overlay(
+                    Color.white
+                        .opacity(0.5)
+                )
                 .cornerRadius(30)
                 .rotation3DEffect(
                     Angle(degrees: isSwipeUp ? -10 : isSwipeDown ? 10 : 0),
@@ -113,6 +117,13 @@ struct YourYomangView: View {
                         }
                     }
                 )
+            
+            Rectangle()
+                .fill(.white)
+                .frame(width: 330, height: 100)
+                .cornerRadius(20)
+                .opacity(0.7)
+                .offset(y: 175+24)
             
         }
     }

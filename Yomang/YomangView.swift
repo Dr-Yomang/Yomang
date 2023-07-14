@@ -5,7 +5,7 @@
 //  Created by 최민규 on 2023/07/13.
 //
 /*
- TODO: 뷰 넘김에 따른 이름 변화
+ TODO: 뷰 넘김에 따른 이름 변화_ 애니메이션 버그 있음
  TODO: 이모지 반응칸 추가
  TODO: 아이콘 버튼 추가
  TODO: 현재사진으로 돌아가는 매커니즘 추가
@@ -32,7 +32,7 @@ struct YomangView: View {
                             let minX = rect.minX
                             let pageOffset = minX - (size.width * CGFloat(Tab.your.index))
                             let pageProgress = pageOffset / size.width
-                            scrollProgress = max(min(pageProgress, 0), -CGFloat(Tab.allCases.count - 1))
+                            scrollProgress = min(pageProgress, 0)
                         }
                     
                     MyYomangView()
@@ -41,7 +41,7 @@ struct YomangView: View {
                             let minX = rect.minX
                             let pageOffset = minX - (size.width * CGFloat(Tab.my.index))
                             let pageProgress = pageOffset / size.width
-                            scrollProgress = max(min(pageProgress, 0), -CGFloat(Tab.allCases.count - 1))
+                            scrollProgress = min(pageProgress, 0)
                         }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
@@ -62,37 +62,37 @@ struct YomangView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 70, height: 70)
-                    .offset(x: -5, y: activeTab == .your ? 100 : 300)
+                    .offset(x: -5, y: activeTab == .your ? 100 : 170)
                     .opacity(activeTab == .your ? 1 : 0)
-                    .scaleEffect(activeTab == .your ? 1 : 0)
                 
                 Image("Yotto_Face")
                     .resizable()
                     .scaleEffect(x: -1, y: 1)
                     .scaledToFit()
                     .frame(width: 70, height: 70)
-                    .offset(x: 5, y: activeTab == .your ? 300 : 100)
+                    .offset(x: 5, y: activeTab == .your ? 170 : 100)
                     .opacity(activeTab == .your ? 0 : 1)
-                    .scaleEffect(activeTab == .your ? 0 : 1)
                 
                 
                 HStack(spacing: 0) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(activeTab == .your ? .white : .gray)
-                            .frame(width: activeTab == .your ? tabWidth-16 : 16, height: activeTab == .your ? 50 : 16)
                             .offset(x: activeTab == .your ? 0 : 50)
+                            .frame(width: activeTab == .your ? tabWidth-16 : 16, height: activeTab == .your ? 50 : 16)
                         Text(Tab.your.rawValue)
                             .font(.title3.bold())
                             .foregroundColor(activeTab == .your ? .black : .clear)
                             .frame(width: tabWidth, height: 50)
                             .contentShape(Rectangle())
                     }
+                    .offset(x: scrollProgress * tabWidth)
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             activeTab = .your
                             scrollProgress = -CGFloat(Tab.your.index)
                             tapState.startAnimation()
+
                         }
                     }
                     .offset(y: 150)
@@ -100,9 +100,9 @@ struct YomangView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(activeTab == .my ? .white : .gray, lineWidth: 2)
-                            .frame(width: activeTab == .my ? tabWidth-16 : 16, height: activeTab == .my ? 50 : 16)
                             .background(Color.black)
                             .offset(x: activeTab == .my ? 0 : -50)
+                            .frame(width: activeTab == .my ? tabWidth-16 : 16, height: activeTab == .my ? 50 : 16)
                         
                         Text(Tab.my.rawValue)
                             .font(.title3.bold())
@@ -110,6 +110,7 @@ struct YomangView: View {
                             .frame(width: tabWidth, height: 50)
                             .contentShape(Rectangle())
                     }
+                    .offset(x: scrollProgress * tabWidth)
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             activeTab = .my
@@ -126,7 +127,6 @@ struct YomangView: View {
                 )
                 .frame(width: CGFloat(Tab.allCases.count) * tabWidth)
                 .padding(.leading, tabWidth)
-                .offset(x: scrollProgress * tabWidth)
             }
         }
     }
