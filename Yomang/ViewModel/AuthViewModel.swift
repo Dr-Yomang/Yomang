@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 import FirebaseAuth
 
-class AuthViewModel: ObservableObject{
+class AuthViewModel: ObservableObject {
     
 }
 
@@ -29,7 +29,7 @@ class AuthViewModel: ObservableObject{
     @Published var userSession: FirebaseAuth.User?
     @Published var user: User?
     
-    //TODO 인터넷 연결 없을 시 오류 확인하는 기능 추가해야
+    // TODO: 인터넷 연결 없을 시 오류 확인하는 기능 추가해야
     init() {
         self.userSession = Auth.auth().currentUser
         fetchUser { _ in }

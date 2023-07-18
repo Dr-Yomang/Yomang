@@ -20,6 +20,6 @@ struct User: Decodable {
     // 본인이 설정한 이미지
     var imageUrl: String
 
-    //var history: [YomangImg]? << YomangImg Type이 Decodable 하지 않아서 오류 발생
+    // var history: [YomangImg]? << YomangImg Type이 Decodable 하지 않아서 오류 발생
     var history: Data?
 }

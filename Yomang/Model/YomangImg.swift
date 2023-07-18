@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct YomangImg: Decodable{
+struct YomangImg: Decodable {
     // 개인 정보
-    //let timestamp: Timestamp <- Date 형을 사용해야 함
+    // let timestamp: Timestamp <- Date 형을 사용해야 함
     let uploadDate: Date// 등록한 시간
     let makerID: String // 등록한 유저
 
