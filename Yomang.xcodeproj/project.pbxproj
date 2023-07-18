@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
+		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
+		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
+		AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC412A54444C0030B1F9 /* YomangWidgetExtension.swift */; };
+		AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0ADC432A54444D0030B1F9 /* Assets.xcassets */; };
+		AD0ADC482A54444D0030B1F9 /* YomangWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */; };
+		AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */; };
+		AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -14,7 +23,41 @@
 		ADC347582A5E4B38008F9624 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC347572A5E4B38008F9624 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AD0ADC462A54444D0030B1F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD46BA0E2A52F9DD001D3894 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD0ADC372A54444C0030B1F9;
+			remoteInfo = YomangWidgetExtensionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD0ADC492A54444D0030B1F9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AD0ADC482A54444D0030B1F9 /* YomangWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangWidgetExtensionBundle.swift; sourceTree = "<group>"; };
+		AD0ADC412A54444C0030B1F9 /* YomangWidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangWidgetExtension.swift; sourceTree = "<group>"; };
+		AD0ADC432A54444D0030B1F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD0ADC452A54444D0030B1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
+		AD0ADC582A54503A0030B1F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +67,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AD0ADC352A54444C0030B1F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */,
+				AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD46BA132A52F9DD001D3894 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -34,10 +86,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD0ADC392A54444C0030B1F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */,
+				AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD0ADC3E2A54444C0030B1F9 /* YomangWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */,
+				AD0ADC412A54444C0030B1F9 /* YomangWidgetExtension.swift */,
+				AD0ADC432A54444D0030B1F9 /* Assets.xcassets */,
+				AD0ADC452A54444D0030B1F9 /* Info.plist */,
+			);
+			path = YomangWidgetExtension;
+			sourceTree = "<group>";
+		};
+		AD0ADC522A544F810030B1F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
+				AD0ADC582A54503A0030B1F9 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AD0ADC532A544F8F0030B1F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AD0ADC5A2A5450630030B1F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		AD46BA0D2A52F9DD001D3894 = {
 			isa = PBXGroup;
 			children = (
 				AD46BA182A52F9DD001D3894 /* Yomang */,
+				AD0ADC3E2A54444C0030B1F9 /* YomangWidgetExtension */,
+				AD0ADC392A54444C0030B1F9 /* Frameworks */,
 				AD46BA172A52F9DD001D3894 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				AD46BA162A52F9DD001D3894 /* Yomang.app */,
+				AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				ADC347562A5E4B2A008F9624 /* View */,
+				AD0ADC5A2A5450630030B1F9 /* Resources */,
+				AD0ADC532A544F8F0030B1F9 /* Extensions */,
+				AD0ADC522A544F810030B1F9 /* Utils */,
 				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
 				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
 				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
@@ -81,17 +183,37 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AD46BA152A52F9DD001D3894 /* Yomang */ = {
+		AD0ADC372A54444C0030B1F9 /* YomangWidgetExtensionExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD46BA242A52F9DE001D3894 /* Build configuration list for PBXNativeTarget "Yomang" */;
+			buildConfigurationList = AD0ADC4C2A54444D0030B1F9 /* Build configuration list for PBXNativeTarget "YomangWidgetExtensionExtension" */;
 			buildPhases = (
-				AD46BA122A52F9DD001D3894 /* Sources */,
-				AD46BA132A52F9DD001D3894 /* Frameworks */,
-				AD46BA142A52F9DD001D3894 /* Resources */,
+				AD0ADC342A54444C0030B1F9 /* Sources */,
+				AD0ADC352A54444C0030B1F9 /* Frameworks */,
+				AD0ADC362A54444C0030B1F9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = YomangWidgetExtensionExtension;
+			productName = YomangWidgetExtensionExtension;
+			productReference = AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AD46BA152A52F9DD001D3894 /* Yomang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD46BA242A52F9DE001D3894 /* Build configuration list for PBXNativeTarget "Yomang" */;
+			buildPhases = (
+				AD448A8D2A66BA5A00585590 /* ShellScript */,
+				AD46BA122A52F9DD001D3894 /* Sources */,
+				AD46BA132A52F9DD001D3894 /* Frameworks */,
+				AD46BA142A52F9DD001D3894 /* Resources */,
+				AD0ADC492A54444D0030B1F9 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD0ADC472A54444D0030B1F9 /* PBXTargetDependency */,
 			);
 			name = Yomang;
 			productName = Yomang;
@@ -108,6 +230,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					AD0ADC372A54444C0030B1F9 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					AD46BA152A52F9DD001D3894 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -127,11 +252,20 @@
 			projectRoot = "";
 			targets = (
 				AD46BA152A52F9DD001D3894 /* Yomang */,
+				AD0ADC372A54444C0030B1F9 /* YomangWidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AD0ADC362A54444C0030B1F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD46BA142A52F9DD001D3894 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,20 +277,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AD448A8D2A66BA5A00585590 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		AD0ADC342A54444C0030B1F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
+				AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD46BA122A52F9DD001D3894 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ADC347582A5E4B38008F9624 /* SettingView.swift in Sources */,
+				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
+				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
+				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AD0ADC472A54444D0030B1F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD0ADC372A54444C0030B1F9 /* YomangWidgetExtensionExtension */;
+			targetProxy = AD0ADC462A54444D0030B1F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AD0ADC4A2A54444D0030B1F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD0ADC4B2A54444D0030B1F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AD46BA222A52F9DE001D3894 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,6 +503,7 @@
 		AD46BA252A52F9DE001D3894 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +533,7 @@
 		AD46BA262A52F9DE001D3894 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -332,6 +563,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AD0ADC4C2A54444D0030B1F9 /* Build configuration list for PBXNativeTarget "YomangWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD0ADC4A2A54444D0030B1F9 /* Debug */,
+				AD0ADC4B2A54444D0030B1F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AD46BA112A52F9DD001D3894 /* Build configuration list for PBXProject "Yomang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
