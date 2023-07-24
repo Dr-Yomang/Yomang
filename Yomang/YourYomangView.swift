@@ -117,13 +117,8 @@ struct YourYomangView: View {
                         }
                     }
                 )
-            
-            Rectangle()
-                .fill(.white)
-                .frame(width: 330, height: 100)
-                .cornerRadius(20)
-                .opacity(0.7)
-                .offset(y: 175+24)
+        
+            ReactionView()
             
         }
     }
