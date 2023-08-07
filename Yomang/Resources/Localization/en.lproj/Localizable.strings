@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Yomang
+
+  Created by 제나 on 2023/08/07.
+*/
+
+/* App */
+"yomang" = "Yomang";
+
+/* Authentication */
+"authentication-agree-message" = "By signing up, you agree to our Terms of Service and\nacknowledge that our Privacy Policy applies to you.";

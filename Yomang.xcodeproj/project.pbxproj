@@ -34,6 +34,11 @@
 		AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */; };
 		AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
 		AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
+		AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
+		AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
+		AD3805BB2A80E54500D02D54 /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805BA2A80E54500D02D54 /* I18N.swift */; };
+		AD3805BC2A80E54500D02D54 /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805BA2A80E54500D02D54 /* I18N.swift */; };
+		AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
 		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
 		AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */; };
@@ -85,6 +90,9 @@
 		AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		AD0ADC582A54503A0030B1F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		AD3805B72A80E4DE00D02D54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD3805B92A80E4F200D02D54 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD3805BA2A80E54500D02D54 /* I18N.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18N.swift; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +189,7 @@
 			children = (
 				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
 				AD0ADC582A54503A0030B1F9 /* Constants.swift */,
+				AD3805BA2A80E54500D02D54 /* I18N.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -197,9 +206,9 @@
 		AD0ADC5A2A5450630030B1F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
 				2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */,
-				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
+				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
+				AD3805B12A80E4BB00D02D54 /* Localization */,
 				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -218,6 +227,14 @@
 				2FC2EFC22A597E3F008E1056 /* TestView */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		AD3805B12A80E4BB00D02D54 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				AD3805B82A80E4DE00D02D54 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		AD46BA0D2A52F9DD001D3894 = {
@@ -242,6 +259,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
+				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD46BA1F2A52F9DE001D3894 /* Preview Content */,
@@ -333,6 +351,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = AD46BA0D2A52F9DD001D3894;
 			packageReferences = (
@@ -355,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
+				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */,
+				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
 				AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */,
 				2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */,
 			);
@@ -396,8 +417,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
 				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
 				AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */,
+				AD3805BC2A80E54500D02D54 /* I18N.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +436,7 @@
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
+				AD3805BB2A80E54500D02D54 /* I18N.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
 				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,
 				2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */,
@@ -429,6 +453,18 @@
 			targetProxy = AD0ADC462A54444D0030B1F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD3805B82A80E4DE00D02D54 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD3805B72A80E4DE00D02D54 /* en */,
+				AD3805B92A80E4F200D02D54 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AD0ADC4A2A54444D0030B1F9 /* Debug */ = {
@@ -491,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -551,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -607,7 +645,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Yomang/Yomang.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/Yomang.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -616,7 +654,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Yomang/Info.plist;
+				INFOPLIST_FILE = Yomang/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -648,7 +686,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Yomang/Yomang.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/Yomang.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -657,7 +695,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Yomang/Info.plist;
+				INFOPLIST_FILE = Yomang/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -22,7 +22,7 @@ struct LoginView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 272)
-                Text("Yomang")
+                Text(I18N.yomang)
                     .foregroundColor(Color.white)
                     .font(.largeTitle)
                     .bold()
@@ -37,7 +37,7 @@ struct LoginView: View {
                 Text(matchingID ?? "nil")
                     .foregroundColor(.white)
                 
-                Text("By signing up, you agree to our Terms of Service and\nacknowledge that our Privacy Pollicy applies to you.")
+                Text(I18N.authenticationMessage)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .font(.caption2)
