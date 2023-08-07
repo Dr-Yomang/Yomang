@@ -18,11 +18,11 @@ struct LoginView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                Image(.yotto1)
+                Image(.yottoHeadOnly)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 272)
-                Text(I18N.yomang)
+                Text(String.yomang)
                     .foregroundColor(Color.white)
                     .font(.largeTitle)
                     .bold()
@@ -37,7 +37,7 @@ struct LoginView: View {
                 Text(matchingID ?? "nil")
                     .foregroundColor(.white)
                 
-                Text(I18N.authenticationMessage)
+                Text(String.authenticationMessage)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .font(.caption2)
