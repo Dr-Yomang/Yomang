@@ -71,7 +71,7 @@
 		2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yomang.entitlements; sourceTree = "<group>"; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FC2EFC32A598056008E1056 /* AppleLoginSessionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginSessionTestView.swift; sourceTree = "<group>"; };
-		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,8 +197,27 @@
 		AD0ADC5A2A5450630030B1F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
+				2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */,
+				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
+				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD3805B02A80E39700D02D54 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2FC2EFBE2A596115008E1056 /* View */,
+				2F1288862A592A680054FD6B /* Model */,
+				2F12888D2A59318C0054FD6B /* ViewModel */,
+				AD0ADC532A544F8F0030B1F9 /* Extensions */,
+				AD0ADC522A544F810030B1F9 /* Utils */,
+				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
+				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
+				2FC2EFC22A597E3F008E1056 /* TestView */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		AD46BA0D2A52F9DD001D3894 = {
@@ -223,19 +242,8 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
-				2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */,
-				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
-				2FC2EFBE2A596115008E1056 /* View */,
-				2F1288862A592A680054FD6B /* Model */,
-				2F12888D2A59318C0054FD6B /* ViewModel */,
+				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
-				AD0ADC532A544F8F0030B1F9 /* Extensions */,
-				AD0ADC522A544F810030B1F9 /* Utils */,
-				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
-				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
-				2FC2EFC22A597E3F008E1056 /* TestView */,
-				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
 				AD46BA1F2A52F9DE001D3894 /* Preview Content */,
 			);
 			path = Yomang;
