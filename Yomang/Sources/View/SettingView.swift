@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     private var username = "ZENA"
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         List {
             Section {
@@ -63,7 +64,12 @@ struct SettingView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Image(systemName: .chevronBackward)
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: .chevronBackward)
+                        .foregroundColor(.white)
+                }
             }
         }
     }
