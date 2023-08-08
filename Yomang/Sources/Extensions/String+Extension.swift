@@ -18,7 +18,34 @@ extension String {
     }
 }
 
+// MARK: - Localized Strings
+extension String {
+    /* App */
+    static let yomang = "yomang".localized()
+    
+    /* Authentication */
+    static let authenticationMessage = "authentication-agree-message".localized()
+    
+    /* Setting */
+    static let navigationTitleSetting = "navigation-title-setting".localized()
+    
+    static let headerTitleSettingProfile = "header-title-setting-profile".localized()
+    static let buttonMyProfile = "button-my-profile".localized()
+    
+    static let headerTitleMyUsage = "header-title-my-usage".localized()
+    static let buttonConnectPartner = "button-connect-partner".localized()
+    static let buttonSettingNotification = "button-setting-notification".localized()
+}
+
 // MARK: - Image Names
 extension String {
-    static let yotto1 = "Yotto1"
+    // MARK: - Assets
+    static let yottoHeadOnly = "YottoHeadOnly"
+    static let yottoWithUpperBody = "YottoWithUpperBody"
+    
+    // MARK: - SF Symbols (이름 그대로, 카멜케이스만 적용해서 사용)
+    static let bellFill = "bell.fill"
+    static let chevronBackward = "chevron.backward"
+    static let personFill = "person.fill"
+    static let person2Fill = "person.2.fill"
 }
