@@ -12,6 +12,9 @@ import AuthenticationServices
 
 struct AppleLoginButtonView: View {
     
+    //일단 테스트용으로 임시방편으로 로그인 상태 저장
+    @AppStorage("isUserLogin") var isUserLogin = false
+    
     private func randomNonceString(length: Int = 32) -> String {
       precondition(length > 0)
       var randomBytes = [UInt8](repeating: 0, count: length)
@@ -54,7 +57,7 @@ struct AppleLoginButtonView: View {
             request.requestedScopes = [.fullName, .email]
             request.nonce = sha256(nonce)
         },
-                              onCompletion: { result in
+        onCompletion: { result in
             switch result {
             case .success(let authResults):
                 switch authResults.credential {
@@ -72,8 +75,8 @@ struct AppleLoginButtonView: View {
                     }
                     
                     let credential = OAuthProvider.credential(withProviderID: "apple.com",
-                                                              idToken: idTokenString,
-                                                              rawNonce: nonce)
+                        idToken: idTokenString,
+                        rawNonce: nonce)
                     Auth.auth().signIn(with: credential) { (_, error) in
                         if error != nil {
                             print(error?.localizedDescription as Any)
@@ -83,6 +86,7 @@ struct AppleLoginButtonView: View {
                     }
                     
                     print("\(String(describing: Auth.auth().currentUser?.uid))")
+                    isUserLogin = true
                 default:
                     break
                     
