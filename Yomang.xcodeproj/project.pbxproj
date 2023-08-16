@@ -41,6 +41,7 @@
 		AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */; };
 		ADC347582A5E4B38008F9624 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC347572A5E4B38008F9624 /* SettingView.swift */; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
+		ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,6 @@
 		2F1288892A592AD70054FD6B /* YomangImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangImage.swift; sourceTree = "<group>"; };
 		2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yomang.entitlements; sourceTree = "<group>"; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FC2EFC32A598056008E1056 /* AppleLoginSessionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginSessionTestView.swift; sourceTree = "<group>"; };
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +96,10 @@
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AD944D662A8CB7AA00589895 /* Yomang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yomang.entitlements; sourceTree = "<group>"; };
+		AD944D672A8CB82400589895 /* YomangWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YomangWidgetExtension.entitlements; sourceTree = "<group>"; };
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,7 @@
 			children = (
 				AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */,
 				AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */,
+				ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,7 +209,8 @@
 		AD0ADC5A2A5450630030B1F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2FC2EFBF2A5962B3008E1056 /* Yomang.entitlements */,
+				AD944D672A8CB82400589895 /* YomangWidgetExtension.entitlements */,
+				AD944D662A8CB7AA00589895 /* Yomang.entitlements */,
 				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
 				AD3805B12A80E4BB00D02D54 /* Localization */,
 				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
@@ -431,6 +436,7 @@
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangImage.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
+				ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
@@ -469,11 +475,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/YomangWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Dayeon Moon (7D5PZJWQ9T)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
@@ -501,6 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/YomangWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Dayeon Moon (7D5PZJWQ9T)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
@@ -653,7 +661,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -695,7 +703,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
