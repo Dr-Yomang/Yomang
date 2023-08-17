@@ -23,6 +23,8 @@
 		C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1982A842A6EC5FF00DD9E02 /* Lottie */; };
 		C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A882A6EC6B000DD9E02 /* LottieView.swift */; };
 		C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* reaction.json */; };
+		C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */; };
+		C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C1982A8A2A6EC90900DD9E02 /* reaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reaction.json; sourceTree = "<group>"; };
+		C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = secondreaction.json; sourceTree = "<group>"; };
+		C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thirdreaction.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +108,9 @@
 				8A0DE6D02A611FD600BD2259 /* TabView */,
 				8A0DE6D12A611FF300BD2259 /* Motion */,
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
+				C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */,
 				C1982A8A2A6EC90900DD9E02 /* reaction.json */,
+				C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 			);
 			path = Yomang;
@@ -184,7 +190,9 @@
 			files = (
 				AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
+				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
 				AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */,
+				C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +340,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = GBQ3ZW8V84;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -350,6 +360,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = yomang_development;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,10 +373,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -379,6 +393,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = yomang_distribution;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

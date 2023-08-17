@@ -13,9 +13,10 @@ import UIKit
 struct LottieView: UIViewRepresentable {
     
     @Binding var animationInProgress: Bool
+    let lottieName: String
     
     func makeUIView(context: Context) -> some LottieAnimationView {
-        let lottieAnimationView = LottieAnimationView(name: "reaction")
+        let lottieAnimationView = LottieAnimationView(name: lottieName)
         lottieAnimationView.play { complete in
             if complete {
                 animationInProgress = false

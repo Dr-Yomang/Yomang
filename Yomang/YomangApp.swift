@@ -13,7 +13,9 @@ struct YomangApp: App {
     var body: some Scene {
         WindowGroup {
 //           ContentView()
-            ReactionView()
+//            MyYomangView()
+            YourYomangView()
+//            ReactionView()
         }
     }
 }
