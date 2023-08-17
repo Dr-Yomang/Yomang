@@ -33,14 +33,12 @@ struct ReactionView: View {
                     animationInProgress.toggle()
                     selectedIndex = 0
                     lottieName = "reaction"
-                    
+                
                 } label: {
                     Circle()
                         .frame(width: 50)
                 }
                 .padding()
-                
-                
                 
                 Button{
                     self.isAnimationVisible = true
