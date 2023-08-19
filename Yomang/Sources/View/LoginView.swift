@@ -22,7 +22,7 @@ struct LoginView: View {
                 .foregroundColor(Color.white)
                 .font(.largeTitle)
                 .bold()
-            AppleLoginButtonView()
+            AppleLoginButtonView(matchingID: $matchingID)
                 .signInWithAppleButtonStyle(.white)
                 .frame(width: 268, height: 48)
                 .font(.largeTitle)

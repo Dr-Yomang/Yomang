@@ -42,7 +42,7 @@ struct YomangApp: App {
                         }
                     }
                     NavigationLink("setting view", destination: SettingView())
-                
+                    NavigationLink("main view", destination: YomangView())
                 }
             }
         }
