@@ -13,7 +13,6 @@ import AuthenticationServices
 struct AppleLoginButtonView: View {
     @Binding var matchingID: String?
     @EnvironmentObject var viewModel: AuthViewModel
-    @Environment(\.dismiss) private var dismiss
     
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
@@ -92,7 +91,6 @@ struct AppleLoginButtonView: View {
                         email: email,
                         partnerId: matchingID ?? nil) { result in
                             matchingID = result
-                            dismiss()
                         }
                 default:
                     break
