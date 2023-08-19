@@ -40,7 +40,7 @@ class AuthViewModel: ObservableObject {
             self.user = user
             self.username = user.username
             UserDefaults.shared.set(user.id, forKey: "uid")
-            if user.isConnected {
+            if user.partnerId != nil {
                 UserDefaults.shared.set(user.partnerId, forKey: "partnerId")
             }
             print("=== DEBUG: fetch \(self.user)")
@@ -66,7 +66,6 @@ class AuthViewModel: ObservableObject {
             let data = ["uid": user.uid,
                         "username": nil,
                         "email": email,
-                        "isConnected": false,
                         "partnerId": partnerId ?? nil,
                         "history": nil] as [String: Any?]
 
@@ -75,7 +74,7 @@ class AuthViewModel: ObservableObject {
                 self.userSession = Auth.auth().currentUser
                 self.fetchUser { _ in
                     if let partnerId = partnerId {
-                        self.matchingUser(partnerId: partnerId)
+                        collection.document(partnerId).updateData(["partnerId": user.uid])
                     }
                     completion(user.uid)
                 }
@@ -87,17 +86,6 @@ class AuthViewModel: ObservableObject {
         guard let uid = user?.id else { return }
         collection.document(uid).updateData(["username": username])
         self.username = username
-    }
-    
-    // 상대 유저 정보에 현재 유저의 uid를 partnerUid에 등록
-    func matchingUser(partnerId: String) {
-        guard let uid = user?.id else { return }
-        
-        self.user?.isConnected = true
-        // 두 유저 모두 연결된 것으로 변경
-        collection.document(uid).updateData(["isConnected": true])
-        collection.document(partnerId).updateData(["isConnected": true])
-        collection.document(partnerId).updateData(["partnerId": uid])
     }
     
     func signOut() {
