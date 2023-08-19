@@ -119,7 +119,7 @@ struct YourYomangView: View {
                         }
                     }
                 )
-            if let _ = viewModel.user?.partnerId {
+            if viewModel.user?.partnerId != nil {
                 ReactionView()
             } else {
                 VStack {

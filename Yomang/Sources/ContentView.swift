@@ -15,7 +15,7 @@ struct ContentView: View {
             } else { // hide splash
                 if viewModel.user != nil {
                     if viewModel.username == nil {
-                        LinkView()
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
                         YomangView()
                     }
@@ -37,9 +37,7 @@ struct ContentView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
                 showSplash.toggle()
-            })
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
-        }
+            })        }
     }
 }
 

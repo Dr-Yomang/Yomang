@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct LinkView: View {
-    @State private var flowCount: Int = 0
-    @State private var displayedText: String = ""
-    @State private var fullText: String = ""
-    @State private var buttonText: String = ""
-    @State var nickname: String = ""
-    @State private var userCode: String = "sdkfk10dkf0s3nd9ne"
+    @State private var flowCount = 0
+    @State private var displayedText = ""
+    @State private var fullText = ""
+    @State private var buttonText = ""
+    @State private var nickname = ""
+    @Binding var matchingIdFromUrl: String?
     @State private var jumpToggle = false
     @State private var rotationToggle = false
     let typingInterval = 0.05
@@ -71,10 +71,6 @@ struct LinkView: View {
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
                         .shadow(color: .gray, radius: 4, x: 0, y: 2)
-                    // TODO: 나중에 제거하기 아래 코드
-                        .onTapGesture {
-//                            navigate = true
-                        }
                     
                     if flowCount == 1 {
                         NicknameTextFieldView(nickname: $nickname)
@@ -156,7 +152,7 @@ struct LinkView: View {
                     })
                     
                 case 3:
-                    ShareLink(item: userCode) {
+                    ShareLink(item: matchingIdFromUrl ?? "") {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.gray)
                             .frame(height: 56)
@@ -264,6 +260,6 @@ struct NicknameTextFieldView: View {
 
 struct LinkView_Previews: PreviewProvider {
     static var previews: some View {
-        LinkView()
+        LinkView(matchingIdFromUrl: .constant("dlkj23lkjfoij4"))
     }
 }
