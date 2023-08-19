@@ -20,6 +20,7 @@ class AuthViewModel: ObservableObject {
     // 파이어베이스 서버 측으로부터 현재 로그인 세션 유지 중인 유저 정보가 있는지 확인
     @Published var userSession: FirebaseAuth.User?
     @Published var user: User?
+    @Published var username: String?
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -37,8 +38,9 @@ class AuthViewModel: ObservableObject {
             guard let user = try? snapshot.data(as: User.self) else { return }
             
             self.user = user
+            self.username = user.username
             UserDefaults.shared.set(user.id, forKey: "uid")
-            if user.isConnected {
+            if user.partnerId != nil {
                 UserDefaults.shared.set(user.partnerId, forKey: "partnerId")
             }
             print("=== DEBUG: fetch \(self.user)")
@@ -47,7 +49,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // 유저를 서버에 등록하고 (회원가입) 각 유저에게 부여되는 고유한 코드를 생성함
-    func signInUser(credential: AuthCredential, username: String, email: String, partnerId: String?, _ completion: @escaping(String) -> Void?) {
+    func signInUser(credential: AuthCredential, email: String, partnerId: String?, _ completion: @escaping(String) -> Void?) {
         Auth.auth().signIn(with: credential) { (result, error) in
             // 서버에서 데이터를 받아오지 못했을 경우 별도의 작업 수행 없이 return
             if let error = error {
@@ -62,9 +64,8 @@ class AuthViewModel: ObservableObject {
             self.user?.id = user.uid
 
             let data = ["uid": user.uid,
-                        "username": "",
+                        "username": nil,
                         "email": email,
-                        "isConnected": false,
                         "partnerId": partnerId ?? nil,
                         "history": nil] as [String: Any?]
 
@@ -73,7 +74,7 @@ class AuthViewModel: ObservableObject {
                 self.userSession = Auth.auth().currentUser
                 self.fetchUser { _ in
                     if let partnerId = partnerId {
-                        self.matchingUser(partnerId: partnerId)
+                        collection.document(partnerId).updateData(["partnerId": user.uid])
                     }
                     completion(user.uid)
                 }
@@ -81,19 +82,10 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func reauthenticateUser(credential: AuthCredential) {
-        
-    }
-    
-    // 상대 유저 정보에 현재 유저의 uid를 partnerUid에 등록
-    func matchingUser(partnerId: String) {
+    func setUsername(username: String) {
         guard let uid = user?.id else { return }
-        
-        self.user?.isConnected = true
-        // 두 유저 모두 연결된 것으로 변경
-        collection.document(uid).updateData(["isConnected": true])
-        collection.document(partnerId).updateData(["isConnected": true])
-        collection.document(partnerId).updateData(["partnerId": uid])
+        collection.document(uid).updateData(["username": username])
+        self.username = username
     }
     
     func signOut() {

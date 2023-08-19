@@ -11,7 +11,7 @@ import FirebaseAuth
 import AuthenticationServices
 
 struct AppleLoginButtonView: View {
-    @Binding var matchingID: String?
+    @Binding var matchingIdFromUrl: String?
     @EnvironmentObject var viewModel: AuthViewModel
     
     private func randomNonceString(length: Int = 32) -> String {
@@ -81,16 +81,11 @@ struct AppleLoginButtonView: View {
                         return
                     }
                     
-                    guard let username = appleIDCredential.fullName else {
-                        print("Unable to get username from data")
-                        return
-                    }
                     viewModel.signInUser(
                         credential: credential,
-                        username: username.description,
                         email: email,
-                        partnerId: matchingID ?? nil) { result in
-                            matchingID = result
+                        partnerId: matchingIdFromUrl ?? nil) { result in
+                            matchingIdFromUrl = result
                         }
                 default:
                     break

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct LinkView: View {
-    @State private var flowCount: Int = 0
-    @State private var displayedText: String = ""
-    @State private var fullText: String = ""
-    @State private var buttonText: String = ""
-    @State var nickname: String = ""
-    @State private var userCode: String = "sdkfk10dkf0s3nd9ne"
-    @State private var jumpToggle: Bool = false
-    @State private var rotationToggle: Bool = false
-    @Binding var navigate: Bool
+    @State private var flowCount = 0
+    @State private var displayedText = ""
+    @State private var fullText = ""
+    @State private var buttonText = ""
+    @State private var nickname = ""
+    @Binding var matchingIdFromUrl: String?
+    @State private var jumpToggle = false
+    @State private var rotationToggle = false
     let typingInterval = 0.05
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         ZStack {
@@ -71,10 +71,6 @@ struct LinkView: View {
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
                         .shadow(color: .gray, radius: 4, x: 0, y: 2)
-                    // TODO: 나중에 제거하기 아래 코드
-                        .onTapGesture {
-                            navigate = true
-                        }
                     
                     if flowCount == 1 {
                         NicknameTextFieldView(nickname: $nickname)
@@ -138,25 +134,43 @@ struct LinkView: View {
                         
                     }
                     .disabled(displayedText < fullText)
-                    ShareLink(item: "share") {
-                        RoundedRectangle(cornerRadius: 8)
-                            .foregroundColor(.white)
-                            .frame(height: 56)
-                            .overlay(
-                                Text(buttonText)
-                                    .foregroundColor(.black)
-                                    .font(.title3)
-                                    .bold()
-                            )
-                            .opacity(displayedText < fullText ? 0.2 : 1.0)
+                    if viewModel.user?.partnerId == nil {
+                        ShareLink(item: "share") {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(.white)
+                                .frame(height: 56)
+                                .overlay(
+                                    Text(buttonText)
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                        .bold()
+                                )
+                                .opacity(displayedText < fullText ? 0.2 : 1.0)
+                        }
+                        .disabled(displayedText < fullText)
+                        .simultaneousGesture(TapGesture().onEnded {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
+                        })
+                    } else {
+                        Button {
+                            viewModel.setUsername(username: nickname)
+                        } label: {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(.white)
+                                .frame(height: 56)
+                                .overlay(
+                                    Text("요망 시작하기")
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                        .bold()
+                                )
+                                .opacity(displayedText < fullText ? 0.1 : 1.0)
+                        }
+                        .disabled(displayedText < fullText)
                     }
-                    .disabled(displayedText < fullText)
-                    .simultaneousGesture(TapGesture().onEnded {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
-                    })
                     
                 case 3:
-                    ShareLink(item: userCode) {
+                    ShareLink(item: matchingIdFromUrl ?? "") {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.gray)
                             .frame(height: 56)
@@ -170,9 +184,9 @@ struct LinkView: View {
                     }
                     .disabled(displayedText < fullText)
                     
-                    Button(action: {
-                        navigate = true
-                    }) {
+                    Button {
+                        viewModel.setUsername(username: nickname)
+                    } label: {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.white)
                             .frame(height: 56)
@@ -182,11 +196,9 @@ struct LinkView: View {
                                     .font(.title3)
                                     .bold()
                             )
-                            .opacity(displayedText < fullText ? 0.2 : 1.0)
-                            .opacity(flowCount == 1 && nickname.count == 0 ? 0.2 : 1.0)
+                            .opacity(displayedText < fullText ? 0.1 : 0.5)
                     }
                     .disabled(displayedText < fullText)
-                    
                 default: EmptyView()
                 }
                 
@@ -264,6 +276,6 @@ struct NicknameTextFieldView: View {
 
 struct LinkView_Previews: PreviewProvider {
     static var previews: some View {
-        LinkView(navigate: .constant(false))
+        LinkView(matchingIdFromUrl: .constant("dlkj23lkjfoij4"))
     }
 }

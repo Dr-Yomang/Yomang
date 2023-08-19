@@ -13,12 +13,11 @@ struct ContentView: View {
             if showSplash {
                 SplashView()
             } else { // hide splash
-                if let user = AuthViewModel.shared.user {
-                    if let partnerId = user.partnerId {
-                        // MARK: 로그인 완, 매칭 완
-                        SettingView()
+                if viewModel.user != nil {
+                    if viewModel.username == nil {
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
-                        // TODO: 로그인은 했지만 파트너가 아직 들어오지 않아 매칭되지 않은 상태
+                        YomangView()
                     }
                 } else {
                     LoginView(matchingIdFromUrl: $matchingIdFromUrl)
@@ -38,9 +37,7 @@ struct ContentView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
                 showSplash.toggle()
-            })
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
-        }
+            })        }
     }
 }
 
