@@ -20,6 +20,7 @@ struct MyYomangView: View {
     @State private var isSwipeRight: Bool = false
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
+    @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
         ZStack {
@@ -42,13 +43,20 @@ struct MyYomangView: View {
                 .fill(myYomangImages[index])
                 .frame(width: 330, height: 330)
                 .overlay(
-                    Text(myYomangImagesDate[index])
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .bold()
-                        .offset(y: -120)
-                        .scaleEffect(isDateActive ? 1 : 0.95)
-                        .opacity(isDateActive ? 1 : 0)
+                    ZStack {
+                        Text(myYomangImagesDate[index])
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .bold()
+                            .offset(y: -120)
+                            .scaleEffect(isDateActive ? 1 : 0.95)
+                            .opacity(isDateActive ? 1 : 0)
+                        if viewModel.user?.partnerId == nil {
+                            Text("아직 파트너와\n연결되지 않았어요")
+                                .multilineTextAlignment(.center)
+                                .font(.headline)
+                        }
+                    }
                 )
                 .overlay(
                     ZStack {
@@ -60,10 +68,6 @@ struct MyYomangView: View {
                             .frame(width: 230, height: 230)
                             .offset(x: 10, y: 60)
                     }.opacity(isSwipping ? 1 : 0)
-                )
-                .overlay(
-                    Color.white
-                        .opacity(0.5)
                 )
                 .cornerRadius(30)
                 .rotation3DEffect(

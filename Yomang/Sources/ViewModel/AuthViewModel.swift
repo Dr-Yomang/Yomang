@@ -20,6 +20,7 @@ class AuthViewModel: ObservableObject {
     // 파이어베이스 서버 측으로부터 현재 로그인 세션 유지 중인 유저 정보가 있는지 확인
     @Published var userSession: FirebaseAuth.User?
     @Published var user: User?
+    @Published var username: String?
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -37,6 +38,7 @@ class AuthViewModel: ObservableObject {
             guard let user = try? snapshot.data(as: User.self) else { return }
             
             self.user = user
+            self.username = user.username
             UserDefaults.shared.set(user.id, forKey: "uid")
             if user.isConnected {
                 UserDefaults.shared.set(user.partnerId, forKey: "partnerId")
@@ -47,7 +49,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // 유저를 서버에 등록하고 (회원가입) 각 유저에게 부여되는 고유한 코드를 생성함
-    func signInUser(credential: AuthCredential, username: String, email: String, partnerId: String?, _ completion: @escaping(String) -> Void?) {
+    func signInUser(credential: AuthCredential, email: String, partnerId: String?, _ completion: @escaping(String) -> Void?) {
         Auth.auth().signIn(with: credential) { (result, error) in
             // 서버에서 데이터를 받아오지 못했을 경우 별도의 작업 수행 없이 return
             if let error = error {
@@ -62,7 +64,7 @@ class AuthViewModel: ObservableObject {
             self.user?.id = user.uid
 
             let data = ["uid": user.uid,
-                        "username": "",
+                        "username": nil,
                         "email": email,
                         "isConnected": false,
                         "partnerId": partnerId ?? nil,
@@ -81,8 +83,10 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func reauthenticateUser(credential: AuthCredential) {
-        
+    func setUsername(username: String) {
+        guard let uid = user?.id else { return }
+        collection.document(uid).updateData(["username": username])
+        self.username = username
     }
     
     // 상대 유저 정보에 현재 유저의 uid를 partnerUid에 등록

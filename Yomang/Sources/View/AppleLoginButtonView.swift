@@ -81,13 +81,8 @@ struct AppleLoginButtonView: View {
                         return
                     }
                     
-                    guard let username = appleIDCredential.fullName else {
-                        print("Unable to get username from data")
-                        return
-                    }
                     viewModel.signInUser(
                         credential: credential,
-                        username: username.description,
                         email: email,
                         partnerId: matchingID ?? nil) { result in
                             matchingID = result

@@ -14,10 +14,10 @@ struct LinkView: View {
     @State private var buttonText: String = ""
     @State var nickname: String = ""
     @State private var userCode: String = "sdkfk10dkf0s3nd9ne"
-    @State private var jumpToggle: Bool = false
-    @State private var rotationToggle: Bool = false
-    @Binding var navigate: Bool
+    @State private var jumpToggle = false
+    @State private var rotationToggle = false
     let typingInterval = 0.05
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         ZStack {
@@ -73,7 +73,7 @@ struct LinkView: View {
                         .shadow(color: .gray, radius: 4, x: 0, y: 2)
                     // TODO: 나중에 제거하기 아래 코드
                         .onTapGesture {
-                            navigate = true
+//                            navigate = true
                         }
                     
                     if flowCount == 1 {
@@ -170,9 +170,9 @@ struct LinkView: View {
                     }
                     .disabled(displayedText < fullText)
                     
-                    Button(action: {
-                        navigate = true
-                    }) {
+                    Button {
+                        viewModel.setUsername(username: nickname)
+                    } label: {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.white)
                             .frame(height: 56)
@@ -264,6 +264,6 @@ struct NicknameTextFieldView: View {
 
 struct LinkView_Previews: PreviewProvider {
     static var previews: some View {
-        LinkView(navigate: .constant(false))
+        LinkView()
     }
 }

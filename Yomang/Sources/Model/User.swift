@@ -12,7 +12,7 @@ import Firebase
 struct User: Identifiable, Decodable {
     
     @DocumentID var id: String? // firebase document id
-    var username: String
+    var username: String?
     var email: String
     
     // 파트너와 연결되어 있는가

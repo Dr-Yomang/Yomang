@@ -33,7 +33,6 @@ struct ReactionView: View {
                     animationInProgress.toggle()
                     selectedIndex = 0
                     lottieName = "reaction"
-                
                 } label: {
                     Circle()
                         .frame(width: 50)
@@ -45,7 +44,6 @@ struct ReactionView: View {
                     animationInProgress.toggle()
                     selectedIndex = 1
                     lottieName = "secondreaction"
-                    
                 } label: {
                     Circle()
                         .foregroundColor(.red)

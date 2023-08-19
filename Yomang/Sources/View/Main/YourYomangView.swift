@@ -5,6 +5,7 @@
 //  Created by 최민규 on 2023/07/12.
 //
 
+import Foundation
 import SwiftUI
 
 struct YourYomangView: View {
@@ -20,35 +21,39 @@ struct YourYomangView: View {
     @State private var isSwipeRight: Bool = false
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         ZStack {
-        GeometryReader { proxy in
-            ZStack {
-                Color.black
-                    .ignoresSafeArea()
-                    .overlay(
-                        Image("YomangMoon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 1800, height: 1800)
-                            .offset(x: proxy.size.width / 2, y: 1050)
-                            .opacity(1)
-                            .ignoresSafeArea()
-                    )
-                }
-            }
+            Color.black
+                .ignoresSafeArea()
+                .overlay(
+                    Image("YomangMoon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 1800, height: 1800)
+                        .offset(x: UIScreen.main.bounds.width / 2, y: 1050)
+                        .opacity(1)
+                        .ignoresSafeArea()
+                )
             Rectangle()
                 .fill(yourYomangImages[index])
                 .frame(width: 330, height: 330)
                 .overlay(
-                    Text(yourYomangImagesDate[index])
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .bold()
-                        .offset(y: -120)
-                        .scaleEffect(isDateActive ? 1 : 0.95)
-                        .opacity(isDateActive ? 1 : 0)
+                    ZStack {
+                        Text(yourYomangImagesDate[index])
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .bold()
+                            .offset(y: -120)
+                            .scaleEffect(isDateActive ? 1 : 0.95)
+                            .opacity(isDateActive ? 1 : 0)
+                        if viewModel.user?.partnerId == nil {
+                            Text("아직 파트너와\n연결되지 않았어요")
+                                .multilineTextAlignment(.center)
+                                .font(.headline)
+                        }
+                    }
                 )
                 .overlay(
                     ZStack {
@@ -114,15 +119,27 @@ struct YourYomangView: View {
                         }
                     }
                 )
-        
-            ReactionView()
-            
+            if let _ = viewModel.user?.partnerId {
+                ReactionView()
+            } else {
+                VStack {
+                    Spacer()
+                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(viewModel.user?.id)") ?? URL(string: "https://opentutorials.org/module/6260/32205")!) {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.white)
+                            .frame(height: 56)
+                            .overlay(
+                                Text("파트너 연결 링크 다시 보내기")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                                    .bold()
+                                    .foregroundColor(.black)
+                            )
+                            .padding(.bottom, 52)
+                            .padding(.horizontal, 20)
+                    }
+                }
+            }
         }
-    }
-}
-
-struct YourYomangView_Previews: PreviewProvider {
-    static var previews: some View {
-        YourYomangView()
     }
 }
