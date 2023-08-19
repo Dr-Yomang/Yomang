@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension UserDefaults {
+    static var shared: UserDefaults {
+        let appGroupId = "group.academy.Yomang"
+        return UserDefaults(suiteName: appGroupId)!
+    }
+}

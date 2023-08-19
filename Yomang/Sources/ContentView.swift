@@ -1,24 +1,60 @@
 import SwiftUI
-import CryptoKit
-import FirebaseAuth
-import AuthenticationServices
 
 struct ContentView: View {
     
-    @Binding var matchingIDTest: String?
-    @State var nowuser = Auth.auth().currentUser
+    @EnvironmentObject var viewModel: AuthViewModel
+    @State private var showSplash = true
+    @State private var matchingIdFromUrl: String?
     
     var body: some View {
-        VStack {
-            AppleLoginButtonView()
-            Text(matchingIDTest ?? "noID")
-            Text(nowuser?.uid ?? "No")
+        ZStack {
+            Color.black.ignoresSafeArea()
+            
+            if showSplash {
+                SplashView()
+            } else { // hide splash
+                if let user = AuthViewModel.shared.user {
+                    if let partnerId = user.partnerId {
+                        // MARK: 로그인 완, 매칭 완
+                        SettingView()
+                    } else {
+                        // TODO: 로그인은 했지만 파트너가 아직 들어오지 않아 매칭되지 않은 상태
+                    }
+                } else {
+                    LoginView(matchingIdFromUrl: $matchingIdFromUrl)
+                        .onOpenURL { url in
+                            if url.scheme! == "YomanglabYomang" && url.host! == "share" {
+                                if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+                                    for query in components.queryItems! {
+                                        // 링크에 상대 매칭코드 없으면 nil, 아니면 링크에서 얻어온 매칭코드 값 넣기
+                                        matchingIdFromUrl = query.value ?? nil
+                                    }
+                                }
+                            }
+                        }
+                }
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                showSplash.toggle()
+            })
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
         }
     }
 }
 
-struct AppleLoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(matchingIDTest: .constant(nil))
+struct SplashView: View {
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(LinearGradient(colors: [Color.black, Color(hex: 0x2F2745)], startPoint: .top, endPoint: .bottom))
+            
+            Text("YOMANG")
+                .font(.system(size: 48))
+                .bold()
+                .foregroundColor(.white)
+                .offset(y: -200)
+        }.ignoresSafeArea()
     }
 }

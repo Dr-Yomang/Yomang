@@ -17,6 +17,14 @@
 default_platform(:ios)
 
 platform :ios do
+  desc "Register new devices"
+  lane :new_devices do
+    register_devices(
+      devices_file: "./fastlane/devices.txt",
+      team_id: "Yomang"
+    )
+  end
+  
   desc "Build app and upload to testflight"
   lane :beta do
     sync_code_signing(
