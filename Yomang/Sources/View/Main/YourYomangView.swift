@@ -90,13 +90,10 @@ struct YourYomangView: View {
                             isSwipping = true
                             if dragHeight > 0 {
                                 isSwipeDown = true
-                                print("Down")
                             } else {
                                 isSwipeUp = true
-                                print("Up")
                             }
                         }
-                        print(dragHeight)
                     }
                     .onEnded { gesture in
                         withAnimation {

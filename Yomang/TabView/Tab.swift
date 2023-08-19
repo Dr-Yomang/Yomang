@@ -8,8 +8,8 @@
 import SwiftUI
 
 enum Tab: String, CaseIterable {
-    case your = "너의 요망"
-    case my = "나의 요망"
+    case yours = "너의 요망"
+    case mine = "나의 요망"
     
     var index: Int {
         return Tab.allCases.firstIndex(of: self) ?? 0

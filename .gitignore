@@ -79,6 +79,8 @@ DerivedData/
 .runtimeconfig.json
 .firebase/
 
+**/GoogleService-Info.plist
+
 ### fastlane ###
 # fastlane - A streamlined workflow tool for Cocoa deployment
 #
@@ -113,3 +115,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+fastlane/.env
