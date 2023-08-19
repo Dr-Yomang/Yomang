@@ -134,22 +134,40 @@ struct LinkView: View {
                         
                     }
                     .disabled(displayedText < fullText)
-                    ShareLink(item: "share") {
-                        RoundedRectangle(cornerRadius: 8)
-                            .foregroundColor(.white)
-                            .frame(height: 56)
-                            .overlay(
-                                Text(buttonText)
-                                    .foregroundColor(.black)
-                                    .font(.title3)
-                                    .bold()
-                            )
-                            .opacity(displayedText < fullText ? 0.2 : 1.0)
+                    if viewModel.user?.partnerId == nil {
+                        ShareLink(item: "share") {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(.white)
+                                .frame(height: 56)
+                                .overlay(
+                                    Text(buttonText)
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                        .bold()
+                                )
+                                .opacity(displayedText < fullText ? 0.2 : 1.0)
+                        }
+                        .disabled(displayedText < fullText)
+                        .simultaneousGesture(TapGesture().onEnded {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
+                        })
+                    } else {
+                        Button {
+                            viewModel.setUsername(username: nickname)
+                        } label: {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(.white)
+                                .frame(height: 56)
+                                .overlay(
+                                    Text("요망 시작하기")
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                        .bold()
+                                )
+                                .opacity(displayedText < fullText ? 0.1 : 1.0)
+                        }
+                        .disabled(displayedText < fullText)
                     }
-                    .disabled(displayedText < fullText)
-                    .simultaneousGesture(TapGesture().onEnded {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
-                    })
                     
                 case 3:
                     ShareLink(item: matchingIdFromUrl ?? "") {
@@ -178,11 +196,9 @@ struct LinkView: View {
                                     .font(.title3)
                                     .bold()
                             )
-                            .opacity(displayedText < fullText ? 0.2 : 1.0)
-                            .opacity(flowCount == 1 && nickname.count == 0 ? 0.2 : 1.0)
+                            .opacity(displayedText < fullText ? 0.1 : 0.5)
                     }
                     .disabled(displayedText < fullText)
-                    
                 default: EmptyView()
                 }
                 
