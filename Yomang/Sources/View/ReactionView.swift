@@ -10,7 +10,7 @@ import SwiftUI
 struct ReactionView: View {
     @State private var isAnimationVisible: Bool = false
     @State var animationInProgress = false
-    @State private var selectedIndex: Int? = nil
+    @State private var selectedIndex: Int?
     @State private var lottieName: String = ""
     
     var body: some View {
@@ -27,8 +27,8 @@ struct ReactionView: View {
             
             Spacer()
             
-            HStack{
-                Button{
+            HStack {
+                Button {
                     self.isAnimationVisible = true
                     animationInProgress.toggle()
                     selectedIndex = 0
@@ -40,7 +40,7 @@ struct ReactionView: View {
                 }
                 .padding()
                 
-                Button{
+                Button {
                     self.isAnimationVisible = true
                     animationInProgress.toggle()
                     selectedIndex = 1
@@ -53,8 +53,7 @@ struct ReactionView: View {
                 }
                 .padding()
                 
-                
-                Button{
+                Button {
                     self.isAnimationVisible = true
                     animationInProgress.toggle()
                     selectedIndex = 2

@@ -9,7 +9,6 @@ import Lottie
 import SwiftUI
 import UIKit
 
-
 struct LottieView: UIViewRepresentable {
     
     @Binding var animationInProgress: Bool

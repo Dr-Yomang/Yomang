@@ -13,7 +13,7 @@ struct YourYomangView: View {
     let yourYomangImages: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
     let yourYomangImagesDate: [String] = ["2023-07-13", "2023-07-12", "2023-07-11", "2023-07-10", "2023-07-09", "2023-07-08"]
     @State private var index: Int = 0
-    @State private var dragHeight : CGFloat = .zero
+    @State private var dragHeight: CGFloat = .zero
     @State private var isSwipping: Bool = false
     @State private var isSwipeUp: Bool = false
     @State private var isSwipeDown: Bool = false
@@ -95,7 +95,7 @@ struct YourYomangView: View {
                             }
                         }
                     }
-                    .onEnded { gesture in
+                    .onEnded { _ in
                         withAnimation {
                             isSwipping = false
                             isSwipeUp = false

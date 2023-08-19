@@ -30,9 +30,9 @@ struct AnimationEndCallback<Value: VectorArithmetic>: Animatable, ViewModifier {
     }
     
     var endValue: Value
-    var onEnd: () -> ()
+    var onEnd: () -> Void
     
-    init(endValue: Value, onEnd: @escaping () -> ()) {
+    init(endValue: Value, onEnd: @escaping () -> Void) {
         self.endValue = endValue
         self.animatableData = endValue
         self.onEnd = onEnd

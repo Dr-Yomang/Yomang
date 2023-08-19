@@ -13,7 +13,7 @@ struct MyYomangView: View {
     let myYomangImages: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
     let myYomangImagesDate: [String] = ["2023-07-13", "2023-07-12", "2023-07-11", "2023-07-10", "2023-07-09", "2023-07-08"]
     @State private var index: Int = 0
-    @State private var dragHeight : CGFloat = .zero
+    @State private var dragHeight: CGFloat = .zero
     @State private var isSwipping: Bool = false
     @State private var isSwipeUp: Bool = false
     @State private var isSwipeDown: Bool = false
@@ -21,7 +21,6 @@ struct MyYomangView: View {
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
 
-    
     var body: some View {
         ZStack {
         GeometryReader { proxy in
@@ -87,7 +86,7 @@ struct MyYomangView: View {
                 .gesture(DragGesture()
                     .onChanged { gesture in
                         self.dragHeight = gesture.translation.height
-                        withAnimation(.easeInOut(duration: 0.1))  {
+                        withAnimation(.easeInOut(duration: 0.1)) {
                             isSwipping = true
                             if dragHeight > 0 {
                                 isSwipeDown = true
@@ -96,7 +95,7 @@ struct MyYomangView: View {
                             }
                         }
                     }
-                    .onEnded { gesture in
+                    .onEnded { _ in
                         withAnimation {
                             isSwipping = false
                             isSwipeUp = false

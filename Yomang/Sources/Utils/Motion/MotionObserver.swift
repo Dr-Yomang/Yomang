@@ -15,8 +15,7 @@ class MotionObserver: ObservableObject {
     @Published var movingOffset: CGSize = .zero
 
     func fetchMotionData(duration: CGFloat) {
-        motionManager.startDeviceMotionUpdates(to: .main) {
-            data, err in
+        motionManager.startDeviceMotionUpdates(to: .main) { data, err in
             if let error = err {
                 print(error.localizedDescription)
                 return

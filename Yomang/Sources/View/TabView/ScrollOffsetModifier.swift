@@ -17,7 +17,7 @@ struct OffsetKey: PreferenceKey {
 
 extension View {
     @ViewBuilder
-    func offsetX(_ addObserver: Bool = false, completion: @escaping (CGRect) -> ()) -> some View {
+    func offsetX(_ addObserver: Bool = false, completion: @escaping (CGRect) -> Void) -> some View {
         self
             .overlay {
                 if addObserver {
