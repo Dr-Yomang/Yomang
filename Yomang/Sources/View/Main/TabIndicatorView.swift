@@ -11,25 +11,19 @@ struct TabIndicatorView: View {
     @Binding var activeTab: Tab
     @Binding var scrollProgress: CGFloat
     @Binding var tapState: AnimationState
-    let tabWidth = UIScreen.width / 3
+    private let tabWidth = UIScreen.width / 3
+    private var isYours: Bool {
+        return activeTab == .yours
+    }
     var body: some View {
         VStack {
             ZStack {
                 Image("Yotto_Face")
                     .resizable()
                     .scaledToFit()
+                    .rotation3DEffect(Angle(degrees: isYours ? 0 : 180), axis: (x: 0, y: 1, z: 0))
                     .frame(width: 70, height: 70)
-                    .offset(x: -5, y: activeTab == .yours ? 100 : 170)
-                    .opacity(activeTab == .yours ? 1 : 0)
-                
-                Image("Yotto_Face")
-                    .resizable()
-                    .scaleEffect(x: -1, y: 1)
-                    .scaledToFit()
-                    .frame(width: 70, height: 70)
-                    .offset(x: 5, y: activeTab == .yours ? 170 : 100)
-                    .opacity(activeTab == .yours ? 0 : 1)
-                
+                    
                 HStack(spacing: 0) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
@@ -50,7 +44,7 @@ struct TabIndicatorView: View {
                             tapState.startAnimation()
                         }
                     }
-                    .offset(y: 150)
+                    .offset(y: 50)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
@@ -73,7 +67,7 @@ struct TabIndicatorView: View {
                             tapState.startAnimation()
                         }
                     }
-                    .offset(y: 150)
+                    .offset(y: 50)
                 }
                 .modifier(
                     AnimationEndCallback(endValue: tapState.progress, onEnd: {
@@ -83,6 +77,7 @@ struct TabIndicatorView: View {
                 .frame(width: CGFloat(Tab.allCases.count) * tabWidth)
                 .padding(.leading, tabWidth)
             }
+            .offset(y: 20)
             Spacer()
         }
     }

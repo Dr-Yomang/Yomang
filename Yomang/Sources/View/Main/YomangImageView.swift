@@ -22,7 +22,7 @@ struct YomangImageView: View {
     @State private var isDateActive: Bool = false
     
     var body: some View {
-        if data.isEmpty {
+        if data.count == 0 {
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color(hex: 0x3D3D3D))
                 .frame(height: CGFloat(Constants.yomangHeight))
