@@ -28,7 +28,7 @@ struct MyCanvas: UIViewRepresentable {
 
         canvasView.becomeFirstResponder()
         
-        //toolpicker
+        // toolpicker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.colorUserInterfaceStyle = .light
         toolPicker.overrideUserInterfaceStyle = .dark
@@ -40,7 +40,5 @@ struct MyCanvas: UIViewRepresentable {
 
     func updateUIView(_ canvasView: PKCanvasView, context: Context) {
     }
-    
-
 }
 

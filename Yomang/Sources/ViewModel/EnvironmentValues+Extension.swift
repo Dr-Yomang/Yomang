@@ -8,7 +8,7 @@
 import SwiftUI
 
 private struct ScreenSizeKey: EnvironmentKey {
-    static let defaultValue = ViewSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+    static let defaultValue = ViewSize(width: UIScreen.width, height: UIScreen.height)
 }
 
 extension EnvironmentValues {

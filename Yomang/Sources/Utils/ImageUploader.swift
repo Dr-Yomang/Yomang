@@ -20,7 +20,7 @@ struct ImageUploader {
                 return
             }
             
-            ref.downloadURL { url , _ in
+            ref.downloadURL { url, _ in
                 guard let imageUrl = url?.absoluteString else { return }
                 completion(imageUrl)
             }

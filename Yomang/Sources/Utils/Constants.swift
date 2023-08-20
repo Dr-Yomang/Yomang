@@ -10,7 +10,7 @@ import SwiftUI
 struct Constants {
     static let yomangHeight = 367
     static let reactionBarHeight = 72
-    var widgetSize: CGSize {
+    static var widgetSize: CGSize {
         switch UIScreen.main.bounds.size {
         case CGSize(width: 430, height: 932):
             return CGSize(width: 364, height: 382)
@@ -36,3 +36,4 @@ struct Constants {
             return CGSize(width: 292, height: 311)
         }
     }
+}
