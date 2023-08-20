@@ -30,7 +30,8 @@ class HistoryViewModel: ObservableObject {
         self.collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
-            self.data.append(contentsOf: data.sorted(by: { $0.uploadedDate > $1.uploadedDate }))
+            self.data.append(contentsOf: data)
+            self.data.sort(by: { $0.uploadedDate > $1.uploadedDate })
         }
     }
 }
