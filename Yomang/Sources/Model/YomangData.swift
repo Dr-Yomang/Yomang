@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct YomangData: Decodable {
+struct YomangData: Decodable, Identifiable {
     @DocumentID var id: String?
     let uploadedDate: Date// 등록한 시간
     let senderUid: String // 등록한 유저

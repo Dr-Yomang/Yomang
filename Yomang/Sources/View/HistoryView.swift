@@ -6,27 +6,40 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HistoryView: View {
     private let items = [GridItem(), GridItem()]
     private let width = CGFloat(170)
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var viewModel = HistoryViewModel()
         
         var body: some View {
             ScrollView {
-                LazyVGrid(columns: items, content: {
-                    ForEach(0..<13) { _ in
-                       NavigationLink(
-                        destination: EmptyView(),
-                        label: {
-                            RoundedRectangle(cornerRadius: 16)
-                                .frame(width: width, height: width)
-                                .foregroundColor(.neu400)
-                        })
+                ZStack {
+                    if viewModel.data.count == 0 {
+                        Text("아직 주고받은 요망이 하나도 없어요")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                            .offset(y: UIScreen.height / 3)
                     }
-                })
-                .padding(.horizontal, 18)
-                .padding(.top)
+                    LazyVGrid(columns: items, content: {
+                        ForEach(viewModel.data) { yomang in
+                           NavigationLink(
+                            destination: EmptyView(),
+                            label: {
+                                KFImage(URL(string: yomang.imageUrl))
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    .frame(width: width, height: width)
+                                    .foregroundColor(.neu400)
+                            })
+                        }
+                    })
+                    .padding(.horizontal, 18)
+                    .padding(.top)
+                }
             }
             .navigationTitle(Text("히스토리"))
             .navigationBarTitleDisplayMode(.inline)
