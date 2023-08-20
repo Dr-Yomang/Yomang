@@ -15,7 +15,4 @@ struct User: Identifiable, Decodable {
     var username: String?
     var email: String
     var partnerId: String?
-
-    // 공유했던 지난 요망이들
-    var history: [YomangData]?
 }

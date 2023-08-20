@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Constants {
+    static let yomangHeight = 367
+    static let reactionBarHeight = 72
+}

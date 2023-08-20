@@ -11,11 +11,9 @@ struct TabIndicatorView: View {
     @Binding var activeTab: Tab
     @Binding var scrollProgress: CGFloat
     @Binding var tapState: AnimationState
+    let tabWidth = UIScreen.width / 3
     var body: some View {
-        GeometryReader {
-            let size = $0.size
-            let tabWidth = size.width / 3
-            
+        VStack {
             ZStack {
                 Image("Yotto_Face")
                     .resizable()
@@ -85,6 +83,7 @@ struct TabIndicatorView: View {
                 .frame(width: CGFloat(Tab.allCases.count) * tabWidth)
                 .padding(.leading, tabWidth)
             }
+            Spacer()
         }
     }
 }

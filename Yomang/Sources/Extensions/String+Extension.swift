@@ -18,6 +18,16 @@ extension String {
     }
 }
 
+extension String {
+    func date2string(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
+}
+
 // MARK: - Localized Strings
 extension String {
     /* App */
