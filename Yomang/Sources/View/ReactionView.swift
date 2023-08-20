@@ -12,6 +12,8 @@ struct ReactionView: View {
     @State var animationInProgress = false
     @State private var selectedIndex: Int?
     @State private var lottieName: String = ""
+    @ObservedObject var viewModel: YourYomangViewModel
+    @Binding var yomangIndex: Int
     
     var body: some View {
         ZStack {
@@ -50,6 +52,9 @@ struct ReactionView: View {
     }
     
     private func reactAction(selectedIndex: Int, lottieName: String) {
+        let yomangData = viewModel.data[yomangIndex]
+        guard let yomangId = yomangData.id else { return }
+        viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: yomangData.emoji ?? [], emojiName: lottieName)
         self.animationInProgress = true
         self.selectedIndex = selectedIndex
         self.lottieName = lottieName

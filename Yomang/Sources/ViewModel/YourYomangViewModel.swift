@@ -32,7 +32,11 @@ class YourYomangViewModel: ObservableObject {
         }
     }
     
-    func reactToYourYomang() {
-        // TODO:
+    func reactToYourYomang(yomangId: String, originEmoji: [String], emojiName: String) {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard user.partnerId != nil else { return }
+        var appendEmoji = originEmoji
+        appendEmoji.append(emojiName)
+        self.collection.document(yomangId).updateData(["emoji": appendEmoji])
     }
 }

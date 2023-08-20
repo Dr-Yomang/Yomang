@@ -42,7 +42,7 @@ struct YourYomangView: View {
                 .foregroundColor(.white)
             
             if viewModel.connectWithPartner {
-                ReactionView()
+                ReactionView(viewModel: viewModel, yomangIndex: $index)
                     .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
             } else {
                 VStack {
