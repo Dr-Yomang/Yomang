@@ -12,14 +12,17 @@ struct ReactionView: View {
     @State var animationInProgress = false
     @State private var selectedIndex: Int?
     @State private var lottieName: String = ""
+    @ObservedObject var viewModel: YourYomangViewModel
+    @Binding var yomangIndex: Int
     
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(.white)
-                .frame(width: 330, height: 100)
+                .fill(Color(hex: 0x3D3D3D))
+                .frame(height: 72)
                 .cornerRadius(20)
                 .opacity(0.7)
+                .padding(.horizontal, 20)
             
             if animationInProgress {
                 LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
@@ -29,48 +32,44 @@ struct ReactionView: View {
             
             HStack {
                 Button {
-                    self.isAnimationVisible = true
-                    animationInProgress.toggle()
-                    selectedIndex = 0
-                    lottieName = "reaction"
+                    reactAction(selectedIndex: 0, lottieName: "reaction")
                 } label: {
-                    Circle()
-                        .frame(width: 50)
+                    ReactionButtonView(color: .blue)
                 }
-                .padding()
+                Button {
+                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                } label: {
+                    ReactionButtonView(color: .red)
+                }
                 
                 Button {
-                    self.isAnimationVisible = true
-                    animationInProgress.toggle()
-                    selectedIndex = 1
-                    lottieName = "secondreaction"
+                    reactAction(selectedIndex: 2, lottieName: "thirdreaction")
                 } label: {
-                    Circle()
-                        .foregroundColor(.red)
-                        .frame(width: 50)
+                    ReactionButtonView(color: .green)
                 }
-                .padding()
-                
-                Button {
-                    self.isAnimationVisible = true
-                    animationInProgress.toggle()
-                    selectedIndex = 2
-                    lottieName = "thirdreaction"
-                    
-                } label: {
-                    Circle()
-                        .foregroundColor(.green)
-                        .frame(width: 50)
-                }
-                .padding()
             }
         }
-        .offset(y: 175+24)
+    }
+    
+    private func reactAction(selectedIndex: Int, lottieName: String) {
+        let yomangData = viewModel.data[yomangIndex]
+        guard let yomangId = yomangData.id else { return }
+        let originEmoji = yomangData.emoji ?? []
+        if !originEmoji.contains(lottieName) {
+            viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: originEmoji, emojiName: lottieName)
+        }
+        self.animationInProgress = true
+        self.selectedIndex = selectedIndex
+        self.lottieName = lottieName
     }
 }
 
-struct ReactionView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReactionView()
+struct ReactionButtonView: View {
+    let color: Color
+    var body: some View {
+        Circle()
+            .foregroundColor(color)
+            .frame(width: 40)
+            .padding()
     }
 }

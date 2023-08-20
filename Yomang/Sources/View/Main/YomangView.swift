@@ -18,37 +18,34 @@ struct YomangView: View {
     @State private var scrollProgress: CGFloat = .zero
     @State private var tapState: AnimationState = .init()
     var body: some View {
-        GeometryReader {
-            let size = $0.size
+        ZStack {
+            Color.black
+                .ignoresSafeArea()
             
-            ZStack {
-                    Color.black
-                        .ignoresSafeArea()
+            TabView(selection: $activeTab) {
+                YourYomangView()
+                    .tag(Tab.yours)
+                    .offsetX(activeTab == Tab.yours) { rect in
+                        let minX = rect.minX
+                        let pageOffset = minX - (UIScreen.width * CGFloat(Tab.yours.index))
+                        let pageProgress = pageOffset / UIScreen.width
+                        scrollProgress = min(pageProgress, 0)
+                    }
                 
-                TabView(selection: $activeTab) {
-                    YourYomangView()
-                        .tag(Tab.yours)
-                        .offsetX(activeTab == Tab.yours) { rect in
-                            let minX = rect.minX
-                            let pageOffset = minX - (size.width * CGFloat(Tab.yours.index))
-                            let pageProgress = pageOffset / size.width
-                            scrollProgress = min(pageProgress, 0)
-                        }
-                    
-                    MyYomangView()
-                        .tag(Tab.mine)
-                        .offsetX(activeTab == Tab.mine) { rect in
-                            let minX = rect.minX
-                            let pageOffset = minX - (size.width * CGFloat(Tab.mine.index))
-                            let pageProgress = pageOffset / size.width
-                            scrollProgress = min(pageProgress, 0)
-                        }
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                
-                TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
+                MyYomangView()
+                    .tag(Tab.mine)
+                    .offsetX(activeTab == Tab.mine) { rect in
+                        let minX = rect.minX
+                        let pageOffset = minX - (UIScreen.width * CGFloat(Tab.mine.index))
+                        let pageProgress = pageOffset / UIScreen.width
+                        scrollProgress = min(pageProgress, 0)
+                    }
             }
-        }.ignoresSafeArea(.container, edges: .all)
+            .tabViewStyle(.page(indexDisplayMode: .always))
+            
+            TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
+        }
+        .ignoresSafeArea(.container, edges: .all)
     }
 }
 

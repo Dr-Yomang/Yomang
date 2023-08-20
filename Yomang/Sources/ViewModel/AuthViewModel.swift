@@ -11,11 +11,10 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
 
-let collection = Firestore.firestore().collection("UserDebugCollection")
-
 class AuthViewModel: ObservableObject {
     
     static let shared = AuthViewModel()
+    let collection = Firestore.firestore().collection("UserDebugCollection")
     
     // 파이어베이스 서버 측으로부터 현재 로그인 세션 유지 중인 유저 정보가 있는지 확인
     @Published var userSession: FirebaseAuth.User?
@@ -66,15 +65,14 @@ class AuthViewModel: ObservableObject {
             let data = ["uid": user.uid,
                         "username": nil,
                         "email": email,
-                        "partnerId": partnerId ?? nil,
-                        "history": nil] as [String: Any?]
+                        "partnerId": partnerId ?? nil] as [String: Any?]
 
-            collection.document(user.uid).setData(data as [String: Any]) { _ in
+            self.collection.document(user.uid).setData(data as [String: Any]) { _ in
                 print("=== DEBUG: 회원 등록 완료 \n\(data) ")
                 self.userSession = Auth.auth().currentUser
                 self.fetchUser { _ in
                     if let partnerId = partnerId {
-                        collection.document(partnerId).updateData(["partnerId": user.uid])
+                        self.collection.document(partnerId).updateData(["partnerId": user.uid])
                     }
                     completion(user.uid)
                 }
