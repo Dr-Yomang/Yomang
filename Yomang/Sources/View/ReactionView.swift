@@ -54,7 +54,10 @@ struct ReactionView: View {
     private func reactAction(selectedIndex: Int, lottieName: String) {
         let yomangData = viewModel.data[yomangIndex]
         guard let yomangId = yomangData.id else { return }
-        viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: yomangData.emoji ?? [], emojiName: lottieName)
+        let originEmoji = yomangData.emoji ?? []
+        if !originEmoji.contains(lottieName) {
+            viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: originEmoji, emojiName: lottieName)
+        }
         self.animationInProgress = true
         self.selectedIndex = selectedIndex
         self.lottieName = lottieName
