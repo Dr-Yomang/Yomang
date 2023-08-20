@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Yotto_gown.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

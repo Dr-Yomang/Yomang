@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
+		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
+		2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */; };
+		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
+		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
+		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
+		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
+		8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */; };
+		8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47C82A5FD59200A2508A /* MotionObserver.swift */; };
+		8ADF47CF2A5FEB5000A2508A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47CE2A5FEB5000A2508A /* Tab.swift */; };
+		8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D02A5FEB9800A2508A /* YomangView.swift */; };
+		8ADF47D32A5FEEA200A2508A /* ScrollOffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D22A5FEEA200A2508A /* ScrollOffsetModifier.swift */; };
+		8ADF47D52A5FF42700A2508A /* AnimationEndCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D42A5FF42700A2508A /* AnimationEndCallBack.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
 		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
@@ -16,11 +29,45 @@
 		AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */; };
 		AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */; };
 		AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
-		AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
-		AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
-		AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
-		AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */; };
 		ADE9D17E2A5DB0F500F111BE /* ImageHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */; };
+		AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
+		AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */; };
+		AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
+		AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
+		AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
+		AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
+		AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */; };
+		AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3992A91699B0011D1D8 /* ImageUploader.swift */; };
+		AD89C39E2A91DABD0011D1D8 /* YomangDateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */; };
+		AD89C3A42A91DD160011D1D8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */; };
+		AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A52A91DF390011D1D8 /* YomangImageView.swift */; };
+		AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */; };
+		AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */; };
+		AD8FFE2B2A90DBCA00A7459A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC347572A5E4B38008F9624 /* SettingView.swift */; };
+		AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */; };
+		AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
+		AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */; };
+		AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
+		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
+		ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */; };
+		ADFF60FB2A8D04FE00F8FBBA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FA2A8D04FE00F8FBBA /* FirebaseAnalytics */; };
+		ADFF60FD2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FC2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift */; };
+		ADFF60FF2A8D04FE00F8FBBA /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FE2A8D04FE00F8FBBA /* FirebaseAppCheck */; };
+		ADFF61012A8D04FE00F8FBBA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61002A8D04FE00F8FBBA /* FirebaseAuth */; };
+		ADFF61032A8D04FE00F8FBBA /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61022A8D04FE00F8FBBA /* FirebaseCrashlytics */; };
+		ADFF61052A8D04FE00F8FBBA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61042A8D04FE00F8FBBA /* FirebaseDatabase */; };
+		ADFF61072A8D04FE00F8FBBA /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61062A8D04FE00F8FBBA /* FirebaseDatabaseSwift */; };
+		ADFF61092A8D04FE00F8FBBA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61082A8D04FE00F8FBBA /* FirebaseFirestore */; };
+		ADFF610B2A8D04FE00F8FBBA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610A2A8D04FE00F8FBBA /* FirebaseFirestoreSwift */; };
+		ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */; };
+		ADFF610F2A8D04FE00F8FBBA /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */; };
+		ADFF61112A8D04FE00F8FBBA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */; };
+		C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A812A6EC40F00DD9E02 /* ReactionView.swift */; };
+		C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1982A842A6EC5FF00DD9E02 /* Lottie */; };
+		C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A882A6EC6B000DD9E02 /* LottieView.swift */; };
+		C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* reaction.json */; };
+		C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */; };
+		C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,18 +83,33 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		AD0ADC492A54444D0030B1F9 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				AD0ADC482A54444D0030B1F9 /* YomangWidgetExtensionExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
+		2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
+		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangView.swift; sourceTree = "<group>"; };
+		8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangView.swift; sourceTree = "<group>"; };
+		8ADF47C82A5FD59200A2508A /* MotionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionObserver.swift; sourceTree = "<group>"; };
+		8ADF47CE2A5FEB5000A2508A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		8ADF47D02A5FEB9800A2508A /* YomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangView.swift; sourceTree = "<group>"; };
+		8ADF47D22A5FEEA200A2508A /* ScrollOffsetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetModifier.swift; sourceTree = "<group>"; };
+		8ADF47D42A5FF42700A2508A /* AnimationEndCallBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationEndCallBack.swift; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -58,12 +120,32 @@
 		AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		AD0ADC582A54503A0030B1F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIndicatorView.swift; sourceTree = "<group>"; };
+		AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		AD3805B72A80E4DE00D02D54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD3805B92A80E4F200D02D54 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD46BA162A52F9DD001D3894 /* Yomang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yomang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHistoryView.swift; sourceTree = "<group>"; };
+		AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangViewModel.swift; sourceTree = "<group>"; };
+		AD89C3992A91699B0011D1D8 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangDateTextView.swift; sourceTree = "<group>"; };
+		AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		AD89C3A52A91DF390011D1D8 /* YomangImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangImageView.swift; sourceTree = "<group>"; };
+		AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangViewModel.swift; sourceTree = "<group>"; };
+		AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AD944D662A8CB7AA00589895 /* Yomang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yomang.entitlements; sourceTree = "<group>"; };
+		AD944D672A8CB82400589895 /* YomangWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YomangWidgetExtension.entitlements; sourceTree = "<group>"; };
+		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
+		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		C1982A8A2A6EC90900DD9E02 /* reaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reaction.json; sourceTree = "<group>"; };
+		C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = secondreaction.json; sourceTree = "<group>"; };
+		C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thirdreaction.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +162,79 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFF61072A8D04FE00F8FBBA /* FirebaseDatabaseSwift in Frameworks */,
+				ADFF60FF2A8D04FE00F8FBBA /* FirebaseAppCheck in Frameworks */,
+				ADFF610F2A8D04FE00F8FBBA /* FirebasePerformance in Frameworks */,
+				ADFF61012A8D04FE00F8FBBA /* FirebaseAuth in Frameworks */,
+				ADFF60FD2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift in Frameworks */,
+				ADFF61032A8D04FE00F8FBBA /* FirebaseCrashlytics in Frameworks */,
+				ADFF610B2A8D04FE00F8FBBA /* FirebaseFirestoreSwift in Frameworks */,
+				ADFF61092A8D04FE00F8FBBA /* FirebaseFirestore in Frameworks */,
+				ADFF61112A8D04FE00F8FBBA /* FirebaseStorage in Frameworks */,
+				ADFF60FB2A8D04FE00F8FBBA /* FirebaseAnalytics in Frameworks */,
+				ADFF61052A8D04FE00F8FBBA /* FirebaseDatabase in Frameworks */,
+				ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */,
+				C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */,
+				ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1288862A592A680054FD6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F1288872A592A720054FD6B /* User.swift */,
+				2F1288892A592AD70054FD6B /* YomangData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F12888D2A59318C0054FD6B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F12888E2A59319F0054FD6B /* AuthViewModel.swift */,
+				AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */,
+				AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FC2EFBE2A596115008E1056 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A0DE6D02A611FD600BD2259 /* TabView */,
+				AD12EFCE2A90BD7200CDFBFE /* Main */,
+				ADC347572A5E4B38008F9624 /* SettingView.swift */,
+				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
+				2FDD6F432A5C12CD0065F947 /* LoginView.swift */,
+				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
+				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
+				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
+                ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A0DE6D02A611FD600BD2259 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				8ADF47CE2A5FEB5000A2508A /* Tab.swift */,
+				8ADF47D22A5FEEA200A2508A /* ScrollOffsetModifier.swift */,
+				8ADF47D42A5FF42700A2508A /* AnimationEndCallBack.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		8A0DE6D12A611FF300BD2259 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				8ADF47C82A5FD59200A2508A /* MotionObserver.swift */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
 		AD0ADC392A54444C0030B1F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +258,10 @@
 		AD0ADC522A544F810030B1F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8A0DE6D12A611FF300BD2259 /* Motion */,
 				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
 				AD0ADC582A54503A0030B1F9 /* Constants.swift */,
+				AD89C3992A91699B0011D1D8 /* ImageUploader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -119,6 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */,
+				AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */,
+				ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */,
+				AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */,
+				AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,8 +281,49 @@
 		AD0ADC5A2A5450630030B1F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD8FFE342A90DFDA00A7459A /* Lottie */,
+				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
+				AD944D672A8CB82400589895 /* YomangWidgetExtension.entitlements */,
+				AD944D662A8CB7AA00589895 /* Yomang.entitlements */,
+				2FDD6F3C2A5BC72B0065F947 /* Info.plist */,
+				AD3805B12A80E4BB00D02D54 /* Localization */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD12EFCE2A90BD7200CDFBFE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8ADF47D02A5FEB9800A2508A /* YomangView.swift */,
+				AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */,
+				8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */,
+				AD89C3A52A91DF390011D1D8 /* YomangImageView.swift */,
+				AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */,
+				8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AD3805B02A80E39700D02D54 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2FC2EFBE2A596115008E1056 /* View */,
+				2F1288862A592A680054FD6B /* Model */,
+				2F12888D2A59318C0054FD6B /* ViewModel */,
+				AD0ADC532A544F8F0030B1F9 /* Extensions */,
+				AD0ADC522A544F810030B1F9 /* Utils */,
+				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
+				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AD3805B12A80E4BB00D02D54 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				AD3805B82A80E4DE00D02D54 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		AD46BA0D2A52F9DD001D3894 = {
@@ -152,32 +348,30 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				ADE9D17A2A5DB0CF00F111BE /* View */,
+				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
+				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
-				AD0ADC532A544F8F0030B1F9 /* Extensions */,
-				AD0ADC522A544F810030B1F9 /* Utils */,
-				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
-				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
-				AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */,
-				AD46BA1F2A52F9DE001D3894 /* Preview Content */,
+				AD8FFE312A90DFBB00A7459A /* Preview Content */,
 			);
 			path = Yomang;
 			sourceTree = "<group>";
 		};
-		AD46BA1F2A52F9DE001D3894 /* Preview Content */ = {
+		AD8FFE312A90DFBB00A7459A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AD46BA202A52F9DE001D3894 /* Preview Assets.xcassets */,
+				AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		ADE9D17A2A5DB0CF00F111BE /* View */ = {
+		AD8FFE342A90DFDA00A7459A /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */,
+				C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */,
+				C1982A8A2A6EC90900DD9E02 /* reaction.json */,
+				C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */,
 			);
-			path = View;
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +398,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD46BA242A52F9DE001D3894 /* Build configuration list for PBXNativeTarget "Yomang" */;
 			buildPhases = (
+				AD448A8D2A66BA5A00585590 /* ShellScript */,
 				AD46BA122A52F9DD001D3894 /* Sources */,
 				AD46BA132A52F9DD001D3894 /* Frameworks */,
 				AD46BA142A52F9DD001D3894 /* Resources */,
@@ -215,6 +410,22 @@
 				AD0ADC472A54444D0030B1F9 /* PBXTargetDependency */,
 			);
 			name = Yomang;
+			packageProductDependencies = (
+				C1982A842A6EC5FF00DD9E02 /* Lottie */,
+				ADF707552A8B313C002381F1 /* Kingfisher */,
+				ADFF60FA2A8D04FE00F8FBBA /* FirebaseAnalytics */,
+				ADFF60FC2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift */,
+				ADFF60FE2A8D04FE00F8FBBA /* FirebaseAppCheck */,
+				ADFF61002A8D04FE00F8FBBA /* FirebaseAuth */,
+				ADFF61022A8D04FE00F8FBBA /* FirebaseCrashlytics */,
+				ADFF61042A8D04FE00F8FBBA /* FirebaseDatabase */,
+				ADFF61062A8D04FE00F8FBBA /* FirebaseDatabaseSwift */,
+				ADFF61082A8D04FE00F8FBBA /* FirebaseFirestore */,
+				ADFF610A2A8D04FE00F8FBBA /* FirebaseFirestoreSwift */,
+				ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */,
+				ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */,
+				ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */,
+			);
 			productName = Yomang;
 			productReference = AD46BA162A52F9DD001D3894 /* Yomang.app */;
 			productType = "com.apple.product-type.application";
@@ -244,8 +455,14 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = AD46BA0D2A52F9DD001D3894;
+			packageReferences = (
+				C1982A832A6EC5FF00DD9E02 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				ADF707542A8B313C002381F1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AD46BA172A52F9DD001D3894 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -262,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
+				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,18 +487,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD46BA212A52F9DE001D3894 /* Preview Assets.xcassets in Resources */,
-				AD46BA1E2A52F9DE001D3894 /* Assets.xcassets in Resources */,
+				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
+				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
+				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
+				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
+				C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */,
+				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
+				2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD448A8D2A66BA5A00585590 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD0ADC342A54444C0030B1F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
 				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
 				AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */,
 			);
@@ -290,12 +535,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */,
+				AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */,
+				AD8FFE2B2A90DBCA00A7459A /* SettingView.swift in Sources */,
+				8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */,
+				8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */,
+				8ADF47D52A5FF42700A2508A /* AnimationEndCallBack.swift in Sources */,
+				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
+				8ADF47CF2A5FEB5000A2508A /* Tab.swift in Sources */,
+				8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */,
+				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
+				AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */,
+				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
+				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
+				8ADF47D32A5FEEA200A2508A /* ScrollOffsetModifier.swift in Sources */,
+				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
+				AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */,
+				2F1288882A592A720054FD6B /* User.swift in Sources */,
+				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
+				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
+				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
+				ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				ADE9D17E2A5DB0F500F111BE /* ImageHistoryView.swift in Sources */,
-				AD46BA1C2A52F9DD001D3894 /* ContentView.swift in Sources */,
+				AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */,
 				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
-				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
+				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,
+				2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */,
+				AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */,
+				AD89C3A42A91DD160011D1D8 /* Date+Extension.swift in Sources */,
+				AD89C39E2A91DABD0011D1D8 /* YomangDateTextView.swift in Sources */,
+				2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,19 +580,36 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		AD3805B82A80E4DE00D02D54 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD3805B72A80E4DE00D02D54 /* en */,
+				AD3805B92A80E4F200D02D54 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		AD0ADC4A2A54444D0030B1F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/YomangWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Dayeon Moon (7D5PZJWQ9T)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,6 +618,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore pos.academy.Yomang.YomangWidgetExtension";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,13 +632,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/YomangWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Dayeon Moon (7D5PZJWQ9T)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -357,6 +650,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -368,6 +662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -414,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -428,6 +723,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -468,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -484,17 +780,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/Yomang.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yomang/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,6 +805,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,17 +823,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/Yomang.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Yomang/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,6 +848,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore pos.academy.Yomang";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -569,6 +891,106 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ADF707542A8B313C002381F1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C1982A832A6EC5FF00DD9E02 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ADF707552A8B313C002381F1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADF707542A8B313C002381F1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		ADFF60FA2A8D04FE00F8FBBA /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		ADFF60FC2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		ADFF60FE2A8D04FE00F8FBBA /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		ADFF61002A8D04FE00F8FBBA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		ADFF61022A8D04FE00F8FBBA /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		ADFF61042A8D04FE00F8FBBA /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		ADFF61062A8D04FE00F8FBBA /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		ADFF61082A8D04FE00F8FBBA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		ADFF610A2A8D04FE00F8FBBA /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		C1982A842A6EC5FF00DD9E02 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1982A832A6EC5FF00DD9E02 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD46BA0E2A52F9DD001D3894 /* Project object */;
 }

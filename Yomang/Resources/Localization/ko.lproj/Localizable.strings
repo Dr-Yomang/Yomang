@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Yomang
+
+  Created by 제나 on 2023/08/07.
+  
+*/
+
+/* App */
+"yomang" = "Yomang";
+
+/* Authentication */
+"authentication-agree-message" = "By signing up, you agree to our Terms of Service and\nacknowledge that our Privacy Policy applies to you.";
+
+/* Setting */
+"navigation-title-setting" = "설정 및 개인정보";
+
+"header-title-setting-profile" = "계정 설정";
+"button-my-profile" = "내 계정";
+
+"header-title-my-usage" = "내 사용";
+"button-connect-partner" = "파트너 연결";
+"button-setting-notification" = "알림 설정";
