@@ -54,6 +54,9 @@ struct HistoryView: View {
                     }
                 }
             }
+            .onAppear {
+                viewModel.fetchAllYomang()
+            }
         }
 }
 
