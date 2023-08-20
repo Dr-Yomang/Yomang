@@ -18,7 +18,6 @@ struct PhotoCropper: View {
     @State private var lastOffset: CGSize = .zero
 
     @State var nextView: Bool = false
-    var widgetSize = WidgetSize()
 
     private var uiImage: UIImage {
         if let data = myYomangImage.imageData,
@@ -40,7 +39,6 @@ struct PhotoCropper: View {
     private var imageConstraint: CGFloat {
         return screenSize.shortSide
     }
-
 
     var body: some View {
         ZStack {

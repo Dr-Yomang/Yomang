@@ -8,7 +8,6 @@
 import SwiftUI
 import PhotosUI
 
-
 struct ImageSlectViewContainer: View {
     
     @State var myYomangImage = MyYomangImage()
@@ -24,11 +23,9 @@ struct ImageSlectViewContainer: View {
     }
 }
 
-
 struct ImageSelectView: View {
     // 마크업 사진은 전체 화면 캡쳐한 이미지 -> 마스크로 위젯 사이즈 맞춰서 가리고 있음!
     @Environment(\.screenSize) var screenSize
-    var widgetSize = WidgetSize()
     @State private var selectedItem: PhotosPickerItem? = nil
     @Binding var myYomangImage: MyYomangImage
     

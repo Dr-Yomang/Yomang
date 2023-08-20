@@ -8,13 +8,10 @@
 import SwiftUI
 import PencilKit
 
-
 struct MarkupView: View {
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.undoManager) private var undoManager
-    
-    var widgetSize = WidgetSize()
     var livecanvasView = MyCanvas()
     
     @Binding var popToRoot: Bool
@@ -108,11 +105,11 @@ struct MarkupView: View {
         }
     
 }
-
-struct MarkupView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarkupView(popToRoot: .constant(false), myYomangImage:
-                .constant(MyYomangImage(scale: 1, position: .zero)))
-    }
-}
+//
+//struct MarkupView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MarkupView(popToRoot: .constant(false), myYomangImage:
+//                .constant(MyYomangImage(scale: 1, position: .zero)))
+//    }
+//}
 
