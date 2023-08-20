@@ -25,17 +25,6 @@ struct YourYomangView: View {
     
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
-                .overlay(
-                    Image("YomangMoon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 1800, height: 1800)
-                        .offset(x: UIScreen.main.bounds.width / 2, y: 1050)
-                        .opacity(1)
-                        .ignoresSafeArea()
-                )
             YomangImageView(data: viewModel.data)
             Text("상대방의 첫 요망을 기다리고 있어요")
                 .font(.headline)

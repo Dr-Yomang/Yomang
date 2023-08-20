@@ -23,17 +23,6 @@ struct MyYomangView: View {
 
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
-                .overlay(
-                    Image("YomangMoon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 1800, height: 1800)
-                        .offset(x: -UIScreen.main.bounds.width / 2, y: 1050)
-                        .opacity(1)
-                        .ignoresSafeArea()
-                )
             YomangImageView(data: viewModel.data)
                 .onTapGesture {
                     // TODO: 요망 만들기 뷰

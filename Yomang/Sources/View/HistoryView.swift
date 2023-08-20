@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ImageHistoryView: View {
+struct HistoryView: View {
     private let items = [GridItem(), GridItem()]
         private let width = CGFloat(170)
         
@@ -28,12 +28,11 @@ struct ImageHistoryView: View {
                 .padding(.top)
             }
             .navigationTitle(Text("히스토리"))
-            .navigationBarTitleDisplayMode(.large)
         }
 }
 
-struct ImageHistoryView_Previews: PreviewProvider {
+struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageHistoryView()
+        HistoryView()
     }
 }

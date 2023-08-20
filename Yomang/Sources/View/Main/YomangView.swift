@@ -18,34 +18,59 @@ struct YomangView: View {
     @State private var scrollProgress: CGFloat = .zero
     @State private var tapState: AnimationState = .init()
     var body: some View {
-        ZStack {
-            Color.black
-                .ignoresSafeArea()
-            
-            TabView(selection: $activeTab) {
-                YourYomangView()
-                    .tag(Tab.yours)
-                    .offsetX(activeTab == Tab.yours) { rect in
-                        let minX = rect.minX
-                        let pageOffset = minX - (UIScreen.width * CGFloat(Tab.yours.index))
-                        let pageProgress = pageOffset / UIScreen.width
-                        scrollProgress = min(pageProgress, 0)
-                    }
+        NavigationView {
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                    .overlay(
+                        Image("YomangMoon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 1800, height: 1800)
+                            .offset(x: UIScreen.main.bounds.width / 2, y: 1050)
+                            .ignoresSafeArea()
+                    )
                 
-                MyYomangView()
-                    .tag(Tab.mine)
-                    .offsetX(activeTab == Tab.mine) { rect in
-                        let minX = rect.minX
-                        let pageOffset = minX - (UIScreen.width * CGFloat(Tab.mine.index))
-                        let pageProgress = pageOffset / UIScreen.width
-                        scrollProgress = min(pageProgress, 0)
+                TabView(selection: $activeTab) {
+                    YourYomangView()
+                        .tag(Tab.yours)
+                        .offsetX(activeTab == Tab.yours) { rect in
+                            let minX = rect.minX
+                            let pageOffset = minX - (UIScreen.width * CGFloat(Tab.yours.index))
+                            let pageProgress = pageOffset / UIScreen.width
+                            scrollProgress = min(pageProgress, 0)
+                        }
+                    
+                    MyYomangView()
+                        .tag(Tab.mine)
+                        .offsetX(activeTab == Tab.mine) { rect in
+                            let minX = rect.minX
+                            let pageOffset = minX - (UIScreen.width * CGFloat(Tab.mine.index))
+                            let pageProgress = pageOffset / UIScreen.width
+                            scrollProgress = min(pageProgress, 0)
+                        }
+                }
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .navigationBarItems(trailing:
+                                        HStack {
+                    NavigationLink {
+                        HistoryView()
+                    } label: {
+                        Image(systemName: "heart")
+                            .foregroundColor(.white)
                     }
+                    
+                    NavigationLink {
+                        SettingView()
+                    } label: {
+                        Image(systemName: "person")
+                            .foregroundColor(.white)
+                    }
+                })
+                TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
             }
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            
-            TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
         }
-        .ignoresSafeArea(.container, edges: .all)
     }
 }
 
