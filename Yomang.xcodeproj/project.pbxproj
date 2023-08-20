@@ -24,6 +24,15 @@
 		2FDD6F422A5BE9290065F947 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2FDD6F412A5BE9290065F947 /* Kingfisher */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
+		68FA63F22A924EC700A68C69 /* ImageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F12A924EC700A68C69 /* ImageSelectView.swift */; };
+		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
+		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
+		68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F72A924F9700A68C69 /* PhotoCropView.swift */; };
+		68FA63FA2A924FBA00A68C69 /* ViewSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */; };
+		68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */; };
+		68FA63FE2A92501900A68C69 /* EnvironmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */; };
+		68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */; };
+		68FA64022A92505900A68C69 /* Wiget+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA64012A92505900A68C69 /* Wiget+Extension.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
 		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
@@ -78,6 +87,15 @@
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		68FA63F12A924EC700A68C69 /* ImageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectView.swift; sourceTree = "<group>"; };
+		68FA63F32A924F5F00A68C69 /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
+		68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitToUIView.swift; sourceTree = "<group>"; };
+		68FA63F72A924F9700A68C69 /* PhotoCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCropView.swift; sourceTree = "<group>"; };
+		68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeModel.swift; sourceTree = "<group>"; };
+		68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangImageModel.swift; sourceTree = "<group>"; };
+		68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValue.swift; sourceTree = "<group>"; };
+		68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		68FA64012A92505900A68C69 /* Wiget+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wiget+Extension.swift"; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -133,6 +151,8 @@
 			children = (
 				2F1288872A592A720054FD6B /* User.swift */,
 				2F1288892A592AD70054FD6B /* YomangImage.swift */,
+				68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */,
+				68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2F12888E2A59319F0054FD6B /* AuthViewModel.swift */,
+				68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -152,6 +173,9 @@
 				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
 				2FDD6F432A5C12CD0065F947 /* LoginView.swift */,
 				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
+				68FA63F12A924EC700A68C69 /* ImageSelectView.swift */,
+				68FA63F32A924F5F00A68C69 /* MarkupView.swift */,
+				68FA63F72A924F9700A68C69 /* PhotoCropView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +222,9 @@
 			children = (
 				AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */,
 				AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */,
+				68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */,
+				68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */,
+				68FA64012A92505900A68C69 /* Wiget+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,18 +453,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */,
+				68FA63F22A924EC700A68C69 /* ImageSelectView.swift in Sources */,
+				68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */,
 				ADC347582A5E4B38008F9624 /* SettingView.swift in Sources */,
 				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
 				2FC2EFC42A598056008E1056 /* AppleLoginSessionTestView.swift in Sources */,
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
+				68FA63FE2A92501900A68C69 /* EnvironmentValue.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangImage.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
+				68FA63FA2A924FBA00A68C69 /* ViewSizeModel.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
+				68FA64022A92505900A68C69 /* Wiget+Extension.swift in Sources */,
 				AD46BA1A2A52F9DD001D3894 /* YomangApp.swift in Sources */,
+				68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */,
+				68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */,
 				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,
 				2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */,
+				68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */,
 				2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,11 +509,12 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				DEVELOPMENT_TEAM = V7Y2HCV8V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,11 +538,12 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				DEVELOPMENT_TEAM = V7Y2HCV8V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -627,7 +665,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -658,7 +696,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -699,7 +737,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
