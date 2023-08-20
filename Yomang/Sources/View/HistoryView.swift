@@ -26,6 +26,7 @@ struct HistoryView: View {
                     LazyVGrid(columns: items, content: {
                         ForEach(viewModel.data) { yomang in
                            NavigationLink(
+                            // TODO: history grid 선택하면 어떻게 되는지
                             destination: EmptyView(),
                             label: {
                                 KFImage(URL(string: yomang.imageUrl))
