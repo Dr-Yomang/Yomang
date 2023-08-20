@@ -78,6 +78,7 @@ struct AppleLoginButtonView: View {
                     
                     guard let email = appleIDCredential.email else {
                         print("Already Signed in")
+                        viewModel.signInUser(credential: credential)
                         return
                     }
                     

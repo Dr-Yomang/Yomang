@@ -48,7 +48,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // 유저를 서버에 등록하고 (회원가입) 각 유저에게 부여되는 고유한 코드를 생성함
-    func signInUser(credential: AuthCredential, email: String, partnerId: String?, _ completion: @escaping(String) -> Void?) {
+    func signInUser(credential: AuthCredential, email: String, partnerId: String?, _ completion: @escaping(String) -> Void) {
         Auth.auth().signIn(with: credential) { (result, error) in
             // 서버에서 데이터를 받아오지 못했을 경우 별도의 작업 수행 없이 return
             if let error = error {
@@ -77,6 +77,13 @@ class AuthViewModel: ObservableObject {
                     completion(user.uid)
                 }
             }
+        }
+    }
+    
+    func signInUser(credential: AuthCredential) {
+        Auth.auth().signIn(with: credential) { _, _ in
+            self.userSession = Auth.auth().currentUser
+            self.fetchUser { _ in }
         }
     }
     
