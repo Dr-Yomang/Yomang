@@ -77,7 +77,7 @@ struct TabIndicatorView: View {
                 .frame(width: CGFloat(Tab.allCases.count) * tabWidth)
                 .padding(.leading, tabWidth)
             }
-            .offset(y: 50)
+            .offset(y: 20)
             Spacer()
         }
     }
