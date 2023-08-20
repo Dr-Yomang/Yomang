@@ -43,6 +43,10 @@
 		AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */; };
 		AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */; };
 		AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3AB2A92067F0011D1D8 /* HistoryViewModel.swift */; };
+		AD89C3B32A9214F40011D1D8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AD89C3B22A9214F40011D1D8 /* FirebaseFirestore */; };
+		AD89C3B52A9215210011D1D8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD89C3B42A9215210011D1D8 /* FirebaseAuth */; };
+		AD89C3B62A9217610011D1D8 /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
+		AD89C3B82A92183C0011D1D8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD89C3B72A92183C0011D1D8 /* FirebaseFirestoreSwift */; };
 		AD8FFE2B2A90DBCA00A7459A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC347572A5E4B38008F9624 /* SettingView.swift */; };
 		AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */; };
 		AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
@@ -84,14 +88,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		AD0ADC492A54444D0030B1F9 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				AD0ADC482A54444D0030B1F9 /* YomangWidgetExtensionExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -155,8 +159,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD89C3B82A92183C0011D1D8 /* FirebaseFirestoreSwift in Frameworks */,
 				AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */,
 				AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */,
+				AD89C3B32A9214F40011D1D8 /* FirebaseFirestore in Frameworks */,
+				AD89C3B52A9215210011D1D8 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +400,11 @@
 			dependencies = (
 			);
 			name = YomangWidgetExtensionExtension;
+			packageProductDependencies = (
+				AD89C3B22A9214F40011D1D8 /* FirebaseFirestore */,
+				AD89C3B42A9215210011D1D8 /* FirebaseAuth */,
+				AD89C3B72A92183C0011D1D8 /* FirebaseFirestoreSwift */,
+			);
 			productName = YomangWidgetExtensionExtension;
 			productReference = AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -528,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD89C3B62A9217610011D1D8 /* YomangData.swift in Sources */,
 				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
 				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
 				AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */,
@@ -603,15 +616,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/YomangWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Dayeon Moon (7D5PZJWQ9T)";
+				CODE_SIGN_IDENTITY = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
+				INFOPLIST_KEY_CFBundleDisplayName = "요망";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -622,8 +635,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore pos.academy.Yomang.YomangWidgetExtension";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore pos.academy.Yomang.YomangWidgetExtension";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang.YomangWidgetExtension";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -637,13 +650,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/YomangWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Dayeon Moon (7D5PZJWQ9T)";
+				CODE_SIGN_IDENTITY = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = YomangWidgetExtension;
+				INFOPLIST_KEY_CFBundleDisplayName = "요망";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,7 +667,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore pos.academy.Yomang.YomangWidgetExtension";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -924,6 +937,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AD89C3B22A9214F40011D1D8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		AD89C3B42A9215210011D1D8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AD89C3B72A92183C0011D1D8 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		ADF707552A8B313C002381F1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ADF707542A8B313C002381F1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
