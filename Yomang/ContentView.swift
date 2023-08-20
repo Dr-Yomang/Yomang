@@ -12,6 +12,10 @@ struct ContentView: View {
 
     var body: some View {
 <<<<<<< HEAD
+        NavigationView {
+            NavigationLink("Go to ImageHistoryView", destination: ImageHistoryView())
+=======
+<<<<<<< HEAD
         if !navigate {
             LinkView(navigate: $navigate)
         } else {
@@ -25,6 +29,7 @@ struct ContentView: View {
             }
 
 >>>>>>> cec5ecff2d8c9becd9b40479a5b156b53f819f3f
+>>>>>>> 149c67595907e8bfa90325b42109a0bde13e6e3b
         }
     }
 }

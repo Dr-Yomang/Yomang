@@ -29,6 +29,7 @@
 		AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */; };
 		AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */; };
 		AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
+		ADE9D17E2A5DB0F500F111BE /* ImageHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */; };
 		AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
 		AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */; };
 		AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
@@ -127,6 +128,7 @@
 		AD46BA192A52F9DD001D3894 /* YomangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangApp.swift; sourceTree = "<group>"; };
 		AD46BA1B2A52F9DD001D3894 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHistoryView.swift; sourceTree = "<group>"; };
 		AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangViewModel.swift; sourceTree = "<group>"; };
 		AD89C3992A91699B0011D1D8 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangDateTextView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
+                ADE9D17D2A5DB0F500F111BE /* ImageHistoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
 				ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
+				ADE9D17E2A5DB0F500F111BE /* ImageHistoryView.swift in Sources */,
 				AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */,
 				AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
