@@ -9,12 +9,13 @@ import SwiftUI
 
 struct HistoryView: View {
     private let items = [GridItem(), GridItem()]
-        private let width = CGFloat(170)
+    private let width = CGFloat(170)
+    @Environment(\.dismiss) private var dismiss
         
         var body: some View {
             ScrollView {
                 LazyVGrid(columns: items, content: {
-                    ForEach (0..<13) { post in
+                    ForEach(0..<13) { _ in
                        NavigationLink(
                         destination: EmptyView(),
                         label: {
@@ -28,6 +29,18 @@ struct HistoryView: View {
                 .padding(.top)
             }
             .navigationTitle(Text("히스토리"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: .chevronBackward)
+                            .foregroundColor(.white)
+                    }
+                }
+            }
         }
 }
 
