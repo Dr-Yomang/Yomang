@@ -31,7 +31,7 @@ struct YomangImageView: View {
             KFImage(URL(string: data[index].imageUrl))
                 .resizable()
                 .scaledToFill()
-                .frame(height: CGFloat(Constants.yomangHeight))
+                .frame(width: CGFloat(UIScreen.width - 40), height: CGFloat(Constants.yomangHeight))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .padding(.horizontal, 20)
                 .overlay(
@@ -48,14 +48,19 @@ struct YomangImageView: View {
                     ZStack {
                         Color.white
                             .opacity(isSwipping ? 0.5 : 0)
-                        Image("Yotto")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 230, height: 230)
-                            .offset(x: 10, y: 60)
-                    }.opacity(isSwipping ? 1 : 0)
+                            .cornerRadius(16)
+                        VStack {
+                            Spacer()
+                            Image("Yotto")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 230, height: 230)
+                        }
+                    }
+                        .opacity(isSwipping ? 1 : 0)
+                        .padding(.horizontal, 20)
+                        
                 )
-                .cornerRadius(30)
                 .rotation3DEffect(
                     Angle(degrees: isSwipeUp ? -10 : isSwipeDown ? 10 : 0),
                     axis: (x: 1.0, y: 0.0, z: 0.0),
@@ -68,7 +73,7 @@ struct YomangImageView: View {
                     anchor: .center,
                     perspective: 0.1
                 )
-                .offset(y: isSwipeUp ? -60 : isSwipeDown ? -20 : -40)
+                .offset(y: isSwipeUp ? -20: isSwipeDown ? 20: 0)
                 .onAppear {
                     motionData.fetchMotionData(duration: 16)
                 }

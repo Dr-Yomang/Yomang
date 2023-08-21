@@ -22,13 +22,9 @@ class MyYomangViewModel: ObservableObject {
         guard let user = AuthViewModel.shared.user else { return }
         print(user.id ?? "")
         self.collection.whereField("senderUid", isEqualTo: user.id!).getDocuments { snapshot, _ in
-            print("snapshot \(snapshot)")
             guard let documents = snapshot?.documents else { return }
-            print("documents \(documents)")
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
-            print("data \(data)")
             self.data = data.sorted(by: { $0.uploadedDate > $1.uploadedDate })
-            print(self.data)
         }
     }
     
