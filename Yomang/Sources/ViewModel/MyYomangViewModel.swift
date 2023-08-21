@@ -20,10 +20,15 @@ class MyYomangViewModel: ObservableObject {
     
     func fetchMyYomang() {
         guard let user = AuthViewModel.shared.user else { return }
+        print(user.id ?? "")
         self.collection.whereField("senderUid", isEqualTo: user.id!).getDocuments { snapshot, _ in
+            print("snapshot \(snapshot)")
             guard let documents = snapshot?.documents else { return }
+            print("documents \(documents)")
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+            print("data \(data)")
             self.data = data.sorted(by: { $0.uploadedDate > $1.uploadedDate })
+            print(self.data)
         }
     }
     
@@ -33,11 +38,11 @@ class MyYomangViewModel: ObservableObject {
         ImageUploader.uploadImage(image: image) { imageUrl in
             let data = ["uploadedDate": Date(),
                         "senderUid": user.id,
-                        "receiverUid": user.partnerId,
+                        "receiverUid": user.partnerId ?? "tmp",
                         "imageUrl": imageUrl,
                         "emoji": nil] as [String: Any?]
             
-            self.collection.addDocument(data: data as [String: Any], completion: completion)
+            self.collection.addDocument(data: data, completion: completion)
         }
     }
 }

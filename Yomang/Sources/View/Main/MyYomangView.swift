@@ -20,16 +20,38 @@ struct MyYomangView: View {
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
     @ObservedObject var viewModel = MyYomangViewModel()
+    @State private var isUploadInProgress = false
 
     var body: some View {
         ZStack {
             YomangImageView(data: viewModel.data)
                 .onTapGesture {
+                    isUploadInProgress = true
                     // TODO: 요망 만들기 뷰
+                    viewModel.uploadMyYomang(image: UIImage(named: "hani")!) { _ in
+                        isUploadInProgress = false
+                        viewModel.fetchMyYomang()
+                    }
                 }
-            Text("이곳을 눌러 마음을 담아 요망을 보내보세요")
-                .font(.headline)
-                .foregroundColor(.white)
+                .overlay {
+                    ZStack {
+                        if viewModel.data.count == 0 {
+                            Text("이곳을 눌러 마음을 담아 요망을 보내보세요")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                        }
+                        if isUploadInProgress {
+                            Color
+                                .black
+                                .opacity(0.5)
+                                .ignoresSafeArea()
+                            ProgressView()
+                        }
+                    }
+                }
+                .onAppear {
+                    viewModel.fetchMyYomang()
+                }
         }
     }
 }
