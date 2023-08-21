@@ -28,7 +28,7 @@ struct MyYomangView: View {
                 .onTapGesture {
                     isUploadInProgress = true
                     // TODO: 요망 만들기 뷰
-                    viewModel.uploadMyYomang(image: UIImage(named: "hani")!) { _ in
+                    viewModel.uploadMyYomang(image: UIImage(named: "image\(Int.random(in: 0..<7))")!) { _ in
                         isUploadInProgress = false
                         viewModel.fetchMyYomang()
                     }
