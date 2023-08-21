@@ -12,7 +12,7 @@ struct YomangImageView: View {
     
     let data: [YomangData]
     @StateObject var motionData = MotionObserver()
-    @State private var index: Int = 0
+    @Binding var index: Int
     @State private var dragHeight: CGFloat = .zero
     @State private var isSwipping: Bool = false
     @State private var isSwipeUp: Bool = false

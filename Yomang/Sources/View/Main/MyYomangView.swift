@@ -25,7 +25,7 @@ struct MyYomangView: View {
 
     var body: some View {
         ZStack {
-            YomangImageView(data: viewModel.data)
+            YomangImageView(data: viewModel.data, index: $index)
                 .onTapGesture {
                     isUploadInProgress = true
                     // TODO: 요망 만들기 뷰

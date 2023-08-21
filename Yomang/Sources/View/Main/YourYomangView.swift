@@ -25,7 +25,7 @@ struct YourYomangView: View {
     
     var body: some View {
         ZStack {
-            YomangImageView(data: viewModel.data)
+            YomangImageView(data: viewModel.data, index: $index)
             if viewModel.data.count == 0 {
                 Text("상대방의 첫 요망을 기다리고 있어요")
                     .font(.headline)

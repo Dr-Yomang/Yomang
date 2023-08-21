@@ -39,5 +39,6 @@ class YourYomangViewModel: ObservableObject {
         var appendEmoji = originEmoji
         appendEmoji.append(emojiName)
         self.collection.document(yomangId).updateData(["emoji": appendEmoji])
+        self.fetchYourYomang()
     }
 }
