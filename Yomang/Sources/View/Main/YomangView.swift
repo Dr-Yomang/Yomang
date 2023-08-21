@@ -17,6 +17,8 @@ struct YomangView: View {
     @State private var activeTab: Tab = .yours
     @State private var scrollProgress: CGFloat = .zero
     @State private var tapState: AnimationState = .init()
+    @ObservedObject var yourYomangViewModel = YourYomangViewModel()
+    @ObservedObject var myYomangViewModel = MyYomangViewModel()
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,12 +29,12 @@ struct YomangView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 1800, height: 1800)
-                            .offset(x: UIScreen.main.bounds.width / 2, y: 1050)
+                            .offset(x: activeTab == .yours ? UIScreen.width / 2 : -UIScreen.width / 2, y: 1050)
                             .ignoresSafeArea()
                     )
                 
                 TabView(selection: $activeTab) {
-                    YourYomangView()
+                    YourYomangView(viewModel: yourYomangViewModel)
                         .tag(Tab.yours)
                         .offsetX(activeTab == Tab.yours) { rect in
                             let minX = rect.minX
@@ -41,7 +43,7 @@ struct YomangView: View {
                             scrollProgress = min(pageProgress, 0)
                         }
                     
-                    MyYomangView()
+                    MyYomangView(viewModel: myYomangViewModel)
                         .tag(Tab.mine)
                         .offsetX(activeTab == Tab.mine) { rect in
                             let minX = rect.minX

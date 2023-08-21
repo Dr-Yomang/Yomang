@@ -21,7 +21,7 @@ struct YourYomangView: View {
     @State private var isSwipeRight: Bool = false
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
-    @ObservedObject var viewModel = YourYomangViewModel()
+    @ObservedObject var viewModel: YourYomangViewModel
     
     var body: some View {
         ZStack {

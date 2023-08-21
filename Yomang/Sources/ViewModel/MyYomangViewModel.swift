@@ -20,7 +20,6 @@ class MyYomangViewModel: ObservableObject {
     
     func fetchMyYomang() {
         guard let user = AuthViewModel.shared.user else { return }
-        print(user.id ?? "")
         self.collection.whereField("senderUid", isEqualTo: user.id!).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })

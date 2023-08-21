@@ -19,8 +19,9 @@ struct MyYomangView: View {
     @State private var isSwipeRight: Bool = false
     @State private var isSwipeLeft: Bool = false
     @State private var isDateActive: Bool = false
-    @ObservedObject var viewModel = MyYomangViewModel()
+    @ObservedObject var viewModel: MyYomangViewModel
     @State private var isUploadInProgress = false
+    @State private var isFetchingInProgress = false
 
     var body: some View {
         ZStack {
@@ -29,8 +30,8 @@ struct MyYomangView: View {
                     isUploadInProgress = true
                     // TODO: 요망 만들기 뷰
                     viewModel.uploadMyYomang(image: UIImage(named: "image\(Int.random(in: 0..<7))")!) { _ in
-                        isUploadInProgress = false
                         viewModel.fetchMyYomang()
+                        isUploadInProgress = false
                     }
                 }
                 .overlay {
@@ -49,15 +50,6 @@ struct MyYomangView: View {
                         }
                     }
                 }
-                .onAppear {
-                    viewModel.fetchMyYomang()
-                }
         }
-    }
-}
-
-struct MyYomangView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyYomangView()
     }
 }
