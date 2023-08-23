@@ -11,17 +11,18 @@ import Kingfisher
 struct MyYomangView: View {
     
     @StateObject var motionData = MotionObserver()
-    @State private var index: Int = 0
-    @State private var dragHeight: CGFloat = .zero
-    @State private var isSwipping: Bool = false
-    @State private var isSwipeUp: Bool = false
-    @State private var isSwipeDown: Bool = false
-    @State private var isSwipeRight: Bool = false
-    @State private var isSwipeLeft: Bool = false
-    @State private var isDateActive: Bool = false
-    @ObservedObject var viewModel: MyYomangViewModel
+    @State private var index = 0
+    @State private var dragHeight = CGFloat.zero
+    @State private var isSwipping = false
+    @State private var isSwipeUp = false
+    @State private var isSwipeDown = false
+    @State private var isSwipeRight = false
+    @State private var isSwipeLeft = false
+    @State private var isDateActive = false
     @State private var isUploadInProgress = false
     @State private var isFetchingInProgress = false
+    
+    @ObservedObject var viewModel: MyYomangViewModel
 
     var body: some View {
         ZStack {
@@ -31,6 +32,7 @@ struct MyYomangView: View {
                     // TODO: 요망 만들기 뷰
                     viewModel.uploadMyYomang(image: UIImage(named: "image\(Int.random(in: 0..<7))")!) { _ in
                         viewModel.fetchMyYomang()
+                        index = 0
                         isUploadInProgress = false
                     }
                 }
