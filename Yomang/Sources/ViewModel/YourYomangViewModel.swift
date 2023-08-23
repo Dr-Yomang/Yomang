@@ -17,15 +17,32 @@ class YourYomangViewModel: ObservableObject {
     @Published var connectWithPartner = false
     
     init() {
-        fetchYourYomang()
+        capturePartnerConnection()
+    }
+    
+    func capturePartnerConnection() {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
+        let collection = Firestore.firestore().collection("UserDebugCollection")
+        if user.partnerId == nil {
+            collection.document(uid).addSnapshotListener { snapshot, _ in
+                guard let pid = user.partnerId else { return }
+                guard let document = snapshot else { return }
+                guard let userData = document.data() else { return }
+                if userData["partnerId"] as! String == pid {
+                    self.connectWithPartner = true
+                    self.fetchYourYomang()
+                }
+            }
+        } else {
+            self.connectWithPartner = true
+            fetchYourYomang()
+        }
     }
     
     func fetchYourYomang() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let partnerUid = user.partnerId else { return }
-        if user.partnerId != nil {
-            self.connectWithPartner = true
-        }
         self.collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
