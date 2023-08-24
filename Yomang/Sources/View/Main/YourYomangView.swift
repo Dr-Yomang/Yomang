@@ -20,6 +20,7 @@ struct YourYomangView: View {
     @State private var isSwipeLeft = false
     @State private var isDateActive = false
     @ObservedObject var viewModel: YourYomangViewModel
+    @Binding var matchingIdFromUrl: String?
     
     var body: some View {
         ZStack {
@@ -50,6 +51,13 @@ struct YourYomangView: View {
                             )
                             .padding(.bottom, 52)
                             .padding(.horizontal, 20)
+                    }
+                }
+                .onAppear {
+                    if !viewModel.connectWithPartner {
+                        if let pid = matchingIdFromUrl {
+                            AuthViewModel.shared.matchTwoUser(partnerId: pid)
+                        }
                     }
                 }
             }

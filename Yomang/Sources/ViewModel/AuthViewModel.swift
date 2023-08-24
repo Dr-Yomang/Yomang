@@ -94,9 +94,21 @@ class AuthViewModel: ObservableObject {
         self.username = username
     }
     
+    func matchTwoUser(partnerId: String) {
+        guard let uid = user?.id else { return }
+        guard user?.partnerId != nil else { return }
+        collection.document(partnerId).getDocument { snapshot, _ in
+            guard let partner = snapshot else { return }
+            guard let data = partner.data() else { return }
+            guard data["partnerId"] != nil else { return }
+        }
+        self.collection.document(uid).updateData(["partnerId": partnerId])
+        self.collection.document(partnerId).updateData(["partnerId": uid])
+    }
+    
     func signOut(_ completion: @escaping() -> Void) {
         do {
-            guard let _ = self.user?.id else { return }
+            guard self.user?.id != nil else { return }
             for key in UserDefaults.shared.dictionaryRepresentation().keys {
                 UserDefaults.shared.removeObject(forKey: key.description)
             }

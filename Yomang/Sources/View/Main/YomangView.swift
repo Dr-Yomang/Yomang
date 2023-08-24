@@ -17,6 +17,7 @@ struct YomangView: View {
     @State private var activeTab: Tab = .yours
     @State private var scrollProgress: CGFloat = .zero
     @State private var tapState: AnimationState = .init()
+    @Binding var matchingIdFromUrl: String?
     @ObservedObject var yourYomangViewModel = YourYomangViewModel()
     @ObservedObject var myYomangViewModel = MyYomangViewModel()
     var body: some View {
@@ -34,7 +35,7 @@ struct YomangView: View {
                     )
                 
                 TabView(selection: $activeTab) {
-                    YourYomangView(viewModel: yourYomangViewModel)
+                    YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(Tab.yours)
                         .offsetX(activeTab == Tab.yours) { rect in
                             let minX = rect.minX
@@ -73,11 +74,5 @@ struct YomangView: View {
                 TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
             }
         }
-    }
-}
-
-struct YomangView_Previews: PreviewProvider {
-    static var previews: some View {
-        YomangView()
     }
 }
