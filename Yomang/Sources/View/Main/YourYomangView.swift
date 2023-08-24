@@ -19,7 +19,7 @@ struct YourYomangView: View {
     @State private var isSwipeRight = false
     @State private var isSwipeLeft = false
     @State private var isDateActive = false
-    @ObservedObject var viewModel: YourYomangViewModel
+    @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
     
     var body: some View {
