@@ -27,24 +27,25 @@ struct YomangApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                VStack(spacing: 20) {
-                    NavigationLink("login view") {
-                        LoginView(matchingID: $matchingID).onOpenURL { url in
-                            if url.scheme! == "YomanglabYomang" && url.host! == "share" {
-                                if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
-                                    for query in components.queryItems! {
-                                        // 링크에 상대 매칭코드 없으면 nil, 아니면 링크에서 얻어온 매칭코드 값 넣기
-                                        matchingID = query.value ?? nil
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    NavigationLink("setting view", destination: SettingView())
-                
-                }
-            }
+            ImageSelectViewContainer()
+//            NavigationView {
+//                VStack(spacing: 20) {
+//                    NavigationLink("login view") {
+//                        LoginView(matchingID: $matchingID).onOpenURL { url in
+//                            if url.scheme! == "YomanglabYomang" && url.host! == "share" {
+//                                if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+//                                    for query in components.queryItems! {
+//                                        // 링크에 상대 매칭코드 없으면 nil, 아니면 링크에서 얻어온 매칭코드 값 넣기
+//                                        matchingID = query.value ?? nil
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                    NavigationLink("setting view", destination: SettingView())
+//
+//                }
+//            }
         }
     }
 }

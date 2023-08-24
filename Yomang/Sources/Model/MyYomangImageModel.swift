@@ -13,5 +13,5 @@ struct MyYomangImage {
     var croppedImageData: Data?
     var scale: Double = 0
     var position: CGSize = .zero
-    var drawingImage: UIImage? = UIImage(systemName: "person.crop.circle")!
+    var drawingImage: UIImage?
 }
