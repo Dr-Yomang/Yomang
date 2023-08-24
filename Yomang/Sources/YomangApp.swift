@@ -10,12 +10,24 @@ import Firebase
 
 @main
 struct YomangApp: App {
+    @State private var matchingIdFromUrl: String?
     init() {
         FirebaseApp.configure()
     }
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(AuthViewModel.shared)
+            ContentView(matchingIdFromUrl: $matchingIdFromUrl)
+                .environmentObject(AuthViewModel.shared)
+                .onOpenURL { url in
+                    if url.scheme! == "YomanglabYomang" && url.host! == "share" {
+                        if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+                            for query in components.queryItems! {
+                                // 링크에 상대 매칭코드 없으면 nil, 아니면 링크에서 얻어온 매칭코드 값 넣기
+                                matchingIdFromUrl = query.value ?? nil
+                            }
+                        }
+                    }
+                }
         }
     }
 }

@@ -80,10 +80,11 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func signInUser(credential: AuthCredential) {
+    func signInUser(credential: AuthCredential, _ completion: @escaping() -> Void) {
         Auth.auth().signIn(with: credential) { _, _ in
             self.userSession = Auth.auth().currentUser
             self.fetchUser { _ in }
+            completion()
         }
     }
     
@@ -93,26 +94,29 @@ class AuthViewModel: ObservableObject {
         self.username = username
     }
     
-    func signOut() {
+    func matchTwoUser(partnerId: String) {
+        guard let uid = user?.id else { return }
+        guard user?.partnerId != nil else { return }
+        collection.document(partnerId).getDocument { snapshot, _ in
+            guard let partner = snapshot else { return }
+            guard let data = partner.data() else { return }
+            guard data["partnerId"] != nil else { return }
+        }
+        self.collection.document(uid).updateData(["partnerId": partnerId])
+        self.collection.document(partnerId).updateData(["partnerId": uid])
+    }
+    
+    func signOut(_ completion: @escaping() -> Void) {
         do {
-//            guard let uid = self.user?.userId else { return }
-//
-//            let removeObjectKey = ["imageUrl", "partnerId", "notiMessage", "widgetImage"]
-//            for key in removeObjectKey {
-//                UserDefaults.shared.removeObject(forKey: key)
-//            }
-//            collection.document(uid).updateData(["partnerId": "NaN"])
-//            collection.document(uid).updateData(["isConnected": "false"])
-//            collection.document(uid).updateData(["imageUrl": ""])
-//
-//            fetchUser { _ in }
-            
-            try Auth.auth().signOut()
-
+            guard self.user?.id != nil else { return }
             for key in UserDefaults.shared.dictionaryRepresentation().keys {
                 UserDefaults.shared.removeObject(forKey: key.description)
             }
-
+            try Auth.auth().signOut()
+            self.user = nil
+            self.userSession = nil
+            self.username = nil
+            completion()
         } catch {
             print("== DEBUG: Error signing out \(error.localizedDescription)")
         }
