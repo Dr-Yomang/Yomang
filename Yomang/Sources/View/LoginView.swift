@@ -29,10 +29,6 @@ struct LoginView: View {
                     .frame(width: 268, height: 48)
                     .font(.largeTitle)
                 Spacer()
-                
-                // Debug : 테스트용으로 써보고 지우세요! URL 통해서 앱 실행시 매칭코드 여기 연결된 변수로 들어갑니다.
-                // YomanglabYomang://share?value="사용자코드" 포맷으로 링크 만들어서 앱 켜보시면 테스트 가능
-                
                 Text(String.authenticationMessage)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)

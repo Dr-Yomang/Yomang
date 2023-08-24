@@ -11,16 +11,14 @@ import SwiftUI
 struct YourYomangView: View {
     
     @StateObject var motionData = MotionObserver()
-    let yourYomangImages: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
-    let yourYomangImagesDate: [String] = ["2023-07-13", "2023-07-12", "2023-07-11", "2023-07-10", "2023-07-09", "2023-07-08"]
-    @State private var index: Int = 0
-    @State private var dragHeight: CGFloat = .zero
-    @State private var isSwipping: Bool = false
-    @State private var isSwipeUp: Bool = false
-    @State private var isSwipeDown: Bool = false
-    @State private var isSwipeRight: Bool = false
-    @State private var isSwipeLeft: Bool = false
-    @State private var isDateActive: Bool = false
+    @State private var index = 0
+    @State private var dragHeight = CGFloat.zero
+    @State private var isSwipping = false
+    @State private var isSwipeUp = false
+    @State private var isSwipeDown = false
+    @State private var isSwipeRight = false
+    @State private var isSwipeLeft = false
+    @State private var isDateActive = false
     @ObservedObject var viewModel: YourYomangViewModel
     
     var body: some View {
@@ -38,7 +36,8 @@ struct YourYomangView: View {
             } else {
                 VStack {
                     Spacer()
-                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)") ?? URL(string: "https://opentutorials.org/module/6260/32205")!) {
+                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
+                              ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(.white)
                             .frame(height: 56)

@@ -35,9 +35,8 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-                showSplash.toggle()
-            })        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { showSplash.toggle() })
+        }
     }
 }
 
