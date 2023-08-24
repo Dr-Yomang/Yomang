@@ -32,8 +32,10 @@ struct YourYomangView: View {
             }
             
             if viewModel.connectWithPartner {
-                ReactionView(viewModel: viewModel, yomangIndex: $index)
-                    .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
+                if viewModel.data.count > 0 {
+                    ReactionView(viewModel: viewModel, yomangIndex: $index)
+                        .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
+                }
             } else {
                 VStack {
                     Spacer()

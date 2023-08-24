@@ -53,6 +53,7 @@
 		AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */; };
 		AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
+		ADED59392A975FE4007E3EB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
 		ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */; };
 		ADFF60FB2A8D04FE00F8FBBA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FA2A8D04FE00F8FBBA /* FirebaseAnalytics */; };
@@ -495,6 +496,7 @@
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
 				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
+				ADED59392A975FE4007E3EB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

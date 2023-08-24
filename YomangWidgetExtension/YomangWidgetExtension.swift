@@ -7,7 +7,7 @@
 
 import WidgetKit
 import SwiftUI
-import FirebaseAuth
+import Firebase
 import FirebaseFirestore
 
 struct Provider: TimelineProvider {
@@ -89,6 +89,9 @@ struct YomangWidgetEntryView: View {
 }
 
 struct YomangWidget: Widget {
+    init() {
+        FirebaseApp.configure()
+    }
     let kind: String = "YomangWidget"
 
     var body: some WidgetConfiguration {
