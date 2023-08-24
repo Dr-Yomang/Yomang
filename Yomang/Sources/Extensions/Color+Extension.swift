@@ -34,4 +34,6 @@ extension Color {
     static let blue500 = Color(hex: 0x008BFF)
     
     static let cyan500 = Color(hex: 0x4EFCE0)
+    
+    static let nav100 = Color(hex: 0x8A42FF)
 }

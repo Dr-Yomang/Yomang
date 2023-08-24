@@ -13,7 +13,6 @@ struct MyCanvas: UIViewRepresentable {
     @State var toolPicker: PKToolPicker! = PKToolPicker()
     
     func makeUIView(context: Context) -> PKCanvasView {
-        canvasView = PKCanvasView()
         canvasView.becomeFirstResponder()
 
         canvasView.drawing = PKDrawing()

@@ -102,7 +102,7 @@ private struct PhotoPicker: View {
                     AnyView(label)
                 }
                 .foregroundColor(Color(UIColor.systemBackground))
-                .tint(.purple)
+                .tint(.nav100)
                 .buttonStyle(.borderedProminent)
         }
     }

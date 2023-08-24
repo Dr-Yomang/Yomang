@@ -67,13 +67,12 @@ struct PhotoCropView: View {
                                    height: imageConstraint / Constants.widgetSize.width * Constants.widgetSize.height )
                     }
                     .gesture(panGesture.simultaneously(with: zoomGesture))
-            }
-            .toolbar {
+            }.toolbar {
                 ToolbarItem(placement: .principal) {
                     Button {
                         withAnimation {
                             zoomScale = 1.0
-                            offset = 0.0
+                            offset = CGSizeZero
                         }
                     } label: {
                         Text("재설정")
@@ -91,6 +90,8 @@ struct PhotoCropView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color(red: 0.15, green: 0.15, blue: 0.15), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
+            .accentColor(.nav100)
+            
             
         }
         .ignoresSafeArea()

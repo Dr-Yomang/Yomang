@@ -65,7 +65,8 @@ struct MarkupView: View {
                 
             }
             
-        }.toolbar {
+        }
+        .toolbar {
 
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack {
@@ -94,6 +95,7 @@ struct MarkupView: View {
             .toolbarBackground(Color(red: 0.15, green: 0.15, blue: 0.15), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .ignoresSafeArea()
+            .accentColor(.nav100)
     }
     
     func takeCapture() -> UIImage {
