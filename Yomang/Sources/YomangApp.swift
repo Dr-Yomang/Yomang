@@ -13,6 +13,11 @@ struct YomangApp: App {
     @State private var matchingIdFromUrl: String?
     init() {
         FirebaseApp.configure()
+        do {
+            try Auth.auth().useUserAccessGroup("\(teamID).pos.academy.Yomang")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     var body: some Scene {
         WindowGroup {
