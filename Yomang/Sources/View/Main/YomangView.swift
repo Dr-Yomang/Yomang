@@ -21,7 +21,6 @@ struct YomangView: View {
         NavigationView {
             ZStack {
                 Color.black
-                    .ignoresSafeArea()
                     .overlay(
                         Image("YomangMoon")
                             .resizable()
@@ -50,6 +49,7 @@ struct YomangView: View {
                             scrollProgress = min(pageProgress, 0)
                         }
                 }
+                .ignoresSafeArea()
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 .navigationBarItems(trailing:

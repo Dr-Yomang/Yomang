@@ -32,11 +32,20 @@ struct YourYomangView: View {
             
             if viewModel.connectWithPartner {
                 ReactionView(viewModel: viewModel, yomangIndex: $index)
-                    .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
+//                    .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
+//                    .offsetY(true) { rect in
+////                        let yOffset = CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20
+////                        return CGPoint(x: rect.origin.x, y: yOffset)
+//                        let minY = rect.minY
+//                        let pageOffset = minY - (UIScreen.height * CGFloat(Tab.yours.index))
+//                        let pageProgress = pageOffset / UIScreen.height
+//                        
+//                    }
+                
             } else {
                 VStack {
                     Spacer()
-                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)") ?? URL(string: "https://opentutorials.org/module/6260/32205")!) {
+                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))") ?? URL(string: "https://opentutorials.org/module/6260/32205")!) {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(.white)
                             .frame(height: 56)
