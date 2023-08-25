@@ -10,34 +10,63 @@ import SwiftUI
 
 struct YourYomangView: View {
     
-    @StateObject var motionData = MotionObserver()
     @State private var index = 0
-    @State private var dragHeight = CGFloat.zero
-    @State private var isSwipping = false
-    @State private var isSwipeUp = false
-    @State private var isSwipeDown = false
-    @State private var isSwipeRight = false
-    @State private var isSwipeLeft = false
-    @State private var isDateActive = false
+    
+    @State private var isScaleEffect: Bool = false
+    @State private var isWaveEffect: Bool = false
+    @State private var effectOpacityToggle: [Bool] = Array(repeating: false, count: 5)
+    @State private var effectSizeToggle: [Bool] = Array(repeating: false, count: 5)
     @ObservedObject var viewModel: YourYomangViewModel
     @Binding var matchingIdFromUrl: String?
     
     var body: some View {
         ZStack {
-            YomangImageView(data: viewModel.data, index: $index)
-            if viewModel.data.count == 0 {
-                Text("상대방의 첫 요망을 기다리고 있어요")
-                    .font(.headline)
-                    .foregroundColor(.white)
+            Image("YomangMoon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 1800, height: 1800)
+                .offset(x: UIScreen.width / 2, y: 1050)
+                .ignoresSafeArea()
+            
+            ZStack {
+                ForEach(0 ..< 5) { index in
+                    EffectLoadingView(effectOpacityToggle: effectOpacityToggle[index], effectSizeToggle: effectSizeToggle[index], delayTime: 0.4 * Double(index))
+                }
+                .opacity(isWaveEffect ? 1 : 0)
+                
+                YomangImageView(data: viewModel.data, index: $index)
+                    .scaleEffect(isScaleEffect ? 1.05 : 1)
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged {_ in
+                                withAnimation(.easeIn(duration: 0.2)) {
+                                    isScaleEffect = true
+                                    isWaveEffect = true
+                                }
+                            }
+                            .onEnded {_ in
+                                withAnimation(.easeIn(duration: 1)) {
+                                    isScaleEffect = false
+                                    isWaveEffect = false
+                                }
+                            }
+                    )
+                
+                if viewModel.data.count == 0 {
+                    Text("상대방의 첫 요망을 기다리고 있어요")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                }
             }
+            .frame(width: UIScreen.width - Constants.yomangPadding,height: UIScreen.width - Constants.yomangPadding)
+            .offset(y: -56)
             
             if viewModel.connectWithPartner {
                 ReactionView(viewModel: viewModel, yomangIndex: $index)
-                    .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
             } else {
                 VStack {
                     Spacer()
-                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
+                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
                               ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(.white)
@@ -49,8 +78,6 @@ struct YourYomangView: View {
                                     .bold()
                                     .foregroundColor(.black)
                             )
-                            .padding(.bottom, 52)
-                            .padding(.horizontal, 20)
                     }
                 }
                 .onAppear {
@@ -62,5 +89,37 @@ struct YourYomangView: View {
                 }
             }
         }
+    }
+}
+
+
+struct YourYomangView_Previews: PreviewProvider {
+    @State static var matchingId: String? = "itms-apps://itunes.apple.com/app/6461822956"
+    
+    static var previews: some View {
+        YourYomangView(viewModel: YourYomangViewModel(), matchingIdFromUrl: $matchingId)
+    }
+}
+
+struct EffectLoadingView: View {
+    
+    @State var effectOpacityToggle: Bool
+    @State var effectSizeToggle: Bool
+    let delayTime: Double
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 24)
+            .stroke(Color.white, lineWidth: effectSizeToggle ? 1 : 2)
+            .scaleEffect(effectSizeToggle ? 1.8 : 1)
+            .opacity(effectOpacityToggle ? 0 : 0.5)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) {
+                    withAnimation(.easeInOut(duration: 2).repeatForever(autoreverses: false)) {
+                        effectOpacityToggle = true
+                        effectSizeToggle = true
+                    }
+                }
+            }
+            .scaledToFit()
     }
 }

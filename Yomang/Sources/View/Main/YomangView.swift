@@ -4,19 +4,11 @@
 //
 //  Created by 최민규 on 2023/07/13.
 //
-/*
- TODO: 뷰 넘김에 따른 이름 변화_ 애니메이션 버그 있음
- TODO: 이모지 반응칸 추가
- TODO: 아이콘 버튼 추가
- TODO: 현재사진으로 돌아가는 매커니즘 추가
- */
 
 import SwiftUI
 
 struct YomangView: View {
-    @State private var activeTab: Tab = .yours
-    @State private var scrollProgress: CGFloat = .zero
-    @State private var tapState: AnimationState = .init()
+
     @Binding var matchingIdFromUrl: String?
     @ObservedObject var yourYomangViewModel = YourYomangViewModel()
     @ObservedObject var myYomangViewModel = MyYomangViewModel()
@@ -25,34 +17,16 @@ struct YomangView: View {
             ZStack {
                 Color.black
                     .ignoresSafeArea()
-                    .overlay(
-                        Image("YomangMoon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 1800, height: 1800)
-                            .offset(x: activeTab == .yours ? UIScreen.width / 2 : -UIScreen.width / 2, y: 1050)
-                            .ignoresSafeArea()
-                    )
-                
-                TabView(selection: $activeTab) {
+                  
+                TabView {
                     YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
-                        .tag(Tab.yours)
-                        .offsetX(activeTab == Tab.yours) { rect in
-                            let minX = rect.minX
-                            let pageOffset = minX - (UIScreen.width * CGFloat(Tab.yours.index))
-                            let pageProgress = pageOffset / UIScreen.width
-                            scrollProgress = min(pageProgress, 0)
-                        }
+                        .tag(0)
                     
                     MyYomangView(viewModel: myYomangViewModel)
-                        .tag(Tab.mine)
-                        .offsetX(activeTab == Tab.mine) { rect in
-                            let minX = rect.minX
-                            let pageOffset = minX - (UIScreen.width * CGFloat(Tab.mine.index))
-                            let pageProgress = pageOffset / UIScreen.width
-                            scrollProgress = min(pageProgress, 0)
-                        }
+                        .tag(1)
+
                 }
+                .ignoresSafeArea()
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 .navigationBarItems(trailing:
@@ -71,8 +45,15 @@ struct YomangView: View {
                             .foregroundColor(.white)
                     }
                 })
-                TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
             }
         }
+    }
+}
+
+struct YomangView_Previews: PreviewProvider {
+    @State static var matchingId: String? = "itms-apps://itunes.apple.com/app/6461822956"
+
+    static var previews: some View {
+        YomangView(matchingIdFromUrl: $matchingId)
     }
 }

@@ -8,6 +8,6 @@
 import Foundation
 
 struct Constants {
-    static let yomangHeight = 367
+    static let yomangPadding: CGFloat = 48
     static let reactionBarHeight = 72
 }

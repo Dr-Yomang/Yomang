@@ -10,26 +10,25 @@ import Kingfisher
 
 struct MyYomangView: View {
     
-    @StateObject var motionData = MotionObserver()
     @State private var index = 0
-    @State private var dragHeight = CGFloat.zero
-    @State private var isSwipping = false
-    @State private var isSwipeUp = false
-    @State private var isSwipeDown = false
-    @State private var isSwipeRight = false
-    @State private var isSwipeLeft = false
-    @State private var isDateActive = false
     @State private var isUploadInProgress = false
     @State private var isFetchingInProgress = false
     
     @ObservedObject var viewModel: MyYomangViewModel
-
+    
     var body: some View {
         ZStack {
+                Image("YomangMoon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 1800, height: 1800)
+                    .offset(x: -UIScreen.width / 2, y: 1050)
+                    .ignoresSafeArea()
+                
             YomangImageView(data: viewModel.data, index: $index)
+                .frame(width: UIScreen.width - Constants.yomangPadding,height: UIScreen.width - Constants.yomangPadding)
                 .onTapGesture {
                     isUploadInProgress = true
-                    // TODO: 요망 만들기 뷰
                     viewModel.uploadMyYomang(image: UIImage(named: "image\(Int.random(in: 0..<7))")!) { _ in
                         viewModel.fetchMyYomang()
                         index = 0
@@ -52,6 +51,15 @@ struct MyYomangView: View {
                         }
                     }
                 }
+                .offset(y: -56)
+
         }
+    }
+}
+
+struct MyYomangView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        MyYomangView(viewModel: MyYomangViewModel())
     }
 }
