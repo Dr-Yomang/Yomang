@@ -19,7 +19,7 @@ struct YourYomangView: View {
     @State private var isSwipeRight = false
     @State private var isSwipeLeft = false
     @State private var isDateActive = false
-    @ObservedObject var viewModel: YourYomangViewModel
+    @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
     
     var body: some View {
@@ -32,8 +32,10 @@ struct YourYomangView: View {
             }
             
             if viewModel.connectWithPartner {
-                ReactionView(viewModel: viewModel, yomangIndex: $index)
-                    .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
+                if viewModel.data.count > 0 {
+                    ReactionView(viewModel: viewModel, yomangIndex: $index)
+                        .offset(y: CGFloat(Constants.yomangHeight + Constants.reactionBarHeight) / 2 + 20)
+                }
             } else {
                 VStack {
                     Spacer()

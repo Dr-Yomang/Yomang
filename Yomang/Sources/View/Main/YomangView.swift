@@ -18,8 +18,6 @@ struct YomangView: View {
     @State private var scrollProgress: CGFloat = .zero
     @State private var tapState: AnimationState = .init()
     @Binding var matchingIdFromUrl: String?
-    @ObservedObject var yourYomangViewModel = YourYomangViewModel()
-    @ObservedObject var myYomangViewModel = MyYomangViewModel()
     var body: some View {
         NavigationView {
             ZStack {
@@ -35,7 +33,7 @@ struct YomangView: View {
                     )
                 
                 TabView(selection: $activeTab) {
-                    YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
+                    YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(Tab.yours)
                         .offsetX(activeTab == Tab.yours) { rect in
                             let minX = rect.minX
@@ -44,7 +42,7 @@ struct YomangView: View {
                             scrollProgress = min(pageProgress, 0)
                         }
                     
-                    MyYomangView(viewModel: myYomangViewModel)
+                    MyYomangView()
                         .tag(Tab.mine)
                         .offsetX(activeTab == Tab.mine) { rect in
                             let minX = rect.minX

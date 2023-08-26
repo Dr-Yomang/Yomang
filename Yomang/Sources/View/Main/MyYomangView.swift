@@ -22,7 +22,7 @@ struct MyYomangView: View {
     @State private var isUploadInProgress = false
     @State private var isFetchingInProgress = false
     
-    @ObservedObject var viewModel: MyYomangViewModel
+    @ObservedObject var viewModel = MyYomangViewModel()
 
     var body: some View {
         ZStack {

@@ -135,7 +135,8 @@ struct LinkView: View {
                     }
                     .disabled(displayedText < fullText)
                     if viewModel.user?.partnerId == nil {
-                        ShareLink(item: "share") {
+                        ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
+                                  ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
                             RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.white)
                                 .frame(height: 56)
