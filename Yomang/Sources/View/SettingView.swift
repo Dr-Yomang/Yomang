@@ -10,66 +10,90 @@ import SwiftUI
 struct SettingView: View {
     private var username = "ZENA"
     @Environment(\.dismiss) private var dismiss
+    @State private var isSignOutInProgress = false
     var body: some View {
-        List {
-            Section {
-                HStack {
-                    Circle()
-                        .foregroundColor(Color.neu500)
-                        .overlay {
-                            Image(String.yottoWithUpperBody)
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Circle())
-                        }
-                        .frame(width: 112, height: 112)
-                        .padding(.vertical, 10)
-                    Spacer()
-                }
-            }
-            
-            Section(header: Text(String.headerTitleSettingProfile)) {
-                NavigationLink {
-                    EmptyView()
-                } label: {
+        ZStack {
+            List {
+                Section {
                     HStack {
-                        Image(systemName: .personFill)
-                        Text(String.buttonMyProfile)
+                        Circle()
+                            .foregroundColor(Color.neu500)
+                            .overlay {
+                                Image(String.yottoWithUpperBody)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(Circle())
+                            }
+                            .frame(width: 112, height: 112)
+                            .padding(.vertical, 10)
+                        Spacer()
                     }
                 }
                 
-            }
-            
-            Section(header: Text(String.headerTitleMyUsage)) {
-                NavigationLink {
-                    EmptyView()
-                } label: {
-                    HStack {
-                        Image(systemName: .person2Fill)
-                        Text(String.buttonConnectPartner)
+                Section(header: Text(String.headerTitleSettingProfile)) {
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        HStack {
+                            Image(systemName: .personFill)
+                            Text(String.buttonMyProfile)
+                        }
+                    }
+                    
+                }
+                
+                Section(header: Text(String.headerTitleMyUsage)) {
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        HStack {
+                            Image(systemName: .person2Fill)
+                            Text(String.buttonConnectPartner)
+                        }
+                    }
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        HStack {
+                            Image(systemName: .bellFill)
+                            Text(String.buttonSettingNotification)
+                        }
                     }
                 }
-                NavigationLink {
-                    EmptyView()
-                } label: {
-                    HStack {
-                        Image(systemName: .bellFill)
-                        Text(String.buttonSettingNotification)
+                
+                Section {
+                    Button {
+                        isSignOutInProgress = true
+                        AuthViewModel.shared.signOut {
+                            isSignOutInProgress = false
+                        }
+                    } label: {
+                        HStack {
+                            Text("로그아웃")
+                                .foregroundColor(.red)
+                        }
+                    }
+                    
+                }
+            }
+            .navigationTitle(String.navigationTitleSetting)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: .chevronBackward)
+                            .foregroundColor(.white)
                     }
                 }
             }
-        }
-        .navigationTitle(String.navigationTitleSetting)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: .chevronBackward)
-                        .foregroundColor(.white)
-                }
+            if isSignOutInProgress {
+                Color.black
+                    .opacity(0.8)
+                    .ignoresSafeArea()
+                ProgressView()
             }
         }
     }

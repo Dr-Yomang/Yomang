@@ -17,6 +17,7 @@ struct YomangView: View {
     @State private var activeTab: Tab = .yours
     @State private var scrollProgress: CGFloat = .zero
     @State private var tapState: AnimationState = .init()
+    @Binding var matchingIdFromUrl: String?
     var body: some View {
         NavigationView {
             ZStack {
@@ -26,12 +27,12 @@ struct YomangView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 1800, height: 1800)
-                            .offset(x: UIScreen.main.bounds.width / 2, y: 1050)
+                            .offset(x: activeTab == .yours ? UIScreen.width / 2 : -UIScreen.width / 2, y: 1050)
                             .ignoresSafeArea()
                     )
                 
                 TabView(selection: $activeTab) {
-                    YourYomangView()
+                    YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(Tab.yours)
                         .offsetX(activeTab == Tab.yours) { rect in
                             let minX = rect.minX
@@ -71,11 +72,5 @@ struct YomangView: View {
                 TabIndicatorView(activeTab: $activeTab, scrollProgress: $scrollProgress, tapState: $tapState)
             }
         }
-    }
-}
-
-struct YomangView_Previews: PreviewProvider {
-    static var previews: some View {
-        YomangView()
     }
 }

@@ -4,7 +4,7 @@ struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSplash = true
-    @State private var matchingIdFromUrl: String?
+    @Binding var matchingIdFromUrl: String?
     
     var body: some View {
         ZStack {
@@ -14,30 +14,20 @@ struct ContentView: View {
                 SplashView()
             } else { // hide splash
                 if viewModel.user != nil {
-                    if viewModel.username == nil {
-                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
+                    if viewModel.username != nil {
+                        YomangView(matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
-                        YomangView()
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
                     }
                 } else {
                     LoginView(matchingIdFromUrl: $matchingIdFromUrl)
-                        .onOpenURL { url in
-                            if url.scheme! == "YomanglabYomang" && url.host! == "share" {
-                                if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
-                                    for query in components.queryItems! {
-                                        // 링크에 상대 매칭코드 없으면 nil, 아니면 링크에서 얻어온 매칭코드 값 넣기
-                                        matchingIdFromUrl = query.value ?? nil
-                                    }
-                                }
-                            }
-                        }
+
                 }
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-                showSplash.toggle()
-            })        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { showSplash.toggle() })
+        }
     }
 }
 

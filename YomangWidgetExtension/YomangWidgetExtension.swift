@@ -7,7 +7,7 @@
 
 import WidgetKit
 import SwiftUI
-import FirebaseAuth
+import Firebase
 import FirebaseFirestore
 
 struct Provider: TimelineProvider {
@@ -25,6 +25,7 @@ struct Provider: TimelineProvider {
         var entry = SimpleEntry(date: entryDate, image: UIImage(named: "wonyong") ?? UIImage())
         fetchFromFirestore { successFetchData in
             if successFetchData {
+                print(successFetchData)
                 if let widgetImageData = UserDefaults(suiteName: "group.academy.Yomang")?.data(forKey: "widgetImage"),
                    let widgetImage = UIImage(data: widgetImageData) {
                     entry = SimpleEntry(date: entryDate, image: widgetImage)
@@ -44,6 +45,10 @@ struct Provider: TimelineProvider {
     }
     
     func fetchFromFirestore(completion: @escaping(Bool) -> Void) {
+        guard Auth.auth().currentUser != nil else {
+            completion(false)
+            return
+        }
         guard let partnerUid = UserDefaults.shared.string(forKey: "partnerId") else {
             completion(false)
             return
@@ -57,7 +62,7 @@ struct Provider: TimelineProvider {
             guard let url = URL(string: data[0].imageUrl) else { return }
             URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data, error == nil else { return }
-                self.setImageInUserDefaults(UIImage: UIImage(data: data) ?? UIImage(), "widgetImage")
+                self.setImageInUserDefaults(UIImage: UIImage(data: data) ?? UIImage(named: "hani")!, "widgetImage")
                 completion(true)
             }.resume()
         }
@@ -88,6 +93,15 @@ struct YomangWidgetEntryView: View {
 }
 
 struct YomangWidget: Widget {
+    init() {
+        FirebaseApp.configure()
+        do {
+            try Auth.auth().useUserAccessGroup("\(teamID).pos.academy.Yomang")
+        } catch {
+            print(error.localizedDescription)
+            print(error)
+        }
+    }
     let kind: String = "YomangWidget"
 
     var body: some WidgetConfiguration {

@@ -33,11 +33,11 @@ class MyYomangViewModel: ObservableObject {
         ImageUploader.uploadImage(image: image) { imageUrl in
             let data = ["uploadedDate": Date(),
                         "senderUid": user.id,
-                        "receiverUid": user.partnerId,
+                        "receiverUid": user.partnerId ?? "tmp",
                         "imageUrl": imageUrl,
                         "emoji": nil] as [String: Any?]
             
-            self.collection.addDocument(data: data as [String: Any], completion: completion)
+            self.collection.addDocument(data: data, completion: completion)
         }
     }
 }

@@ -12,6 +12,7 @@ import AuthenticationServices
 
 struct AppleLoginButtonView: View {
     @Binding var matchingIdFromUrl: String?
+    @Binding var isSignInInProgress: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     
     private func randomNonceString(length: Int = 32) -> String {
@@ -54,6 +55,7 @@ struct AppleLoginButtonView: View {
             currentNonce = nonce
             request.requestedScopes = [.fullName, .email]
             request.nonce = sha256(nonce)
+            isSignInInProgress = true
         } onCompletion: { result in
             switch result {
             case .success(let authResults):
@@ -78,7 +80,9 @@ struct AppleLoginButtonView: View {
                     
                     guard let email = appleIDCredential.email else {
                         print("Already Signed in")
-                        viewModel.signInUser(credential: credential)
+                        viewModel.signInUser(credential: credential) {
+                            isSignInInProgress = false
+                        }
                         return
                     }
                     
@@ -87,14 +91,16 @@ struct AppleLoginButtonView: View {
                         email: email,
                         partnerId: matchingIdFromUrl ?? nil) { result in
                             matchingIdFromUrl = result
+                            isSignInInProgress = false
                         }
                 default:
-                    break
-                    
+                    isSignInInProgress = false
                 }
             case .failure(let error):
+                isSignInInProgress = false
                 print("Authorization faild: \(error.localizedDescription)")
             }
+            
         }
     }
 }

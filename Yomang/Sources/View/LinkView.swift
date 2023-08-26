@@ -130,12 +130,13 @@ struct LinkView: View {
                                     .font(.title3)
                                     .bold()
                             )
-                            .opacity(displayedText < fullText ? 0.2 : 0.5)
+                            .opacity(displayedText < fullText ? 0.2 : 0.8)
                         
                     }
                     .disabled(displayedText < fullText)
                     if viewModel.user?.partnerId == nil {
-                        ShareLink(item: "share") {
+                        ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
+                                  ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
                             RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.white)
                                 .frame(height: 56)
@@ -180,7 +181,7 @@ struct LinkView: View {
                                     .font(.title3)
                                     .bold()
                             )
-                            .opacity(displayedText < fullText ? 0.1 : 0.5)
+                            .opacity(displayedText < fullText ? 0.1 : 0.8)
                     }
                     .disabled(displayedText < fullText)
                     
@@ -196,7 +197,7 @@ struct LinkView: View {
                                     .font(.title3)
                                     .bold()
                             )
-                            .opacity(displayedText < fullText ? 0.1 : 0.5)
+                            .opacity(displayedText < fullText ? 0.1 : 0.8)
                     }
                     .disabled(displayedText < fullText)
                 default: EmptyView()
