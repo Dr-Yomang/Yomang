@@ -31,15 +31,15 @@ struct PhotoCropView: View {
     }
     
     private var imageScale: CGFloat {
-        if uiImage.shortSide / uiImage.longSide >= imageConstraint / UIScreen.main.bounds.height {
+        if uiImage.shortSide / uiImage.longSide >= imageConstraint / UIScreen.height {
             return imageConstraint / uiImage.shortSide
         } else {
-            return UIScreen.main.bounds.height / uiImage.longSide
+            return UIScreen.height / uiImage.longSide
         }
     }
     
     private var imageConstraint: CGFloat {
-        return UIScreen.main.bounds.width
+        return UIScreen.width
     }
     
     var body: some View {
@@ -49,8 +49,8 @@ struct PhotoCropView: View {
                     Image(uiImage: uiImage)
                         .resizable()
                         .scaledToFit()
-                        .position(x: UIScreen.main.bounds.width / 2,
-                                  y: UIScreen.main.bounds.height / 2)
+                        .position(x: UIScreen.width / 2,
+                                  y: UIScreen.height / 2)
                         .mask(Color.black.opacity(0.5))
                         .scaleEffect(zoomScale)
                         .offset(offset)
@@ -87,7 +87,11 @@ struct PhotoCropView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     nextButton
                         .navigationDestination(isPresented: $nextView) {
-                        MarkupView(popToRoot: $popToRoot, myYomangImage: $myYomangImage, viewModel: viewModel, index: $index, isUploadInProgress: $isUploadInProgress)
+                        MarkupView(popToRoot: $popToRoot,
+                                   myYomangImage: $myYomangImage,
+                                   viewModel: viewModel,
+                                   index: $index,
+                                   isUploadInProgress: $isUploadInProgress)
                     }
                 }
             }

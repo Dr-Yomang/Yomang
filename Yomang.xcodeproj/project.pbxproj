@@ -13,7 +13,6 @@
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
-		68FA63F22A924EC700A68C69 /* ImageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F12A924EC700A68C69 /* ImageSelectView.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
 		68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F72A924F9700A68C69 /* PhotoCropView.swift */; };
@@ -118,7 +117,6 @@
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
-		68FA63F12A924EC700A68C69 /* ImageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectView.swift; sourceTree = "<group>"; };
 		68FA63F32A924F5F00A68C69 /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
 		68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitToUIView.swift; sourceTree = "<group>"; };
 		68FA63F72A924F9700A68C69 /* PhotoCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCropView.swift; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				2F1288872A592A720054FD6B /* User.swift */,
-				2F1288892A592AD70054FD6B /* YomangImage.swift */,
 				68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */,
 				68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */,
 				2F1288892A592AD70054FD6B /* YomangData.swift */,
@@ -244,7 +241,6 @@
 				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
 				2FDD6F432A5C12CD0065F947 /* LoginView.swift */,
 				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
-				68FA63F12A924EC700A68C69 /* ImageSelectView.swift */,
 				68FA63F32A924F5F00A68C69 /* MarkupView.swift */,
 				68FA63F72A924F9700A68C69 /* PhotoCropView.swift */,
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
@@ -584,7 +580,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */,
-				68FA63F22A924EC700A68C69 /* ImageSelectView.swift in Sources */,
 				68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */,
 				AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */,
 				AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */,
@@ -606,7 +601,7 @@
 				AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */,
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
 				68FA63FE2A92501900A68C69 /* EnvironmentValue.swift in Sources */,
-				2F12888A2A592AD70054FD6B /* YomangImage.swift in Sources */,
+				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
