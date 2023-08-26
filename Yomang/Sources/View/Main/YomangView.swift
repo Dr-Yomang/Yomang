@@ -19,7 +19,7 @@ struct YomangView: View {
     @State private var tapState: AnimationState = .init()
     @Binding var matchingIdFromUrl: String?
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.black
                     .overlay(

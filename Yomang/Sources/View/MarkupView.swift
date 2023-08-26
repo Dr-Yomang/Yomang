@@ -15,6 +15,13 @@ struct MarkupView: View {
     @Binding var popToRoot: Bool
 
     @State private var canvasView = PKCanvasView()
+    
+    @Binding var myYomangImage: MyYomangImage
+    @State var isTest: Bool = false
+    
+    @ObservedObject var viewModel: MyYomangViewModel
+    @Binding var index: Int
+    @Binding var isUploadInProgress: Bool
 
     private var uiImage: UIImage {
         if let data = myYomangImage.croppedImageData,
@@ -24,9 +31,6 @@ struct MarkupView: View {
             return UIImage(systemName: "person.crop.circle")!
         }
     }
-    
-    @Binding var myYomangImage: MyYomangImage
-    @State var isTest: Bool = false
     
     var displayImage: UIImage? {
         if let data = myYomangImage.croppedImageData,
@@ -67,7 +71,6 @@ struct MarkupView: View {
             
         }
         .toolbar {
-
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack {
                     Button(action: { undoManager?.undo() }) {
@@ -88,7 +91,14 @@ struct MarkupView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("완료") {
                     myYomangImage.drawingImage = takeCapture()
-                    popToRoot = false
+                    if let image = myYomangImage.drawingImage {
+                        viewModel.uploadMyYomang(image: image) { _ in
+                            index = 0
+                            isUploadInProgress = false
+                            viewModel.fetchMyYomang()
+                            popToRoot = false
+                        }
+                    }
                 }
             }
         }.navigationBarTitleDisplayMode(.inline)
@@ -114,10 +124,3 @@ struct MarkupView: View {
         return image ?? UIImage()
     }
 }
-
-struct MarkupView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarkupView(popToRoot: .constant(false), myYomangImage: .constant(MyYomangImage()))
-    }
-}
-

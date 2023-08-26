@@ -8,54 +8,17 @@
 import SwiftUI
 import PhotosUI
 
-struct ImageSelectViewContainer: View {
-    
-    @State var myYomangImage = MyYomangImage()
-    
-    var body: some View {
-        NavigationStack {
-            VStack {
-                ImageSelectView(myYomangImage: $myYomangImage)
-            }
-            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .background(Color.black)
-        }
-    }
-}
-
-struct ImageSelectViewContainer_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageSelectViewContainer()
-    }
-}
-
 struct ImageSelectView: View {
     
     @State private var selectedItem: PhotosPickerItem?
-    @Binding var myYomangImage: MyYomangImage
     @State var displayPhotoCropper = false
+    @Binding var myYomangImage: MyYomangImage
+    @ObservedObject var viewModel: MyYomangViewModel
+    @Binding var index: Int
+    @Binding var isUploadInProgress: Bool
     
     var body: some View {
         ZStack {
-            ZStack {
-                if myYomangImage.drawingImage != nil {
-                    Image(uiImage: myYomangImage.drawingImage!)
-                        .resizable()
-                        .scaledToFill()
-                        .mask {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: Constants.widgetSize.width,
-                                       height: Constants.widgetSize.height)
-                        }
-                } else {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.gray)
-                        .padding()
-                        .frame(width: UIScreen.width, height: UIScreen.width, alignment: .center)
-                }
-            }
-            .frame(width: UIScreen.width, height: UIScreen.height, alignment: .center)
-            
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: UIScreen.width, height: UIScreen.width)
@@ -78,7 +41,7 @@ struct ImageSelectView: View {
         }
         .navigationTitle("")
         .navigationDestination(isPresented: $displayPhotoCropper) {
-            PhotoCropView(myYomangImage: $myYomangImage, popToRoot: $displayPhotoCropper)
+            PhotoCropView(myYomangImage: $myYomangImage, popToRoot: $displayPhotoCropper, viewModel: viewModel, index: $index, isUploadInProgress: $isUploadInProgress)
         }
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }

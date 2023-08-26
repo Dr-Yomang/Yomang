@@ -17,6 +17,9 @@ struct PhotoCropView: View {
     @State private var lastOffset: CGSize = .zero
     
     @State var nextView: Bool = false
+    @ObservedObject var viewModel: MyYomangViewModel
+    @Binding var index: Int
+    @Binding var isUploadInProgress: Bool
     
     private var uiImage: UIImage {
         if let data = myYomangImage.imageData,
@@ -67,7 +70,8 @@ struct PhotoCropView: View {
                                    height: imageConstraint / Constants.widgetSize.width * Constants.widgetSize.height )
                     }
                     .gesture(panGesture.simultaneously(with: zoomGesture))
-            }.toolbar {
+            }
+            .toolbar {
                 ToolbarItem(placement: .principal) {
                     Button {
                         withAnimation {
@@ -81,8 +85,9 @@ struct PhotoCropView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    nextButton.navigationDestination(isPresented: $nextView) {
-                        MarkupView(popToRoot: $popToRoot, myYomangImage: $myYomangImage)
+                    nextButton
+                        .navigationDestination(isPresented: $nextView) {
+                        MarkupView(popToRoot: $popToRoot, myYomangImage: $myYomangImage, viewModel: viewModel, index: $index, isUploadInProgress: $isUploadInProgress)
                     }
                 }
             }
@@ -91,8 +96,6 @@ struct PhotoCropView: View {
             .toolbarBackground(Color(red: 0.15, green: 0.15, blue: 0.15), for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .accentColor(.nav100)
-            
-            
         }
         .ignoresSafeArea()
         .background(Color.black)
@@ -222,7 +225,6 @@ extension PhotoCropView {
 extension PhotoCropView {
     private var widgetMask: Path {
         let rect = CGRect(x: 0, y: 0, width: imageConstraint, height: UIScreen.main.bounds.height)
-
         let innerRect = CGRect(x: 0, y: 0, width: imageConstraint, height: UIScreen.main.bounds.height)
         var shape = RoundedRectangle(cornerRadius: 10).path(in: rect)
         shape.addPath(RoundedRectangle(cornerRadius: 10).path(in: innerRect))
@@ -238,11 +240,4 @@ extension PhotoCropView {
         }
     }
     
-}
-
-// MARK: - PREVIEW
-struct PhotoCropper_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoCropView(myYomangImage: .constant(MyYomangImage(scale: 1, position: .zero)), popToRoot: .constant(false))
-    }
 }
