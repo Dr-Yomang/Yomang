@@ -37,49 +37,48 @@ struct ImageSelectView: View {
     
     var body: some View {
         ZStack {
-            Color.black
             ZStack {
-                ZStack {
-                    if myYomangImage.drawingImage != nil {
-                        Image(uiImage: myYomangImage.drawingImage!)
-                            .resizable()
-                            .scaledToFill()
-                            .mask {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: Constants.widgetSize.width,
-                                           height: Constants.widgetSize.height)
-                            }
-                    } else {
-                        RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).padding().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
-                    }
-                }
-                
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
-                
-                VStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                        .foregroundColor(.clear)
-                        .padding()
-                    
-                    PhotoPicker(selectedItem: $selectedItem) {
-                        Label("Select a photo", systemImage: "photo")
-                    }
-                    .onChange(of: selectedItem) { newItem in
-                        Task {
-                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                myYomangImage.imageData = data
-                                myYomangImage.croppedImageData = nil
-                            }
+                if myYomangImage.drawingImage != nil {
+                    Image(uiImage: myYomangImage.drawingImage!)
+                        .resizable()
+                        .scaledToFill()
+                        .mask {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: Constants.widgetSize.width,
+                                       height: Constants.widgetSize.height)
                         }
-                        displayPhotoCropper = true
-                    }
+                } else {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(.gray)
+                        .padding()
+                        .frame(width: UIScreen.width, height: UIScreen.width, alignment: .center)
                 }
             }
-            .navigationTitle("")
-            .navigationDestination(isPresented: $displayPhotoCropper) {
-                PhotoCropView(myYomangImage: $myYomangImage, popToRoot: $displayPhotoCropper)
+            .frame(width: UIScreen.width, height: UIScreen.height, alignment: .center)
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: UIScreen.width, height: UIScreen.width)
+                    .foregroundColor(.clear)
+                    .padding()
+                
+                PhotoPicker(selectedItem: $selectedItem) {
+                    Label("Select a photo", systemImage: "photo")
+                }
+                .onChange(of: selectedItem) { newItem in
+                    Task {
+                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                            myYomangImage.imageData = data
+                            myYomangImage.croppedImageData = nil
+                        }
+                    }
+                    displayPhotoCropper = true
+                }
             }
+        }
+        .navigationTitle("")
+        .navigationDestination(isPresented: $displayPhotoCropper) {
+            PhotoCropView(myYomangImage: $myYomangImage, popToRoot: $displayPhotoCropper)
         }
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
