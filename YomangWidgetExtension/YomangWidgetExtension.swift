@@ -88,6 +88,10 @@ struct YomangWidgetEntryView: View {
             Image(uiImage: entry.image)
                 .resizable()
                 .scaledToFill()
+            VStack {
+                Spacer()
+                Text(entry.date, style: .time)
+            }
         }
     }
 }
