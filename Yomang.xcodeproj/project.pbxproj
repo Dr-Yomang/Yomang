@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
-		2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */; };
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
@@ -53,7 +52,7 @@
 		AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */; };
 		AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
-		ADED59392A975FE4007E3EB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */; };
+		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ADED59432A97845E007E3EB9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED59422A97845E007E3EB9 /* Secrets.swift */; };
 		ADED59442A978470007E3EB9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED59422A97845E007E3EB9 /* Secrets.swift */; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
@@ -70,6 +69,7 @@
 		ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */; };
 		ADFF610F2A8D04FE00F8FBBA /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */; };
 		ADFF61112A8D04FE00F8FBBA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */; };
+		C13E021A2A9670850067C48C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13E02192A9670850067C48C /* GoogleService-Info.plist */; };
 		C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A812A6EC40F00DD9E02 /* ReactionView.swift */; };
 		C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1982A842A6EC5FF00DD9E02 /* Lottie */; };
 		C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A882A6EC6B000DD9E02 /* LottieView.swift */; };
@@ -105,7 +105,6 @@
 /* Begin PBXFileReference section */
 		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
-		2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		ADED59422A97845E007E3EB9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		C13E02192A9670850067C48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C1982A8A2A6EC90900DD9E02 /* reaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reaction.json; sourceTree = "<group>"; };
@@ -363,7 +363,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				2F12888B2A592CED0054FD6B /* GoogleService-Info.plist */,
+				C13E02192A9670850067C48C /* GoogleService-Info.plist */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD8FFE312A90DFBB00A7459A /* Preview Content */,
@@ -500,7 +500,7 @@
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
 				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
-				ADED59392A975FE4007E3EB9 /* GoogleService-Info.plist in Resources */,
+				ADED59392A975FE4007E3EB9 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,12 +509,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
+				C13E021A2A9670850067C48C /* GoogleService-Info.plist in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
 				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
 				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
 				C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */,
 				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
-				2F12888C2A592CED0054FD6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,7 +643,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang.YomangWidgetExtension";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -675,7 +675,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang.YomangWidgetExtension";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -811,7 +811,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				DEVELOPMENT_TEAM = XF4GNZL7MP;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -854,8 +854,8 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
+				DEVELOPMENT_TEAM = XF4GNZL7MP;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XF4GNZL7MP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Yomang/Resources/Info.plist;

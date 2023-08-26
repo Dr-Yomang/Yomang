@@ -16,38 +16,45 @@ struct ReactionView: View {
     @Binding var yomangIndex: Int
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color(hex: 0x3D3D3D))
-                .frame(height: 72)
-                .cornerRadius(20)
-                .opacity(0.7)
-                .padding(.horizontal, 20)
-            
-            if animationInProgress {
-                LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
-            }
+        VStack {
             
             Spacer()
             
-            HStack {
-                Button {
-                    reactAction(selectedIndex: 0, lottieName: "reaction")
-                } label: {
-                    ReactionButtonView(color: .blue)
-                }
-                Button {
-                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
-                } label: {
-                    ReactionButtonView(color: .red)
+            ZStack {
+                Rectangle()
+                    .fill(Color(hex: 0x3D3D3D))
+                    .frame(height: 72)
+                    .cornerRadius(20)
+                    .opacity(0.7)
+                    .padding(.horizontal, 20)
+                
+                Spacer()
+                
+                HStack {
+                    Button {
+                        reactAction(selectedIndex: 0, lottieName: "reaction")
+                    } label: {
+                        ReactionButtonView(color: .blue)
+                    }
+                    Button {
+                        reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                    } label: {
+                        ReactionButtonView(color: .red)
+                    }
+                    
+                    Button {
+                        reactAction(selectedIndex: 2, lottieName: "thirdreaction")
+                    } label: {
+                        ReactionButtonView(color: .green)
+                    }
                 }
                 
-                Button {
-                    reactAction(selectedIndex: 2, lottieName: "thirdreaction")
-                } label: {
-                    ReactionButtonView(color: .green)
+                if animationInProgress {
+                    LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
+                        .frame(width: 100, height: 50)
                 }
             }
+            .padding(.bottom, 70)
         }
     }
     
