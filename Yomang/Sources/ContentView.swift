@@ -13,11 +13,11 @@ struct ContentView: View {
             if showSplash {
                 SplashView()
             } else { // hide splash
-                if let user = viewModel.user {
-                    if user.username == nil {
-                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
-                    } else {
+                if viewModel.user != nil {
+                    if viewModel.username != nil {
                         YomangView(matchingIdFromUrl: $matchingIdFromUrl)
+                    } else {
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
                     }
                 } else {
                     LoginView(matchingIdFromUrl: $matchingIdFromUrl)

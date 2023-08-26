@@ -45,7 +45,7 @@ struct Provider: TimelineProvider {
     }
     
     func fetchFromFirestore(completion: @escaping(Bool) -> Void) {
-        guard let user = Auth.auth().currentUser else {
+        guard Auth.auth().currentUser != nil else {
             completion(false)
             return
         }
