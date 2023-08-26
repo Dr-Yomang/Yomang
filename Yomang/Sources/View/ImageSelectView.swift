@@ -33,7 +33,6 @@ struct ImageSelectView: View {
     
     @State private var selectedItem: PhotosPickerItem?
     @Binding var myYomangImage: MyYomangImage
-    
     @State var displayPhotoCropper = false
     
     var body: some View {

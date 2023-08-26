@@ -11,6 +11,6 @@ import SwiftUI
 @main
 struct YomangWidgetExtensionBundle: WidgetBundle {
     var body: some Widget {
-        YomangWidgetExtension()
+        YomangWidget()
     }
 }

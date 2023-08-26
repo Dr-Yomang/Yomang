@@ -2,7 +2,7 @@
 //  UIScreen+Extension.swift
 //  Yomang
 //
-//  Created by jose Yun on 2023/08/24.
+//  Created by 제나 on 2023/08/20.
 //
 
 import SwiftUI

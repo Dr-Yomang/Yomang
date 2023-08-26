@@ -1,24 +1,47 @@
 import SwiftUI
-import CryptoKit
-import FirebaseAuth
-import AuthenticationServices
 
 struct ContentView: View {
     
-    @Binding var matchingIDTest: String?
-    @State var nowuser = Auth.auth().currentUser
+    @EnvironmentObject var viewModel: AuthViewModel
+    @State private var showSplash = true
+    @Binding var matchingIdFromUrl: String?
     
     var body: some View {
-        VStack {
-            AppleLoginButtonView()
-            Text(matchingIDTest ?? "noID")
-            Text(nowuser?.uid ?? "No")
+        ZStack {
+            Color.black.ignoresSafeArea()
+            
+            if showSplash {
+                SplashView()
+            } else { // hide splash
+                if viewModel.user != nil {
+                    if viewModel.username != nil {
+                        YomangView(matchingIdFromUrl: $matchingIdFromUrl)
+                    } else {
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
+                    }
+                } else {
+                    LoginView(matchingIdFromUrl: $matchingIdFromUrl)
+
+                }
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { showSplash.toggle() })
         }
     }
 }
 
-struct AppleLoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(matchingIDTest: .constant(nil))
+struct SplashView: View {
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(LinearGradient(colors: [Color.black, Color(hex: 0x2F2745)], startPoint: .top, endPoint: .bottom))
+            
+            Text("YOMANG")
+                .font(.system(size: 48))
+                .bold()
+                .foregroundColor(.white)
+                .offset(y: -200)
+        }.ignoresSafeArea()
     }
 }
