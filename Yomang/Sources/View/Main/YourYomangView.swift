@@ -11,12 +11,11 @@ import SwiftUI
 struct YourYomangView: View {
     
     @State private var index = 0
-    
     @State private var isScaleEffect: Bool = false
     @State private var isWaveEffect: Bool = false
     @State private var effectOpacityToggle: [Bool] = Array(repeating: false, count: 5)
     @State private var effectSizeToggle: [Bool] = Array(repeating: false, count: 5)
-    @ObservedObject var viewModel: YourYomangViewModel
+    @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
     
     var body: some View {
@@ -30,7 +29,6 @@ struct YourYomangView: View {
                         .offset(x: UIScreen.width / 2, y: 1100)
                         .ignoresSafeArea()
                 )
-            
             ZStack {
                 if isWaveEffect {
                     ForEach(0 ..< 5) { index in
@@ -67,13 +65,15 @@ struct YourYomangView: View {
                         .scaleEffect(isScaleEffect ? 1.05 : 1)
                 }
             }
-            .frame(width: UIScreen.width - Constants.yomangPadding, height: UIScreen.width - Constants.yomangPadding)
+            .frame(width: UIScreen.width - Constants.yomangPadding,
+                   height: UIScreen.width - Constants.yomangPadding)
             .offset(y: -56)
             
             VStack {
-                if !viewModel.connectWithPartner {
-                    ReactionView(viewModel: viewModel, yomangIndex: $index)
-                    
+                if viewModel.connectWithPartner {
+                    if viewModel.data.count > 0 {
+                        ReactionView(viewModel: viewModel, yomangIndex: $index)
+                    }
                 } else {
                     ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
                               ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {

@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct YomangView: View {
-    
     @Binding var matchingIdFromUrl: String?
-    @ObservedObject var yourYomangViewModel = YourYomangViewModel()
-    @ObservedObject var myYomangViewModel = MyYomangViewModel()
     @State private var selectedTag = 1
-    @Binding var nickname: String
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.black
                     .ignoresSafeArea()
@@ -24,10 +20,10 @@ struct YomangView: View {
                 TabView(selection: $selectedTag) {
                     HistoryView(selectedTag: $selectedTag)
                         .tag(0)
-                    YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
+                    YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(1)
                     
-                    MyYomangView(viewModel: myYomangViewModel, nickname: $nickname)
+                    MyYomangView()
                         .tag(2)
                 }
                 .ignoresSafeArea()
@@ -57,13 +53,5 @@ struct YomangView: View {
                 
             }
         }
-    }
-}
-
-struct YomangView_Previews: PreviewProvider {
-    @State static var matchingId: String? = "itms-apps://itunes.apple.com/app/6461822956"
-    @State static var nickname: String = "나의 닉네임"
-    static var previews: some View {
-        YomangView(matchingIdFromUrl: $matchingId, nickname: $nickname)
     }
 }

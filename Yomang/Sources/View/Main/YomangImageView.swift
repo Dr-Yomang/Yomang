@@ -14,42 +14,44 @@ struct YomangImageView: View {
     @Binding var index: Int
     
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                RoundedRectangle(cornerRadius: 24)
+        ZStack {
+            RoundedRectangle(cornerRadius: 16)
+                .foregroundColor(.white)
+                .opacity(0.2)
+                .frame(width: UIScreen.width - 40, height: Constants.widgetSize.height)
+                .padding(.horizontal, 20)
+            if data.count == 0 {
+                RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
                     .opacity(0.2)
-                    .frame(width: geo.size.width, height: geo.size.width)
-                if data.count == 0 {
-                    RoundedRectangle(cornerRadius: 24)
-                        .foregroundColor(.white)
-                        .opacity(0.2)
-                        .frame(height: geo.size.width)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24)
-                                .strokeBorder(style: StrokeStyle(lineWidth: 3))
-                                .foregroundColor(.white)
-                                .opacity(0.5)
-                                .frame(height: geo.size.width)
-                            )
-                } else {
-                    KFImage(URL(string: data[index].imageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geo.size.width, height: geo.size.width)
-                        .clipShape(RoundedRectangle(cornerRadius: 24))
-                        .overlay(
-                            ZStack {
-                                if AuthViewModel.shared.user?.partnerId == nil {
-                                    Text("아직 파트너와\n연결되지 않았어요")
-                                        .multilineTextAlignment(.center)
-                                        .font(.headline)
-                                }
+                    .frame(width: UIScreen.width - 40, height: Constants.widgetSize.height)
+                    .padding(.horizontal, 20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                            .foregroundColor(.white)
+                            .opacity(0.5)
+                            .frame(width: UIScreen.width - 40, height: Constants.widgetSize.height)
+                            .padding(.horizontal, 20)
+                    )
+            } else {
+                KFImage(URL(string: data[index].imageUrl))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.width - 40, height: Constants.widgetSize.height)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .padding(.horizontal, 20)
+                    .overlay(
+                        ZStack {
+                            if AuthViewModel.shared.user?.partnerId == nil {
+                                Text("아직 파트너와\n연결되지 않았어요")
+                                    .multilineTextAlignment(.center)
+                                    .font(.headline)
                             }
-                        )
-                }
-            }//  ZStack
-        }//  GeometryReader
+                        }
+                    )
+            }
+        }//  ZStack
     }
 }
 

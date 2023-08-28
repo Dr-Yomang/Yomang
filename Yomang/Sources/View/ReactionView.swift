@@ -19,7 +19,7 @@ struct ReactionView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(.white)
-                .frame(height: 80)
+                .frame(width: UIScreen.width - 40, height: 80)
                 .opacity(0.5)
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
@@ -28,11 +28,6 @@ struct ReactionView: View {
                         .frame(height: 80)
                         .opacity(0.5)
                 )
-            
-            if animationInProgress {
-                LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
-            }
-                        
             HStack(spacing: 24) {
                 Button {
                     reactAction(selectedIndex: 0, lottieName: "reaction")
@@ -54,6 +49,9 @@ struct ReactionView: View {
                 } label: {
                     ReactionButtonView(imageName: "yt_surprise")
                 }
+            }
+            if animationInProgress {
+                LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
             }
         }
     }

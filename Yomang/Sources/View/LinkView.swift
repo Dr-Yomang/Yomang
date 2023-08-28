@@ -12,7 +12,7 @@ struct LinkView: View {
     @State private var displayedText = ""
     @State private var fullText = ""
     @State private var buttonText = ""
-    @Binding var nickname: String
+    @State private var nickname = ""
     @Binding var matchingIdFromUrl: String?
     @State private var jumpToggle = false
     @State private var rotationToggle = false
@@ -135,7 +135,8 @@ struct LinkView: View {
                     }
                     .disabled(displayedText < fullText)
                     if viewModel.user?.partnerId == nil {
-                        ShareLink(item: "share") {
+                        ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
+                                  ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
                             RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.white)
                                 .frame(height: 56)
@@ -271,12 +272,5 @@ struct NicknameTextFieldView: View {
                 .scaleEffect(1.1)
                 .offset(y: -20)
         }.fixedSize()
-    }
-}
-
-struct LinkView_Previews: PreviewProvider {
-    @State static var nickname: String = ""
-    static var previews: some View {
-        LinkView(nickname: $nickname, matchingIdFromUrl: .constant("dlkj23lkjfoij4"))
     }
 }
