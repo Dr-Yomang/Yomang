@@ -49,35 +49,46 @@ struct MyYomangView: View {
                     .frame(width: UIScreen.width - Constants.yomangPadding, height: UIScreen.width - Constants.yomangPadding)
                     .offset(y: -56)
                 
-                PhotoPicker(selectedItem: $selectedItem) {
-                    Label("Select a photo", systemImage: "photo")
-                }
-                .onChange(of: selectedItem) { newItem in
-                    Task {
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                            myYomangImage.imageData = data
-                            myYomangImage.croppedImageData = nil
+                VStack {
+                    PhotoPicker(selectedItem: $selectedItem) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 28)
+                                .foregroundColor(Color(hex: 0x3D3D3D))
+                                .frame(width: 112, height: 72)
+                            Text("보내기")
+                                .foregroundColor(.white)
+                                .font(.title2)
                         }
                     }
-                    displayPhotoCropper = true
+                    .onChange(of: selectedItem) { newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                myYomangImage.imageData = data
+                                myYomangImage.croppedImageData = nil
+                            }
+                        }
+                        displayPhotoCropper = true
+                    }
+                    //                    .onTapGesture {
+                    //                        DispatchQueue.main.async {
+                    //                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    //                            withAnimation(.easeIn(duration: 0.3)) {
+                    //                                isScaleEffect = true
+                    //                            }
+                    //                        }
+                    //                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    //                            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                    //                            withAnimation(.easeOut(duration: 0.5)) {
+                    //                                isScaleEffect = false
+                    //                            }
+                    //                            // TODO: - upload my yomang
+                    //                        }
+                    //                    }
+                    //                    .scaleEffect(isScaleEffect ? 1.05 : 1)
                 }
-                //                    .onTapGesture {
-                //                        DispatchQueue.main.async {
-                //                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                //                            withAnimation(.easeIn(duration: 0.3)) {
-                //                                isScaleEffect = true
-                //                            }
-                //                        }
-                //                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                //                            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                //                            withAnimation(.easeOut(duration: 0.5)) {
-                //                                isScaleEffect = false
-                //                            }
-                //                            // TODO: - upload my yomang
-                //                        }
-                //                    }
-                //                    .scaleEffect(isScaleEffect ? 1.05 : 1)
-                .offset(y: 156)
+                .padding(Constants.yomangPadding / 2)
+                .offset(y: UIScreen.width / 2.2)
+                
                 VStack {
                     Text(AuthViewModel.shared.username ?? "나의 요망")
                         .font(.title3)
@@ -112,8 +123,5 @@ private struct PhotoPicker: View {
             photoLibrary: .shared()) {
                 AnyView(label)
             }
-            .foregroundColor(Color(UIColor.systemBackground))
-            .tint(.nav100)
-            .buttonStyle(.borderedProminent)
     }
 }
