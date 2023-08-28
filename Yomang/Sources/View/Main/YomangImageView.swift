@@ -17,12 +17,21 @@ struct YomangImageView: View {
         GeometryReader { geo in
             ZStack {
                 RoundedRectangle(cornerRadius: 24)
-                    .fill(Color(hex: 0x3D3D3D).opacity(0.4))
+                    .foregroundColor(.white)
+                    .opacity(0.2)
                     .frame(width: geo.size.width, height: geo.size.width)
                 if data.count == 0 {
                     RoundedRectangle(cornerRadius: 24)
-                        .fill(Color(hex: 0x3D3D3D))
+                        .foregroundColor(.white)
+                        .opacity(0.2)
                         .frame(height: geo.size.width)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 24)
+                                .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                                .foregroundColor(.white)
+                                .opacity(0.5)
+                                .frame(height: geo.size.width)
+                            )
                 } else {
                     KFImage(URL(string: data[index].imageUrl))
                         .resizable()

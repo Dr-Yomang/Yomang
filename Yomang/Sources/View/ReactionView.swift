@@ -17,34 +17,42 @@ struct ReactionView: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(Color(hex: 0x3D3D3D))
-                .frame(height: 72)
-                .cornerRadius(16)
-                .opacity(0.7)
+            RoundedRectangle(cornerRadius: 16)
+                .foregroundColor(.white)
+                .frame(height: 80)
+                .opacity(0.5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                        .foregroundColor(.white)
+                        .frame(height: 80)
+                        .opacity(0.5)
+                )
             
             if animationInProgress {
                 LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
             }
-            
-            Spacer()
-            
-            HStack {
+                        
+            HStack(spacing: 24) {
                 Button {
                     reactAction(selectedIndex: 0, lottieName: "reaction")
                 } label: {
-                    ReactionButtonView(color: .blue)
+                    ReactionButtonView(imageName: "yt_aeng")
                 }
                 Button {
                     reactAction(selectedIndex: 1, lottieName: "secondreaction")
                 } label: {
-                    ReactionButtonView(color: .red)
+                    ReactionButtonView(imageName: "yt_great")
                 }
-                
                 Button {
-                    reactAction(selectedIndex: 2, lottieName: "thirdreaction")
+                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
                 } label: {
-                    ReactionButtonView(color: .green)
+                    ReactionButtonView(imageName: "yt_love")
+                }
+                Button {
+                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                } label: {
+                    ReactionButtonView(imageName: "yt_surprise")
                 }
             }
         }
@@ -64,11 +72,57 @@ struct ReactionView: View {
 }
 
 struct ReactionButtonView: View {
-    let color: Color
+    let imageName: String
     var body: some View {
         Circle()
-            .foregroundColor(color)
-            .frame(width: 40)
-            .padding()
+            .foregroundColor(.white)
+            .frame(width: 52)
+            .overlay(
+                Group {
+                    switch imageName {
+                    case "yt_aeng":
+                        Image("yt_aeng")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(y: 5)
+                            .clipShape(Circle())
+                        
+                    case "yt_great":
+                        Image("yt_great")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(x: 3, y: 25)
+                            .clipShape(Circle())
+
+                    case "yt_love":
+                        Image("yt_love")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(x: 5, y: 25)
+                            .clipShape(Circle())
+
+                    case "yt_surprise":
+                        Image("yt_surprise")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(y: 20)
+                            .clipShape(Circle())
+
+                    default:
+                        EmptyView()
+                    }
+                }
+            )
+    }
+}
+
+struct ReactionView_Previews: PreviewProvider {
+    @State static var index = 0
+    static var previews: some View {
+        ReactionView(viewModel: YourYomangViewModel(), yomangIndex: $index)
     }
 }

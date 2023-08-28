@@ -12,19 +12,22 @@ struct YomangView: View {
     @Binding var matchingIdFromUrl: String?
     @ObservedObject var yourYomangViewModel = YourYomangViewModel()
     @ObservedObject var myYomangViewModel = MyYomangViewModel()
+    @State private var selectedTag = 1
+
     var body: some View {
         NavigationView {
             ZStack {
                 Color.black
                     .ignoresSafeArea()
                 
-                TabView {
-                    YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
+                TabView(selection: $selectedTag) {
+                    HistoryView(selectedTag: $selectedTag)
                         .tag(0)
-                    
-                    MyYomangView(viewModel: myYomangViewModel)
+                    YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(1)
                     
+                    MyYomangView(viewModel: myYomangViewModel)
+                        .tag(2)
                 }
                 .ignoresSafeArea()
                 .tabViewStyle(.page(indexDisplayMode: .always))
@@ -32,10 +35,15 @@ struct YomangView: View {
                 .navigationBarItems(trailing:
                                         HStack {
                     NavigationLink {
-                        HistoryView()
+                        HistoryView(selectedTag: $selectedTag)
+                            .navigationTitle(Text("히스토리"))
+                            .navigationBarTitleDisplayMode(.inline)
+                            
                     } label: {
-                        Image(systemName: "heart")
-                            .foregroundColor(.white)
+                        if selectedTag != 0 {
+                            Image(systemName: "heart")
+                                .foregroundColor(.white)
+                        }
                     }
                     
                     NavigationLink {
@@ -45,6 +53,7 @@ struct YomangView: View {
                             .foregroundColor(.white)
                     }
                 })
+                
             }
         }
     }

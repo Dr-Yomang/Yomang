@@ -23,43 +23,48 @@ struct YourYomangView: View {
         ZStack {
             Color.black
                 .overlay(
-                Image("YomangMoon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 1800, height: 1800)
-                    .offset(x: UIScreen.width / 2, y: 1050)
-                    .ignoresSafeArea()
+                    Image("YomangMoon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 1800, height: 1800)
+                        .offset(x: UIScreen.width / 2, y: 1100)
+                        .ignoresSafeArea()
                 )
             
             ZStack {
-                ForEach(0 ..< 5) { index in
-                    EffectLoadingView(effectOpacityToggle: effectOpacityToggle[index], effectSizeToggle: effectSizeToggle[index], delayTime: 0.4 * Double(index))
+                if isWaveEffect {
+                    ForEach(0 ..< 5) { index in
+                        EffectLoadingView(effectOpacityToggle: effectOpacityToggle[index], effectSizeToggle: effectSizeToggle[index], delayTime: 0.2 * Double(index))
+                    }
+                    .scaleEffect(isScaleEffect ? 1.05 : 1)
                 }
-                .opacity(isWaveEffect ? 1 : 0)
                 
                 YomangImageView(data: viewModel.data, index: $index)
+                    .onTapGesture {
+                        DispatchQueue.main.async {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            isWaveEffect = true
+                            withAnimation(.easeIn(duration: 0.3)) {
+                                isScaleEffect = true
+                            }
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                            withAnimation(.easeOut(duration: 0.5)) {
+                                isScaleEffect = false
+                                isWaveEffect = false
+                            }
+                        }
+                    }
                     .scaleEffect(isScaleEffect ? 1.05 : 1)
-                    .gesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged {_ in
-                                withAnimation(.easeIn(duration: 0.2)) {
-                                    isScaleEffect = true
-                                    isWaveEffect = true
-                                }
-                                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                            }
-                            .onEnded {_ in
-                                withAnimation(.easeIn(duration: 1)) {
-                                    isScaleEffect = false
-                                    isWaveEffect = false
-                                }
-                            }
-                    )
-                
+                                
                 if viewModel.data.count == 0 {
-                    Text("상대방의 첫 요망을 기다리고 있어요")
-                        .font(.headline)
+                    Text("상대방의 첫 요망을\n기다리고 있어요!")
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .bold()
                         .foregroundColor(.white)
+                        .scaleEffect(isScaleEffect ? 1.05 : 1)
                 }
             }
             .frame(width: UIScreen.width - Constants.yomangPadding, height: UIScreen.width - Constants.yomangPadding)
@@ -68,34 +73,35 @@ struct YourYomangView: View {
             VStack {
                 if !viewModel.connectWithPartner {
                     ReactionView(viewModel: viewModel, yomangIndex: $index)
+                    
                 } else {
-                        ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
-                                  ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
-                            RoundedRectangle(cornerRadius: 16)
-                                .foregroundColor(.white)
-                                .frame(height: 56)
-                                .overlay(
-                                    Text("파트너 연결 링크 다시 보내기")
-                                        .foregroundColor(.black)
-                                        .font(.title3)
-                                        .bold()
-                                )
-                                .onAppear {
-                                    if !viewModel.connectWithPartner {
-                                        if let pid = matchingIdFromUrl {
-                                            AuthViewModel.shared.matchTwoUser(partnerId: pid)
-                                        }
+                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
+                              ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
+                        RoundedRectangle(cornerRadius: 16)
+                            .foregroundColor(.white)
+                            .frame(height: 56)
+                            .overlay(
+                                Text("파트너 연결 링크 다시 보내기")
+                                    .foregroundColor(.black)
+                                    .font(.title3)
+                                    .bold()
+                            )
+                            .onAppear {
+                                if !viewModel.connectWithPartner {
+                                    if let pid = matchingIdFromUrl {
+                                        AuthViewModel.shared.matchTwoUser(partnerId: pid)
                                     }
+                                }
                             }
-                        }
                     }
+                }
             }
             .padding(Constants.yomangPadding / 2)
             .offset(y: UIScreen.width / 2.2)
             
             VStack {
                 Text("상대의 닉네임")
-                    .font(.title2)
+                    .font(.title3)
                     .bold()
                     .foregroundColor(.black)
                     .padding()
@@ -112,18 +118,18 @@ struct YourYomangView: View {
                                         .offset(x: 5)
                                 )
                                 .overlay(
-                                Circle()
-                                    .strokeBorder(style: StrokeStyle(lineWidth: 3))
-                                    .foregroundColor(.white)
+                                    Circle()
+                                        .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                                        .foregroundColor(.white)
                                 )
-                                .offset(y: -60)
+                                .offset(y: -56)
                                 .scaleEffect(isScaleEffect ? 1.05 : 1)
-
+                            
                             RoundedRectangle(cornerRadius: 16)
-                                .frame(height: 56)
+                                .frame(height: 48)
                         }
-                )
-                    
+                    )
+                
             }
             .offset(y: -UIScreen.width / 1.45)
         }
