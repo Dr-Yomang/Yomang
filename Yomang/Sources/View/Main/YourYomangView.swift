@@ -46,6 +46,7 @@ struct YourYomangView: View {
                                     isScaleEffect = true
                                     isWaveEffect = true
                                 }
+                                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                             }
                             .onEnded {_ in
                                 withAnimation(.easeIn(duration: 1)) {
