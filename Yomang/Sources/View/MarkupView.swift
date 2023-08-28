@@ -1,0 +1,124 @@
+//
+//  MarkupView.swift
+//  Yomang
+//
+//  Created by jose Yun on 2023/08/20.
+//
+
+import SwiftUI
+import PencilKit
+
+struct MarkupView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.undoManager) private var undoManager
+    @Binding var popToRoot: Bool
+    
+    @State private var canvasView = PKCanvasView()
+    
+    @Binding var myYomangImage: MyYomangImage
+    @State var isTest: Bool = false
+    
+    @ObservedObject var viewModel: MyYomangViewModel
+    @Binding var index: Int
+    @Binding var isUploadInProgress: Bool
+    
+    private var uiImage: UIImage {
+        if let data = myYomangImage.croppedImageData,
+           let image = UIImage(data: data) {
+            return image
+        } else {
+            return UIImage(systemName: "person.crop.circle")!
+        }
+    }
+    
+    var displayImage: UIImage? {
+        if let data = myYomangImage.croppedImageData,
+           let image = UIImage(data: data) {
+            return image
+        } else {
+            return nil
+        }
+    }
+    
+    var body: some View {
+        ZStack {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFill()
+                .frame(width: Constants.widgetSize.width,
+                       height: Constants.widgetSize.height)
+                .mask {
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: Constants.widgetSize.width,
+                               height: Constants.widgetSize.height)
+                }
+            
+            MyCanvas(canvasView: $canvasView)
+                .frame(width: Constants.widgetSize.width,
+                       height: Constants.widgetSize.height)
+                .mask {
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: Constants.widgetSize.width,
+                               height: Constants.widgetSize.height)
+                }
+        }
+        
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                HStack {
+                    Button {
+                        undoManager?.undo()
+                    } label: {
+                        Image(systemName: "arrow.uturn.backward.circle")
+                    }
+                    Button {
+                        undoManager?.redo()
+                    } label: {
+                        Image(systemName: "arrow.uturn.forward.circle")
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Text("마크업")
+                    .foregroundColor(.white)
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("완료") {
+                    myYomangImage.drawingImage = takeCapture()
+                    if let image = myYomangImage.drawingImage {
+                        viewModel.uploadMyYomang(image: image) { _ in
+                            index = 0
+                            isUploadInProgress = false
+                            viewModel.fetchMyYomang()
+                            popToRoot = false
+                        }
+                    }
+                }
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color(red: 0.15, green: 0.15, blue: 0.15), for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .ignoresSafeArea()
+        .accentColor(.nav100)
+    }
+    
+    func takeCapture() -> UIImage {
+        var image: UIImage?
+        guard let currentLayer = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.layer else { return UIImage() }
+        
+        let currentScale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(currentLayer.frame.size, false, currentScale)
+        
+        guard let currentContext = UIGraphicsGetCurrentContext() else { return UIImage() }
+        
+        currentLayer.render(in: currentContext)
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image ?? UIImage()
+    }
+}
