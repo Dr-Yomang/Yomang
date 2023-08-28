@@ -12,7 +12,7 @@ struct LinkView: View {
     @State private var displayedText = ""
     @State private var fullText = ""
     @State private var buttonText = ""
-    @State private var nickname = ""
+    @Binding var nickname: String
     @Binding var matchingIdFromUrl: String?
     @State private var jumpToggle = false
     @State private var rotationToggle = false
@@ -275,7 +275,8 @@ struct NicknameTextFieldView: View {
 }
 
 struct LinkView_Previews: PreviewProvider {
+    @State static var nickname: String = ""
     static var previews: some View {
-        LinkView(matchingIdFromUrl: .constant("dlkj23lkjfoij4"))
+        LinkView(nickname: $nickname, matchingIdFromUrl: .constant("dlkj23lkjfoij4"))
     }
 }

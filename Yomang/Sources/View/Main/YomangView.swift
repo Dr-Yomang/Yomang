@@ -13,6 +13,7 @@ struct YomangView: View {
     @ObservedObject var yourYomangViewModel = YourYomangViewModel()
     @ObservedObject var myYomangViewModel = MyYomangViewModel()
     @State private var selectedTag = 1
+    @Binding var nickname: String
 
     var body: some View {
         NavigationView {
@@ -26,7 +27,7 @@ struct YomangView: View {
                     YourYomangView(viewModel: yourYomangViewModel, matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(1)
                     
-                    MyYomangView(viewModel: myYomangViewModel)
+                    MyYomangView(viewModel: myYomangViewModel, nickname: $nickname)
                         .tag(2)
                 }
                 .ignoresSafeArea()
@@ -61,8 +62,8 @@ struct YomangView: View {
 
 struct YomangView_Previews: PreviewProvider {
     @State static var matchingId: String? = "itms-apps://itunes.apple.com/app/6461822956"
-    
+    @State static var nickname: String = "나의 닉네임"
     static var previews: some View {
-        YomangView(matchingIdFromUrl: $matchingId)
+        YomangView(matchingIdFromUrl: $matchingId, nickname: $nickname)
     }
 }

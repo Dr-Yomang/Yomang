@@ -15,6 +15,7 @@ struct MyYomangView: View {
     @State private var isFetchingInProgress = false
     @State private var isScaleEffect = false
     @ObservedObject var viewModel: MyYomangViewModel
+    @Binding var nickname: String
     
     var body: some View {
         ZStack {
@@ -67,7 +68,7 @@ struct MyYomangView: View {
                 .offset(y: -56)
             
             VStack {
-                Text("나의 닉네임")
+                Text(nickname)
                     .font(.title3)
                     .bold()
                     .foregroundColor(.black)
@@ -84,8 +85,8 @@ struct MyYomangView: View {
 }
 
 struct MyYomangView_Previews: PreviewProvider {
-    
+    @State static var nickname: String = "나의 닉네임"
     static var previews: some View {
-        MyYomangView(viewModel: MyYomangViewModel())
+        MyYomangView(viewModel: MyYomangViewModel(), nickname: $nickname)
     }
 }

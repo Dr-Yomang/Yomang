@@ -5,6 +5,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSplash = true
     @Binding var matchingIdFromUrl: String?
+    @State var nickname: String = "나의 닉네임"
     
     var body: some View {
         ZStack {
@@ -15,9 +16,9 @@ struct ContentView: View {
             } else { // hide splash
                 if let user = viewModel.user {
                     if user.username == nil {
-                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
+                        LinkView(nickname: $nickname, matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
-                        YomangView(matchingIdFromUrl: $matchingIdFromUrl)
+                        YomangView(matchingIdFromUrl: $matchingIdFromUrl, nickname: $nickname)
                     }
                 } else {
                     LoginView(matchingIdFromUrl: $matchingIdFromUrl)
