@@ -274,9 +274,3 @@ struct NicknameTextFieldView: View {
         }.fixedSize()
     }
 }
-
-struct LinkView_Previews: PreviewProvider {
-    static var previews: some View {
-        LinkView(matchingIdFromUrl: .constant("dlkj23lkjfoij4"))
-    }
-}

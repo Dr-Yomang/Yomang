@@ -13,7 +13,7 @@ struct HistoryView: View {
     private let width = UIScreen.width / 2 - 24
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var viewModel = HistoryViewModel()
-    
+    @Binding var selectedTag: Int
     var body: some View {
         ScrollView {
             ZStack {
@@ -26,7 +26,7 @@ struct HistoryView: View {
                 LazyVGrid(columns: items, content: {
                     ForEach(viewModel.data) { yomang in
                         NavigationLink(
-                            // TODO: history grid 선택하면 어떻게 되는지
+                            // TODO: history grid 선택하면 어떻게 되는지: 큰 사진!
                             destination: EmptyView(),
                             label: {
                                 KFImage(URL(string: yomang.imageUrl))
@@ -41,27 +41,28 @@ struct HistoryView: View {
                 .padding(.top)
             }
         }
-        .navigationTitle(Text("히스토리"))
-        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            viewModel.fetchAllYomang()
+        }
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: .chevronBackward)
-                        .foregroundColor(.white)
+                    if selectedTag != 0 {
+                        Image(systemName: .chevronBackward)
+                            .foregroundColor(.white)
+                    }
                 }
             }
-        }
-        .onAppear {
-            viewModel.fetchAllYomang()
         }
     }
 }
 
 struct HistoryView_Previews: PreviewProvider {
+    @State static var selectedTag = 1
     static var previews: some View {
-        HistoryView()
+        HistoryView(selectedTag: $selectedTag)
     }
 }

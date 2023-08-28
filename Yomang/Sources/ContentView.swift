@@ -5,6 +5,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSplash = true
     @Binding var matchingIdFromUrl: String?
+    @State var nickname: String = "나의 닉네임"
     
     var body: some View {
         ZStack {

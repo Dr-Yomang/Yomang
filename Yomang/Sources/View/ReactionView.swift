@@ -16,45 +16,43 @@ struct ReactionView: View {
     @Binding var yomangIndex: Int
     
     var body: some View {
-        VStack {
-            
-            Spacer()
-            
-            ZStack {
-                Rectangle()
-                    .fill(Color(hex: 0x3D3D3D))
-                    .frame(height: 72)
-                    .cornerRadius(20)
-                    .opacity(0.7)
-                    .padding(.horizontal, 20)
-                
-                Spacer()
-                
-                HStack {
-                    Button {
-                        reactAction(selectedIndex: 0, lottieName: "reaction")
-                    } label: {
-                        ReactionButtonView(color: .blue)
-                    }
-                    Button {
-                        reactAction(selectedIndex: 1, lottieName: "secondreaction")
-                    } label: {
-                        ReactionButtonView(color: .red)
-                    }
-                    
-                    Button {
-                        reactAction(selectedIndex: 2, lottieName: "thirdreaction")
-                    } label: {
-                        ReactionButtonView(color: .green)
-                    }
+        ZStack {
+            RoundedRectangle(cornerRadius: 16)
+                .foregroundColor(.white)
+                .frame(width: UIScreen.width - 40, height: 80)
+                .opacity(0.5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                        .foregroundColor(.white)
+                        .frame(height: 80)
+                        .opacity(0.5)
+                )
+            HStack(spacing: 24) {
+                Button {
+                    reactAction(selectedIndex: 0, lottieName: "reaction")
+                } label: {
+                    ReactionButtonView(imageName: "yt_aeng")
                 }
-                
-                if animationInProgress {
-                    LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
-                        .frame(width: 100, height: 50)
+                Button {
+                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                } label: {
+                    ReactionButtonView(imageName: "yt_great")
+                }
+                Button {
+                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                } label: {
+                    ReactionButtonView(imageName: "yt_love")
+                }
+                Button {
+                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                } label: {
+                    ReactionButtonView(imageName: "yt_surprise")
                 }
             }
-            .padding(.bottom, 70)
+            if animationInProgress {
+                LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
+            }
         }
     }
     
@@ -72,11 +70,57 @@ struct ReactionView: View {
 }
 
 struct ReactionButtonView: View {
-    let color: Color
+    let imageName: String
     var body: some View {
         Circle()
-            .foregroundColor(color)
-            .frame(width: 40)
-            .padding()
+            .foregroundColor(.white)
+            .frame(width: 52)
+            .overlay(
+                Group {
+                    switch imageName {
+                    case "yt_aeng":
+                        Image("yt_aeng")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(y: 5)
+                            .clipShape(Circle())
+                        
+                    case "yt_great":
+                        Image("yt_great")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(x: 3, y: 25)
+                            .clipShape(Circle())
+
+                    case "yt_love":
+                        Image("yt_love")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(x: 5, y: 25)
+                            .clipShape(Circle())
+
+                    case "yt_surprise":
+                        Image("yt_surprise")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 52)
+                            .offset(y: 20)
+                            .clipShape(Circle())
+
+                    default:
+                        EmptyView()
+                    }
+                }
+            )
+    }
+}
+
+struct ReactionView_Previews: PreviewProvider {
+    @State static var index = 0
+    static var previews: some View {
+        ReactionView(viewModel: YourYomangViewModel(), yomangIndex: $index)
     }
 }

@@ -21,11 +21,7 @@
 		68FA63FE2A92501900A68C69 /* EnvironmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */; };
 		68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */; };
 		8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */; };
-		8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47C82A5FD59200A2508A /* MotionObserver.swift */; };
-		8ADF47CF2A5FEB5000A2508A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47CE2A5FEB5000A2508A /* Tab.swift */; };
 		8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D02A5FEB9800A2508A /* YomangView.swift */; };
-		8ADF47D32A5FEEA200A2508A /* ScrollOffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D22A5FEEA200A2508A /* ScrollOffsetModifier.swift */; };
-		8ADF47D52A5FF42700A2508A /* AnimationEndCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D42A5FF42700A2508A /* AnimationEndCallBack.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
 		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
@@ -36,14 +32,12 @@
 		AD0ADC572A544FFB0030B1F9 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */; };
 		AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
 		AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA1B2A52F9DD001D3894 /* ContentView.swift */; };
-		AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */; };
 		AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
 		AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
 		AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */; };
 		AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3992A91699B0011D1D8 /* ImageUploader.swift */; };
-		AD89C39E2A91DABD0011D1D8 /* YomangDateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */; };
 		AD89C3A42A91DD160011D1D8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */; };
 		AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A52A91DF390011D1D8 /* YomangImageView.swift */; };
 		AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */; };
@@ -127,11 +121,7 @@
 		68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangView.swift; sourceTree = "<group>"; };
 		8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangView.swift; sourceTree = "<group>"; };
-		8ADF47C82A5FD59200A2508A /* MotionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionObserver.swift; sourceTree = "<group>"; };
-		8ADF47CE2A5FEB5000A2508A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		8ADF47D02A5FEB9800A2508A /* YomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangView.swift; sourceTree = "<group>"; };
-		8ADF47D22A5FEEA200A2508A /* ScrollOffsetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetModifier.swift; sourceTree = "<group>"; };
-		8ADF47D42A5FF42700A2508A /* AnimationEndCallBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationEndCallBack.swift; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -142,7 +132,6 @@
 		AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		AD0ADC582A54503A0030B1F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIndicatorView.swift; sourceTree = "<group>"; };
 		AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AD3805B72A80E4DE00D02D54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD3805B92A80E4F200D02D54 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -152,7 +141,6 @@
 		AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangViewModel.swift; sourceTree = "<group>"; };
 		AD89C3992A91699B0011D1D8 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
-		AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangDateTextView.swift; sourceTree = "<group>"; };
 		AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		AD89C3A52A91DF390011D1D8 /* YomangImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangImageView.swift; sourceTree = "<group>"; };
 		AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangViewModel.swift; sourceTree = "<group>"; };
@@ -236,7 +224,6 @@
 		2FC2EFBE2A596115008E1056 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8A0DE6D02A611FD600BD2259 /* TabView */,
 				AD12EFCE2A90BD7200CDFBFE /* Main */,
 				ADC347572A5E4B38008F9624 /* SettingView.swift */,
 				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
@@ -249,24 +236,6 @@
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8A0DE6D02A611FD600BD2259 /* TabView */ = {
-			isa = PBXGroup;
-			children = (
-				8ADF47CE2A5FEB5000A2508A /* Tab.swift */,
-				8ADF47D22A5FEEA200A2508A /* ScrollOffsetModifier.swift */,
-				8ADF47D42A5FF42700A2508A /* AnimationEndCallBack.swift */,
-			);
-			path = TabView;
-			sourceTree = "<group>";
-		};
-		8A0DE6D12A611FF300BD2259 /* Motion */ = {
-			isa = PBXGroup;
-			children = (
-				8ADF47C82A5FD59200A2508A /* MotionObserver.swift */,
-			);
-			path = Motion;
 			sourceTree = "<group>";
 		};
 		AD0ADC392A54444C0030B1F9 /* Frameworks */ = {
@@ -292,7 +261,6 @@
 		AD0ADC522A544F810030B1F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8A0DE6D12A611FF300BD2259 /* Motion */,
 				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
 				AD0ADC582A54503A0030B1F9 /* Constants.swift */,
 				AD89C3992A91699B0011D1D8 /* ImageUploader.swift */,
@@ -332,10 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				8ADF47D02A5FEB9800A2508A /* YomangView.swift */,
-				AD12EFCC2A90BB9B00CDFBFE /* TabIndicatorView.swift */,
 				8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */,
 				AD89C3A52A91DF390011D1D8 /* YomangImageView.swift */,
-				AD89C39D2A91DABD0011D1D8 /* YomangDateTextView.swift */,
 				8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */,
 			);
 			path = Main;
@@ -591,14 +557,10 @@
 				ADED59432A97845E007E3EB9 /* Secrets.swift in Sources */,
 				8ADF47D52A5FF42700A2508A /* AnimationEndCallBack.swift in Sources */,
 				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
-				8ADF47CF2A5FEB5000A2508A /* Tab.swift in Sources */,
-				8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
-				AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
-				8ADF47D32A5FEEA200A2508A /* ScrollOffsetModifier.swift in Sources */,
 				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
 				AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */,
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
@@ -621,7 +583,6 @@
 				2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */,
 				AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */,
 				AD89C3A42A91DD160011D1D8 /* Date+Extension.swift in Sources */,
-				AD89C39E2A91DABD0011D1D8 /* YomangDateTextView.swift in Sources */,
 				2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,6 +654,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "요망";
@@ -706,7 +668,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang.YomangWidgetExtension";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -880,13 +843,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/Yomang.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
-				DEVELOPMENT_TEAM = XF4GNZL7MP;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XF4GNZL7MP;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Yomang/Resources/Info.plist;
@@ -904,7 +867,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
