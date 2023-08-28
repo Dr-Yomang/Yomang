@@ -20,9 +20,8 @@ struct ReactionView: View {
             Rectangle()
                 .fill(Color(hex: 0x3D3D3D))
                 .frame(height: 72)
-                .cornerRadius(20)
+                .cornerRadius(16)
                 .opacity(0.7)
-                .padding(.horizontal, 20)
             
             if animationInProgress {
                 LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)

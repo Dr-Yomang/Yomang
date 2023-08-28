@@ -21,12 +21,15 @@ struct YourYomangView: View {
     
     var body: some View {
         ZStack {
-            Image("YomangMoon")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 1800, height: 1800)
-                .offset(x: UIScreen.width / 2, y: 1050)
-                .ignoresSafeArea()
+            Color.black
+                .overlay(
+                Image("YomangMoon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 1800, height: 1800)
+                    .offset(x: UIScreen.width / 2, y: 1050)
+                    .ignoresSafeArea()
+                )
             
             ZStack {
                 ForEach(0 ..< 5) { index in
@@ -58,40 +61,73 @@ struct YourYomangView: View {
                         .foregroundColor(.white)
                 }
             }
-            .frame(width: UIScreen.width - Constants.yomangPadding,height: UIScreen.width - Constants.yomangPadding)
+            .frame(width: UIScreen.width - Constants.yomangPadding, height: UIScreen.width - Constants.yomangPadding)
             .offset(y: -56)
             
-            if viewModel.connectWithPartner {
-                ReactionView(viewModel: viewModel, yomangIndex: $index)
-            } else {
-                VStack {
-                    Spacer()
-                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
-                              ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .foregroundColor(.white)
-                            .frame(height: 56)
-                            .overlay(
-                                Text("파트너 연결 링크 다시 보내기")
-                                    .foregroundColor(.black)
-                                    .font(.title3)
-                                    .bold()
-                                    .foregroundColor(.black)
-                            )
-                    }
-                }
-                .onAppear {
-                    if !viewModel.connectWithPartner {
-                        if let pid = matchingIdFromUrl {
-                            AuthViewModel.shared.matchTwoUser(partnerId: pid)
+            VStack {
+                if !viewModel.connectWithPartner {
+                    ReactionView(viewModel: viewModel, yomangIndex: $index)
+                } else {
+                        ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
+                                  ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
+                            RoundedRectangle(cornerRadius: 16)
+                                .foregroundColor(.white)
+                                .frame(height: 56)
+                                .overlay(
+                                    Text("파트너 연결 링크 다시 보내기")
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                        .bold()
+                                )
+                                .onAppear {
+                                    if !viewModel.connectWithPartner {
+                                        if let pid = matchingIdFromUrl {
+                                            AuthViewModel.shared.matchTwoUser(partnerId: pid)
+                                        }
+                                    }
+                            }
                         }
                     }
-                }
             }
+            .padding(Constants.yomangPadding / 2)
+            .offset(y: UIScreen.width / 2.2)
+            
+            VStack {
+                Text("상대의 닉네임")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.black)
+                    .padding()
+                    .background(
+                        ZStack {
+                            Circle()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.white)
+                                .opacity(0.8)
+                                .overlay(
+                                    Image("Yotto")
+                                        .resizable()
+                                        .frame(width: 80, height: 80)
+                                        .offset(x: 5)
+                                )
+                                .overlay(
+                                Circle()
+                                    .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                                    .foregroundColor(.white)
+                                )
+                                .offset(y: -60)
+                                .scaleEffect(isScaleEffect ? 1.05 : 1)
+
+                            RoundedRectangle(cornerRadius: 16)
+                                .frame(height: 56)
+                        }
+                )
+                    
+            }
+            .offset(y: -UIScreen.width / 1.45)
         }
     }
 }
-
 
 struct YourYomangView_Previews: PreviewProvider {
     @State static var matchingId: String? = "itms-apps://itunes.apple.com/app/6461822956"
