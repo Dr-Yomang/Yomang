@@ -11,6 +11,8 @@ import Firebase
 @main
 struct YomangApp: App {
     @State private var matchingIdFromUrl: String?
+    @UIApplicationDelegateAdaptor(YomangAppDelegate.self) var delegate
+
     init() {
         FirebaseApp.configure()
         do {

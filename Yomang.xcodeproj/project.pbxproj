@@ -10,6 +10,9 @@
 		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
+		2F75F2B52A9CDB34003103BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F75F2B42A9CDB34003103BC /* GoogleService-Info.plist */; };
+		2F75F2B72A9CDC7D003103BC /* YomangAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75F2B62A9CDC7D003103BC /* YomangAppDelegate.swift */; };
+		2F75F2B92A9CDC9E003103BC /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 2F75F2B82A9CDC9E003103BC /* FirebaseDynamicLinks */; };
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
@@ -69,7 +72,6 @@
 		ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */; };
 		ADFF610F2A8D04FE00F8FBBA /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */; };
 		ADFF61112A8D04FE00F8FBBA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */; };
-		C13E021A2A9670850067C48C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13E02192A9670850067C48C /* GoogleService-Info.plist */; };
 		C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A812A6EC40F00DD9E02 /* ReactionView.swift */; };
 		C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1982A842A6EC5FF00DD9E02 /* Lottie */; };
 		C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A882A6EC6B000DD9E02 /* LottieView.swift */; };
@@ -106,6 +108,8 @@
 		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		2F75F2B42A9CDB34003103BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2F75F2B62A9CDC7D003103BC /* YomangAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangAppDelegate.swift; sourceTree = "<group>"; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -150,7 +154,6 @@
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		ADED59422A97845E007E3EB9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
-		C13E02192A9670850067C48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C1982A8A2A6EC90900DD9E02 /* reaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reaction.json; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 				ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */,
 				C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */,
 				ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */,
+				2F75F2B92A9CDC9E003103BC /* FirebaseDynamicLinks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +333,7 @@
 				AD0ADC522A544F810030B1F9 /* Utils */,
 				AD46BA192A52F9DD001D3894 /* YomangApp.swift */,
 				AD46BA1B2A52F9DD001D3894 /* ContentView.swift */,
+				2F75F2B62A9CDC7D003103BC /* YomangAppDelegate.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -363,7 +368,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				C13E02192A9670850067C48C /* GoogleService-Info.plist */,
+				2F75F2B42A9CDB34003103BC /* GoogleService-Info.plist */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD8FFE312A90DFBB00A7459A /* Preview Content */,
@@ -445,6 +450,7 @@
 				ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */,
 				ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */,
 				ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */,
+				2F75F2B82A9CDC9E003103BC /* FirebaseDynamicLinks */,
 			);
 			productName = Yomang;
 			productReference = AD46BA162A52F9DD001D3894 /* Yomang.app */;
@@ -509,7 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
-				C13E021A2A9670850067C48C /* GoogleService-Info.plist in Resources */,
+				2F75F2B52A9CDB34003103BC /* GoogleService-Info.plist in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
 				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
 				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
@@ -570,6 +576,7 @@
 				8ADF47C92A5FD59200A2508A /* MotionObserver.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
 				AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */,
+				2F75F2B72A9CDC7D003103BC /* YomangAppDelegate.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
@@ -945,6 +952,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F75F2B82A9CDC9E003103BC /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
 		AD89C3B22A9214F40011D1D8 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
