@@ -18,29 +18,35 @@ struct YomangImageView: View {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(.white)
                 .opacity(0.2)
-                .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                .frame(width: UIScreen.width - 40,
+                       height: Constants.widgetSize.height / Constants.widgetSize.width * (UIScreen.width - 40))
                 .padding(.horizontal, 20)
             if data.count == 0 {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
                     .opacity(0.2)
-                    .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                    .frame(width: UIScreen.width - 40,
+                           height: Constants.widgetSize.height / Constants.widgetSize.width * (UIScreen.width - 40))
                     .padding(.horizontal, 20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
                             .strokeBorder(style: StrokeStyle(lineWidth: 3))
                             .foregroundColor(.white)
                             .opacity(0.5)
-                            .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                            .frame(width: UIScreen.width - 40,
+                                   height: Constants.widgetSize.height / Constants.widgetSize.width * (UIScreen.width - 40))
                             .padding(.horizontal, 20)
                     )
             } else {
                 KFImage(URL(string: data[index].imageUrl))
                     .resizable()
                     .scaledToFill()
-                    .frame(width: UIScreen.width, height: UIScreen.height, alignment: .center)
+                    .frame(width: UIScreen.width - 40,
+                           height: Constants.widgetSize.height / Constants.widgetSize.width * (UIScreen.width - 40))
                     .mask {
-                        RoundedRectangle(cornerRadius: 16).frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(width: UIScreen.width - 40,
+                                   height: Constants.widgetSize.height / Constants.widgetSize.width * (UIScreen.width - 40))
                     }
                     .padding(.horizontal, 20)
                     .overlay(

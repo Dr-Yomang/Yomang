@@ -46,17 +46,17 @@ struct MarkupView: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 .mask {
                     RoundedRectangle(cornerRadius: 16)
-                        .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                        .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 }
             
             MyCanvas(canvasView: $canvasView)
-                .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 .mask {
                     RoundedRectangle(cornerRadius: 16)
-                        .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
+                        .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 }
         }.offset(y: -28)
         .toolbar {
@@ -106,7 +106,7 @@ struct MarkupView: View {
         .accentColor(.nav100)
     }
     
-    func takeCapture() -> UIImage {
+    private func takeCapture() -> UIImage {
         var image: UIImage?
         guard let currentLayer = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.layer else { return UIImage() }
         
