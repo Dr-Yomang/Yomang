@@ -4,10 +4,6 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)pos.academy.Yomang</string>
-	</array>
 	<key>com.apple.developer.applesignin</key>
 	<array>
 		<string>Default</string>
@@ -15,6 +11,10 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.academy.Yomang</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)pos.academy.Yomang</string>
 	</array>
 </dict>
 </plist>
