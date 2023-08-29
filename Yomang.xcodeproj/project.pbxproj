@@ -36,6 +36,7 @@
 		AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
+		AD7340882A9DFAEA0067EFFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */; };
 		AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3992A91699B0011D1D8 /* ImageUploader.swift */; };
 		AD89C3A42A91DD160011D1D8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */; };
@@ -58,7 +59,6 @@
 		ADED59442A978470007E3EB9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED59422A97845E007E3EB9 /* Secrets.swift */; };
 		ADED59452A9A7D52007E3EB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13E02192A9670850067C48C /* GoogleService-Info.plist */; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
-		ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */; };
 		ADFF60FB2A8D04FE00F8FBBA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FA2A8D04FE00F8FBBA /* FirebaseAnalytics */; };
 		ADFF60FD2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FC2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift */; };
 		ADFF60FF2A8D04FE00F8FBBA /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FE2A8D04FE00F8FBBA /* FirebaseAppCheck */; };
@@ -152,7 +152,6 @@
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		ADED59422A97845E007E3EB9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		C13E02192A9670850067C48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 				AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */,
 				68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */,
 				68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */,
-				ADFF60F72A8CC32400F8FBBA /* UserDefaults+Extension.swift */,
 				AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */,
 				AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */,
 			);
@@ -537,6 +535,7 @@
 			files = (
 				AD89C3B62A9217610011D1D8 /* YomangData.swift in Sources */,
 				ADED59442A978470007E3EB9 /* Secrets.swift in Sources */,
+				AD7340882A9DFAEA0067EFFF /* User.swift in Sources */,
 				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
 				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
 				AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */,
@@ -568,7 +567,6 @@
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
-				ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */,
 				AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */,

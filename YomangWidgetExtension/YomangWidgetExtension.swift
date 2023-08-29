@@ -12,26 +12,24 @@ import FirebaseFirestore
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), image: UIImage(named: "hani") ?? UIImage())
+        SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), image: UIImage(named: "wonyong") ?? UIImage())
+        let entry = SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage())
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let entryDate = Date()
-        var entry = SimpleEntry(date: entryDate, image: UIImage(named: "wonyong") ?? UIImage())
-        fetchFromFirestore { successFetchData in
-            if successFetchData {
-                print(successFetchData)
-                if let widgetImageData = UserDefaults(suiteName: "group.academy.Yomang")?.data(forKey: "widgetImage"),
-                   let widgetImage = UIImage(data: widgetImageData) {
+        var entry = SimpleEntry(date: entryDate, image: UIImage(named: "defaultWidgetImage") ?? UIImage())
+        fetchFromFirestore { data in
+            if let data = data {
+                if let widgetImage = UIImage(data: data) {
                     entry = SimpleEntry(date: entryDate, image: widgetImage)
                 }
             } else {
-                entry = SimpleEntry(date: entryDate, image: UIImage(named: "wonyong") ?? UIImage())
+                entry = SimpleEntry(date: entryDate, image: UIImage(named: "defaultWidgetImage") ?? UIImage())
             }
             // 현재 날짜 및 시간 가져오기
             let components = Calendar.current.dateComponents(in: TimeZone(identifier: "Asia/Seoul")!, from: Date())
@@ -44,34 +42,30 @@ struct Provider: TimelineProvider {
         }
     }
     
-    func fetchFromFirestore(completion: @escaping(Bool) -> Void) {
-        guard Auth.auth().currentUser != nil else {
-            completion(false)
+    func fetchFromFirestore(completion: @escaping(Data?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(nil)
             return
         }
-        guard let partnerUid = UserDefaults.shared.string(forKey: "partnerId") else {
-            completion(false)
-            return
+        let userCollection = Firestore.firestore().collection("UserDebugCollection")
+        userCollection.document(user.uid).getDocument { snapshot, _ in
+            guard let snapshot = snapshot else { return }
+            guard let user = try? snapshot.data(as: User.self) else { return }
+            guard let partnerUid = user.partnerId else { return }
+            
+            let collection = Firestore.firestore().collection("HistoryDebugCollection")
+            
+            collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                let data = documents.compactMap({ try? $0.data(as: YomangData.self) }).sorted(by: { $0.uploadedDate > $1.uploadedDate })
+                /// NSData로 변환해 저장
+                guard let url = URL(string: data[0].imageUrl) else { return }
+                URLSession.shared.dataTask(with: url) { data, _, error in
+                    guard let data = data, error == nil else { return }
+                    completion(data)
+                }.resume()
+            }
         }
-        let collection = Firestore.firestore().collection("HistoryDebugCollection")
-        
-        collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
-            let data = documents.compactMap({ try? $0.data(as: YomangData.self) }).sorted(by: { $0.uploadedDate > $1.uploadedDate })
-            /// NSData로 변환해 저장
-            guard let url = URL(string: data[0].imageUrl) else { return }
-            URLSession.shared.dataTask(with: url) { data, _, error in
-                guard let data = data, error == nil else { return }
-                self.setImageInUserDefaults(UIImage: UIImage(data: data) ?? UIImage(named: "hani")!, "widgetImage")
-                completion(true)
-            }.resume()
-        }
-    }
-    
-    /// UIImage convert to NSData
-    func setImageInUserDefaults(UIImage value: UIImage, _ key: String) {
-        let imageData = value.jpegData(compressionQuality: 0.5)
-        UserDefaults.shared.set(imageData, forKey: key)
     }
 }
 
@@ -120,15 +114,7 @@ struct YomangWidget: Widget {
 
 struct YomangWidget_Previews: PreviewProvider {
     static var previews: some View {
-        YomangWidgetEntryView(entry: SimpleEntry(date: Date(), image: UIImage(named: "hani") ?? UIImage()))
+        YomangWidgetEntryView(entry: SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
-}
-
-// - MARK: Extension - UserDefaults
-extension UserDefaults {
-    static var shared: UserDefaults {
-            let appGroupID = "group.academy.Yomang"
-            return UserDefaults(suiteName: appGroupID)!
-        }
 }
