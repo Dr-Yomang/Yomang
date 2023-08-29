@@ -30,6 +30,13 @@ class YourYomangViewModel: ObservableObject {
                 guard let document = snapshot else { return }
                 guard let userData = document.data() else { return }
                 if userData["partnerId"] as! String == pid {
+//                    //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+//                    collection.document(pid).getDocument { snapshot, _ in
+//                        guard let snapshot = snapshot else { return }
+//                        guard let partner = try? snapshot.data(as: User.self) else { return }
+//                        collection.document(uid).updateData(["partnerToken": partner.userToken])
+//                        collection.document(pid).updateData(["partnerToken": user.userToken])
+//                    }
                     self.connectWithPartner = true
                     self.fetchYourYomang()
                 }
