@@ -46,27 +46,27 @@ struct MarkupView: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFill()
-                .frame(width: Constants.widgetSize.width,
-                       height: Constants.widgetSize.height)
+                .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 .mask {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: Constants.widgetSize.width,
-                               height: Constants.widgetSize.height)
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 }
             
             MyCanvas(canvasView: $canvasView)
-                .frame(width: Constants.widgetSize.width,
-                       height: Constants.widgetSize.height)
+                .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 .mask {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: Constants.widgetSize.width,
-                               height: Constants.widgetSize.height)
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 }
-        }
-        
+        }.offset(y: -28)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack {
+                    
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.left").foregroundColor(.nav100)
+                    }
+                    
                     Button {
                         undoManager?.undo()
                     } label: {
@@ -98,7 +98,7 @@ struct MarkupView: View {
                     }
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color(red: 0.15, green: 0.15, blue: 0.15), for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
@@ -106,7 +106,7 @@ struct MarkupView: View {
         .accentColor(.nav100)
     }
     
-    func takeCapture() -> UIImage {
+    private func takeCapture() -> UIImage {
         var image: UIImage?
         guard let currentLayer = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.layer else { return UIImage() }
         

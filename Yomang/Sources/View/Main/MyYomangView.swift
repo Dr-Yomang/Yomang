@@ -46,7 +46,7 @@ struct MyYomangView: View {
                             }
                         }
                     }
-                    .frame(width: UIScreen.width - Constants.yomangPadding, height: UIScreen.width - Constants.yomangPadding)
+                    .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
                     .offset(y: -56)
                 
                 VStack {
@@ -122,6 +122,6 @@ private struct PhotoPicker: View {
             matching: .images,
             photoLibrary: .shared()) {
                 AnyView(label)
-            }
+            }.tint(.nav100)
     }
 }

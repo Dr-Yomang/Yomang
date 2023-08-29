@@ -13,6 +13,9 @@
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
+		68CA766D2A9DE5AD00FD5F52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */; };
+		68CA766F2A9DE66D00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
+		68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
 		68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F72A924F9700A68C69 /* PhotoCropView.swift */; };
@@ -36,6 +39,7 @@
 		AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
+		AD60F7AB2A9E39E1006190BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */; };
 		AD7340882A9DFAEA0067EFFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */; };
 		AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3992A91699B0011D1D8 /* ImageUploader.swift */; };
@@ -55,9 +59,6 @@
 		AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
 		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		ADED59432A97845E007E3EB9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED59422A97845E007E3EB9 /* Secrets.swift */; };
-		ADED59442A978470007E3EB9 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED59422A97845E007E3EB9 /* Secrets.swift */; };
-		ADED59452A9A7D52007E3EB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13E02192A9670850067C48C /* GoogleService-Info.plist */; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
 		ADFF60FB2A8D04FE00F8FBBA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FA2A8D04FE00F8FBBA /* FirebaseAnalytics */; };
 		ADFF60FD2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF60FC2A8D04FE00F8FBBA /* FirebaseAnalyticsSwift */; };
@@ -71,7 +72,6 @@
 		ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */; };
 		ADFF610F2A8D04FE00F8FBBA /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */; };
 		ADFF61112A8D04FE00F8FBBA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */; };
-		C13E021A2A9670850067C48C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13E02192A9670850067C48C /* GoogleService-Info.plist */; };
 		C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A812A6EC40F00DD9E02 /* ReactionView.swift */; };
 		C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1982A842A6EC5FF00DD9E02 /* Lottie */; };
 		C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A882A6EC6B000DD9E02 /* LottieView.swift */; };
@@ -112,6 +112,8 @@
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		68CA766E2A9DE66D00FD5F52 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		68FA63F32A924F5F00A68C69 /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
 		68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitToUIView.swift; sourceTree = "<group>"; };
 		68FA63F72A924F9700A68C69 /* PhotoCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCropView.swift; sourceTree = "<group>"; };
@@ -151,8 +153,6 @@
 		AD944D672A8CB82400589895 /* YomangWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YomangWidgetExtension.entitlements; sourceTree = "<group>"; };
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		ADED59422A97845E007E3EB9 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		C13E02192A9670850067C48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C1982A8A2A6EC90900DD9E02 /* reaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reaction.json; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
 				AD0ADC582A54503A0030B1F9 /* Constants.swift */,
 				AD89C3992A91699B0011D1D8 /* ImageUploader.swift */,
-				ADED59422A97845E007E3EB9 /* Secrets.swift */,
+				68CA766E2A9DE66D00FD5F52 /* Secrets.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -349,7 +349,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				C13E02192A9670850067C48C /* GoogleService-Info.plist */,
+				68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD8FFE312A90DFBB00A7459A /* Preview Content */,
@@ -485,7 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
-				ADED59452A9A7D52007E3EB9 /* GoogleService-Info.plist in Resources */,
+				AD60F7AB2A9E39E1006190BC /* GoogleService-Info.plist in Resources */,
 				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
 				ADED59392A975FE4007E3EB9 /* (null) in Resources */,
 			);
@@ -496,12 +496,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
-				C13E021A2A9670850067C48C /* GoogleService-Info.plist in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
 				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
 				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
 				C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */,
 				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
+				68CA766D2A9DE5AD00FD5F52 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD89C3B62A9217610011D1D8 /* YomangData.swift in Sources */,
-				ADED59442A978470007E3EB9 /* Secrets.swift in Sources */,
+				68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */,
 				AD7340882A9DFAEA0067EFFF /* User.swift in Sources */,
 				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
 				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
@@ -547,13 +547,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */,
+				68CA766F2A9DE66D00FD5F52 /* Secrets.swift in Sources */,
 				68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */,
 				AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */,
 				AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */,
 				AD8FFE2B2A90DBCA00A7459A /* SettingView.swift in Sources */,
 				8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */,
 				8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */,
-				ADED59432A97845E007E3EB9 /* Secrets.swift in Sources */,
 				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
