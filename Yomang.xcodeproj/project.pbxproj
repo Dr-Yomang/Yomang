@@ -555,7 +555,6 @@
 				8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */,
 				8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */,
 				ADED59432A97845E007E3EB9 /* Secrets.swift in Sources */,
-				8ADF47D52A5FF42700A2508A /* AnimationEndCallBack.swift in Sources */,
 				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
@@ -843,8 +842,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Yomang/Resources/Yomang.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Dayeon Moon (3JJ5GVD75Y)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
