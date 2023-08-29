@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
+import FirebaseDynamicLinks
 
 class AuthViewModel: ObservableObject {
     
@@ -119,6 +120,56 @@ class AuthViewModel: ObservableObject {
             completion()
         } catch {
             print("== DEBUG: Error signing out \(error.localizedDescription)")
+        }
+    }
+    
+    func createInviteLink() {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "yomanglabyomang.page.link"
+        components.path = "/matchingLink"
+
+        let itemIDQueryItem = URLQueryItem(name: "UserID", value: "myUserIdArea")
+        components.queryItems = [itemIDQueryItem]
+
+        guard let linkParameter = components.url else { return }
+        print("I am sharing \(linkParameter.absoluteString)")
+
+        let domain = "https://yomanglabyomang.page.link"
+        guard let linkBuilder = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: domain) else {
+          return
+        }
+
+        if let myBundleId = Bundle.main.bundleIdentifier {
+          linkBuilder.iOSParameters = DynamicLinkIOSParameters(bundleID: myBundleId)
+        }
+        linkBuilder.iOSParameters?.appStoreID = "6449183477"
+
+        linkBuilder.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
+        linkBuilder.socialMetaTagParameters?.title = "상대가 요망 초대장을 보냈어요!"
+        linkBuilder.socialMetaTagParameters?.descriptionText = "초대 수락하기"
+        // 여기에 앱 아이콘 미리보기 URL 들어가야 함
+        
+        /*linkBuilder.socialMetaTagParameters?.imageURL = URL(string: """
+          https://pbs.twimg.com/profile_images/\
+          1381909139345969153/tkgxJB3i_400x400.jpg
+          """)!*/
+
+        guard let longURL = linkBuilder.url else { return }
+        print("원본 다이나믹 링크 : \(longURL.absoluteString)")
+
+        linkBuilder.shorten { url, warnings, error in
+          if let error = error {
+            print("링크 줄이는 과정에서 에러 발생 \(error)")
+            return
+          }
+          if let warnings = warnings {
+            for warning in warnings {
+              print("Warning: \(warning)")
+            }
+          }
+          guard let url = url else { return }
+          print("줄인 url 결과 : \(url.absoluteString)")
         }
     }
 }

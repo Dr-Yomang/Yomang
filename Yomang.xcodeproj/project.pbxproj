@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F00909E2A9DD3D900D6EFC9 /* DeepLinkURLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00909D2A9DD3D900D6EFC9 /* DeepLinkURLViewModel.swift */; };
+		2F0090A02A9DF99500D6EFC9 /* TestViewCreateLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00909F2A9DF99500D6EFC9 /* TestViewCreateLink.swift */; };
 		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
@@ -105,6 +107,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F00909D2A9DD3D900D6EFC9 /* DeepLinkURLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkURLViewModel.swift; sourceTree = "<group>"; };
+		2F00909F2A9DF99500D6EFC9 /* TestViewCreateLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewCreateLink.swift; sourceTree = "<group>"; };
 		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */,
 				AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */,
 				AD89C3AB2A92067F0011D1D8 /* HistoryViewModel.swift */,
+				2F00909D2A9DD3D900D6EFC9 /* DeepLinkURLViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
+				2F00909F2A9DF99500D6EFC9 /* TestViewCreateLink.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -577,6 +583,7 @@
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
 				AD12EFCD2A90BB9B00CDFBFE /* TabIndicatorView.swift in Sources */,
 				2F75F2B72A9CDC7D003103BC /* YomangAppDelegate.swift in Sources */,
+				2F0090A02A9DF99500D6EFC9 /* TestViewCreateLink.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
@@ -588,6 +595,7 @@
 				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
 				ADFF60F82A8CC32400F8FBBA /* UserDefaults+Extension.swift in Sources */,
+				2F00909E2A9DD3D900D6EFC9 /* DeepLinkURLViewModel.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */,
 				AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */,
@@ -669,6 +677,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 7D5PZJWQ9T;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomangWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "요망";
@@ -683,6 +692,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang.YomangWidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang.YomangWidgetExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -838,7 +848,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore pos.academy.Yomang";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -862,7 +872,7 @@
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Yomang/Preview Content\"";
 				DEVELOPMENT_TEAM = XF4GNZL7MP;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XF4GNZL7MP;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7D5PZJWQ9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Yomang/Resources/Info.plist;
@@ -881,7 +891,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pos.academy.Yomang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development pos.academy.Yomang";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development pos.academy.Yomang";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore pos.academy.Yomang";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
