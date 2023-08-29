@@ -28,7 +28,7 @@ struct MyCanvas: UIViewRepresentable {
         canvasView.becomeFirstResponder()
 
         toolPicker.setVisible(true, forFirstResponder: canvasView)
-        toolPicker.colorUserInterfaceStyle = .light
+        toolPicker.colorUserInterfaceStyle = .dark
         toolPicker.overrideUserInterfaceStyle = .dark
         toolPicker.addObserver(canvasView)
         
