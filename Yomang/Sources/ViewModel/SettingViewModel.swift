@@ -35,6 +35,7 @@ class SettingViewModel: ObservableObject {
         guard let uid = user.id else { return }
         self.collection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
+            if documents.count == 0 { return }
             guard let data = try? documents[0].data(as: ProfileImage.self) else { return }
             self.profileImageUrl = data.profileImageUrl
         }
