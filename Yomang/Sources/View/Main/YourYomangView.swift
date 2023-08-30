@@ -137,7 +137,6 @@ struct YourYomangView: View {
                                 .frame(height: 48)
                         }
                     )
-                
             }
             .offset(y: -UIScreen.width / 1.45)
         }

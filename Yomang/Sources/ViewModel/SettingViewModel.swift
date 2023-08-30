@@ -10,14 +10,15 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class SettingViewModel: ObservableObject {
-    
     let collection = Firestore.firestore().collection("ProfileImageDebugCollection")
     @Published var username: String?
     @Published var profileImageUrl: String?
+    @Published var alertAuthorizationStatus = ""
     
     init() {
         fetchUsername()
         fetchProfileImageUrl()
+        queryAuthorizationStatus()
     }
     
     func fetchUsername() {
@@ -63,6 +64,19 @@ class SettingViewModel: ObservableObject {
                 } else {
                     self.collection.document(documents[0].documentID).updateData(["profileImageUrl": imageUrl], completion: completion)
                 }
+            }
+        }
+    }
+    
+    func queryAuthorizationStatus() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined, .denied, .provisional, .ephemeral:
+                self.alertAuthorizationStatus = "꺼짐"
+            case .authorized:
+                self.alertAuthorizationStatus = "켜짐"
+            @unknown default:
+                self.alertAuthorizationStatus = ""
             }
         }
     }

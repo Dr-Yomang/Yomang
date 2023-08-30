@@ -49,7 +49,6 @@ struct SettingView: View {
                                     Spacer()
                                     
                                     Text("편집")
-                                        .font(.system(size: 16, weight: .heavy))
                                         .foregroundColor(.white)
                                         .padding(.bottom, 8)
                                 }
@@ -69,6 +68,7 @@ struct SettingView: View {
                         // MARK: - 닉네임
                         VStack(alignment: .leading, spacing: 10) {
                             Text(viewModel.username!)
+                                .font(.headline)
                             Text("닉네임 변경")
                                 .font(.caption)
                                 .onTapGesture {
@@ -99,13 +99,23 @@ struct SettingView: View {
                             Text(String.buttonConnectPartner)
                         }
                     }
-                    NavigationLink {
-                        EmptyView()
-                    } label: {
-                        HStack {
-                            Image(systemName: .bellFill)
-                            Text(String.buttonSettingNotification)
+                    HStack {
+                        Image(systemName: .bellFill)
+                        Text(String.buttonSettingNotification)
+                        Spacer()
+                        Text(viewModel.alertAuthorizationStatus)
+                            .foregroundColor(.gray)
+                        Button {
+                            // TODO: - 유저에게 설정으로 이동한다고 고지하기 + 앱 화면에는 설정이 바로 반영되지 않을 수 있음도 알리기
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.gray)
+                                .opacity(0.5)
                         }
+
                     }
                 }
                 
@@ -136,6 +146,22 @@ struct SettingView: View {
                     }
                 }
             }
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        AuthViewModel.shared.deleteUser()
+                    } label: {
+                        Text("탈퇴하기")
+                            .foregroundColor(.gray)
+                            .font(.caption2)
+                            .padding(.trailing, 20)
+                    }
+                }
+            }
+            
             if isSignOutInProgress {
                 Color.black
                     .opacity(0.8)
