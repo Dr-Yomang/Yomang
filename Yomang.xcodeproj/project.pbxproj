@@ -22,6 +22,8 @@
 		68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */; };
 		8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */; };
 		8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D02A5FEB9800A2508A /* YomangView.swift */; };
+		AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */; };
+		AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CC2A9EE402001B7201 /* ProfileImage.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
 		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
@@ -122,6 +124,8 @@
 		8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangView.swift; sourceTree = "<group>"; };
 		8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangView.swift; sourceTree = "<group>"; };
 		8ADF47D02A5FEB9800A2508A /* YomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangView.swift; sourceTree = "<group>"; };
+		AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		AD0541CC2A9EE402001B7201 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -205,6 +209,7 @@
 				68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */,
 				68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */,
 				2F1288892A592AD70054FD6B /* YomangData.swift */,
+				AD0541CC2A9EE402001B7201 /* ProfileImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */,
 				AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */,
 				AD89C3AB2A92067F0011D1D8 /* HistoryViewModel.swift */,
+				AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -555,9 +561,10 @@
 				8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */,
 				8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */,
 				ADED59432A97845E007E3EB9 /* Secrets.swift in Sources */,
-				8ADF47D52A5FF42700A2508A /* AnimationEndCallBack.swift in Sources */,
 				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
+				AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */,
+				AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
