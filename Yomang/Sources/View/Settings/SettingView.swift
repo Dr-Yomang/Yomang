@@ -33,7 +33,7 @@ struct SettingView: View {
                 
                 Section(header: Text(String.headerTitleSettingProfile)) {
                     NavigationLink {
-                        EmptyView()
+                        EditProfileView()
                     } label: {
                         HStack {
                             Image(systemName: .personFill)
