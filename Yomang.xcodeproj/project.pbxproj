@@ -26,7 +26,6 @@
 		8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D02A5FEB9800A2508A /* YomangView.swift */; };
 		AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */; };
 		AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CC2A9EE402001B7201 /* ProfileImage.swift */; };
-		AD0541D02A9EE764001B7201 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CF2A9EE764001B7201 /* EditProfileView.swift */; };
 		AD0541D12A9EEBF6001B7201 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
@@ -129,7 +128,6 @@
 		8ADF47D02A5FEB9800A2508A /* YomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangView.swift; sourceTree = "<group>"; };
 		AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		AD0541CC2A9EE402001B7201 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
-		AD0541CF2A9EE764001B7201 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -249,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				ADC347572A5E4B38008F9624 /* SettingView.swift */,
-				AD0541CF2A9EE764001B7201 /* EditProfileView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -586,7 +583,6 @@
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,
-				AD0541D02A9EE764001B7201 /* EditProfileView.swift in Sources */,
 				AD0ADC592A54503A0030B1F9 /* Constants.swift in Sources */,
 				ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */,
 				AD89C3A62A91DF390011D1D8 /* YomangImageView.swift in Sources */,

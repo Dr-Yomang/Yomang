@@ -23,7 +23,7 @@ class SettingViewModel: ObservableObject {
     func fetchUsername() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
-        collection.document(uid).getDocument { snapshot, _ in
+        Firestore.firestore().collection("UserDebugCollection").document(uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             self.username = user.username
@@ -41,11 +41,12 @@ class SettingViewModel: ObservableObject {
         }
     }
     
-    func changeUsername(_ newUsername: String, completion: @escaping() -> Bool) {
+    func changeUsername(_ newUsername: String, completion: @escaping() -> Void) {
         guard let uid = AuthViewModel.shared.user?.id else { return }
         Firestore.firestore().collection("UserDebugCollection").document(uid).updateData(["username": newUsername])
         self.username = newUsername
         AuthViewModel.shared.username = newUsername
+        completion()
     }
     
     func changeProfileImage(image: UIImage, completion: ((Error?) -> Void)?) {
@@ -54,8 +55,15 @@ class SettingViewModel: ObservableObject {
         ImageUploader.uploadImage(image: image, type: .profile) { imageUrl in
             let data = ["uid": uid,
                         "profileImageUrl": imageUrl]
-            
-            self.collection.addDocument(data: data, completion: completion)
+            self.profileImageUrl = imageUrl
+            self.collection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                if documents.count == 0 {
+                    self.collection.addDocument(data: data, completion: completion)
+                } else {
+                    self.collection.document(documents[0].documentID).updateData(["profileImageUrl": imageUrl], completion: completion)
+                }
+            }
         }
     }
 }
