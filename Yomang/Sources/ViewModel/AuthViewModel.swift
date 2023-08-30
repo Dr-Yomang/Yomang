@@ -51,17 +51,17 @@ class AuthViewModel: ObservableObject {
                 print("===DEBUG: failed to create user \(error.localizedDescription)")
                 return
             }
-
+            
             guard let user = result?.user else { return }
             self.user?.id = user.uid
-
+            
             let data = ["uid": user.uid,
                         "username": nil,
                         "email": email,
                         "partnerId": partnerId ?? nil] as [String: Any?]
-//                        //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
-//                        "partnerToken": nil] as [String: Any?]
-
+            //                        //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+            //                        "partnerToken": nil] as [String: Any?]
+            
             self.collection.document(user.uid).setData(data as [String: Any]) { _ in
                 print("=== DEBUG: 회원 등록 완료 \n\(data) ")
                 self.userSession = Auth.auth().currentUser
@@ -115,9 +115,10 @@ class AuthViewModel: ObservableObject {
     }
     
     func deleteUser() {
+        // TODO: - 해당 유저의 요망, 파트너 데이터 싹 지워야함, 왜인지 firebase 단에서 바로 auth().current 삭제가 안돼서 탈퇴하자마자 다시 로그인하는 경우 걸림
         guard let currentUser = Auth.auth().currentUser else { return }
-        self.collection.document(currentUser.uid).delete { _ in
-            currentUser.delete { _ in
+        currentUser.delete { _ in
+            self.collection.document(currentUser.uid).delete { _ in
                 self.signOut {}
             }
         }

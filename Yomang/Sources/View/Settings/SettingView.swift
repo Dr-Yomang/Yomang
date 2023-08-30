@@ -156,7 +156,8 @@ struct SettingView: View {
                     } label: {
                         Text("탈퇴하기")
                             .foregroundColor(.gray)
-                            .font(.caption2)
+                            .font(.system(size: 5))
+                        // TODO: - 탈퇴 이후 플로우가 너무 많아서 지금 버그 투성ㅇㅣ...최대한 가리는게 좋을 것 같은ㄷ ㅔ....
                             .padding(.trailing, 20)
                     }
                 }
