@@ -43,15 +43,9 @@ struct YomangApp: App {
     }
     func handleDynamicLink(_ dynamicLink: DynamicLink) {
         guard let url = dynamicLink.url else { return }
-        
         print("Your incoming link parameter is \(url.absoluteString)")
-        guard
-            dynamicLink.matchType == .unique ||
-                dynamicLink.matchType == .default
-        else {
-            return
-        }
-        self.matchingIdFromUrl = AuthViewModel().parseDeepLinkComponents(from: url)
+        guard dynamicLink.matchType == .unique || dynamicLink.matchType == .default else { return }
+        self.matchingIdFromUrl = AuthViewModel.shared.parseDeepLinkComponents(from: url)
         print("Deep link: \(self.matchingIdFromUrl!)")
     }
 }
