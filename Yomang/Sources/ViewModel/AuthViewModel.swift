@@ -38,10 +38,6 @@ class AuthViewModel: ObservableObject {
             
             self.user = user
             self.username = user.username
-            UserDefaults.shared.set(user.id, forKey: "uid")
-            if user.partnerId != nil {
-                UserDefaults.shared.set(user.partnerId, forKey: "partnerId")
-            }
             print("=== DEBUG: fetch \(self.user)")
             completion(true)
         }
@@ -57,15 +53,14 @@ class AuthViewModel: ObservableObject {
             }
 
             guard let user = result?.user else { return }
-
-            // 받아온 유저 고유 id를 저장
-            UserDefaults.shared.set(user.uid, forKey: "uid")
             self.user?.id = user.uid
 
             let data = ["uid": user.uid,
                         "username": nil,
                         "email": email,
                         "partnerId": partnerId ?? nil] as [String: Any?]
+//                        //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+//                        "partnerToken": nil] as [String: Any?]
 
             self.collection.document(user.uid).setData(data as [String: Any]) { _ in
                 print("=== DEBUG: 회원 등록 완료 \n\(data) ")
@@ -109,9 +104,6 @@ class AuthViewModel: ObservableObject {
     func signOut(_ completion: @escaping() -> Void) {
         do {
             guard self.user?.id != nil else { return }
-            for key in UserDefaults.shared.dictionaryRepresentation().keys {
-                UserDefaults.shared.removeObject(forKey: key.description)
-            }
             try Auth.auth().signOut()
             self.user = nil
             self.userSession = nil

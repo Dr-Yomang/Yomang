@@ -10,7 +10,7 @@ import SwiftUI
 struct YomangView: View {
     @Binding var matchingIdFromUrl: String?
     @State private var selectedTag = 1
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,7 +22,6 @@ struct YomangView: View {
                         .tag(0)
                     YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(1)
-                    
                     MyYomangView()
                         .tag(2)
                 }
@@ -35,14 +34,14 @@ struct YomangView: View {
                         HistoryView(selectedTag: $selectedTag)
                             .navigationTitle(Text("히스토리"))
                             .navigationBarTitleDisplayMode(.inline)
-                            
+
                     } label: {
                         if selectedTag != 0 {
                             Image(systemName: "heart")
                                 .foregroundColor(.white)
                         }
                     }
-                    
+
                     NavigationLink {
                         SettingView()
                     } label: {
@@ -50,7 +49,6 @@ struct YomangView: View {
                             .foregroundColor(.white)
                     }
                 })
-                
             }
         }
     }

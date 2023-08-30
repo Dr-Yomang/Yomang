@@ -65,13 +65,19 @@ struct PhotoCropView: View {
                     .scaleEffect(zoomScale)
                     .offset(offset)
                     .mask {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 16)
                             .frame(width: imageConstraint,
                                    height: imageConstraint / Constants.widgetSize.width * Constants.widgetSize.height )
                     }
                     .gesture(panGesture.simultaneously(with: zoomGesture))
             }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { popToRoot.toggle() }) {
+                        Image(systemName: "chevron.left").foregroundColor(.nav100)
+                    }
+                }
+                
                 ToolbarItem(placement: .principal) {
                     Button {
                         withAnimation {
@@ -95,6 +101,7 @@ struct PhotoCropView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color(red: 0.15, green: 0.15, blue: 0.15), for: .navigationBar)
@@ -230,8 +237,8 @@ extension PhotoCropView {
     private var widgetMask: Path {
         let rect = CGRect(x: 0, y: 0, width: imageConstraint, height: UIScreen.main.bounds.height)
         let innerRect = CGRect(x: 0, y: 0, width: imageConstraint, height: UIScreen.main.bounds.height)
-        var shape = RoundedRectangle(cornerRadius: 10).path(in: rect)
-        shape.addPath(RoundedRectangle(cornerRadius: 10).path(in: innerRect))
+        var shape = RoundedRectangle(cornerRadius: 16).path(in: rect)
+        shape.addPath(RoundedRectangle(cornerRadius: 16).path(in: innerRect))
         return shape
     }
     

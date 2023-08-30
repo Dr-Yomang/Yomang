@@ -15,4 +15,7 @@ struct User: Identifiable, Decodable {
     var username: String?
     var email: String
     var partnerId: String?
+//    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+//    var partnerToken: String?
+//    var userToken: String
 }

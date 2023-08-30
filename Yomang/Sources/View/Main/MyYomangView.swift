@@ -46,8 +46,24 @@ struct MyYomangView: View {
                             }
                         }
                     }
-                    .frame(width: UIScreen.width - Constants.yomangPadding, height: UIScreen.width - Constants.yomangPadding)
+                    .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
                     .offset(y: -56)
+                    .onTapGesture {
+                        DispatchQueue.main.async {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            withAnimation(.easeIn(duration: 0.3)) {
+                                isScaleEffect = true
+                            }
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                            withAnimation(.easeOut(duration: 0.5)) {
+                                isScaleEffect = false
+                            }
+                            // TODO: - upload my yomang
+                        }
+                    }
+                    .scaleEffect(isScaleEffect ? 1.05 : 1)
                 
                 VStack {
                     PhotoPicker(selectedItem: $selectedItem) {
@@ -69,22 +85,6 @@ struct MyYomangView: View {
                         }
                         displayPhotoCropper = true
                     }
-                    //                    .onTapGesture {
-                    //                        DispatchQueue.main.async {
-                    //                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    //                            withAnimation(.easeIn(duration: 0.3)) {
-                    //                                isScaleEffect = true
-                    //                            }
-                    //                        }
-                    //                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    //                            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                    //                            withAnimation(.easeOut(duration: 0.5)) {
-                    //                                isScaleEffect = false
-                    //                            }
-                    //                            // TODO: - upload my yomang
-                    //                        }
-                    //                    }
-                    //                    .scaleEffect(isScaleEffect ? 1.05 : 1)
                 }
                 .padding(Constants.yomangPadding / 2)
                 .offset(y: UIScreen.width / 2.2)
@@ -122,6 +122,6 @@ private struct PhotoPicker: View {
             matching: .images,
             photoLibrary: .shared()) {
                 AnyView(label)
-            }
+            }.tint(.nav100)
     }
 }

@@ -11,7 +11,7 @@ struct SettingView: View {
     private var username = "ZENA"
     @Environment(\.dismiss) private var dismiss
     @State private var isSignOutInProgress = false
-    @ObservedObject private var viewModel = SettingViewModel()
+//    @ObservedObject private var viewModel = SettingViewModel()
     var body: some View {
         ZStack {
             List {
