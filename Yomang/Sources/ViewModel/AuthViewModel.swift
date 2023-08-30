@@ -117,10 +117,9 @@ class AuthViewModel: ObservableObject {
     func deleteUser() {
         guard let currentUser = Auth.auth().currentUser else { return }
         self.collection.document(currentUser.uid).delete { _ in
-            currentUser.delete()
-            self.user = nil
-            self.userSession = nil
-            self.username = nil
+            currentUser.delete { _ in
+                self.signOut {}
+            }
         }
     }
 }
