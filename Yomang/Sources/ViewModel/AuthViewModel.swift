@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
+import FirebaseDynamicLinks
 
 class AuthViewModel: ObservableObject {
     
@@ -59,7 +60,7 @@ class AuthViewModel: ObservableObject {
                         "username": nil,
                         "email": email,
                         "partnerId": partnerId ?? nil] as [String: Any?]
-//                        //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+//                        MARK: - cloud functions가 deploy되면 구조가 바뀝니다
 //                        "partnerToken": nil] as [String: Any?]
 
             self.collection.document(user.uid).setData(data as [String: Any]) { _ in
@@ -111,6 +112,68 @@ class AuthViewModel: ObservableObject {
             completion()
         } catch {
             print("== DEBUG: Error signing out \(error.localizedDescription)")
+        }
+    }
+    
+    func createInviteLink() {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "yomanglabyomang.page.link"
+        components.path = "/matchingLink"
+        
+        let itemIDQueryItem = URLQueryItem(name: "UserID", value: "myUserIdValue")
+        components.queryItems = [itemIDQueryItem]
+        
+        guard let linkParameter = components.url else { return }
+        print("\(linkParameter.absoluteString)링크를 공유하려고 시도합니다.")
+        
+        let domain = "https://yomanglabyomang.page.link"
+        guard let linkBuilder = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: domain) else {
+            return
+        }
+        
+        if let myBundleId = Bundle.main.bundleIdentifier {
+            linkBuilder.iOSParameters = DynamicLinkIOSParameters(bundleID: myBundleId)
+        }
+        linkBuilder.iOSParameters?.appStoreID = "6449183477"
+        
+        linkBuilder.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
+        linkBuilder.socialMetaTagParameters?.title = "상대가 요망 초대장을 보냈어요!"
+        linkBuilder.socialMetaTagParameters?.descriptionText = "초대 수락하기"
+        // 여기에 앱 아이콘 미리보기 URL 들어가야 함
+        
+        //linkBuilder.socialMetaTagParameters?.imageURL = URL()
+        
+        guard let longURL = linkBuilder.url else { return }
+        print("원본 다이나믹 링크 : \(longURL.absoluteString)")
+        
+        linkBuilder.shorten { url, warnings, error in
+            if let error = error {
+                print("링크 줄이는 과정에서 에러 발생 \(error)")
+                return
+            }
+            if let warnings = warnings {
+                for warning in warnings {
+                    print("Warning: \(warning)")
+                }
+            }
+            guard let url = url else { return }
+            print("줄인 url 결과 : \(url.absoluteString)")
+        }
+    }
+    
+    func parseDeepLinkComponents(from url: URL) -> String {
+        // url이 https로 시작 안하면 리턴 (잘못된 url)
+        guard url.scheme == "https" else {
+            return "NaN"
+        }
+        
+        let urlStr : String = url.absoluteString
+        if urlStr.contains("https://yomanglabyomang.page.link/matchingLink?UserID=") {
+            var splitedLink = urlStr.split(separator: "=")
+            return String(splitedLink[1])
+        } else {
+            return "NaN"
         }
     }
 }
