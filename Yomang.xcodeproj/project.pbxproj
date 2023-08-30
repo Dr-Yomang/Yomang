@@ -10,10 +10,13 @@
 		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
+		2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
+		2F89EDD72A9EE4BD002E6A5C /* TestViewCreateLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */; };
+		2F89EDDB2A9EE60C002E6A5C /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 2F89EDDA2A9EE60C002E6A5C /* FirebaseDynamicLinks */; };
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
-		68CA766D2A9DE5AD00FD5F52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */; };
+		68CA766F2A9DE66D00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
@@ -41,7 +44,6 @@
 		AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3805B82A80E4DE00D02D54 /* Localizable.strings */; };
 		AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */; };
-		AD60F7AB2A9E39E1006190BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */; };
 		AD7340882A9DFAEA0067EFFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */; };
 		AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89C3992A91699B0011D1D8 /* ImageUploader.swift */; };
@@ -110,11 +112,12 @@
 		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewCreateLink.swift; path = Yomang/Sources/View/TestViewCreateLink.swift; sourceTree = SOURCE_ROOT; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
-		68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68CA766E2A9DE66D00FD5F52 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		68FA63F32A924F5F00A68C69 /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
 		68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitToUIView.swift; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 				ADFF610D2A8D04FE00F8FBBA /* FirebaseMessaging in Frameworks */,
 				C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */,
 				ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */,
+				2F89EDDB2A9EE60C002E6A5C /* FirebaseDynamicLinks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +243,7 @@
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
+				2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,7 +368,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				68CA766C2A9DE5AD00FD5F52 /* GoogleService-Info.plist */,
+				2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD8FFE312A90DFBB00A7459A /* Preview Content */,
@@ -445,6 +450,7 @@
 				ADFF610C2A8D04FE00F8FBBA /* FirebaseMessaging */,
 				ADFF610E2A8D04FE00F8FBBA /* FirebasePerformance */,
 				ADFF61102A8D04FE00F8FBBA /* FirebaseStorage */,
+				2F89EDDA2A9EE60C002E6A5C /* FirebaseDynamicLinks */,
 			);
 			productName = Yomang;
 			productReference = AD46BA162A52F9DD001D3894 /* Yomang.app */;
@@ -499,7 +505,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
-				AD60F7AB2A9E39E1006190BC /* GoogleService-Info.plist in Resources */,
 				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
 				ADED59392A975FE4007E3EB9 /* (null) in Resources */,
 			);
@@ -510,12 +515,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
+				2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
 				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
 				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
 				C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */,
 				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
-				68CA766D2A9DE5AD00FD5F52 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +595,7 @@
 				68FA63FA2A924FBA00A68C69 /* ViewSizeModel.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
 				68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */,
+				2F89EDD72A9EE4BD002E6A5C /* TestViewCreateLink.swift in Sources */,
 				68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */,
 				68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */,
 				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,
@@ -952,6 +958,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F89EDDA2A9EE60C002E6A5C /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
 		AD89C3B22A9214F40011D1D8 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ADFF60F92A8D04FE00F8FBBA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

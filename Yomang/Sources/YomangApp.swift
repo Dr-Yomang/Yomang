@@ -7,26 +7,46 @@
 
 import SwiftUI
 import Firebase
+import FirebaseDynamicLinks
 
 @main
 struct YomangApp: App {
     @State private var matchingIdFromUrl: String?
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ContentView(matchingIdFromUrl: $matchingIdFromUrl)
                 .environmentObject(AuthViewModel.shared)
                 .onOpenURL { url in
-                    if url.scheme! == "YomanglabYomang" && url.host! == "share" {
-                        if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
-                            for query in components.queryItems! {
-                                // 링크에 상대 매칭코드 없으면 nil, 아니면 링크에서 얻어온 매칭코드 값 넣기
-                                matchingIdFromUrl = query.value ?? nil
+                    print("Incoming URL parameter is: \(url)")
+                    // 2
+                    let linkHandled = DynamicLinks.dynamicLinks()
+                        .handleUniversalLink(url) { dynamicLink, error in
+                            guard error == nil else {
+                                fatalError("Error handling the incoming dynamic link.")
+                            }
+                            // 3
+                            if let dynamicLink = dynamicLink {
+                                // Handle Dynamic Link
+                                self.handleDynamicLink(dynamicLink)
                             }
                         }
+                    // 4
+                    if linkHandled {
+                        print("Link Handled")
+                    } else {
+                        print("No Link Handled")
                     }
                 }
         }
+    }
+    func handleDynamicLink(_ dynamicLink: DynamicLink) {
+        guard let url = dynamicLink.url else { return }
+        print("Your incoming link parameter is \(url.absoluteString)")
+        guard dynamicLink.matchType == .unique || dynamicLink.matchType == .default else { return }
+        self.matchingIdFromUrl = AuthViewModel.shared.parseDeepLinkComponents(from: url)
+        print("Deep link: \(self.matchingIdFromUrl!)")
     }
 }
 
