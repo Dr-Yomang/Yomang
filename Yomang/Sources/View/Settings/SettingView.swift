@@ -33,9 +33,8 @@ struct SettingView: View {
                                     .clipShape(Circle())
                             } else {
                                 Image("yt_surprise")
-                                    .renderingMode(.template)
                                     .resizable()
-                                    .scaledToFill()
+                                    .scaledToFit()
                                     .frame(width: 120, height: 120)
                                     .clipShape(Circle())
                             }
