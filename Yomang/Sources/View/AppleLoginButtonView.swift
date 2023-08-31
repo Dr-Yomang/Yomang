@@ -90,7 +90,6 @@ struct AppleLoginButtonView: View {
                         credential: credential,
                         email: email,
                         partnerId: matchingIdFromUrl ?? nil) { result in
-                            matchingIdFromUrl = result
                             isSignInInProgress = false
                         }
                 default:

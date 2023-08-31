@@ -19,19 +19,24 @@ class HistoryViewModel: ObservableObject {
     }
     
     func fetchAllYomang() {
+        var ourYomangs = [YomangData]()
+        // MARK: - 나의 요망
         guard let user = AuthViewModel.shared.user else { return }
         self.collection.whereField("senderUid", isEqualTo: user.id!).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
-            self.data = data.sorted(by: { $0.uploadedDate > $1.uploadedDate })
-        }
-        
-        guard let partnerUid = user.partnerId else { return }
-        self.collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
-            let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
-            self.data.append(contentsOf: data)
-            self.data.sort(by: { $0.uploadedDate > $1.uploadedDate })
+            ourYomangs = data.sorted(by: { $0.uploadedDate > $1.uploadedDate })
+            // MARK: - 파트너 요망
+            guard let partnerUid = user.partnerId else {
+                self.data = ourYomangs.sorted(by: { $0.uploadedDate > $1.uploadedDate })
+                return
+            }
+            self.collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+                ourYomangs.append(contentsOf: data)
+                self.data = ourYomangs.sorted(by: { $0.uploadedDate > $1.uploadedDate })
+            }
         }
     }
 }

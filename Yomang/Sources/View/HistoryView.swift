@@ -23,20 +23,34 @@ struct HistoryView: View {
                         .foregroundColor(.gray)
                         .offset(y: UIScreen.height / 3)
                 } else {
-                    LazyVGrid(columns: items, content: {
-                        ForEach(viewModel.data) { yomang in
+                    LazyVGrid(columns: items) {
+                        ForEach(viewModel.data, id: \.self) { yomang in
                             NavigationLink(
                                 // TODO: history grid 선택하면 어떻게 되는지: 큰 사진!
                                 destination: EmptyView(),
                                 label: {
-                                    KFImage(URL(string: yomang.imageUrl))
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: width, height: width)
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                                })
+                                    ZStack {
+                                        KFImage(URL(string: yomang.imageUrl))
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: width, height: width)
+                                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                                        if let emoji = yomang.emoji,
+                                           emoji.count > 0 {
+                                            HStack {
+                                                Spacer()
+                                                VStack {
+                                                    Spacer()
+                                                    ReactionButtonView(imageName: emoji[emoji.count - 1])
+                                                        .padding(5)
+                                                        .padding(.trailing, 2)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }) 
                         }
-                    })
+                    }
                     .padding(.horizontal, 18)
                     .padding(.top)
                 }
