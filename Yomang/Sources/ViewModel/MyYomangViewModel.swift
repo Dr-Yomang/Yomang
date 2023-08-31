@@ -30,7 +30,7 @@ class MyYomangViewModel: ObservableObject {
     func uploadMyYomang(image: UIImage, completion: ((Error?) -> Void)?) {
         guard let user = AuthViewModel.shared.user else { return }
         
-        ImageUploader.uploadImage(image: image) { imageUrl in
+        ImageUploader.uploadImage(image: image, type: .profile) { imageUrl in
             let data = ["uploadedDate": Date(),
                         "senderUid": user.id,
                         "receiverUid": user.partnerId ?? "tmp",

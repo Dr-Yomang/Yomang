@@ -14,7 +14,7 @@ struct ContentView: View {
             if showSplash {
                 SplashView()
             } else { // hide splash
-                if viewModel.user != nil {
+                if viewModel.userSession != nil {
                     if viewModel.username != nil {
                         YomangView(matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
@@ -27,7 +27,7 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { showSplash.toggle() })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { showSplash.toggle() })
         }
     }
 }

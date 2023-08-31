@@ -16,17 +16,19 @@
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
-		68CA766F2A9DE66D00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
 		68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F72A924F9700A68C69 /* PhotoCropView.swift */; };
 		68FA63FA2A924FBA00A68C69 /* ViewSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */; };
 		68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */; };
-		68FA63FE2A92501900A68C69 /* EnvironmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */; };
+		68FA63FE2A92501900A68C69 /* EnvironmentValues+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FD2A92501900A68C69 /* EnvironmentValues+Extension.swift */; };
 		68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */; };
 		8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */; };
 		8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D02A5FEB9800A2508A /* YomangView.swift */; };
+		AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */; };
+		AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CC2A9EE402001B7201 /* ProfileImage.swift */; };
+		AD0541D12A9EEBF6001B7201 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
 		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
@@ -121,11 +123,13 @@
 		68FA63F72A924F9700A68C69 /* PhotoCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCropView.swift; sourceTree = "<group>"; };
 		68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeModel.swift; sourceTree = "<group>"; };
 		68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangImageModel.swift; sourceTree = "<group>"; };
-		68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValue.swift; sourceTree = "<group>"; };
+		68FA63FD2A92501900A68C69 /* EnvironmentValues+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Extension.swift"; sourceTree = "<group>"; };
 		68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangView.swift; sourceTree = "<group>"; };
 		8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangView.swift; sourceTree = "<group>"; };
 		8ADF47D02A5FEB9800A2508A /* YomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangView.swift; sourceTree = "<group>"; };
+		AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		AD0541CC2A9EE402001B7201 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		AD0ADC382A54444C0030B1F9 /* YomangWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YomangWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -207,6 +211,7 @@
 				68FA63F92A924FBA00A68C69 /* ViewSizeModel.swift */,
 				68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */,
 				2F1288892A592AD70054FD6B /* YomangData.swift */,
+				AD0541CC2A9EE402001B7201 /* ProfileImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				AD89C3972A9165CC0011D1D8 /* MyYomangViewModel.swift */,
 				AD89C3A72A91E0EB0011D1D8 /* YourYomangViewModel.swift */,
 				AD89C3AB2A92067F0011D1D8 /* HistoryViewModel.swift */,
+				AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -227,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				AD12EFCE2A90BD7200CDFBFE /* Main */,
-				ADC347572A5E4B38008F9624 /* SettingView.swift */,
 				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
 				2FDD6F432A5C12CD0065F947 /* LoginView.swift */,
 				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
@@ -236,6 +241,7 @@
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
+				ADC347572A5E4B38008F9624 /* SettingView.swift */,
 				2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */,
 			);
 			path = View;
@@ -277,7 +283,7 @@
 			children = (
 				AD0ADC542A544F9B0030B1F9 /* Color+Extension.swift */,
 				AD3805AE2A80E2FE00D02D54 /* String+Extension.swift */,
-				68FA63FD2A92501900A68C69 /* EnvironmentValue.swift */,
+				68FA63FD2A92501900A68C69 /* EnvironmentValues+Extension.swift */,
 				68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */,
 				AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */,
 				AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */,
@@ -551,7 +557,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */,
-				68CA766F2A9DE66D00FD5F52 /* Secrets.swift in Sources */,
 				68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */,
 				AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */,
 				AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */,
@@ -560,14 +565,17 @@
 				8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */,
 				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
+				AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */,
+				AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
 				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
 				AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */,
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
-				68FA63FE2A92501900A68C69 /* EnvironmentValue.swift in Sources */,
+				68FA63FE2A92501900A68C69 /* EnvironmentValues+Extension.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
+				AD0541D12A9EEBF6001B7201 /* Secrets.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
 				AD3805AF2A80E2FE00D02D54 /* String+Extension.swift in Sources */,

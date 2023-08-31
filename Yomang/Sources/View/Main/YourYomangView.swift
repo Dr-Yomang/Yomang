@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Kingfisher
 
 struct YourYomangView: View {
     
@@ -55,7 +56,7 @@ struct YourYomangView: View {
                         }
                     }
                     .scaleEffect(isScaleEffect ? 1.05 : 1)
-                                
+                
                 if viewModel.data.count == 0 {
                     Text("상대방의 첫 요망을\n기다리고 있어요!")
                         .multilineTextAlignment(.center)
@@ -100,7 +101,7 @@ struct YourYomangView: View {
             .offset(y: UIScreen.width / 2.2)
             
             VStack {
-                Text("상대의 닉네임")
+                Text(viewModel.partner?.username ?? "소중한 그대")
                     .font(.title3)
                     .bold()
                     .foregroundColor(.black)
@@ -111,12 +112,19 @@ struct YourYomangView: View {
                                 .frame(width: 100, height: 100)
                                 .foregroundColor(.white)
                                 .opacity(0.8)
-                                .overlay(
-                                    Image("Yotto")
-                                        .resizable()
-                                        .frame(width: 80, height: 80)
-                                        .offset(x: 5)
-                                )
+                                .overlay {
+                                    if let imageUrl = viewModel.partnerImageUrl {
+                                        KFImage(URL(string: imageUrl))
+                                            .resizable()
+                                            .frame(width: 80, height: 80)
+                                            .offset(x: 5)
+                                    } else {
+                                        Image("Yotto")
+                                            .resizable()
+                                            .frame(width: 80, height: 80)
+                                            .offset(x: 5)
+                                    }
+                                }
                                 .overlay(
                                     Circle()
                                         .strokeBorder(style: StrokeStyle(lineWidth: 3))
@@ -129,7 +137,6 @@ struct YourYomangView: View {
                                 .frame(height: 48)
                         }
                     )
-                
             }
             .offset(y: -UIScreen.width / 1.45)
         }
