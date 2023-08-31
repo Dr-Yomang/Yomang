@@ -104,7 +104,6 @@ class AuthViewModel: ObservableObject {
     
     func signOut(_ completion: @escaping() -> Void) {
         do {
-            guard self.user?.id != nil else { return }
             try Auth.auth().signOut()
             self.user = nil
             self.userSession = nil
@@ -118,29 +117,30 @@ class AuthViewModel: ObservableObject {
     func deleteUser() {
         // TODO: - 해당 유저의 요망, 파트너 데이터 싹 지워야함, 왜인지 firebase 단에서 바로 auth().current 삭제가 안돼서 탈퇴하자마자 다시 로그인하는 경우 걸림
         guard let currentUser = Auth.auth().currentUser else { return }
-        currentUser.delete { _ in
+        Auth.auth().currentUser!.delete { _ in
             self.collection.document(currentUser.uid).delete { _ in
-                self.signOut {}
+                self.signOut {
+                    print("=== deleted \(currentUser.uid)")
+                }
             }
         }
     }
             
     func createInviteLink() {
+        guard let user = user else { return }
         var components = URLComponents()
         components.scheme = "https"
         components.host = "yomanglabyomang.page.link"
         components.path = "/matchingLink"
         
-        let itemIDQueryItem = URLQueryItem(name: "UserID", value: "myUserIdValue")
+        let itemIDQueryItem = URLQueryItem(name: "UserID", value: user.id)
         components.queryItems = [itemIDQueryItem]
         
         guard let linkParameter = components.url else { return }
         print("\(linkParameter.absoluteString)링크를 공유하려고 시도합니다.")
         
         let domain = "https://yomanglabyomang.page.link"
-        guard let linkBuilder = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: domain) else {
-            return
-        }
+        guard let linkBuilder = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: domain) else { return }
         
         if let myBundleId = Bundle.main.bundleIdentifier {
             linkBuilder.iOSParameters = DynamicLinkIOSParameters(bundleID: myBundleId)
@@ -157,16 +157,7 @@ class AuthViewModel: ObservableObject {
         guard let longURL = linkBuilder.url else { return }
         print("원본 다이나믹 링크 : \(longURL.absoluteString)")
         
-        linkBuilder.shorten { url, warnings, error in
-            if let error = error {
-                print("링크 줄이는 과정에서 에러 발생 \(error)")
-                return
-            }
-            if let warnings = warnings {
-                for warning in warnings {
-                    print("Warning: \(warning)")
-                }
-            }
+        linkBuilder.shorten { url, _, _ in
             guard let url = url else { return }
             print("줄인 url 결과 : \(url.absoluteString)")
         }
