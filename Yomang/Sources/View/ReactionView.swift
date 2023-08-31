@@ -30,22 +30,22 @@ struct ReactionView: View {
                 )
             HStack(spacing: 24) {
                 Button {
-                    reactAction(selectedIndex: 0, lottieName: "reaction")
+                    reactAction(selectedIndex: 0, lottieName: "yt_aeng")
                 } label: {
                     ReactionButtonView(imageName: "yt_aeng")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                    reactAction(selectedIndex: 1, lottieName: "yt_great")
                 } label: {
                     ReactionButtonView(imageName: "yt_great")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                    reactAction(selectedIndex: 1, lottieName: "yt_love")
                 } label: {
                     ReactionButtonView(imageName: "yt_love")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "secondreaction")
+                    reactAction(selectedIndex: 1, lottieName: "yt_surprise")
                 } label: {
                     ReactionButtonView(imageName: "yt_surprise")
                 }
