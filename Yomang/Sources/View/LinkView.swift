@@ -136,7 +136,7 @@ struct LinkView: View {
                             .foregroundColor(.gray)
                             .frame(height: 56)
                             .overlay(
-                                Text("제 별명이 아니에요")
+                                Text("그건 내 이름이 아니야")
                                     .foregroundColor(.white)
                                     .font(.title3)
                                     .bold()
@@ -145,9 +145,9 @@ struct LinkView: View {
                         
                     }
                     .disabled(displayedText < fullText || isFlowCountChanged == true)
-                    if viewModel.user?.partnerId == nil {
-                        ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
-                                  ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
+                    .disabled(displayedText < fullText)
+                    if matchingIdFromUrl == nil {
+                        ShareLink(item: URL(string: viewModel.shareLink)!) {
                             RoundedRectangle(cornerRadius: 8)
                                 .foregroundColor(.white)
                                 .frame(height: 56)
@@ -171,7 +171,7 @@ struct LinkView: View {
                                 .foregroundColor(.white)
                                 .frame(height: 56)
                                 .overlay(
-                                    Text("요망 시작하기")
+                                    Text("응, 이대로 불러줘")
                                         .foregroundColor(.black)
                                         .font(.title3)
                                         .bold()
@@ -182,19 +182,21 @@ struct LinkView: View {
                     }
                     
                 case 3:
-                    ShareLink(item: matchingIdFromUrl ?? "") {
-                        RoundedRectangle(cornerRadius: 8)
-                            .foregroundColor(.gray)
-                            .frame(height: 56)
-                            .overlay(
-                                Text("연결 링크 공유하기")
-                                    .foregroundColor(.white)
-                                    .font(.title3)
-                                    .bold()
-                            )
-                            .opacity(displayedText < fullText ? 0.1 : 0.8)
+                    if matchingIdFromUrl == nil {
+                        ShareLink(item: URL(string: viewModel.shareLink)!) {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(.gray)
+                                .frame(height: 56)
+                                .overlay(
+                                    Text("연결 링크 공유하기")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .bold()
+                                )
+                                .opacity(displayedText < fullText ? 0.1 : 0.8)
+                        }
+                        .disabled(displayedText < fullText || isFlowCountChanged == true)
                     }
-                    .disabled(displayedText < fullText || isFlowCountChanged == true)
                     
                     Button {
                         viewModel.setUsername(username: nickname)

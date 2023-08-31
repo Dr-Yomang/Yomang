@@ -58,35 +58,47 @@ struct MarkupView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
                 }
-        }.offset(y: -28)
+            
+            if isUploadInProgress {
+                Color.black
+                    .opacity(0.7)
+                ProgressView()
+            }
+        }
+        .offset(y: -28)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack {
-                    
                     Button(action: { dismiss() }) {
-                        Image(systemName: "chevron.left").foregroundColor(.nav100)
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(isUploadInProgress ? .gray : .nav100)
                     }
+                    .disabled(isUploadInProgress)
                     
                     Button {
                         undoManager?.undo()
                     } label: {
                         Image(systemName: "arrow.uturn.backward.circle")
                     }
+                    .disabled(isUploadInProgress)
                     Button {
                         undoManager?.redo()
                     } label: {
                         Image(systemName: "arrow.uturn.forward.circle")
                     }
+                    .disabled(isUploadInProgress)
                 }
             }
             
             ToolbarItem(placement: .principal) {
                 Text("마크업")
                     .foregroundColor(.white)
+                    .opacity(isUploadInProgress ? 0.7: 1.0)
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("완료") {
+                    isUploadInProgress = true
                     myYomangImage.drawingImage = takeCapture()
                     if let image = myYomangImage.drawingImage {
                         viewModel.uploadMyYomang(image: image) { _ in
@@ -97,6 +109,7 @@ struct MarkupView: View {
                         }
                     }
                 }
+                .disabled(isUploadInProgress)
             }
         }.navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)

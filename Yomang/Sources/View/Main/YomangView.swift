@@ -39,6 +39,7 @@ struct YomangView: View {
                         if selectedTag != 0 {
                             Image(systemName: "heart")
                                 .foregroundColor(.white)
+                                .font(.system(size: 20))
                         }
                     }
 
@@ -47,6 +48,7 @@ struct YomangView: View {
                     } label: {
                         Image(systemName: "person")
                             .foregroundColor(.white)
+                            .font(.system(size: 20))
                     }
                 })
             }
