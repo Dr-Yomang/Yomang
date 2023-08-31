@@ -16,7 +16,6 @@
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
-		68CA766F2A9DE66D00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
@@ -233,7 +232,6 @@
 		2FC2EFBE2A596115008E1056 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AD0541CE2A9EE750001B7201 /* Settings */,
 				AD12EFCE2A90BD7200CDFBFE /* Main */,
 				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
 				2FDD6F432A5C12CD0065F947 /* LoginView.swift */,
@@ -243,17 +241,10 @@
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
+				ADC347572A5E4B38008F9624 /* SettingView.swift */,
 				2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		AD0541CE2A9EE750001B7201 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				ADC347572A5E4B38008F9624 /* SettingView.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		AD0ADC392A54444C0030B1F9 /* Frameworks */ = {
