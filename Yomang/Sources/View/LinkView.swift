@@ -18,6 +18,7 @@ struct LinkView: View {
     @State private var rotationToggle = false
     let typingInterval = 0.05
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var isFlowCountChanged = true
     
     var body: some View {
         ZStack {
@@ -90,6 +91,7 @@ struct LinkView: View {
                     case 3: fullText = "상대방과의 연결을\n기다리는 동안\n요망을 둘러볼까요?"
                     default: fullText = "default"
                     }
+                    print("flowCount changed:",String(flowCount))
                     startTyping()
                 }
             } // ZStack
@@ -100,7 +102,12 @@ struct LinkView: View {
                 switch flowCount {
                 case 0, 1:
                     Button {
-                        flowCount += 1
+                        if isFlowCountChanged == false {
+                            isFlowCountChanged = true
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                                flowCount += 1
+                            }
+                        }
                     } label: {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.white)
@@ -114,12 +121,16 @@ struct LinkView: View {
                             .opacity(displayedText < fullText ? 0.2 : 1.0)
                             .opacity(flowCount == 1 && nickname.count == 0 ? 0.2 : 1.0)
                     }
-                    .disabled(displayedText < fullText)
+                    .disabled(displayedText < fullText || isFlowCountChanged == true)
                     .disabled(flowCount == 1 && nickname.count == 0)
                     
                 case 2:
                     Button {
-                        flowCount -= 1
+                        if isFlowCountChanged == false {
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                                flowCount -= 1
+                            }
+                        }
                     } label: {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.gray)
@@ -133,7 +144,7 @@ struct LinkView: View {
                             .opacity(displayedText < fullText ? 0.2 : 0.8)
                         
                     }
-                    .disabled(displayedText < fullText)
+                    .disabled(displayedText < fullText || isFlowCountChanged == true)
                     if viewModel.user?.partnerId == nil {
                         ShareLink(item: URL(string: "YomanglabYomang://share?value=\(AuthViewModel.shared.user?.id)")
                                   ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
@@ -148,10 +159,10 @@ struct LinkView: View {
                                 )
                                 .opacity(displayedText < fullText ? 0.2 : 1.0)
                         }
-                        .disabled(displayedText < fullText)
-                        .simultaneousGesture(TapGesture().onEnded {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
-                        })
+                                  .disabled(displayedText < fullText || isFlowCountChanged == true)
+                                  .simultaneousGesture(TapGesture().onEnded {
+                                      DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { flowCount = 3 })
+                                  })
                     } else {
                         Button {
                             viewModel.setUsername(username: nickname)
@@ -167,7 +178,7 @@ struct LinkView: View {
                                 )
                                 .opacity(displayedText < fullText ? 0.1 : 1.0)
                         }
-                        .disabled(displayedText < fullText)
+                        .disabled(displayedText < fullText || isFlowCountChanged == true)
                     }
                     
                 case 3:
@@ -183,7 +194,7 @@ struct LinkView: View {
                             )
                             .opacity(displayedText < fullText ? 0.1 : 0.8)
                     }
-                    .disabled(displayedText < fullText)
+                    .disabled(displayedText < fullText || isFlowCountChanged == true)
                     
                     Button {
                         viewModel.setUsername(username: nickname)
@@ -199,7 +210,7 @@ struct LinkView: View {
                             )
                             .opacity(displayedText < fullText ? 0.1 : 0.8)
                     }
-                    .disabled(displayedText < fullText)
+                    .disabled(displayedText < fullText || isFlowCountChanged == true)
                 default: EmptyView()
                 }
                 
@@ -231,6 +242,7 @@ struct LinkView: View {
             }
         }
         timer.fire()
+        isFlowCountChanged = false
     }
     
 }
