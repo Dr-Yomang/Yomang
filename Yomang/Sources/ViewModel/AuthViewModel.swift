@@ -60,15 +60,9 @@ class AuthViewModel: ObservableObject {
                         "username": nil,
                         "email": email,
                         "partnerId": partnerId ?? nil] as [String: Any?]
-<<<<<<< HEAD
-            //                        //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
-            //                        "partnerToken": nil] as [String: Any?]
-            
-=======
 //                        MARK: - cloud functions가 deploy되면 구조가 바뀝니다
 //                        "partnerToken": nil] as [String: Any?]
 
->>>>>>> 8e16d8437cae136243f10495ba58617a92695f3a
             self.collection.document(user.uid).setData(data as [String: Any]) { _ in
                 print("=== DEBUG: 회원 등록 완료 \n\(data) ")
                 self.userSession = Auth.auth().currentUser
