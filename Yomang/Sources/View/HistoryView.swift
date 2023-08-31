@@ -29,11 +29,25 @@ struct HistoryView: View {
                                 // TODO: history grid 선택하면 어떻게 되는지: 큰 사진!
                                 destination: EmptyView(),
                                 label: {
-                                    KFImage(URL(string: yomang.imageUrl))
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: width, height: width)
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    ZStack {
+                                        KFImage(URL(string: yomang.imageUrl))
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: width, height: width)
+                                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                                        if let emoji = yomang.emoji,
+                                           emoji.count > 0 {
+                                            HStack {
+                                                Spacer()
+                                                VStack {
+                                                    Spacer()
+                                                    ReactionButtonView(imageName: emoji[emoji.count - 1])
+                                                        .padding(5)
+                                                        .padding(.trailing, 2)
+                                                }
+                                            }
+                                        }
+                                    }
                                 }) 
                         }
                     }

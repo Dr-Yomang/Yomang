@@ -61,6 +61,7 @@
 		AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */; };
 		AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
 		ADAA91812AA028B800ABAEEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
+		ADAA91852AA0418400ABAEEE /* ReactionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
 		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
@@ -79,9 +80,9 @@
 		C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A812A6EC40F00DD9E02 /* ReactionView.swift */; };
 		C1982A852A6EC5FF00DD9E02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C1982A842A6EC5FF00DD9E02 /* Lottie */; };
 		C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1982A882A6EC6B000DD9E02 /* LottieView.swift */; };
-		C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* reaction.json */; };
-		C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */; };
-		C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */; };
+		C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* yt_love.json */; };
+		C1982A8D2A6ECC9800DD9E02 /* yt_great.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* yt_great.json */; };
+		C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,13 +159,14 @@
 		AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD944D662A8CB7AA00589895 /* Yomang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yomang.entitlements; sourceTree = "<group>"; };
 		AD944D672A8CB82400589895 /* YomangWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YomangWidgetExtension.entitlements; sourceTree = "<group>"; };
+		ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionButtonView.swift; sourceTree = "<group>"; };
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		C1982A8A2A6EC90900DD9E02 /* reaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reaction.json; sourceTree = "<group>"; };
-		C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = secondreaction.json; sourceTree = "<group>"; };
-		C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thirdreaction.json; sourceTree = "<group>"; };
+		C1982A8A2A6EC90900DD9E02 /* yt_love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_love.json; sourceTree = "<group>"; };
+		C1982A8C2A6ECC9800DD9E02 /* yt_great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_great.json; sourceTree = "<group>"; };
+		C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_surprise.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
 				68FA63F32A924F5F00A68C69 /* MarkupView.swift */,
 				68FA63F72A924F9700A68C69 /* PhotoCropView.swift */,
+				ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */,
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
@@ -379,9 +382,9 @@
 		AD8FFE342A90DFDA00A7459A /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				C1982A8C2A6ECC9800DD9E02 /* secondreaction.json */,
-				C1982A8A2A6EC90900DD9E02 /* reaction.json */,
-				C1982A8E2A6ECDA800DD9E02 /* thirdreaction.json */,
+				C1982A8C2A6ECC9800DD9E02 /* yt_great.json */,
+				C1982A8A2A6EC90900DD9E02 /* yt_love.json */,
+				C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -509,10 +512,10 @@
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
 				2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */,
-				C1982A8B2A6EC90900DD9E02 /* reaction.json in Resources */,
-				C1982A8F2A6ECDA800DD9E02 /* thirdreaction.json in Resources */,
+				C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */,
+				C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */,
 				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
-				C1982A8D2A6ECC9800DD9E02 /* secondreaction.json in Resources */,
+				C1982A8D2A6ECC9800DD9E02 /* yt_great.json in Resources */,
 				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +573,7 @@
 				AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */,
 				AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
+				ADAA91852AA0418400ABAEEE /* ReactionButtonView.swift in Sources */,
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
 				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
