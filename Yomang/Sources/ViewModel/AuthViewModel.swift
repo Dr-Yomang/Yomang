@@ -124,8 +124,9 @@ class AuthViewModel: ObservableObject {
         self.collection.document(currentUser.uid).delete { err in
             print("=== DEBUG: deleteUser() \(err)")
             self.signOut {
-                currentUser.delete { _ in
+                currentUser.delete { err in
                     print("=== deleted \(currentUser.uid)")
+                    print("=== deleted error \(err)")
                 }
             }
         }
