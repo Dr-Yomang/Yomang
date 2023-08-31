@@ -76,8 +76,7 @@ struct YourYomangView: View {
                         ReactionView(viewModel: viewModel, yomangIndex: $index)
                     }
                 } else {
-                    ShareLink(item: URL(string: "YomanglabYomang://share?value=\(String(describing: AuthViewModel.shared.user?.id))")
-                              ?? URL(string: "itms-apps://itunes.apple.com/app/6461822956")!) {
+                    ShareLink(item: URL(string: AuthViewModel.shared.shareLink)!) {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(.white)
                             .frame(height: 56)
@@ -87,13 +86,6 @@ struct YourYomangView: View {
                                     .font(.title3)
                                     .bold()
                             )
-                            .onAppear {
-                                if !viewModel.connectWithPartner {
-                                    if let pid = matchingIdFromUrl {
-                                        AuthViewModel.shared.matchTwoUser(partnerId: pid)
-                                    }
-                                }
-                            }
                     }
                 }
             }

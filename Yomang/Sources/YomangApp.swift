@@ -47,6 +47,9 @@ struct YomangApp: App {
         guard dynamicLink.matchType == .unique || dynamicLink.matchType == .default else { return }
         self.matchingIdFromUrl = AuthViewModel.shared.parseDeepLinkComponents(from: url)
         print("Deep link: \(self.matchingIdFromUrl!)")
+        if AuthViewModel.shared.user != nil {
+            AuthViewModel.shared.matchTwoUser(partnerId: self.matchingIdFromUrl!)
+        }
     }
 }
 
