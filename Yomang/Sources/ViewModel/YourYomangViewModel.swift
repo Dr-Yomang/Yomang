@@ -27,25 +27,26 @@ class YourYomangViewModel: ObservableObject {
         guard let uid = user.id else { return }
         if user.partnerId == nil {
             userCollection.document(uid).addSnapshotListener { snapshot, _ in
-                guard let pid = user.partnerId else { return }
                 guard let document = snapshot else { return }
                 guard let userData = document.data() else { return }
-                if userData["partnerId"] as! String == pid {
-//                    //    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+                guard let pid = userData["partnerId"] as? String else { return }
+                if pid == "null" { return }
+                self.connectWithPartner = true
+                AuthViewModel.shared.fetchUser { _ in
+                    self.fetchYourYomang()
+                    self.fetchPartnerData()
+                }
+//                    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
 //                    collection.document(pid).getDocument { snapshot, _ in
 //                        guard let snapshot = snapshot else { return }
 //                        guard let partner = try? snapshot.data(as: User.self) else { return }
 //                        collection.document(uid).updateData(["partnerToken": partner.userToken])
 //                        collection.document(pid).updateData(["partnerToken": user.userToken])
 //                    }
-                    self.connectWithPartner = true
-                    self.fetchYourYomang()
-                    self.fetchPartnerData()
-                }
             }
         } else {
             self.connectWithPartner = true
-            fetchYourYomang()
+            self.fetchYourYomang()
             self.fetchPartnerData()
         }
     }
