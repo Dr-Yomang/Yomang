@@ -115,7 +115,7 @@ struct SettingView: View {
                                 .foregroundColor(.gray)
                                 .opacity(0.5)
                         }
-
+                        
                     }
                 }
                 
@@ -219,7 +219,7 @@ struct PartnerConnectionSettingView: View {
                 Image(systemName: "chevron.backward")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
+                    .frame(width: 25, height: 25)
                 Spacer()
                 Text("파트너 연결")
                     .bold()
@@ -238,17 +238,17 @@ struct PartnerConnectionSettingView: View {
                     .background(                  RoundedRectangle(cornerRadius: 12)
                         .frame(width: 82, height: 28))
                     .padding(.leading, 14)
-                    Spacer()
+                Spacer()
             }
-            .padding(.bottom,44)
+            .padding(.bottom, 44)
             Button(action: {
                 
             }, label: {
-                ZStack{
+                ZStack {
                     RoundedRectangle(cornerRadius: 12)
-                    .foregroundStyle(Color(hex: 0x1C1C1D))
-                    .frame(height: 44)
-                    .padding(.horizontal, 20)
+                        .foregroundStyle(Color(hex: 0x1C1C1D))
+                        .frame(height: 44)
+                        .padding(.horizontal, 20)
                     HStack {
                         Text("연결 끊기")
                             .font(.subheadline)
@@ -269,8 +269,242 @@ struct PartnerConnectionSettingView: View {
     }
 }
 
+struct PartnerNotConnectedSettingView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                Spacer()
+                Text("파트너 연결")
+                    .bold()
+                    .font(.title2)
+                    .padding(.leading, -32.0)
+                Spacer()
+            }
+            .padding(.bottom, 42)
+            HStack {
+                Text("연결된 파트너가 없어요.")
+                    .padding(.leading, 20)
+                    .foregroundStyle(Color(hex: 0xC7C7CC))
+                Spacer()
+            }
+            .padding(.bottom, 51)
+            Button(action: {
+                // TODO: 새로 연결하기 기능
+            }, label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundStyle(Color(hex: 0x1C1C1D))
+                        .frame(height: 44)
+                        .padding(.horizontal, 20)
+                    HStack {
+                        Text("새로 연결하기")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.white)
+                            .padding(.leading, 32)
+                        Spacer()
+                    }
+                }
+            })
+            .padding(.bottom, 10)
+            Button(action: {
+                // TODO: 끊어진 연결 복구하기
+            }, label: {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundStyle(Color(hex: 0x1C1C1D))
+                        .frame(height: 44)
+                        .padding(.horizontal, 20)
+                    HStack {
+                        Text("끊어진 연결 복구하기")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.white)
+                            .padding(.leading, 32)
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 18, height: 18)
+                            .foregroundStyle(Color.white)
+                            .padding(.trailing, 25)
+                    }
+                }
+            })
+            Spacer()
+        }
+    }
+}
+
+struct DisconnectSettingView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                Spacer()
+                Text("연결 끊기")
+                    .bold()
+                    .font(.title2)
+                    .padding(.leading, -32.0)
+                Spacer()
+            }
+            .padding(.bottom, 42)
+            Text("파트너와의 연결을 끊게 되면 연결은 물론 함께 나누며 쌓아온 요망도 모두 사라지게 돼요.\n\n끊어진 연결과 쌓아왔던 요망은 n일까지만 복구할 수 있고, 그 이후에는 복구할 수 없어요.")
+                .padding(.horizontal, 20)
+                .foregroundStyle(Color(hex: 0xC7C7CC))
+            HStack {
+                Text("정말로 파트너와의 연결을 끊으시겠어요?")
+                    .padding(.leading, 20)
+                    .padding(.top, 15)
+                    .bold()
+                    .foregroundStyle(Color(hex: 0x8A42FF))
+                Spacer()
+            }
+            Spacer()
+            Button(action: {}, label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .frame(height: 56)
+                        .padding(.horizontal, 20)
+                        .foregroundColor(Color(hex: 0x1C1C1D))
+                    Text("연결 끊기")
+                        .font(.title2)
+                        .bold()
+                        .foregroundStyle(Color(hex: 0x8A42FF))
+                }
+            })
+        }
+    }
+}
+
+struct NotificationSettingView: View {
+    
+    @State var isNotificationActivated: Bool = true
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                Spacer()
+                Text("파트너 연결")
+                    .bold()
+                    .font(.title2)
+                    .padding(.leading, -32.0)
+                Spacer()
+            }
+            .padding(.bottom, 42)
+            
+            HStack {
+                if isNotificationActivated {
+                    Text("알림이 켜져있어요.")
+                        .padding(.leading, 20)
+                    .foregroundStyle(Color(hex: 0xC7C7CC))
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        isNotificationActivated.toggle()
+                    }, label: {
+                        Text("알림 끄기")
+                            .foregroundStyle(Color.white)
+                            .bold()
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .padding(.horizontal, -15)
+                                    .padding(.vertical, -6)
+                                    .foregroundStyle(Color(hex: 0x1C1C1D)))
+                            .padding(.trailing, 20)
+                    })
+                } else {
+                    Text("알림이 꺼져있어요.")
+                        .padding(.leading, 20)
+                    .foregroundStyle(Color(hex: 0xC7C7CC))
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        isNotificationActivated.toggle()
+                    }, label: {
+                        Text("알림 켜기")
+                            .foregroundStyle(Color.white)
+                            .bold()
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .padding(.horizontal, -15)
+                                    .padding(.vertical, -6)
+                                    .foregroundStyle(Color(hex: 0x1C1C1D)))
+                            .padding(.trailing, 20)
+                    })
+                }
+            }
+            .padding(.bottom, 6)
+            
+            if isNotificationActivated {
+                HStack {
+                    Text("기기 설정에서 알림을 끌 수 있어요.")
+                        .padding(.leading, 20)
+                        .foregroundStyle(Color(hex: 0x8A42FF))
+                        .font(.subheadline)
+                    Spacer()
+                }
+            } else {
+                HStack {
+                    Text("기기 설정에서 알림을 켤 수 있어요.")
+                        .padding(.leading, 20)
+                        .foregroundStyle(Color(hex: 0x8A42FF))
+                        .font(.subheadline)
+                    Spacer()
+                }
+            }
+            Spacer()
+        }
+    }
+}
+
+struct WidgetSettingView: View {
+    var body: some View {
+        ScrollView(content: {
+            VStack {
+                HStack {
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                    Spacer()
+                    Text("위젯 설정")
+                        .bold()
+                        .font(.title2)
+                        .padding(.leading, -32.0)
+                    Spacer()
+                }
+                .padding(.bottom, 42)
+                
+                Text("요망은 당신과 파트너의 홈 화면에 위젯으로 서로의 사진을 주고 받는 서비스예요.\n\n아래의 단계별 설명에 따라 위젯을 설정해주세요.")
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 39)
+                    .foregroundStyle(Color(hex: 0xC7C7CC))
+                
+                Image("WidgetSettingImg1")
+                    .padding(.bottom, 24)
+                Image("WidgetSettingImg2")
+                    .padding(.bottom, 24)
+                Image("WidgetSettingImg3")
+                    .padding(.bottom, 24)
+            }
+        })
+    }
+}
+
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        PartnerConnectionSettingView()
+        WidgetSettingView()
     }
 }
