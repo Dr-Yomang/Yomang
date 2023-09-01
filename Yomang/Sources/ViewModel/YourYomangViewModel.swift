@@ -11,8 +11,9 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 
 class YourYomangViewModel: ObservableObject {
-    let historyCollection = Firestore.firestore().collection("HistoryDebugCollection")
     let userCollection = Firestore.firestore().collection("UserDebugCollection")
+    let historyCollection = Firestore.firestore().collection("HistoryDebugCollection")
+    let profileCollection = Firestore.firestore().collection("ProfileImageDebugCollection")
     @Published var data = [YomangData]()
     @Published var connectWithPartner = false
     @Published var partner: User?
@@ -58,6 +59,15 @@ class YourYomangViewModel: ObservableObject {
             guard let snapshot = snapshot else { return }
             guard let partner = try? snapshot.data(as: User.self) else { return }
             self.partner = partner
+            self.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
+                if let err = err {
+                    print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
+                }
+                guard let snapshot = snapshot else { return }
+                if snapshot.documents.count == 0 { return }
+                guard let profile = try? snapshot.documents[0].data(as: ProfileImage.self) else { return }
+                self.partnerImageUrl = profile.profileImageUrl
+            }
         }
     }
     
