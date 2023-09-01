@@ -11,7 +11,6 @@
 		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
 		2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
-		2F89EDD72A9EE4BD002E6A5C /* TestViewCreateLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */; };
 		2F89EDDB2A9EE60C002E6A5C /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 2F89EDDA2A9EE60C002E6A5C /* FirebaseDynamicLinks */; };
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
@@ -120,7 +119,6 @@
 		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewCreateLink.swift; path = Yomang/Sources/View/TestViewCreateLink.swift; sourceTree = SOURCE_ROOT; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
 				ADC347572A5E4B38008F9624 /* SettingView.swift */,
-				2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -614,7 +611,6 @@
 				68FA63FA2A924FBA00A68C69 /* ViewSizeModel.swift in Sources */,
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
 				68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */,
-				2F89EDD72A9EE4BD002E6A5C /* TestViewCreateLink.swift in Sources */,
 				68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */,
 				68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */,
 				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,
