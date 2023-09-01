@@ -20,6 +20,8 @@ struct YourYomangView: View {
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
     
+    @AppStorage("hasSeenOnboarding", store: UserDefaults.standard) var hasSeenOnboarding = false
+    
     var body: some View {
         ZStack {
             Color.black
@@ -134,8 +136,11 @@ struct YourYomangView: View {
             }
             .offset(y: -UIScreen.width / 1.45)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    self.isShownSheet.toggle()
+                if !hasSeenOnboarding {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.isShownSheet = true
+                        self.hasSeenOnboarding = true
+                    }
                 }
             }
             .sheet(isPresented: $isShownSheet) {

@@ -40,6 +40,7 @@ struct FirstOnboardingView: View {
             Text("요망은 당신과 파트너의 홈 화면에 \n 위젯으로 서로의 사진을 주고 받는 서비스예요. \n 아래 설명에 따라 위젯을 설정해주세요.")
                 .multilineTextAlignment(.center)
                 .font(.system(size: 16, weight: .medium))
+                .padding(.bottom, 15)
             
             Spacer()
             
@@ -47,11 +48,7 @@ struct FirstOnboardingView: View {
                 .multilineTextAlignment(.center)
                 .font(.system(size: 24, weight: .bold))
             
-            
             Image("wid1")
-//                .resizable()
-//                .frame(width: 217, height: 470)
-//                .clipped()
                 .offset(y: 100)
             
         }
