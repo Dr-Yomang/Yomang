@@ -17,7 +17,7 @@ struct SettingView: View {
     @State private var username = ""
     @State private var isLengthZero = false
     @State private var isUploadInProgress = false
-//    @State private var showAlert = false
+    @State private var sureToDeletePartner = false
     @ObservedObject private var viewModel = SettingViewModel()
     var body: some View {
         ZStack {
@@ -91,19 +91,19 @@ struct SettingView: View {
                     }
                 }
                 
+                // MARK: - Section. 내 사용
                 Section(header: Text(String.headerTitleMyUsage)) {
+                    // MARK: - 파트너 연결 끊기
                     Button {
-                        viewModel.deletePartner {
-                            AuthViewModel.shared.fetchUser { _ in
-                            }
-                        }
+                        sureToDeletePartner = true
                     } label: {
                         HStack {
                             Image(systemName: .person2Slash)
                             Text(String.buttonConnectPartner)
                         }
-                        .foregroundColor(.white)
+                        .foregroundColor(.red)
                     }
+                    // MARK: - 알림 설정 ([설정]앱으로 이동)
                     HStack {
                         Image(systemName: .bellFill)
                         Text(String.buttonSettingNotification)
@@ -125,6 +125,7 @@ struct SettingView: View {
                 }
                 
                 Section {
+                    // MARK: - Sign out
                     Button {
                         isSignOutInProgress = true
                         AuthViewModel.shared.signOut {
@@ -152,6 +153,7 @@ struct SettingView: View {
                 }
             }
             
+            // MARK: - 탈퇴하기
             VStack {
                 Spacer()
                 HStack {
@@ -176,9 +178,9 @@ struct SettingView: View {
             }
         }
         .alert("닉네임 변경", isPresented: $editUsername) {
-            TextField("Username", text: $username)
+            TextField("\(viewModel.username ?? "새 닉네임")", text: $username)
                 .textInputAutocapitalization(.never)
-            Button("변경", action: verifyThenUploadNewUsername)
+            Button("변경할게요", action: verifyThenUploadNewUsername)
             Button("취소", role: .cancel) {
                 editUsername = false
             }
@@ -186,11 +188,19 @@ struct SettingView: View {
             Text("변경할 닉네임을 입력하세요.")
         }
         .alert("닉네임을 다시 입력해 주세요", isPresented: $isLengthZero) {
-            Button("확인", role: .cancel) {
+            Button("확인했어요", role: .cancel) {
                 isLengthZero = false
             }
         } message: {
             Text("닉네임의 길이는 1자 이상 10자 이하여야 합니다.")
+        }
+        .alert("정말 상대방과의 연결을 끊으시겠어요?", isPresented: $sureToDeletePartner) {
+            Button("네, 끊을게요", role: .destructive, action: deleteUserAction)
+            Button("취소할게요", role: .cancel) {
+                sureToDeletePartner = false
+            }
+        }message: {
+            Text("주고받은 모든 요망이 즉시 삭제돼요")
         }
         .onChange(of: selectedImage) { newItem in
             Task {
@@ -212,7 +222,16 @@ struct SettingView: View {
                 isUploadInProgress = false
             }
         } else {
-            
+            isLengthZero = true
+        }
+    }
+    
+    private func deleteUserAction() {
+        isUploadInProgress = true
+        viewModel.deletePartner {
+            AuthViewModel.shared.fetchUser { _ in
+                isUploadInProgress = false
+            }
         }
     }
 }
