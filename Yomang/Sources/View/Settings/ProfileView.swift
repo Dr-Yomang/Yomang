@@ -33,8 +33,8 @@ struct ProfileView: View {
                 } else {
                     Image(.yottoGown2)
                         .resizable()
+                        .scaledToFill()
                         .frame(width: 178, height: 178)
-                        .scaledToFit()
                         .clipShape(Circle())
                         .padding(.top, 10)
                 }
