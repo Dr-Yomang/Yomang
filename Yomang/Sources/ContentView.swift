@@ -20,7 +20,7 @@ struct ContentView: View {
 ////                        print(AuthViewModel.shared.user)
 ////                        print(AuthViewModel.shared.userSession)
 ////                        print(AuthViewModel.shared.username)
-//                        
+//
 //                    }
             } else { // hide splash
                 if viewModel.userSession != nil {

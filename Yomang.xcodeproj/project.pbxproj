@@ -67,6 +67,7 @@
 		ADDF26D12AA198C800D2D9F6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ADDF26D02AA198C800D2D9F6 /* Alamofire */; };
 		ADDF26D32AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 in Resources */ = {isa = PBXBuildFile; fileRef = ADDF26D22AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 */; };
 		ADDF26D52AA1B8F800D2D9F6 /* AppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */; };
+		ADDF26E52AA1EA0900D2D9F6 /* ArchiveSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
 		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
@@ -168,6 +169,7 @@
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		ADDF26D22AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_3H7L42YJAK.p8; sourceTree = "<group>"; };
 		ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenResponse.swift; sourceTree = "<group>"; };
+		ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveSingleView.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				AD12EFCE2A90BD7200CDFBFE /* Main */,
+				ADDF26E32AA1E9E900D2D9F6 /* Archive */,
 				2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */,
 				2FDD6F432A5C12CD0065F947 /* LoginView.swift */,
 				2FDD6F452A5C17C00065F947 /* LinkView.swift */,
@@ -254,7 +257,6 @@
 				ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */,
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
-				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
 				ADC347572A5E4B38008F9624 /* SettingView.swift */,
 			);
 			path = View;
@@ -398,6 +400,15 @@
 				ADAA91862AA0C99700ABAEEE /* yt_aeng.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		ADDF26E32AA1E9E900D2D9F6 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
+				ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */,
+			);
+			path = Archive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +623,7 @@
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
 				68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */,
 				68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */,
+				ADDF26E52AA1EA0900D2D9F6 /* ArchiveSingleView.swift in Sources */,
 				68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */,
 				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,
 				2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */,
