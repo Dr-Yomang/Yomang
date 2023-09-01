@@ -14,12 +14,12 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage())
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         let entry = SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage())
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let entryDate = Date()
         var entry = SimpleEntry(date: entryDate, image: UIImage(named: "defaultWidgetImage") ?? UIImage())
@@ -73,17 +73,11 @@ struct SimpleEntry: TimelineEntry {
 
 struct YomangWidgetEntryView: View {
     var entry: Provider.Entry
-
+    
     var body: some View {
-        ZStack {
-            Image(uiImage: entry.image)
-                .resizable()
-                .scaledToFill()
-            VStack {
-                Spacer()
-                Text(entry.date, style: .time)
-            }
-        }
+        Image(uiImage: entry.image)
+            .resizable()
+            .scaledToFill()
     }
 }
 
@@ -98,7 +92,7 @@ struct YomangWidget: Widget {
         }
     }
     let kind: String = "YomangWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             YomangWidgetEntryView(entry: entry)
