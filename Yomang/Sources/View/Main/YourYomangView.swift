@@ -16,6 +16,7 @@ struct YourYomangView: View {
     @State private var isWaveEffect: Bool = false
     @State private var effectOpacityToggle: [Bool] = Array(repeating: false, count: 5)
     @State private var effectSizeToggle: [Bool] = Array(repeating: false, count: 5)
+    @State var isShownSheet = false
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
     
@@ -132,6 +133,14 @@ struct YourYomangView: View {
                     )
             }
             .offset(y: -UIScreen.width / 1.45)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    self.isShownSheet.toggle()
+                }
+            }
+            .sheet(isPresented: $isShownSheet) {
+                OnboardingView(isShownSheet: $isShownSheet)
+            }
         }
     }
 }
