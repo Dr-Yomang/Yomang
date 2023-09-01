@@ -16,6 +16,8 @@ struct YourYomangView: View {
     @State var isShownSheet = false
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
+    @State private var lottieName: String = ""
+    @State private var isLottiePlayed: Bool = false
     
     @AppStorage("hasSeenOnboarding", store: UserDefaults.standard) var hasSeenOnboarding = false
     
@@ -110,10 +112,10 @@ struct YourYomangView: View {
             }
             .frame(width: UIScreen.width - (Constants.widgetPadding * 2),
                    height: (UIScreen.width - (Constants.widgetPadding * 2)) * 1.05)
-            
+       
                 if viewModel.connectWithPartner {
                     if viewModel.data.count > 0 {
-                        ReactionView(viewModel: viewModel, yomangIndex: $index)
+                        ReactionView(viewModel: viewModel, lottieName: $lottieName, isLottiePlayed: $isLottiePlayed, data: viewModel.data[0])
                             .frame(width: UIScreen.width - (Constants.widgetPadding * 2))
                             .padding(.vertical)
                     }
@@ -135,6 +137,12 @@ struct YourYomangView: View {
                 Spacer()
             }
             .offset(y: -16)
+            
+            if isLottiePlayed {
+                LottieView(name: lottieName)
+                    .ignoresSafeArea()
+            }
+            
         }
         .onAppear {
             if !hasSeenOnboarding {

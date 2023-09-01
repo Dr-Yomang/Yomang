@@ -41,9 +41,9 @@ class MyYomangViewModel: ObservableObject {
         }
     }
     
-    func fetchProfileImg() -> String? {
-        guard let user = AuthViewModel.shared.user else { return "" }
-        guard let uid = user.id else { return "" }
+    func fetchProfileImg() {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
         Constants.profileCollection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, err in
             if let err = err {
                 print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
@@ -53,6 +53,5 @@ class MyYomangViewModel: ObservableObject {
             guard let profile = try? snapshot.documents[0].data(as: ProfileImage.self) else { return }
             self.imageUrl = profile.profileImageUrl
         }
-        return imageUrl
     }
 }

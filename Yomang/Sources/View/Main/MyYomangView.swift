@@ -38,7 +38,7 @@ struct MyYomangView: View {
                         .opacity(0.4)
                         .overlay {
                             Group {
-                                if let imageUrl = viewModel.fetchProfileImg() {
+                                if let imageUrl = viewModel.imageUrl {
                                     KFImage(URL(string: imageUrl))
                                         .resizable()
                                         .frame(width: 80, height: 80)
