@@ -9,6 +9,7 @@ import SwiftUI
 
 struct YomangView: View {
     @Binding var matchingIdFromUrl: String?
+    @State private var isHistoryButtonClicked: Bool = false
     @State private var selectedTag = 1
     
     var body: some View {
@@ -18,7 +19,7 @@ struct YomangView: View {
                     .ignoresSafeArea()
                 
                 TabView(selection: $selectedTag) {
-                    HistoryView(selectedTag: $selectedTag)
+                    HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
                         .tag(0)
                     YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(1)
@@ -31,10 +32,9 @@ struct YomangView: View {
                 .navigationBarItems(trailing:
                                         HStack {
                     NavigationLink {
-                        HistoryView(selectedTag: $selectedTag)
+                        HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
                             .navigationTitle(Text("히스토리"))
                             .navigationBarTitleDisplayMode(.inline)
-
                     } label: {
                         if selectedTag != 0 {
                             Image(systemName: "heart")
@@ -42,7 +42,10 @@ struct YomangView: View {
                                 .font(.system(size: 20))
                         }
                     }
-
+                    .simultaneousGesture(TapGesture().onEnded {
+                        isHistoryButtonClicked = true
+                    })
+                    
                     NavigationLink {
                         SettingView()
                     } label: {

@@ -30,7 +30,7 @@ class YourYomangViewModel: ObservableObject {
                 guard let pid = userData["partnerId"] as? String else { return }
                 if pid == "null" { return }
                 self.connectWithPartner = true
-                AuthViewModel.shared.fetchUser { _ in
+                AuthViewModel.shared.fetchUser {
                     self.fetchYourYomang()
                     self.fetchPartnerData()
                 }

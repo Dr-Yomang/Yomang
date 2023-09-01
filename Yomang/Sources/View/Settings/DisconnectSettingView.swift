@@ -44,7 +44,7 @@ struct DisconnectSettingView: View {
                         .foregroundStyle(Color(hex: 0x8A42FF))
                 }
             })
-        } //VStack
+        } // VStack
         .navigationTitle(String.navigationTitleSetting)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
@@ -59,7 +59,7 @@ struct DisconnectSettingView: View {
             }
         }
         .alert("정말 상대방과의 연결을 끊으시겠어요?", isPresented: $sureToDeletePartner) {
-            Button("네, 끊을게요", role: .destructive, action: deleteUserAction)
+            Button("네, 끊을게요", role: .destructive, action: deletePartnerAction)
             Button("취소할게요", role: .cancel) {
                 sureToDeletePartner = false
             }
@@ -68,14 +68,14 @@ struct DisconnectSettingView: View {
         }
     }
     
-    private func deleteUserAction() {
+    private func deletePartnerAction() {
         isUploadInProgress = true
         viewModel.deletePartner {
-            AuthViewModel.shared.fetchUser { _ in
+            AuthViewModel.shared.fetchUser {
                 isUploadInProgress = false
+                dismiss()
             }
         }
-        dismiss()
     }
     
 }

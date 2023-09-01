@@ -8,25 +8,18 @@
 import SwiftUI
 
 struct NotificationSettingView: View {
-    
-    enum AlertType {
-        case goToSetting
-        case usernameLengthLimit
-    }
-    
     @State private var isNotificationActivated: Bool = true
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: SettingViewModel
     
-    @State private var alertType = AlertType.goToSetting
     @State private var showInstantAlert = false
-    @State private var instantAlertTitle = ""
-    @State private var instantAlertMessage = ""
+    private let instantAlertTitle = "[설정]으로 이동할게요"
+    private let instantAlertMessage = "[설정] - [알림]에서 알림을 허용해 주세요"
     
     var body: some View {
         VStack {
             HStack {
-                if isNotificationActivated {
+                if viewModel.isAlertOn {
                     Text("알림이 켜져있어요.")
                         .padding(.leading, 20)
                         .foregroundStyle(Color(hex: 0xC7C7CC))
@@ -35,9 +28,8 @@ struct NotificationSettingView: View {
                     
                     HStack {
                         Button {
-                            setInstantAlert(title: "[설정]으로 이동할게요",
-                                            message: "[설정] - [알림]에서 알림을 허용해 주세요",
-                                            type: .goToSetting)
+                            showInstantAlert = true
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                         } label: {
                             Text("알림 끄기")
                                 .foregroundStyle(Color.white)
@@ -58,7 +50,8 @@ struct NotificationSettingView: View {
                     Spacer()
                     
                     Button(action: {
-                        isNotificationActivated.toggle()
+                        showInstantAlert = true
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                     }, label: {
                         Text("알림 켜기")
                             .foregroundStyle(Color.white)
@@ -75,7 +68,7 @@ struct NotificationSettingView: View {
             .padding(.bottom, 6)
             .padding(.top, 42)
             
-            if isNotificationActivated {
+            if viewModel.isAlertOn {
                 HStack {
                     Text("기기 설정에서 알림을 끌 수 있어요.")
                         .padding(.leading, 20)
@@ -108,12 +101,4 @@ struct NotificationSettingView: View {
             }
         }
     }
-    
-    private func setInstantAlert(title: String, message: String, type: AlertType) {
-        instantAlertTitle = title
-        instantAlertMessage = message
-        showInstantAlert = true
-        alertType = type
-    }
-    
 }

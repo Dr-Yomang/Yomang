@@ -19,25 +19,19 @@ struct ReactionView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(.white)
-                .frame(width: UIScreen.width - 40, height: 80)
-                .opacity(0.5)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(style: StrokeStyle(lineWidth: 3))
-                        .foregroundColor(.white)
-                        .frame(height: 80)
-                        .opacity(0.5)
-                )
-            HStack(spacing: 24) {
+                .frame(height: UIScreen.height * 0.095)
+                .opacity(0.2)
+
+            HStack(spacing: UIScreen.width * 0.07) {
                 Button {
-                    reactAction(selectedIndex: 0, lottieName: "yt_aeng")
+                    reactAction(selectedIndex: 0, lottieName: "yt_sad")
                 } label: {
-                    ReactionButtonView(imageName: "yt_aeng")
+                    ReactionButtonView(imageName: "yt_sad")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "yt_great")
+                    reactAction(selectedIndex: 1, lottieName: "yt_laugh")
                 } label: {
-                    ReactionButtonView(imageName: "yt_great")
+                    ReactionButtonView(imageName: "yt_laugh")
                 }
                 Button {
                     reactAction(selectedIndex: 1, lottieName: "yt_love")
@@ -45,9 +39,9 @@ struct ReactionView: View {
                     ReactionButtonView(imageName: "yt_love")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "yt_surprise")
+                    reactAction(selectedIndex: 1, lottieName: "yt_thumbsUp")
                 } label: {
-                    ReactionButtonView(imageName: "yt_surprise")
+                    ReactionButtonView(imageName: "yt_thumbsUp")
                 }
             }
             if animationInProgress {

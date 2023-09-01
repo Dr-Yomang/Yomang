@@ -13,13 +13,18 @@ import SwiftUI
 class SettingViewModel: ObservableObject {
     @Published var username: String?
     @Published var profileImageUrl: String?
-    @Published var alertAuthorizationStatus = ""
+    @Published var isAlertOn = false
     @Published var partnerID: String?
+    @Published var partnerUsername: String?
     
     init() {
+        fetchSettingData()
+    }
+    
+    func fetchSettingData() {
         fetchUsername()
         fetchProfileImageUrl()
-        fetchpartnerID()
+        fetchPartnerUsername()
         queryAuthorizationStatus()
     }
     
@@ -44,13 +49,27 @@ class SettingViewModel: ObservableObject {
         }
     }
     
-    func fetchpartnerID() {
+    func fetchPartnerID(_ completion: @escaping() -> Void) {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
         Constants.userCollection.document(uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             self.partnerID = user.partnerId
+            self.partnerUsername = user.username
+            completion()
+        }
+    }
+    
+    func fetchPartnerUsername() {
+        guard let user = AuthViewModel.shared.user else { return }
+        self.fetchPartnerID {
+            guard let pid = self.partnerID else { return }
+            Constants.userCollection.document(pid).getDocument { snapshot, _ in
+                guard let snapshot = snapshot else { return }
+                guard let user = try? snapshot.data(as: User.self) else { return }
+                self.partnerUsername = user.username
+            }
         }
     }
     
@@ -84,11 +103,17 @@ class SettingViewModel: ObservableObject {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined, .denied, .provisional, .ephemeral:
-                self.alertAuthorizationStatus = "꺼짐"
+                DispatchQueue.main.async {
+                    self.isAlertOn = false
+                }
             case .authorized:
-                self.alertAuthorizationStatus = "켜짐"
+                DispatchQueue.main.async {
+                    self.isAlertOn = true
+                }
             @unknown default:
-                self.alertAuthorizationStatus = ""
+                DispatchQueue.main.async {
+                    self.isAlertOn = false
+                }
             }
         }
     }

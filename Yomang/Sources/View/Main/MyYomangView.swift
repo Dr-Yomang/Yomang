@@ -23,89 +23,106 @@ struct MyYomangView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Image("YomangMoon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 1800, height: 1800)
-                    .offset(x: -UIScreen.width / 2, y: 1100)
-                    .ignoresSafeArea()
-                YomangImageView(data: viewModel.data, index: $index)
-                    .overlay {
-                        ZStack {
-                            if viewModel.data.count == 0 {
-                                Text("마음을 담아 요망을 보내보세요")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                            }
-                            if isUploadInProgress {
-                                Color
-                                    .black
-                                    .opacity(0.5)
-                                    .ignoresSafeArea()
-                                ProgressView()
-                            }
-                        }
-                    }
-                    .frame(width: UIScreen.width - 40, height: Constants.widgetSize.width / (UIScreen.width - 40) *  Constants.widgetSize.height)
-                    .offset(y: -56)
-                    .onTapGesture {
-                        DispatchQueue.main.async {
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                            withAnimation(.easeIn(duration: 0.3)) {
-                                isScaleEffect = true
-                            }
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                            withAnimation(.easeOut(duration: 0.5)) {
-                                isScaleEffect = false
-                            }
-                            // TODO: - upload my yomang
-                        }
-                    }
-                    .scaleEffect(isScaleEffect ? 1.05 : 1)
-                
+                Color.black
+                    .overlay(
+                        Image("YomangMoon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 1800, height: 1800)
+                            .offset(x: -UIScreen.width / 2, y: 1100)
+                    )
                 VStack {
-                    PhotoPicker(selectedItem: $selectedItem) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 28)
-                                .foregroundColor(Color(hex: 0x3D3D3D))
-                                .frame(width: 112, height: 72)
-                            Text("보내기")
-                                .foregroundColor(.white)
-                                .font(.title2)
-                        }
-                    }
-                    .onChange(of: selectedItem) { newItem in
-                        Task {
-                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                myYomangImage.imageData = data
-                                myYomangImage.croppedImageData = nil
-                            }
-                        }
-                        displayPhotoCropper = true
-                    }
-                }
-                .padding(Constants.yomangPadding / 2)
-                .offset(y: UIScreen.width / 2.2)
-                
-                VStack {
+                    Circle()
+                        .frame(width: 80, height: 80)
+                        .foregroundColor(.white)
+                        .opacity(0.4)
+                        .overlay (
+                            //TODO: 조건문 변경 및 내 프로필이미지로 변경!!!
+//                            if let imageUrl = viewModel.partnerImageUrl {
+//                                KFImage(URL(string: imageUrl))
+//                                    .resizable()
+//                                    .frame(width: 80, height: 80)
+//                                    .clipShape(Circle())
+//                            } else {
+                                Image(.yottoGown2)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 80)
+                                    .offset(x: -5, y: 21)
+                                    .clipShape(Circle())
+//                            }
+                        )
+                        .offset(y: 32)
+                    
                     Text(AuthViewModel.shared.username ?? "나의 요망")
-                        .font(.title3)
+                        .font(.headline)
                         .bold()
                         .foregroundColor(.black)
                         .padding()
                         .background(
-                            RoundedRectangle(cornerRadius: 16)
-                                .frame(height: 48)
+                            RoundedRectangle(cornerRadius: 12)
+                                .frame(height: 36)
                         )
-                    
+                        YomangImageView(data: viewModel.data, index: $index)
+                            .overlay {
+                                ZStack {
+                                    if viewModel.data.count == 0 {
+                                        Text("기다리는 동안 상대에게 보여질\n내 프로필 사진을 설정해볼까요?")
+                                            .font(.headline)
+                                            .foregroundColor(.white)
+                                    }
+                                    if isUploadInProgress {
+                                        Color
+                                            .black
+                                            .opacity(0.5)
+                                            .ignoresSafeArea()
+                                        ProgressView()
+                                    }
+                                }
+                            }
+                            .onTapGesture {
+                                DispatchQueue.main.async {
+                                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                    withAnimation(.easeIn(duration: 0.1)) {
+                                        isScaleEffect = true
+                                    }
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                    withAnimation(.easeOut(duration: 0.2)) {
+                                        isScaleEffect = false
+                                    }
+                                }
+                            }
+                    .scaleEffect(isScaleEffect ? 0.95 : 1)
+                    if AuthViewModel.shared.user?.partnerId != nil {
+                        PhotoPicker(selectedItem: $selectedItem) {
+                            ZStack {
+                                Circle()
+                                    .frame(width: UIScreen.width * 0.2)
+                                Image(systemName: .plus)
+                                    .foregroundColor(.white)
+                                    .font(.largeTitle)
+                                    .bold()
+                            }
+                            .padding()
+                        }
+                        .onChange(of: selectedItem) { newItem in
+                            Task {
+                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                    myYomangImage.imageData = data
+                                    myYomangImage.croppedImageData = nil
+                                }
+                            }
+                            displayPhotoCropper = true
+                        }
+                    }
+                    Spacer()
                 }
-                .offset(y: -UIScreen.width / 1.45)
+                .offset(y: -16)
             }
-            .navigationDestination(isPresented: $displayPhotoCropper) {
-                PhotoCropView(myYomangImage: $myYomangImage, popToRoot: $displayPhotoCropper, viewModel: viewModel, index: $index, isUploadInProgress: $isUploadInProgress)
-            }
+        }.navigationDestination(isPresented: $displayPhotoCropper) {
+            PhotoCropView(myYomangImage: $myYomangImage, popToRoot: $displayPhotoCropper, viewModel: viewModel, index: $index, isUploadInProgress: $isUploadInProgress)
         }
     }
 }
@@ -122,6 +139,6 @@ private struct PhotoPicker: View {
             matching: .images,
             photoLibrary: .shared()) {
                 AnyView(label)
-            }.tint(.nav100)
+            }.tint(.gray001)
     }
 }

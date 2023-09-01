@@ -118,4 +118,4 @@ fastlane/test_output
 fastlane/.env
 
 Yomang/Sources/Utils/Secrets.swift
-*.p8
+**/*.p8
