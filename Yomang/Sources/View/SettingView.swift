@@ -154,7 +154,7 @@ struct SettingView: View {
     private func deleteUserAction() {
         isUploadInProgress = true
         viewModel.deletePartner {
-            AuthViewModel.shared.fetchUser { _ in
+            AuthViewModel.shared.fetchUser {
                 isUploadInProgress = false
             }
         }

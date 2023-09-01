@@ -69,6 +69,7 @@
 		ADDF26D52AA1B8F800D2D9F6 /* AppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */; };
 		ADDF26E52AA1EA0900D2D9F6 /* ArchiveSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */; };
 		ADDF26EA2AA2212000D2D9F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
+		ADDF26EE2AA2332900D2D9F6 /* MyClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26ED2AA2332900D2D9F6 /* MyClaims.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
 		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
@@ -174,6 +175,7 @@
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenResponse.swift; sourceTree = "<group>"; };
 		ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveSingleView.swift; sourceTree = "<group>"; };
+		ADDF26ED2AA2332900D2D9F6 /* MyClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClaims.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				2F1288892A592AD70054FD6B /* YomangData.swift */,
 				AD0541CC2A9EE402001B7201 /* ProfileImage.swift */,
 				ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */,
+				ADDF26ED2AA2332900D2D9F6 /* MyClaims.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				AD89C39A2A91699B0011D1D8 /* ImageUploader.swift in Sources */,
 				C1982A822A6EC40F00DD9E02 /* ReactionView.swift in Sources */,
 				AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */,
+				ADDF26EE2AA2332900D2D9F6 /* MyClaims.swift in Sources */,
 				AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */,
 				AD89C3A82A91E0EB0011D1D8 /* YourYomangViewModel.swift in Sources */,
 				ADAA91852AA0418400ABAEEE /* ReactionButtonView.swift in Sources */,
