@@ -249,13 +249,14 @@ class AuthViewModel: ObservableObject {
                     }
                 }
             }
+            completion()
         }
     }
     
     private func deleteAllMyYomang(uid: String, _ completion: @escaping() -> Void) {
         Constants.historyCollection.whereField("senderUid", isEqualTo: uid).getDocuments { snapshot, error in
             if let error = error { print(error) }
-            guard let documents = snapshot?.documents else { return }
+            guard let documents = snapshot?.documents else {return}
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
             for item in data {
                 guard let docId = item.id else { return }
@@ -265,6 +266,7 @@ class AuthViewModel: ObservableObject {
                     }
                 }
             }
+            completion()
         }
     }
     
@@ -278,6 +280,7 @@ class AuthViewModel: ObservableObject {
                 
                 self.revokeAppleToken(clientSecret: jwtToken, token: refreshToken) {
                     print("=== DEBUG: Successully Apple revoke token")
+                    completion()
                 }
             } else {
                 print("=== DEBUG: failed to get apple refresh token 🔑")

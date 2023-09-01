@@ -42,7 +42,7 @@ struct MyAccountView: View {
                                     .frame(width: 28, height: 28)
                                     .foregroundColor(.black)
                                 
-                                Text(AuthViewModel.shared.user!.email)
+                                Text(AuthViewModel.shared.user?.email ?? "")
                                     .foregroundColor(.black)
                                     .font(.system(size: 10))
                             }
