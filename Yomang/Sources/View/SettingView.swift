@@ -10,14 +10,24 @@ import Kingfisher
 import PhotosUI
 
 struct SettingView: View {
+    
+    enum AlertType {
+        case goToSetting
+        case usernameLengthLimit
+    }
     @Environment(\.dismiss) private var dismiss
     @State private var isSignOutInProgress = false
     @State private var selectedImage: PhotosPickerItem?
     @State private var editUsername = false
     @State private var username = ""
-    @State private var isLengthZero = false
     @State private var isUploadInProgress = false
+    @State private var sureToDeletePartner = false
     @ObservedObject private var viewModel = SettingViewModel()
+    // MARK: - instant alert 관련
+    @State private var alertType = AlertType.goToSetting
+    @State private var showInstantAlert = false
+    @State private var instantAlertTitle = ""
+    @State private var instantAlertMessage = ""
     var body: some View {
         VStack {
             VStack(alignment: .center) {
@@ -61,7 +71,7 @@ struct SettingView: View {
             List {
                 Section(header: Text(String.headerTitleSettingProfile)) {
                     NavigationLink {
-                        MyAccountView(vm: viewModel)
+                        MyAccountView(viewModel: viewModel)
                     } label: {
                         HStack {
                             Image(systemName: .personFill)
@@ -70,15 +80,19 @@ struct SettingView: View {
                     }
                 }
                 
+                // MARK: - Section. 내 사용
                 Section(header: Text(String.headerTitleMyUsage)) {
-                    NavigationLink {
-                        EmptyView()
+                    // MARK: - 파트너 연결 끊기
+                    Button {
+                        sureToDeletePartner = true
                     } label: {
                         HStack {
-                            Image(systemName: .person2Fill)
+                            Image(systemName: .person2Slash)
                             Text(String.buttonConnectPartner)
                         }
+                        .foregroundColor(.red)
                     }
+                    // MARK: - 알림 설정 ([설정]앱으로 이동)
                     HStack {
                         Image(systemName: .bellFill)
                         Text(String.buttonSettingNotification)
@@ -86,8 +100,9 @@ struct SettingView: View {
                         Text(viewModel.alertAuthorizationStatus)
                             .foregroundColor(.gray)
                         Button {
-                            // TODO: - 유저에게 설정으로 이동한다고 고지하기 + 앱 화면에는 설정이 바로 반영되지 않을 수 있음도 알리기
-                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                            setInstantAlert(title: "[설정]으로 이동할게요",
+                                            message: "[설정] - [알림]에서 알림을 허용해 주세요",
+                                            type: .goToSetting)
                         } label: {
                             Image(systemName: "chevron.right")
                                 .font(.caption)
@@ -97,18 +112,18 @@ struct SettingView: View {
                         }
                         
                     }
-                    HStack {
-                        Image(systemName: "person.crop.square")
-                        Text("위젯 설정")
-                        Spacer()
-                        Button {
-                            // 위젯설정뷰로 이동
-                        } label: {
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.gray)
-                                .opacity(0.5)
+                }
+                Section {
+                    // MARK: - Sign out
+                    Button {
+                        isSignOutInProgress = true
+                        AuthViewModel.shared.signOut {
+                            isSignOutInProgress = false
+                        }
+                    } label: {
+                        HStack {
+                            Text("로그아웃")
+                                .foregroundColor(.red)
                         }
                         
                     }
@@ -127,7 +142,6 @@ struct SettingView: View {
                     }
                 }
             }
-            
             if isSignOutInProgress {
                 Color.black
                     .opacity(0.8)
@@ -136,13 +150,20 @@ struct SettingView: View {
             }
         }
     }
-    private func verifyThenUploadNewUsername() {
-        if username.count > 0, username.count < 11 {
-            viewModel.changeUsername(username) {
+    
+    private func deleteUserAction() {
+        isUploadInProgress = true
+        viewModel.deletePartner {
+            AuthViewModel.shared.fetchUser { _ in
                 isUploadInProgress = false
             }
-        } else {
-            
         }
+    }
+    
+    private func setInstantAlert(title: String, message: String, type: AlertType) {
+        instantAlertTitle = title
+        instantAlertMessage = message
+        showInstantAlert = true
+        alertType = type
     }
 }

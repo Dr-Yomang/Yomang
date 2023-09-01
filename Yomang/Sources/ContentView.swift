@@ -14,6 +14,15 @@ struct ContentView: View {
             
             if showSplash {
                 SplashView()
+                    .onAppear() {
+//                        print("current user")
+//                        try? Auth.auth().signOut()
+//                        print(Auth.auth().currentUser)
+//                        print(AuthViewModel.shared.user)
+//                        print(AuthViewModel.shared.userSession)
+//                        print(AuthViewModel.shared.username)
+
+                    }
             } else { // hide splash
                 if viewModel.userSession != nil {
                     if viewModel.username != nil {
