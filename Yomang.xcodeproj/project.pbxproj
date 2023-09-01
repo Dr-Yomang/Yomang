@@ -17,7 +17,6 @@
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
 		6844040A2AA167E3006D387A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684404092AA167E3006D387A /* View+Extension.swift */; };
 		684404102AA22376006D387A /* AuthKey_3H7L42YJAK.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 6844040F2AA22376006D387A /* AuthKey_3H7L42YJAK.p8 */; };
-		68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
 		68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F72A924F9700A68C69 /* PhotoCropView.swift */; };
@@ -25,11 +24,12 @@
 		68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */; };
 		68FA63FE2A92501900A68C69 /* EnvironmentValues+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FD2A92501900A68C69 /* EnvironmentValues+Extension.swift */; };
 		68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */; };
+		8A14F2682AA1B5B200AF372D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A14F2672AA1B5B200AF372D /* Secrets.swift */; };
+		8A14F2692AA1B64700AF372D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A14F2672AA1B5B200AF372D /* Secrets.swift */; };
 		8ABBECF72A5EB1080089FC7C /* YourYomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */; };
 		8ADF47D12A5FEB9800A2508A /* YomangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF47D02A5FEB9800A2508A /* YomangView.swift */; };
 		AD0541CB2A9ED51A001B7201 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CA2A9ED51A001B7201 /* SettingViewModel.swift */; };
 		AD0541CD2A9EE402001B7201 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0541CC2A9EE402001B7201 /* ProfileImage.swift */; };
-		AD0541D12A9EEBF6001B7201 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		AD0ADC3B2A54444C0030B1F9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3A2A54444C0030B1F9 /* WidgetKit.framework */; };
 		AD0ADC3D2A54444C0030B1F9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0ADC3C2A54444C0030B1F9 /* SwiftUI.framework */; };
 		AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC3F2A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift */; };
@@ -70,6 +70,7 @@
 		ADDF26E52AA1EA0900D2D9F6 /* ArchiveSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */; };
 		ADDF26EA2AA2212000D2D9F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
 		ADDF26EE2AA2332900D2D9F6 /* MyClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26ED2AA2332900D2D9F6 /* MyClaims.swift */; };
+		ADDF26F02AA2461A00D2D9F6 /* NicknameTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26EF2AA2461900D2D9F6 /* NicknameTextFieldView.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
 		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
@@ -91,9 +92,9 @@
 		C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* yt_love.json */; };
 		C1982A8D2A6ECC9800DD9E02 /* yt_great.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* yt_great.json */; };
 		C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */; };
-		C1B1309F2AA2206000D39345 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1309E2AA2206000D39345 /* OnboardingView.swift */; };
 		C1B130982AA1BDD600D39345 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B130972AA1BDD600D39345 /* ProfileView.swift */; };
 		C1B1309A2AA1DF3C00D39345 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B130992AA1DF3C00D39345 /* MyAccountView.swift */; };
+		C1B1309F2AA2206000D39345 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1309E2AA2206000D39345 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +132,6 @@
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		684404092AA167E3006D387A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		6844040F2AA22376006D387A /* AuthKey_3H7L42YJAK.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_3H7L42YJAK.p8; sourceTree = "<group>"; };
-		68CA766E2A9DE66D00FD5F52 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		68FA63F32A924F5F00A68C69 /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
 		68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitToUIView.swift; sourceTree = "<group>"; };
 		68FA63F72A924F9700A68C69 /* PhotoCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCropView.swift; sourceTree = "<group>"; };
@@ -139,6 +139,7 @@
 		68FA63FB2A924FD000A68C69 /* MyYomangImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangImageModel.swift; sourceTree = "<group>"; };
 		68FA63FD2A92501900A68C69 /* EnvironmentValues+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Extension.swift"; sourceTree = "<group>"; };
 		68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		8A14F2672AA1B5B200AF372D /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8ABBECF62A5EB1080089FC7C /* YourYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourYomangView.swift; sourceTree = "<group>"; };
 		8ABBECFC2A5EC0B40089FC7C /* MyYomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyYomangView.swift; sourceTree = "<group>"; };
 		8ADF47D02A5FEB9800A2508A /* YomangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangView.swift; sourceTree = "<group>"; };
@@ -177,15 +178,16 @@
 		ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenResponse.swift; sourceTree = "<group>"; };
 		ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveSingleView.swift; sourceTree = "<group>"; };
 		ADDF26ED2AA2332900D2D9F6 /* MyClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClaims.swift; sourceTree = "<group>"; };
+		ADDF26EF2AA2461900D2D9F6 /* NicknameTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameTextFieldView.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C1982A812A6EC40F00DD9E02 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		C1982A882A6EC6B000DD9E02 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C1982A8A2A6EC90900DD9E02 /* yt_love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_love.json; sourceTree = "<group>"; };
 		C1982A8C2A6ECC9800DD9E02 /* yt_great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_great.json; sourceTree = "<group>"; };
 		C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_surprise.json; sourceTree = "<group>"; };
-		C1B1309E2AA2206000D39345 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C1B130972AA1BDD600D39345 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C1B130992AA1DF3C00D39345 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		C1B1309E2AA2206000D39345 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				C1B1309E2AA2206000D39345 /* OnboardingView.swift */,
 				C1B130972AA1BDD600D39345 /* ProfileView.swift */,
 				C1B130992AA1DF3C00D39345 /* MyAccountView.swift */,
+				ADDF26EF2AA2461900D2D9F6 /* NicknameTextFieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,7 +305,7 @@
 				AD0ADC562A544FFB0030B1F9 /* NavigationUtil.swift */,
 				AD0ADC582A54503A0030B1F9 /* Constants.swift */,
 				AD89C3992A91699B0011D1D8 /* ImageUploader.swift */,
-				68CA766E2A9DE66D00FD5F52 /* Secrets.swift */,
+				8A14F2672AA1B5B200AF372D /* Secrets.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -592,7 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD89C3B62A9217610011D1D8 /* YomangData.swift in Sources */,
-				68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */,
+				8A14F2692AA1B64700AF372D /* Secrets.swift in Sources */,
 				AD7340882A9DFAEA0067EFFF /* User.swift in Sources */,
 				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
 				ADDF26CB2AA1731C00D2D9F6 /* Constants.swift in Sources */,
@@ -624,12 +627,12 @@
 				C1982A892A6EC6B000DD9E02 /* LottieView.swift in Sources */,
 				AD89C3AC2A92067F0011D1D8 /* HistoryViewModel.swift in Sources */,
 				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
+				ADDF26F02AA2461A00D2D9F6 /* NicknameTextFieldView.swift in Sources */,
 				AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */,
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
 				C1B1309A2AA1DF3C00D39345 /* MyAccountView.swift in Sources */,
 				68FA63FE2A92501900A68C69 /* EnvironmentValues+Extension.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
-				AD0541D12A9EEBF6001B7201 /* Secrets.swift in Sources */,
 				ADDF26D52AA1B8F800D2D9F6 /* AppleTokenResponse.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				AD89C3982A9165CC0011D1D8 /* MyYomangViewModel.swift in Sources */,
@@ -649,6 +652,7 @@
 				2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */,
 				AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */,
 				AD89C3A42A91DD160011D1D8 /* Date+Extension.swift in Sources */,
+				8A14F2682AA1B5B200AF372D /* Secrets.swift in Sources */,
 				2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

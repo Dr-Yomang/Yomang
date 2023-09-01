@@ -47,7 +47,7 @@ struct SettingView: View {
                             .clipShape(Circle())
                     }
                     
-                    Text(viewModel.username!)
+                    Text(viewModel.username ?? "")
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding(.horizontal, 12)

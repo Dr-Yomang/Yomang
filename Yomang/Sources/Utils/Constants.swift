@@ -10,8 +10,10 @@ import Foundation
 import FirebaseFirestore
 
 struct Constants {
+    static let reactionBarHeight: CGFloat = 72
+    static let widgetPadding: CGFloat = 20    
     static let yomangPadding: CGFloat = 48
-    static let reactionBarHeight = 72
+
     static var widgetSize: CGSize {
         switch UIScreen.main.bounds.size {
         case CGSize(width: 430, height: 932): // 14 pro max
@@ -19,7 +21,7 @@ struct Constants {
         case CGSize(width: 428, height: 926): // iPhone 14 Plus, iPhone 13 Pro Max, iPhone 12 Pro Max
             return CGSize(width: 364, height: 382)
         case CGSize(width: 414, height: 896): // iPhone 11 Pro Max, iPhone XS Max, iPhone 11, iPhone XR
-            return CGSize(width: 360, height: 379) 
+            return CGSize(width: 360, height: 379)
         case CGSize(width: 414, height: 736): // iPhone 8 Plus, iPhone 7 Plus, iPhone 6S Plus
             return CGSize(width: 348, height: 357)
         case CGSize(width: 393, height: 852): // iPhone 14 Pro
@@ -38,7 +40,6 @@ struct Constants {
             return CGSize(width: 338, height: 354)
         }
     }
-    
 
     static var offsetSize: Double {
             switch UIScreen.main.bounds.size {

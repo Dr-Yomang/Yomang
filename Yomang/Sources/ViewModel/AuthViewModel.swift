@@ -295,6 +295,7 @@ class AuthViewModel: ObservableObject {
             print("=== DEBUG: deleteUser() \(err)")
             self.signOut {
                 currentUser.delete { err in
+                    try? Auth.auth().signOut()
                     print("=== deleted error \(err)")
                     completion()
                 }

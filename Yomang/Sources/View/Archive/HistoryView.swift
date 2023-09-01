@@ -14,6 +14,8 @@ struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var viewModel = HistoryViewModel()
     @Binding var selectedTag: Int
+    @Binding var isHistoryButtonClicked: Bool
+    
     var body: some View {
         ScrollView {
             ZStack {
@@ -62,9 +64,10 @@ struct HistoryView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
+                    isHistoryButtonClicked = false
                     dismiss()
                 } label: {
-                    if selectedTag != 0 {
+                    if isHistoryButtonClicked {
                         Image(systemName: .chevronBackward)
                             .foregroundColor(.white)
                     }
@@ -76,7 +79,8 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     @State static var selectedTag = 1
+    @State static var isHistoryButtonClicked = false
     static var previews: some View {
-        HistoryView(selectedTag: $selectedTag)
+        HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
     }
 }

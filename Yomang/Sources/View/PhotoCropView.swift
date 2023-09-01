@@ -67,7 +67,7 @@ struct PhotoCropView: View {
                     .mask {
                         RoundedRectangle(cornerRadius: 16)
                             .frame(width: imageConstraint,
-                                   height: imageConstraint )
+                                   height: imageConstraint)
                     }
                     .gesture(panGesture.simultaneously(with: zoomGesture))
             }
