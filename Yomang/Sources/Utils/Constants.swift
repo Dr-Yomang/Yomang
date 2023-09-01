@@ -39,8 +39,12 @@ struct Constants {
         }
     }
     
-    /// Firebase collections
+    // MARK: - Firebase collections
     static let userCollection = Firestore.firestore().collection("UserDebugCollection")
     static let historyCollection = Firestore.firestore().collection("HistoryDebugCollection")
     static let profileCollection = Firestore.firestore().collection("ProfileImageDebugCollection")
+    
+    // MARK: - UserDefaults
+    static let appleClientSecret = "AppleClientSecret"
+    static let authorizationCode = "AuthorizationCode"
 }
