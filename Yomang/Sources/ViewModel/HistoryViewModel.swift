@@ -10,7 +10,6 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 
 class HistoryViewModel: ObservableObject {
-    let collection = Firestore.firestore().collection("HistoryDebugCollection")
     
     @Published var data = [YomangData]()
     
@@ -22,7 +21,7 @@ class HistoryViewModel: ObservableObject {
         var ourYomangs = [YomangData]()
         // MARK: - 나의 요망
         guard let user = AuthViewModel.shared.user else { return }
-        self.collection.whereField("senderUid", isEqualTo: user.id!).getDocuments { snapshot, _ in
+        Constants.historyCollection.whereField("senderUid", isEqualTo: user.id!).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
             ourYomangs = data.sorted(by: { $0.uploadedDate > $1.uploadedDate })
@@ -31,7 +30,7 @@ class HistoryViewModel: ObservableObject {
                 self.data = ourYomangs.sorted(by: { $0.uploadedDate > $1.uploadedDate })
                 return
             }
-            self.collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
+            Constants.historyCollection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
                 ourYomangs.append(contentsOf: data)
