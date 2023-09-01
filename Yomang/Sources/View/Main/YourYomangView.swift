@@ -16,8 +16,11 @@ struct YourYomangView: View {
     @State private var isWaveEffect: Bool = false
     @State private var effectOpacityToggle: [Bool] = Array(repeating: false, count: 5)
     @State private var effectSizeToggle: [Bool] = Array(repeating: false, count: 5)
+    @State var isShownSheet = false
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
+    
+    @AppStorage("hasSeenOnboarding", store: UserDefaults.standard) var hasSeenOnboarding = false
     
     var body: some View {
         ZStack {
@@ -132,6 +135,17 @@ struct YourYomangView: View {
                     )
             }
             .offset(y: -UIScreen.width / 1.45)
+            .onAppear {
+                if !hasSeenOnboarding {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.isShownSheet = true
+                        self.hasSeenOnboarding = true
+                    }
+                }
+            }
+            .sheet(isPresented: $isShownSheet) {
+                OnboardingView(isShownSheet: $isShownSheet)
+            }
         }
     }
 }
