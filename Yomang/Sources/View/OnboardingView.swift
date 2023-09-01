@@ -40,6 +40,7 @@ struct FirstOnboardingView: View {
             Text("요망은 당신과 파트너의 홈 화면에 \n 위젯으로 서로의 사진을 주고 받는 서비스예요. \n 아래 설명에 따라 위젯을 설정해주세요.")
                 .multilineTextAlignment(.center)
                 .font(.system(size: 16, weight: .medium))
+                .lineSpacing(6)
                 .padding(.bottom)
             
             Spacer()
@@ -88,16 +89,16 @@ struct LastOnboardingView: View {
             
             Spacer()
             
-            Image("wid3")
+            Image("wid3").resizable().frame(width: UIScreen.width * 0.6, height: UIScreen.height * 0.5).scaledToFit()
             
             Spacer()
             
-            Button{
+            Button {
                 isShownSheet.toggle()
             } label: {
                 ZStack {
                     Rectangle()
-                        .frame(width: 350, height: 56)
+                        .frame(width: UIScreen.width * 0.9 , height: UIScreen.height * 0.08 )
                         .foregroundColor(.white)
                         .cornerRadius(12)
                     
