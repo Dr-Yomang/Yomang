@@ -15,11 +15,6 @@ struct YomangImageView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundColor(.gray001)
-                .frame(width: UIScreen.width - (Constants.widgetPadding * 2),
-                       height: (UIScreen.width - (Constants.widgetPadding * 2)) * 1.05)
-                .padding(.horizontal, 20)
             if data.count == 0 {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.gray001)
