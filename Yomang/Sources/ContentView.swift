@@ -1,10 +1,12 @@
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSplash = true
     @Binding var matchingIdFromUrl: String?
+    @State var navigateToYomangView = false
     @State var nickname: String = "나의 닉네임"
     
     var body: some View {
@@ -13,12 +15,21 @@ struct ContentView: View {
             
             if showSplash {
                 SplashView()
+                    .onAppear() {
+//                        print("current user")
+//                        try? Auth.auth().signOut()
+//                        print(Auth.auth().currentUser)
+//                        print(AuthViewModel.shared.user)
+//                        print(AuthViewModel.shared.userSession)
+//                        print(AuthViewModel.shared.username)
+
+                    }
             } else { // hide splash
                 if viewModel.userSession != nil {
-                    if viewModel.username != nil {
+                    if navigateToYomangView {
                         YomangView(matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
-                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl, navigateToYomangView: $navigateToYomangView)
                     }
                 } else {
                     LoginView(matchingIdFromUrl: $matchingIdFromUrl)
@@ -27,22 +38,42 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { showSplash.toggle() })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                showSplash.toggle()
+                if Auth.auth().currentUser != nil {
+                    navigateToYomangView = true
+                }
+            })
         }
     }
 }
 
 struct SplashView: View {
+    @State var isChange: Bool = false
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(LinearGradient(colors: [Color.black, Color(hex: 0x2F2745)], startPoint: .top, endPoint: .bottom))
-            
-            Text("YOMANG")
-                .font(.system(size: 48))
-                .bold()
-                .foregroundColor(.white)
-                .offset(y: -200)
-        }.ignoresSafeArea()
+   
+                if !isChange {
+                    Image("on").resizable()
+                        .scaledToFit()
+                } else {
+                    Image("wink").resizable()
+                        .scaledToFit()
+                }
+        }.frame(width: UIScreen.width * 0.43, height: UIScreen.height * 0.24)
+        .offset(y: -UIScreen.height * 0.1)
+        .ignoresSafeArea(.all)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                 isChange.toggle() })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3, execute: {
+                 isChange.toggle() })
+        }
+    }
+}
+
+struct SplashView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplashView()
     }
 }

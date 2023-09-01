@@ -14,12 +14,12 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage())
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         let entry = SimpleEntry(date: Date(), image: UIImage(named: "defaultWidgetImage") ?? UIImage())
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let entryDate = Date()
         var entry = SimpleEntry(date: entryDate, image: UIImage(named: "defaultWidgetImage") ?? UIImage())
@@ -47,15 +47,12 @@ struct Provider: TimelineProvider {
             completion(nil)
             return
         }
-        let userCollection = Firestore.firestore().collection("UserDebugCollection")
-        userCollection.document(user.uid).getDocument { snapshot, _ in
+        Constants.userCollection.document(user.uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             guard let partnerUid = user.partnerId else { return }
             
-            let collection = Firestore.firestore().collection("HistoryDebugCollection")
-            
-            collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
+            Constants.historyCollection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 let data = documents.compactMap({ try? $0.data(as: YomangData.self) }).sorted(by: { $0.uploadedDate > $1.uploadedDate })
                 /// NSData로 변환해 저장
@@ -76,17 +73,11 @@ struct SimpleEntry: TimelineEntry {
 
 struct YomangWidgetEntryView: View {
     var entry: Provider.Entry
-
+    
     var body: some View {
-        ZStack {
-            Image(uiImage: entry.image)
-                .resizable()
-                .scaledToFill()
-            VStack {
-                Spacer()
-                Text(entry.date, style: .time)
-            }
-        }
+        Image(uiImage: entry.image)
+            .resizable()
+            .scaledToFill()
     }
 }
 
@@ -101,7 +92,7 @@ struct YomangWidget: Widget {
         }
     }
     let kind: String = "YomangWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             YomangWidgetEntryView(entry: entry)

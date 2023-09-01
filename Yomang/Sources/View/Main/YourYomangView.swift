@@ -13,10 +13,13 @@ struct YourYomangView: View {
     
     @State private var index = 0
     @State private var isScaleEffect: Bool = false
+    @State var isShownSheet = false
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
     @State private var lottieName: String = ""
     @State private var isLottiePlayed: Bool = false
+    
+    @AppStorage("hasSeenOnboarding", store: UserDefaults.standard) var hasSeenOnboarding = false
     
     var body: some View {
         ZStack {
@@ -131,6 +134,17 @@ struct YourYomangView: View {
                     .ignoresSafeArea()
             }
             
+        }
+        .onAppear {
+            if !hasSeenOnboarding {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.isShownSheet = true
+                    self.hasSeenOnboarding = true
+                }
+            }
+        }
+        .sheet(isPresented: $isShownSheet) {
+            OnboardingView(isShownSheet: $isShownSheet)
         }
     }
 }
