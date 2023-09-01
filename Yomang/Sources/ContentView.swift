@@ -16,7 +16,8 @@ struct ContentView: View {
             } else { // hide splash
                 if viewModel.userSession != nil {
                     if viewModel.username != nil {
-                        YomangView(matchingIdFromUrl: $matchingIdFromUrl)
+                        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
+//                        YomangView(matchingIdFromUrl: $matchingIdFromUrl)
                     } else {
                         LinkView(matchingIdFromUrl: $matchingIdFromUrl)
                     }

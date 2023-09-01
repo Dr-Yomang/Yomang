@@ -52,6 +52,10 @@ extension String {
     // MARK: - Assets
     static let yottoHeadOnly = "YottoHeadOnly"
     static let yottoWithUpperBody = "YottoWithUpperBody"
+    static let yottoGown1 = "Yotto_Gown_1"
+    static let yottoGown2 = "Yotto_Gown_2"
+    static let yottoGown3 = "Yotto_Gown_3"
+    static let yottoGown4 = "Yotto_Gown_4"
     
     // MARK: - SF Symbols (이름 그대로, 카멜케이스만 적용해서 사용)
     static let bellFill = "bell.fill"
