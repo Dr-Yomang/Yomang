@@ -21,22 +21,35 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             VStack(spacing: 20) {
-                if let profileImgUrl = viewModel.profileImageUrl {
-                    KFImage(URL(string: profileImgUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 178, height: 178)
-                        .clipShape(Circle())
-                        .padding(.top, 10)
+                ZStack {
+                    if let profileImgUrl = viewModel.profileImageUrl {
+                        KFImage(URL(string: profileImgUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 178, height: 178)
+                            .clipShape(Circle())
+                            .padding(.top, 10)
+                        
+                    } else {
+                        Image("yt_surprise")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 178, height: 178)
+                            .clipShape(Circle())
+                            .padding(.top, 10)
+                    }
                     
-                    
-                } else {
-                    Image("yt_surprise")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 178, height: 178)
-                        .clipShape(Circle())
-                        .padding(.top, 10)
+                    if isUploadInProgress {
+
+                        Circle()
+                            .frame(width: 178, height: 178)
+                            .foregroundColor(.black)
+                            .opacity(0.7)
+                            .padding(.top, 10)
+                        ProgressView()
+                            .frame(width: 178, height: 178)
+                            .clipShape(Circle())
+                    }
                 }
                 
                 PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
@@ -60,15 +73,16 @@ struct ProfileView: View {
                     }
                 }
                 .disabled(isUploadInProgress)
-                if isUploadInProgress {
-                    Circle()
-                        .frame(width: 178, height: 178)
-                        .foregroundColor(.black)
-                        .opacity(0.7)
-                    ProgressView()
-                        .frame(width: 178, height: 178)
-                        .clipShape(Circle())
-                }
+//                if isUploadInProgress {
+//
+//                    Circle()
+//                        .frame(width: 178, height: 178)
+//                        .foregroundColor(.black)
+//                        .opacity(0.7)
+//                    ProgressView()
+//                        .frame(width: 178, height: 178)
+//                        .clipShape(Circle())
+//                }
                 
                 HStack(spacing: 20) {
                     Text("이름")
