@@ -32,21 +32,21 @@ struct YomangView: View {
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 .navigationBarItems(trailing:
-                                        HStack {
-                    NavigationLink {
-                        HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
-                            .navigationTitle(Text("히스토리"))
-                            .navigationBarTitleDisplayMode(.inline)
-                    } label: {
-                        if selectedTag != 0 {
-                            Image(systemName: "heart")
-                                .foregroundColor(.white)
-                                .font(.system(size: 20))
-                        }
-                    }
-                    .simultaneousGesture(TapGesture().onEnded {
-                        isHistoryButtonClicked = true
-                    })
+//                                        HStack {
+//                    NavigationLink {
+//                        HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
+//                            .navigationTitle(Text("히스토리"))
+//                            .navigationBarTitleDisplayMode(.inline)
+//                    } label: {
+//                        if selectedTag != 0 {
+//                            Image(systemName: "heart")
+//                                .foregroundColor(.white)
+//                                .font(.system(size: 20))
+//                        }
+//                    }
+//                    .simultaneousGesture(TapGesture().onEnded {
+//                        isHistoryButtonClicked = true
+//                    })
                     
                     NavigationLink {
                         SettingView(viewModel: viewModel)
@@ -65,7 +65,8 @@ struct YomangView: View {
                                 .clipShape(Circle())
                         }
                     }
-                })
+//                }
+                )
             }
         }
     }
