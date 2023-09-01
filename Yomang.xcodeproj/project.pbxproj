@@ -91,9 +91,9 @@
 		C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* yt_love.json */; };
 		C1982A8D2A6ECC9800DD9E02 /* yt_great.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* yt_great.json */; };
 		C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */; };
-		C1B1309F2AA2206000D39345 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1309E2AA2206000D39345 /* OnboardingView.swift */; };
 		C1B130982AA1BDD600D39345 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B130972AA1BDD600D39345 /* ProfileView.swift */; };
 		C1B1309A2AA1DF3C00D39345 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B130992AA1DF3C00D39345 /* MyAccountView.swift */; };
+		C1B1309F2AA2206000D39345 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1309E2AA2206000D39345 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,9 +183,9 @@
 		C1982A8A2A6EC90900DD9E02 /* yt_love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_love.json; sourceTree = "<group>"; };
 		C1982A8C2A6ECC9800DD9E02 /* yt_great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_great.json; sourceTree = "<group>"; };
 		C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_surprise.json; sourceTree = "<group>"; };
-		C1B1309E2AA2206000D39345 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C1B130972AA1BDD600D39345 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C1B130992AA1DF3C00D39345 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		C1B1309E2AA2206000D39345 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
