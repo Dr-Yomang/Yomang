@@ -25,34 +25,39 @@ struct MyAccountView: View {
     var body: some View {
         ZStack {
             VStack {
-                HStack {
-                    Text("내 계정")
-                        .foregroundColor(Color(red: 0.78, green: 0.78, blue: 0.8))
-                        .frame(width: 52, height: 14, alignment: .topLeading)
-                        .font(.system(size: 16))
-                    
                     VStack(alignment: .leading) {
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 256, height: 28)
-                                .cornerRadius(12)
+                
+                        HStack {
+                            Text("내 계정")
+                                .foregroundColor(Color(red: 0.78, green: 0.78, blue: 0.8))
+                                .frame(width: 52, height: 14, alignment: .topLeading)
+                                .font(.system(size: 16))
                             
-                            HStack {
-                                Image(systemName: "apple.logo")
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(.black)
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 256, height: 28)
+                                    .cornerRadius(12)
                                 
-                                Text(AuthViewModel.shared.user?.email ?? "")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 10))
+                                HStack {
+                                    Image(systemName: "apple.logo")
+                                        .frame(width: 28, height: 28)
+                                        .foregroundColor(.black)
+                                    
+                                    Text(AuthViewModel.shared.user?.email ?? "")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 10))
+                                }
                             }
                         }
                         
-                        Text("애플 계정 로그인을 사용하고 있습니다.")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(red: 0.54, green: 0.26, blue: 1))
-                    }
-                    
+                        HStack {
+                            Spacer()
+                                .frame(width: 52, height: 14)
+                            Text("애플 계정 로그인을 사용하고 있습니다.")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color(red: 0.54, green: 0.26, blue: 1)).offset(x: 15)
+                        }
+                     
                 }
                 .padding(.vertical, 15)
                 
@@ -85,6 +90,7 @@ struct MyAccountView: View {
                         }
                     }
                 }
+                .scrollDisabled(true)
             }
             if isUploadInProgress {
                 Color.black.opacity(0.7).ignoresSafeArea()
@@ -139,3 +145,10 @@ struct MyAccountView: View {
         self.alertType = type
     }
 }
+
+//struct MyAccountView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyAccountView()
+//    }
+//}
+//

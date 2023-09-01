@@ -17,6 +17,7 @@ struct ProfileView: View {
     @State private var isLengthZero = false
     @State private var isUploadInProgress = false
     @State private var username = ""
+    @State private var isAlert: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -32,8 +33,8 @@ struct ProfileView: View {
                 } else {
                     Image(.yottoGown2)
                         .resizable()
-                        .scaledToFit()
                         .frame(width: 178, height: 178)
+                        .scaledToFit()
                         .clipShape(Circle())
                         .padding(.top, 10)
                 }
@@ -49,8 +50,9 @@ struct ProfileView: View {
                         .frame(width: 178, height: 178)
                         .clipShape(Circle())
                 }
+            }.alert(isPresented: $isAlert) {
+                Alert(title: Text("설정한 이름은 11자 이상으로 설정할 수 없습니다."), message: Text("이름을 다시 설정해주세요. "), dismissButton: .cancel(Text("확인")) )
             }
-            
             PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
                 VStack {
                     Text("사진 변경하기")
@@ -83,7 +85,10 @@ struct ProfileView: View {
                         .font(.system(size: 20))
                         .textInputAutocapitalization(.never)
                         .frame(width: 256)
-                    
+                        .onAppear {
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
+
                     Rectangle()
                         .frame(width: 256, height: 1)
                         .foregroundColor(.white)
@@ -123,8 +128,11 @@ struct ProfileView: View {
                 isUploadInProgress = false
                 dismiss()
             }
+        } else if username.count >= 11 {
+            isAlert.toggle()
+            username = ""
         } else {
-            
+            dismiss()
         }
     }
     

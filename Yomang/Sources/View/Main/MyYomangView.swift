@@ -101,6 +101,7 @@ struct MyYomangView: View {
                             ZStack {
                                 Circle()
                                     .frame(width: UIScreen.width * 0.2)
+                                    .tint(.gray001)
                                 Image(systemName: .plus)
                                     .foregroundColor(.white)
                                     .font(.largeTitle)
@@ -140,6 +141,6 @@ private struct PhotoPicker: View {
             matching: .images,
             photoLibrary: .shared()) {
                 AnyView(label)
-            }.tint(.gray001)
+            }.tint(.nav100)
     }
 }
