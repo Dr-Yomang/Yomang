@@ -15,6 +15,8 @@ struct YourYomangView: View {
     @State private var isScaleEffect: Bool = false
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
+    @State private var lottieName: String = ""
+    @State private var isLottiePlayed: Bool = false
     
     var body: some View {
         ZStack {
@@ -98,10 +100,10 @@ struct YourYomangView: View {
             }
             .frame(width: UIScreen.width - (Constants.widgetPadding * 2),
                    height: (UIScreen.width - (Constants.widgetPadding * 2)) * 1.05)
-            
+       
                 if viewModel.connectWithPartner {
                     if viewModel.data.count > 0 {
-                        ReactionView(viewModel: viewModel, yomangIndex: $index)
+                        ReactionView(viewModel: viewModel, yomangIndex: $index, lottieName: $lottieName, isLottiePlayed: $isLottiePlayed)
                             .frame(width: UIScreen.width - (Constants.widgetPadding * 2))
                             .padding(.vertical)
                     }
@@ -123,6 +125,12 @@ struct YourYomangView: View {
                 Spacer()
             }
             .offset(y: -16)
+            
+            if isLottiePlayed {
+                LottieView(name: lottieName)
+                    .ignoresSafeArea()
+            }
+            
         }
     }
 }
