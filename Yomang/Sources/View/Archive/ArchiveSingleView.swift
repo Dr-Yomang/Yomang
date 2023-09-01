@@ -7,8 +7,14 @@
 
 import SwiftUI
 import Kingfisher
+import Photos
 
 struct ArchiveSingleView: View {
+    
+    @State private var imageUrl: String?
+    @State private var isImageSaved = false
+    @State private var isAleert = false
+
     let data: YomangData
     @Environment(\.dismiss) private var dismiss
     private let width = UIScreen.width - 40
@@ -42,7 +48,8 @@ struct ArchiveSingleView: View {
                 Spacer()
                 ZStack {
                     Button {
-                        // TODO: - 사진 저장 기능
+                        saveImageToAlbum(data.imageUrl)
+                        isAleert.toggle()
                     } label: {
                         Image(systemName: "arrow.down.to.line.compact")
                             .font(.system(size: 20))
@@ -58,6 +65,9 @@ struct ArchiveSingleView: View {
         .ignoresSafeArea()
         .edgesIgnoringSafeArea(.bottom)
         .navigationBarBackButtonHidden(true)
+        .alert(isPresented: $isAleert) {
+            Alert(title: Text("요망을 사진첩에 저장했습니다."), message: Text("즐거운 요망!"), dismissButton: .cancel(Text("확인")))
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
@@ -69,4 +79,32 @@ struct ArchiveSingleView: View {
             }
         }
     }
+    
+    func saveImageToAlbum(_ imageUrl: String) {
+            // Kingfisher를 사용하여 URL에서 이미지를 다운로드합니다.
+            if let url = URL(string: imageUrl) {
+                KingfisherManager.shared.retrieveImage(with: url) { result in
+                    switch result {
+                    case .success(let value):
+                        // 다운로드한 이미지를 앨범에 저장합니다.
+                        PHPhotoLibrary.shared().performChanges {
+                            PHAssetChangeRequest.creationRequestForAsset(from: value.image)
+                        } completionHandler: { success, error in
+                            if success {
+                                DispatchQueue.main.async {
+                                    isImageSaved = true
+                                }
+                            } else {
+                                if let error = error {
+                                    print("Error saving image: \(error.localizedDescription)")
+                                }
+                            }
+                        }
+
+                    case .failure(let error):
+                        print("Error downloading image: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
 }
