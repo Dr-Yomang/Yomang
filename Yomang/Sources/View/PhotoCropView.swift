@@ -67,7 +67,7 @@ struct PhotoCropView: View {
                     .mask {
                         RoundedRectangle(cornerRadius: 16)
                             .frame(width: imageConstraint,
-                                   height: imageConstraint / Constants.widgetSize.width * Constants.widgetSize.height )
+                                   height: imageConstraint)
                     }
                     .gesture(panGesture.simultaneously(with: zoomGesture))
             }
@@ -133,7 +133,7 @@ extension PhotoCropView {
         
         var cropRect: CGRect {
             let cropSizeWidth: CGFloat = (imageConstraint / imageScale) / zoomScale
-            let cropSizeHeight: CGFloat = imageConstraint /  Constants.widgetSize.width * Constants.widgetSize.height / imageScale / zoomScale
+            let cropSizeHeight: CGFloat = imageConstraint / imageScale / zoomScale
             let initialX: CGFloat = (imageWidth - cropSizeWidth) / 2
             let initialY: CGFloat = (imageHeight - cropSizeHeight) / 2
             let xOffset: CGFloat = initialX - (offset.width / imageScale) / zoomScale

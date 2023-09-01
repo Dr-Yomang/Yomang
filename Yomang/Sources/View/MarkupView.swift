@@ -46,17 +46,17 @@ struct MarkupView: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
+                .frame(width: UIScreen.width, height: UIScreen.width)
                 .mask {
                     RoundedRectangle(cornerRadius: 16)
-                        .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
+                        .frame(width: UIScreen.width, height: UIScreen.width)
                 }
             
             MyCanvas(canvasView: $canvasView)
-                .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
+                .frame(width: UIScreen.width, height: UIScreen.width)
                 .mask {
                     RoundedRectangle(cornerRadius: 16)
-                        .frame(width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
+                        .frame(width: UIScreen.width, height: UIScreen.width)
                 }
             
             if isUploadInProgress {

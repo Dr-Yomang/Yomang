@@ -62,4 +62,6 @@ extension String {
     static let chevronBackward = "chevron.backward"
     static let personFill = "person.fill"
     static let person2Fill = "person.2.fill"
+    static let plus = "plus"
+
 }
