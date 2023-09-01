@@ -22,7 +22,7 @@ struct SettingView: View {
     @State private var username = ""
     @State private var isUploadInProgress = false
     @State private var sureToDeletePartner = false
-    @ObservedObject var viewModel = SettingViewModel()
+    @ObservedObject var viewModel: SettingViewModel
     // MARK: - instant alert 관련
     @State private var alertType = AlertType.goToSetting
     @State private var showInstantAlert = false
@@ -37,14 +37,14 @@ struct SettingView: View {
                     if let profileImgUrl = viewModel.profileImageUrl {
                         KFImage(URL(string: profileImgUrl))
                             .resizable()
-                            .frame(width: 112, height: 112)
                             .scaledToFill()
+                            .frame(width: 112, height: 112)
                             .clipShape(Circle())
                     } else {
                         Image("yt_surprise")
                             .resizable()
-                            .frame(width: 112, height: 112)
                             .scaledToFill()
+                            .frame(width: 112, height: 112)
                             .clipShape(Circle())
                     }
                     
@@ -72,7 +72,7 @@ struct SettingView: View {
             List {
                 Section(header: Text(String.headerTitleSettingProfile).font(.headline)) {
                     NavigationLink {
-//                        MyAccountView(viewModel: viewModel)
+                        MyAccountView(viewModel: viewModel)
                     } label: {
                         HStack {
                             Image(systemName: .personFill)

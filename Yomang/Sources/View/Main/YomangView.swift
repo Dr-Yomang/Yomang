@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct YomangView: View {
     @Binding var matchingIdFromUrl: String?
     @State private var isHistoryButtonClicked: Bool = false
     @State private var selectedTag = 1
+    @ObservedObject var viewModel = SettingViewModel()
     
     var body: some View {
         NavigationStack {
@@ -47,11 +49,21 @@ struct YomangView: View {
                     })
                     
                     NavigationLink {
-                        SettingView()
+                        SettingView(viewModel: viewModel)
                     } label: {
-                        Image(systemName: "person")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
+                        if let imageUrl = viewModel.profileImageUrl {
+                            KFImage(URL(string: imageUrl))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 28)
+                                .clipShape(Circle())
+                        } else {
+                            Image("yt_surprise")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 28)
+                                .clipShape(Circle())
+                        }
                     }
                 })
             }

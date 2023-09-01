@@ -280,8 +280,6 @@
 				C1982A812A6EC40F00DD9E02 /* ReactionView.swift */,
 				C1982A882A6EC6B000DD9E02 /* LottieView.swift */,
 				C1B1309E2AA2206000D39345 /* OnboardingView.swift */,
-				C1B130972AA1BDD600D39345 /* ProfileView.swift */,
-				C1B130992AA1DF3C00D39345 /* MyAccountView.swift */,
 				ADDF26EF2AA2461900D2D9F6 /* NicknameTextFieldView.swift */,
 			);
 			path = View;
@@ -432,9 +430,11 @@
 			isa = PBXGroup;
 			children = (
 				ADDF26F32AA2512C00D2D9F6 /* SettingView.swift */,
-				ADDF26DD2AA1DBA300D2D9F6 /* NotificationSettingView.swift */,
-				ADDF26DB2AA1DB8C00D2D9F6 /* DisconnectSettingView.swift */,
+				C1B130972AA1BDD600D39345 /* ProfileView.swift */,
+				C1B130992AA1DF3C00D39345 /* MyAccountView.swift */,
 				ADDF26F52AA2594A00D2D9F6 /* PartnerConnectionSettingView.swift */,
+				ADDF26DB2AA1DB8C00D2D9F6 /* DisconnectSettingView.swift */,
+				ADDF26DD2AA1DBA300D2D9F6 /* NotificationSettingView.swift */,
 				ADDF26DF2AA1DBB400D2D9F6 /* WidgetSettingView.swift */,
 			);
 			path = Settings;
