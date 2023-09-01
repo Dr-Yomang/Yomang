@@ -10,7 +10,6 @@
 		2F1288882A592A720054FD6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288872A592A720054FD6B /* User.swift */; };
 		2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1288892A592AD70054FD6B /* YomangData.swift */; };
 		2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12888E2A59319F0054FD6B /* AuthViewModel.swift */; };
-		2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
 		2F89EDD72A9EE4BD002E6A5C /* TestViewCreateLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */; };
 		2F89EDDB2A9EE60C002E6A5C /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 2F89EDDA2A9EE60C002E6A5C /* FirebaseDynamicLinks */; };
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
@@ -60,7 +59,6 @@
 		AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46BA1D2A52F9DE001D3894 /* Assets.xcassets */; };
 		AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8FFE322A90DFBB00A7459A /* Preview Assets.xcassets */; };
 		AD8FFE352A90E13A00A7459A /* YomangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46BA192A52F9DD001D3894 /* YomangApp.swift */; };
-		ADAA91812AA028B800ABAEEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
 		ADAA91852AA0418400ABAEEE /* ReactionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */; };
 		ADAA91872AA0C99700ABAEEE /* yt_aeng.json in Resources */ = {isa = PBXBuildFile; fileRef = ADAA91862AA0C99700ABAEEE /* yt_aeng.json */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
@@ -84,6 +82,10 @@
 		C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8A2A6EC90900DD9E02 /* yt_love.json */; };
 		C1982A8D2A6ECC9800DD9E02 /* yt_great.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8C2A6ECC9800DD9E02 /* yt_great.json */; };
 		C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */ = {isa = PBXBuildFile; fileRef = C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */; };
+		C1B130912AA0ECF300D39345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1B130902AA0ECF300D39345 /* GoogleService-Info.plist */; };
+		C1B130942AA1853E00D39345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1B130902AA0ECF300D39345 /* GoogleService-Info.plist */; };
+		C1B130982AA1BDD600D39345 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B130972AA1BDD600D39345 /* ProfileView.swift */; };
+		C1B1309A2AA1DF3C00D39345 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B130992AA1DF3C00D39345 /* MyAccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +116,6 @@
 		2F1288872A592A720054FD6B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2F1288892A592AD70054FD6B /* YomangData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YomangData.swift; sourceTree = "<group>"; };
 		2F12888E2A59319F0054FD6B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Yomang/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewCreateLink.swift; path = Yomang/Sources/View/TestViewCreateLink.swift; sourceTree = SOURCE_ROOT; };
 		2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButtonView.swift; sourceTree = "<group>"; };
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,6 +170,9 @@
 		C1982A8A2A6EC90900DD9E02 /* yt_love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_love.json; sourceTree = "<group>"; };
 		C1982A8C2A6ECC9800DD9E02 /* yt_great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_great.json; sourceTree = "<group>"; };
 		C1982A8E2A6ECDA800DD9E02 /* yt_surprise.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_surprise.json; sourceTree = "<group>"; };
+		C1B130902AA0ECF300D39345 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C1B130972AA1BDD600D39345 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C1B130992AA1DF3C00D39345 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,8 @@
 				ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */,
 				ADC347572A5E4B38008F9624 /* SettingView.swift */,
 				2F89EDD62A9EE4BD002E6A5C /* TestViewCreateLink.swift */,
+				C1B130972AA1BDD600D39345 /* ProfileView.swift */,
+				C1B130992AA1DF3C00D39345 /* MyAccountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,7 +371,7 @@
 		AD46BA182A52F9DD001D3894 /* Yomang */ = {
 			isa = PBXGroup;
 			children = (
-				2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */,
+				C1B130902AA0ECF300D39345 /* GoogleService-Info.plist */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD8FFE312A90DFBB00A7459A /* Preview Content */,
@@ -503,7 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0ADC442A54444D0030B1F9 /* Assets.xcassets in Resources */,
-				ADAA91812AA028B800ABAEEE /* GoogleService-Info.plist in Resources */,
+				C1B130942AA1853E00D39345 /* GoogleService-Info.plist in Resources */,
 				AD3805B62A80E4DE00D02D54 /* Localizable.strings in Resources */,
 				ADED59392A975FE4007E3EB9 /* (null) in Resources */,
 			);
@@ -514,11 +520,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
-				2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */,
 				ADAA91872AA0C99700ABAEEE /* yt_aeng.json in Resources */,
 				C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */,
 				AD8FFE332A90DFBB00A7459A /* Preview Assets.xcassets in Resources */,
+				C1B130912AA0ECF300D39345 /* GoogleService-Info.plist in Resources */,
 				C1982A8D2A6ECC9800DD9E02 /* yt_great.json in Resources */,
 				AD3805B52A80E4DE00D02D54 /* Localizable.strings in Resources */,
 			);
@@ -583,6 +589,7 @@
 				2F12888F2A59319F0054FD6B /* AuthViewModel.swift in Sources */,
 				AD12EFCB2A90927000CDFBFE /* ContentView.swift in Sources */,
 				2F1288882A592A720054FD6B /* User.swift in Sources */,
+				C1B1309A2AA1DF3C00D39345 /* MyAccountView.swift in Sources */,
 				68FA63FE2A92501900A68C69 /* EnvironmentValues+Extension.swift in Sources */,
 				2F12888A2A592AD70054FD6B /* YomangData.swift in Sources */,
 				AD0541D12A9EEBF6001B7201 /* Secrets.swift in Sources */,
@@ -597,6 +604,7 @@
 				AD0ADC552A544F9B0030B1F9 /* Color+Extension.swift in Sources */,
 				68FA64002A92503400A68C69 /* UIImage+Extension.swift in Sources */,
 				2F89EDD72A9EE4BD002E6A5C /* TestViewCreateLink.swift in Sources */,
+				C1B130982AA1BDD600D39345 /* ProfileView.swift in Sources */,
 				68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */,
 				68FA63FC2A924FD000A68C69 /* MyYomangImageModel.swift in Sources */,
 				2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */,

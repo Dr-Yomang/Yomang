@@ -1,4 +1,5 @@
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     
