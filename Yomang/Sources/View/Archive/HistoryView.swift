@@ -13,7 +13,7 @@ struct HistoryView: View {
     private let width = UIScreen.width / 2 - 24
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var viewModel = HistoryViewModel()
-    @Binding var selectedTag: Int
+//    @Binding var selectedTag: Int
     @Binding var isHistoryButtonClicked: Bool
     
     var body: some View {
@@ -81,6 +81,6 @@ struct HistoryView_Previews: PreviewProvider {
     @State static var selectedTag = 1
     @State static var isHistoryButtonClicked = false
     static var previews: some View {
-        HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
+        HistoryView(isHistoryButtonClicked: $isHistoryButtonClicked)
     }
 }

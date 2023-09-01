@@ -11,7 +11,7 @@ import Kingfisher
 struct YomangView: View {
     @Binding var matchingIdFromUrl: String?
     @State private var isHistoryButtonClicked: Bool = false
-    @State private var selectedTag = 1
+    @State private var selectedTag = 0
     @ObservedObject var viewModel = SettingViewModel()
     
     var body: some View {
@@ -21,16 +21,25 @@ struct YomangView: View {
                     .ignoresSafeArea()
                 
                 TabView(selection: $selectedTag) {
-                    HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
+                    HistoryView(isHistoryButtonClicked: $isHistoryButtonClicked)
                         .tag(0)
                     YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
                         .tag(1)
                     MyYomangView()
                         .tag(2)
                 }
+                .onAppear {
+                    selectedTag = 1
+                }
                 .ignoresSafeArea()
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
+            
+                .navigationBarItems(leading:
+                    Button(action: { withAnimation { selectedTag = 0 }}) {
+                        Image(systemName: "square.grid.2x2").bold().font(.system(size: 19.0))
+                            .foregroundColor(.white)
+                })
                 .navigationBarItems(trailing:
 //                                        HStack {
 //                    NavigationLink {
