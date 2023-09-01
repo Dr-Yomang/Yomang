@@ -257,7 +257,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func deleteUser() {
+    func deleteUser(_ completion: @escaping() -> Void) {
         guard let user = AuthViewModel.shared.user else { return }
 //        // MARK: - 파트너 연결끊고 히스토리 먼저 삭제
         guard let authorizationCode = UserDefaults.standard.string(forKey: Constants.authorizationCode) else { return }
@@ -313,6 +313,7 @@ class AuthViewModel: ObservableObject {
             self.signOut {
                 currentUser.delete { err in
                     print("=== deleted error \(err)")
+                    completion()
                 }
             }
         }
