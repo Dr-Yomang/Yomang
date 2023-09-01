@@ -10,15 +10,24 @@ import Kingfisher
 import PhotosUI
 
 struct SettingView: View {
+    
+    enum AlertType {
+        case goToSetting
+        case usernameLengthLimit
+    }
     @Environment(\.dismiss) private var dismiss
     @State private var isSignOutInProgress = false
     @State private var selectedImage: PhotosPickerItem?
     @State private var editUsername = false
     @State private var username = ""
-    @State private var isLengthZero = false
     @State private var isUploadInProgress = false
     @State private var sureToDeletePartner = false
     @ObservedObject private var viewModel = SettingViewModel()
+    // MARK: - instant alert 관련
+    @State private var alertType = AlertType.goToSetting
+    @State private var showInstantAlert = false
+    @State private var instantAlertTitle = ""
+    @State private var instantAlertMessage = ""
     var body: some View {
         ZStack {
             List {
@@ -111,8 +120,9 @@ struct SettingView: View {
                         Text(viewModel.alertAuthorizationStatus)
                             .foregroundColor(.gray)
                         Button {
-                            // TODO: - 유저에게 설정으로 이동한다고 고지하기 + 앱 화면에는 설정이 바로 반영되지 않을 수 있음도 알리기
-                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                            setInstantAlert(title: "[설정]으로 이동할게요",
+                                            message: "[설정] - [알림]에서 알림을 허용해 주세요",
+                                            type: .goToSetting)
                         } label: {
                             Image(systemName: "chevron.right")
                                 .font(.caption)
@@ -187,12 +197,15 @@ struct SettingView: View {
         } message: {
             Text("변경할 닉네임을 입력하세요.")
         }
-        .alert("닉네임을 다시 입력해 주세요", isPresented: $isLengthZero) {
+        .alert(instantAlertTitle, isPresented: $showInstantAlert) {
             Button("확인했어요", role: .cancel) {
-                isLengthZero = false
+                showInstantAlert = false
+                if alertType == .goToSetting {
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                }
             }
         } message: {
-            Text("닉네임의 길이는 1자 이상 10자 이하여야 합니다.")
+            Text(instantAlertMessage)
         }
         .alert("정말 상대방과의 연결을 끊으시겠어요?", isPresented: $sureToDeletePartner) {
             Button("네, 끊을게요", role: .destructive, action: deleteUserAction)
@@ -222,7 +235,9 @@ struct SettingView: View {
                 isUploadInProgress = false
             }
         } else {
-            isLengthZero = true
+            setInstantAlert(title: "닉네임을 다시 입력해 주세요",
+                            message: "닉네임의 길이는 1자 이상 10자 이하여야 합니다.",
+                            type: .usernameLengthLimit)
         }
     }
     
@@ -233,6 +248,13 @@ struct SettingView: View {
                 isUploadInProgress = false
             }
         }
+    }
+    
+    private func setInstantAlert(title: String, message: String, type: AlertType) {
+        instantAlertTitle = title
+        instantAlertMessage = message
+        showInstantAlert = true
+        alertType = type
     }
 }
 
