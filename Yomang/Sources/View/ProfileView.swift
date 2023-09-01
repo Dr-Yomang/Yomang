@@ -85,6 +85,9 @@ struct ProfileView: View {
                         .font(.system(size: 20))
                         .textInputAutocapitalization(.never)
                         .frame(width: 256)
+                        .onAppear {
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
                     
                     Rectangle()
                         .frame(width: 256, height: 1)
