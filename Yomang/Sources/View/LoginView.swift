@@ -14,26 +14,27 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                Spacer()
-                Image(.yottoHeadOnly)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 272)
-                Text(String.yomang)
+            VStack(spacing: 36) {
+                Text("요망에 오신 걸\n환영해요!")
                     .foregroundColor(Color.white)
                     .font(.largeTitle)
                     .bold()
+                    .multilineTextAlignment(.center)
+                Text("서로의 위젯에 언제라도 불쑥 나타나\n기분 좋은 서프라이즈를 주고 받아볼까요?")
+                    .foregroundColor(Color.white)
+                    .font(.title3)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                Spacer()
                 AppleLoginButtonView(matchingIdFromUrl: $matchingIdFromUrl, isSignInInProgress: $isSignInInProgress)
                     .signInWithAppleButtonStyle(.white)
-                    .frame(width: 268, height: 48)
-                    .font(.largeTitle)
-                Spacer()
-                Text(String.authenticationMessage)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .font(.caption2)
+                    .frame(width: UIScreen.width - 40, height: 56)
+                    .font(.title3)
+                    .bold()
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 30)
             }
+            .padding(.top, 100)
             if isSignInInProgress {
                 Color.black
                     .opacity(0.8)
