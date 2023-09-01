@@ -14,10 +14,12 @@ class SettingViewModel: ObservableObject {
     @Published var username: String?
     @Published var profileImageUrl: String?
     @Published var alertAuthorizationStatus = ""
+    @Published var partnerID: String?
     
     init() {
         fetchUsername()
         fetchProfileImageUrl()
+        fetchpartnerID()
         queryAuthorizationStatus()
     }
     
@@ -39,6 +41,16 @@ class SettingViewModel: ObservableObject {
             if documents.count == 0 { return }
             guard let data = try? documents[0].data(as: ProfileImage.self) else { return }
             self.profileImageUrl = data.profileImageUrl
+        }
+    }
+    
+    func fetchpartnerID() {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
+        Constants.userCollection.document(uid).getDocument { snapshot, _ in
+            guard let snapshot = snapshot else { return }
+            guard let user = try? snapshot.data(as: User.self) else { return }
+            self.partnerID = user.partnerId
         }
     }
     
