@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LinkView: View {
     @Binding var matchingIdFromUrl: String?
+    @Binding var navigateToYomangView: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     
     @State private var flowCount = 0
@@ -71,11 +72,11 @@ struct LinkView: View {
                                 }
                             }
                         }
-                                        .onTapGesture {
-                                            withAnimation(.easeInOut(duration: 0.2).repeatCount(3, autoreverses: true)) {
-                                                jumpToggle.toggle()
-                                            }
-                                        }
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 0.2).repeatCount(3, autoreverses: true)) {
+                                jumpToggle.toggle()
+                            }
+                        }
                     
                     Text(displayedText2)
                         .foregroundColor(.white)
@@ -221,10 +222,9 @@ struct LinkView: View {
                     }
                     
                 case 4:
-                    
                     Button {
-                                flowCount = 5
-                    
+                        flowCount = 5
+                        navigateToYomangView = true
                     } label: {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(.white)
@@ -299,52 +299,3 @@ struct LinkView: View {
         timer.fire()
     }
 }
-
-struct LinkView_Previews: PreviewProvider {
-    @State static var matchingIdFromUrl: String? = ""
-    static var previews: some View {
-        LinkView(matchingIdFromUrl: $matchingIdFromUrl)
-    }
-}
-
-struct NicknameTextFieldView: View {
-    @Binding var nickname: String
-    @FocusState private var isTextFieldFocused: Bool
-    let nicknameLimit = 10
-    
-    var body: some View {
-        VStack {
-            ZStack {
-                if nickname.isEmpty {
-                    Text("입력하기")
-                        .foregroundColor(.gray)
-                        .font(.title3)
-                }
-                TextField("", text: $nickname)
-                    .focused($isTextFieldFocused)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .font(.title)
-                    .frame(height: 60)
-                    .onAppear {
-                        isTextFieldFocused = true
-                    }
-                    .onChange(of: nickname) { _ in
-                        if nickname.count > nicknameLimit {
-                            let limitedText = nickname.dropLast()
-                            nickname = String(limitedText)
-                        }
-                    }
-            }
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.white)
-                .scaleEffect(1.1)
-                .offset(y: -20)
-        }.fixedSize()
-    }
-}
-
-

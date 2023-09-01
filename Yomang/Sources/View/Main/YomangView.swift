@@ -35,18 +35,17 @@ struct YomangView: View {
                         HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
                             .navigationTitle(Text("히스토리"))
                             .navigationBarTitleDisplayMode(.inline)
-
                     } label: {
                         if selectedTag != 0 {
                             Image(systemName: "heart")
                                 .foregroundColor(.white)
                                 .font(.system(size: 20))
-                                .onTapGesture {
-                                    isHistoryButtonClicked = true
-                                }
                         }
                     }
-
+                    .simultaneousGesture(TapGesture().onEnded {
+                        isHistoryButtonClicked = true
+                    })
+                    
                     NavigationLink {
                         SettingView()
                     } label: {

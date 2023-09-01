@@ -13,8 +13,11 @@ struct YourYomangView: View {
     
     @State private var index = 0
     @State private var isScaleEffect: Bool = false
+    @State var isShownSheet = false
     @ObservedObject var viewModel = YourYomangViewModel()
     @Binding var matchingIdFromUrl: String?
+    
+    @AppStorage("hasSeenOnboarding", store: UserDefaults.standard) var hasSeenOnboarding = false
     
     var body: some View {
         ZStack {
@@ -123,6 +126,17 @@ struct YourYomangView: View {
                 Spacer()
             }
             .offset(y: -16)
+        }
+        .onAppear {
+            if !hasSeenOnboarding {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.isShownSheet = true
+                    self.hasSeenOnboarding = true
+                }
+            }
+        }
+        .sheet(isPresented: $isShownSheet) {
+            OnboardingView(isShownSheet: $isShownSheet)
         }
     }
 }

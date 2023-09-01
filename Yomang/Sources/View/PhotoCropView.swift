@@ -44,7 +44,7 @@ struct PhotoCropView: View {
     
     var body: some View {
         ZStack {
-            ZStack {
+            ZStack { // scaledtoFit Problem
                 if uiImage.imageOrientation == .portrait {
                     Image(uiImage: uiImage)
                         .resizable()
@@ -56,7 +56,7 @@ struct PhotoCropView: View {
                         .offset(offset)
                 }
                 
-                Image(uiImage: uiImage)
+                Image(uiImage: uiImage) // scaledtoFit Problem // 가로 세로 문제 ..! 
                     .resizable()
                     .scaledToFill()
                     .frame(width: imageConstraint, height: imageConstraint)
@@ -133,7 +133,7 @@ extension PhotoCropView {
         
         var cropRect: CGRect {
             let cropSizeWidth: CGFloat = (imageConstraint / imageScale) / zoomScale
-            let cropSizeHeight: CGFloat = imageConstraint / imageScale / zoomScale
+            let cropSizeHeight: CGFloat = (imageConstraint / imageScale) / zoomScale
             let initialX: CGFloat = (imageWidth - cropSizeWidth) / 2
             let initialY: CGFloat = (imageHeight - cropSizeHeight) / 2
             let xOffset: CGFloat = initialX - (offset.width / imageScale) / zoomScale

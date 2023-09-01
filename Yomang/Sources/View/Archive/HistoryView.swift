@@ -28,8 +28,7 @@ struct HistoryView: View {
                     LazyVGrid(columns: items) {
                         ForEach(viewModel.data, id: \.self) { yomang in
                             NavigationLink(
-                                // TODO: history grid 선택하면 어떻게 되는지: 큰 사진!
-                                destination: EmptyView(),
+                                destination: ArchiveSingleView(data: yomang),
                                 label: {
                                     ZStack {
                                         KFImage(URL(string: yomang.imageUrl))
@@ -65,6 +64,7 @@ struct HistoryView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
+                    isHistoryButtonClicked = false
                     dismiss()
                 } label: {
                     if isHistoryButtonClicked {

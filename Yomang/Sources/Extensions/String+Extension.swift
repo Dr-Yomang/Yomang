@@ -63,5 +63,5 @@ extension String {
     static let personFill = "person.fill"
     static let person2Fill = "person.2.fill"
     static let plus = "plus"
-
+    static let person2Slash = "person.2.slash"
 }
