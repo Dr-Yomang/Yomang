@@ -10,10 +10,10 @@ import SwiftUI
 struct ReactionView: View {
     @State private var isAnimationVisible: Bool = false
     @State var animationInProgress = false
-    @State private var selectedIndex: Int?
-    @State private var lottieName: String = ""
     @ObservedObject var viewModel: YourYomangViewModel
-    @Binding var yomangIndex: Int
+    @Binding var lottieName: String
+    @Binding var isLottiePlayed: Bool
+    let data: YomangData
     
     var body: some View {
         ZStack {
@@ -24,48 +24,48 @@ struct ReactionView: View {
 
             HStack(spacing: UIScreen.width * 0.07) {
                 Button {
-                    reactAction(selectedIndex: 0, lottieName: "yt_sad")
+                    reactAction(lottieName: "yt_thumbsUp")
                 } label: {
-                    ReactionButtonView(imageName: "yt_sad")
+                    ReactionButtonView(imageName: "yt_thumbsUp")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "yt_laugh")
-                } label: {
-                    ReactionButtonView(imageName: "yt_laugh")
-                }
-                Button {
-                    reactAction(selectedIndex: 1, lottieName: "yt_love")
+                    reactAction(lottieName: "yt_love")
                 } label: {
                     ReactionButtonView(imageName: "yt_love")
                 }
                 Button {
-                    reactAction(selectedIndex: 1, lottieName: "yt_thumbsUp")
+                    reactAction(lottieName: "yt_laugh")
                 } label: {
-                    ReactionButtonView(imageName: "yt_thumbsUp")
+                    ReactionButtonView(imageName: "yt_laugh")
+                }
+                Button {
+                    reactAction(lottieName: "yt_sad")
+                } label: {
+                    ReactionButtonView(imageName: "yt_sad")
                 }
             }
             if animationInProgress {
-                LottieView(animationInProgress: $animationInProgress, lottieName: lottieName)
+                LottieView(name: lottieName, loopMode: .playOnce)
+                    .ignoresSafeArea()
             }
         }
     }
     
-    private func reactAction(selectedIndex: Int, lottieName: String) {
-        let data = viewModel.data[yomangIndex]
-        guard let yomangId = data.id else { return }
-        let originEmoji = data.emoji ?? []
-        if !originEmoji.contains(lottieName) {
-            viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: originEmoji, emojiName: lottieName)
-        }
-        self.animationInProgress = true
-        self.selectedIndex = selectedIndex
+    private func reactAction(lottieName: String) {
+//        let data = viewModel.data[yomangIndex]
+//        guard let yomangId = data.id else { return }
+//        let originEmoji = data.emoji ?? []
+//        if !originEmoji.contains(lottieName) {
+//            viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: originEmoji, emojiName: lottieName)
+//        }
+        guard let id = data.id else { return }
         self.lottieName = lottieName
-    }
-}
-
-struct ReactionView_Previews: PreviewProvider {
-    @State static var index = 0
-    static var previews: some View {
-        ReactionView(viewModel: YourYomangViewModel(), yomangIndex: $index)
+        self.isLottiePlayed = true
+        let originEmoji = data.emoji ?? []
+        viewModel.reactToYourYomang(yomangId: id, originEmoji: originEmoji, emojiName: lottieName)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isLottiePlayed = false
+            
+        }
     }
 }
