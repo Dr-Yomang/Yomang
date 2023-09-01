@@ -25,7 +25,6 @@ struct MyAccountView: View {
     var body: some View {
         ZStack {
             VStack {
-                
                     VStack(alignment: .leading) {
                 
                         HStack {
@@ -52,9 +51,8 @@ struct MyAccountView: View {
                         }
                         
                         HStack {
-                            
-                            Spacer().frame(width: 52, height: 14)
-                            
+                            Spacer()
+                                .frame(width: 52, height: 14)
                             Text("애플 계정 로그인을 사용하고 있습니다.")
                                 .font(.system(size: 12))
                                 .foregroundColor(Color(red: 0.54, green: 0.26, blue: 1)).offset(x: 15)

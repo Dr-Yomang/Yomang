@@ -29,7 +29,6 @@ struct NotificationSettingView: View {
                     HStack {
                         Button {
                             showInstantAlert = true
-                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                         } label: {
                             Text("알림 끄기")
                                 .foregroundStyle(Color.white)
@@ -51,7 +50,6 @@ struct NotificationSettingView: View {
                     
                     Button(action: {
                         showInstantAlert = true
-                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                     }, label: {
                         Text("알림 켜기")
                             .foregroundStyle(Color.white)
@@ -86,6 +84,20 @@ struct NotificationSettingView: View {
                 }
             }
             Spacer()
+        }
+        .onAppear {
+            viewModel.queryAuthorizationStatus()
+        }
+        .alert(Text(instantAlertTitle), isPresented: $showInstantAlert) {
+            Button {
+                showInstantAlert = false
+                dismiss()
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            } label: {
+                Text("확인")
+            }
+        } message: {
+            Text(instantAlertMessage)
         }
         .navigationTitle("알림 설정")
         .navigationBarTitleDisplayMode(.inline)

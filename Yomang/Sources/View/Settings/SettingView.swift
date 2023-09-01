@@ -11,10 +11,6 @@ import PhotosUI
 
 struct SettingView: View {
     
-    enum AlertType {
-        case goToSetting
-        case usernameLengthLimit
-    }
     @Environment(\.dismiss) private var dismiss
     @State private var isSignOutInProgress = false
     @State private var selectedImage: PhotosPickerItem?
@@ -23,11 +19,6 @@ struct SettingView: View {
     @State private var isUploadInProgress = false
     @State private var sureToDeletePartner = false
     @ObservedObject var viewModel: SettingViewModel
-    // MARK: - instant alert 관련
-    @State private var alertType = AlertType.goToSetting
-    @State private var showInstantAlert = false
-    @State private var instantAlertTitle = ""
-    @State private var instantAlertMessage = ""
     
     var body: some View {
         VStack {
@@ -65,7 +56,6 @@ struct SettingView: View {
                     Text("프로필 설정 변경하기")
                         .foregroundColor(Color(red: 0.78, green: 0.78, blue: 0.8))
                         .font(.caption)
-                    
                 }
                 .navigationTitle("설정 및 개인정보")
             }
@@ -149,17 +139,4 @@ struct SettingView: View {
             }
         }
     }
-    
-    private func setInstantAlert(title: String, message: String, type: AlertType) {
-        instantAlertTitle = title
-        instantAlertMessage = message
-        showInstantAlert = true
-        alertType = type
-    }
 }
-
-//struct SettingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingView()
-//    }
-//}
