@@ -15,6 +15,8 @@
 		2FC2EFC12A597B3F008E1056 /* AppleLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2EFC02A597B3F008E1056 /* AppleLoginButtonView.swift */; };
 		2FDD6F442A5C12CD0065F947 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F432A5C12CD0065F947 /* LoginView.swift */; };
 		2FDD6F462A5C17C00065F947 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD6F452A5C17C00065F947 /* LinkView.swift */; };
+		6844040A2AA167E3006D387A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684404092AA167E3006D387A /* View+Extension.swift */; };
+		684404102AA22376006D387A /* AuthKey_3H7L42YJAK.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 6844040F2AA22376006D387A /* AuthKey_3H7L42YJAK.p8 */; };
 		68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA766E2A9DE66D00FD5F52 /* Secrets.swift */; };
 		68FA63F42A924F5F00A68C69 /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F32A924F5F00A68C69 /* MarkupView.swift */; };
 		68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */; };
@@ -64,7 +66,6 @@
 		ADDF26CB2AA1731C00D2D9F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
 		ADDF26CE2AA1989900D2D9F6 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = ADDF26CD2AA1989900D2D9F6 /* SwiftJWT */; };
 		ADDF26D12AA198C800D2D9F6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ADDF26D02AA198C800D2D9F6 /* Alamofire */; };
-		ADDF26D32AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 in Resources */ = {isa = PBXBuildFile; fileRef = ADDF26D22AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 */; };
 		ADDF26D52AA1B8F800D2D9F6 /* AppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */; };
 		ADDF26E52AA1EA0900D2D9F6 /* ArchiveSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */; };
 		ADDF26EA2AA2212000D2D9F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
@@ -126,6 +127,8 @@
 		2FDD6F3C2A5BC72B0065F947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FDD6F432A5C12CD0065F947 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2FDD6F452A5C17C00065F947 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		684404092AA167E3006D387A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		6844040F2AA22376006D387A /* AuthKey_3H7L42YJAK.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_3H7L42YJAK.p8; sourceTree = "<group>"; };
 		68CA766E2A9DE66D00FD5F52 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		68FA63F32A924F5F00A68C69 /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
 		68FA63F52A924F7E00A68C69 /* PencilKitToUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitToUIView.swift; sourceTree = "<group>"; };
@@ -169,7 +172,6 @@
 		ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionButtonView.swift; sourceTree = "<group>"; };
 		ADAA91862AA0C99700ABAEEE /* yt_aeng.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yt_aeng.json; sourceTree = "<group>"; };
 		ADC347572A5E4B38008F9624 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		ADDF26D22AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_3H7L42YJAK.p8; sourceTree = "<group>"; };
 		ADDF26D42AA1B8F800D2D9F6 /* AppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenResponse.swift; sourceTree = "<group>"; };
 		ADDF26E42AA1EA0900D2D9F6 /* ArchiveSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveSingleView.swift; sourceTree = "<group>"; };
 		ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				68FA63FF2A92503400A68C69 /* UIImage+Extension.swift */,
 				AD89C3A32A91DD160011D1D8 /* Date+Extension.swift */,
 				AD89C3A92A91E8530011D1D8 /* UIScreen+Extension.swift */,
+				684404092AA167E3006D387A /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,7 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */,
-				ADDF26D22AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 */,
+				6844040F2AA22376006D387A /* AuthKey_3H7L42YJAK.p8 */,
 				AD3805B02A80E39700D02D54 /* Sources */,
 				AD0ADC5A2A5450630030B1F9 /* Resources */,
 				AD8FFE312A90DFBB00A7459A /* Preview Content */,
@@ -544,7 +547,7 @@
 			files = (
 				AD8FFE2D2A90DD8700A7459A /* Assets.xcassets in Resources */,
 				2F89EDD52A9EE433002E6A5C /* GoogleService-Info.plist in Resources */,
-				ADDF26D32AA1B62B00D2D9F6 /* AuthKey_3H7L42YJAK.p8 in Resources */,
+				684404102AA22376006D387A /* AuthKey_3H7L42YJAK.p8 in Resources */,
 				C1982A8B2A6EC90900DD9E02 /* yt_love.json in Resources */,
 				ADAA91872AA0C99700ABAEEE /* yt_aeng.json in Resources */,
 				C1982A8F2A6ECDA800DD9E02 /* yt_surprise.json in Resources */,
@@ -598,6 +601,7 @@
 			files = (
 				68FA63F82A924F9700A68C69 /* PhotoCropView.swift in Sources */,
 				68FA63F62A924F7E00A68C69 /* PencilKitToUIView.swift in Sources */,
+				6844040A2AA167E3006D387A /* View+Extension.swift in Sources */,
 				AD8FFE2C2A90DC0600A7459A /* MyYomangView.swift in Sources */,
 				AD89C3AA2A91E8530011D1D8 /* UIScreen+Extension.swift in Sources */,
 				AD8FFE2B2A90DBCA00A7459A /* SettingView.swift in Sources */,

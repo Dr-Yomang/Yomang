@@ -43,16 +43,31 @@ struct ContentView: View {
 }
 
 struct SplashView: View {
+    @State var isChange: Bool = false
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(LinearGradient(colors: [Color.black, Color(hex: 0x2F2745)], startPoint: .top, endPoint: .bottom))
-            
-            Text("YOMANG")
-                .font(.system(size: 48))
-                .bold()
-                .foregroundColor(.white)
-                .offset(y: -200)
-        }.ignoresSafeArea()
+   
+                if !isChange {
+                    Image("on").resizable()
+                        .scaledToFit()
+                } else {
+                    Image("wink").resizable()
+                        .scaledToFit()
+                }
+        }.frame(width: UIScreen.width * 0.43, height: UIScreen.height * 0.24)
+        .offset(y: -UIScreen.height * 0.1)
+        .ignoresSafeArea(.all)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                 isChange.toggle() })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3, execute: {
+                 isChange.toggle() })
+        }
+    }
+}
+
+struct SplashView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplashView()
     }
 }
