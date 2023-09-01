@@ -36,14 +36,14 @@ struct SettingView: View {
                     if let profileImgUrl = viewModel.profileImageUrl {
                         KFImage(URL(string: profileImgUrl))
                             .resizable()
+                            .frame(width: 112, height: 112)
                             .scaledToFill()
-                            .frame(width: 120, height: 120)
                             .clipShape(Circle())
                     } else {
                         Image("yt_surprise")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 112, height: 112)
+                            .scaledToFill()
                             .clipShape(Circle())
                     }
                     
@@ -56,7 +56,7 @@ struct SettingView: View {
                         .cornerRadius(12)
                         .offset(y: 60)
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 26)
                 
                 NavigationLink {
                     ProfileView(viewModel: viewModel)
@@ -69,9 +69,9 @@ struct SettingView: View {
                 .navigationTitle("설정 및 개인정보")
             }
             List {
-                Section(header: Text(String.headerTitleSettingProfile)) {
+                Section(header: Text(String.headerTitleSettingProfile).font(.headline)) {
                     NavigationLink {
-                        MyAccountView(viewModel: viewModel)
+//                        MyAccountView(viewModel: viewModel)
                     } label: {
                         HStack {
                             Image(systemName: .personFill)
@@ -81,7 +81,7 @@ struct SettingView: View {
                 }
                 
                 // MARK: - Section. 내 사용
-                Section(header: Text(String.headerTitleMyUsage)) {
+                Section(header: Text(String.headerTitleMyUsage).font(.headline)) {
                     // MARK: - 파트너 연결 끊기
                     Button {
                         sureToDeletePartner = true
@@ -129,6 +129,7 @@ struct SettingView: View {
                     }
                 }
             }
+            .scrollDisabled(true)
             .navigationTitle(String.navigationTitleSetting)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
@@ -167,3 +168,9 @@ struct SettingView: View {
         alertType = type
     }
 }
+
+//struct SettingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SettingView()
+//    }
+//}

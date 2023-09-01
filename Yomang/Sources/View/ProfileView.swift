@@ -24,16 +24,16 @@ struct ProfileView: View {
                 if let profileImgUrl = viewModel.profileImageUrl {
                     KFImage(URL(string: profileImgUrl))
                         .resizable()
-                        .scaledToFill()
                         .frame(width: 178, height: 178)
+                        .scaledToFit()
                         .clipShape(Circle())
                         .padding(.top, 10)
                     
                 } else {
                     Image("yt_surprise")
                         .resizable()
-                        .scaledToFit()
                         .frame(width: 178, height: 178)
+                        .scaledToFit()
                         .clipShape(Circle())
                         .padding(.top, 10)
                 }
