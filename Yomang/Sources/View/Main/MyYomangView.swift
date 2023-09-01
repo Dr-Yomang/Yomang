@@ -36,22 +36,23 @@ struct MyYomangView: View {
                         .frame(width: 80, height: 80)
                         .foregroundColor(.white)
                         .opacity(0.4)
-                        .overlay (
-                            //TODO: 조건문 변경 및 내 프로필이미지로 변경!!!
-//                            if let imageUrl = viewModel.partnerImageUrl {
-//                                KFImage(URL(string: imageUrl))
-//                                    .resizable()
-//                                    .frame(width: 80, height: 80)
-//                                    .clipShape(Circle())
-//                            } else {
-                                Image(.yottoGown2)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 80)
-                                    .offset(x: -5, y: 21)
-                                    .clipShape(Circle())
-//                            }
-                        )
+                        .overlay {
+                            Group {
+                                if let imageUrl = viewModel.fetchProfileImg() {
+                                    KFImage(URL(string: imageUrl))
+                                        .resizable()
+                                        .frame(width: 80, height: 80)
+                                        .clipShape(Circle())
+                                } else {
+                                    Image(.yottoGown2)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 80)
+                                        .offset(x: -5, y: 21)
+                                        .clipShape(Circle())
+                                }
+                            }
+                        }
                         .offset(y: 32)
                     
                     Text(AuthViewModel.shared.username ?? "나의 요망")

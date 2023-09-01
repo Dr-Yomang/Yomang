@@ -31,7 +31,7 @@ struct ProfileView: View {
                         .padding(.top, 10)
                     
                 } else {
-                    Image("yt_surprise")
+                    Image(.yottoGown2)
                         .resizable()
                         .frame(width: 178, height: 178)
                         .scaledToFit()
