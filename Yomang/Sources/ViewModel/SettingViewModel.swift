@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class SettingViewModel: ObservableObject {
     @Published var username: String?
@@ -80,7 +81,40 @@ class SettingViewModel: ObservableObject {
         }
     }
     
-    func deletePartner() {
-        
+    func deletePartner(_ completion: @escaping() -> Void) {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
+        guard let pid = user.partnerId else { return }
+        Constants.userCollection.document(uid).updateData(["partnerId": nil])
+        Constants.userCollection.document(pid).updateData(["partnerId": nil])
+        // MARK: - partner의 히스토리 먼저 삭제
+        Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, error in
+            if let error = error { print(error) }
+            guard let documents = snapshot?.documents else { return }
+            let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+            for item in data {
+                guard let docId = item.id else { return }
+                Constants.historyCollection.document(docId).delete { err in
+                    if let err = err {
+                        print("=== DEBUG: delete partner \(err)")
+                    }
+                }
+            }
+            // MARK: - 나의 히스토리 삭제
+            Constants.historyCollection.whereField("senderUid", isEqualTo: uid).getDocuments { snapshot, error in
+                if let error = error { print(error) }
+                guard let documents = snapshot?.documents else { return }
+                let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+                for item in data {
+                    guard let docId = item.id else { return }
+                    Constants.historyCollection.document(docId).delete { err in
+                        if let err = err {
+                            print("=== DEBUG: delete partner \(err)")
+                        }
+                    }
+                }
+                completion()
+            }
+        }
     }
 }

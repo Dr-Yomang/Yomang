@@ -119,6 +119,27 @@ class AuthViewModel: ObservableObject {
     
     func deleteUser() {
         // TODO: - 해당 유저의 요망, 파트너 데이터 싹 지워야함, 왜인지 firebase 단에서 바로 auth().current 삭제가 안돼서 탈퇴하자마자 다시 로그인하는 경우 걸림
+        // MARK: - 파트너 연결끊고 히스토리 먼저 삭제
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
+        guard let pid = user.partnerId else { return }
+        Constants.userCollection.document(uid).updateData(["partnerId": nil])
+        Constants.userCollection.document(pid).updateData(["partnerId": nil])
+        Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, error in
+            if let error = error { print(error) }
+            guard let documents = snapshot?.documents else { return }
+            let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+            for item in data {
+                guard let docId = item.id else { return }
+                Constants.historyCollection.document(docId).delete { err in
+                    if let err = err {
+                        print("=== DEBUG: delete partner \(err)")
+                    }
+                }
+            }
+        }
+        // TODO: - 해당 유저의 요망, 파트너 데이터 싹 지워야함, 왜인지 firebase 단에서 바로 auth().current 삭제가 안돼서 탈퇴하자마자 다시 로그인하는 경우 걸림
+        // MARK: - 유저 정보 삭제
         guard let currentUser = Auth.auth().currentUser else { return }
         Constants.userCollection.document(currentUser.uid).delete { err in
             print("=== DEBUG: deleteUser() \(err)")

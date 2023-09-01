@@ -17,6 +17,7 @@ struct SettingView: View {
     @State private var username = ""
     @State private var isLengthZero = false
     @State private var isUploadInProgress = false
+//    @State private var showAlert = false
     @ObservedObject private var viewModel = SettingViewModel()
     var body: some View {
         ZStack {
@@ -91,13 +92,17 @@ struct SettingView: View {
                 }
                 
                 Section(header: Text(String.headerTitleMyUsage)) {
-                    NavigationLink {
-                        EmptyView()
+                    Button {
+                        viewModel.deletePartner {
+                            AuthViewModel.shared.fetchUser { _ in
+                            }
+                        }
                     } label: {
                         HStack {
-                            Image(systemName: .person2Fill)
+                            Image(systemName: .person2Slash)
                             Text(String.buttonConnectPartner)
                         }
+                        .foregroundColor(.white)
                     }
                     HStack {
                         Image(systemName: .bellFill)
