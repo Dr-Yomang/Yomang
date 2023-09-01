@@ -172,7 +172,7 @@ class AuthViewModel: ObservableObject {
     }
     
     // MARK: - 회원 탈퇴
-    func getJWT() -> String {
+    private func getJWT() -> String {
         let myHeader = Header(kid: keyID) // sign in with
         struct MyClaims: Claims {
             let iss: String
@@ -206,7 +206,7 @@ class AuthViewModel: ObservableObject {
         return signedJWT!
     }
     
-    func getAppleRefreshToken(code: String, completionHandler: @escaping (String?) -> Void) {
+    private func getAppleRefreshToken(code: String, completionHandler: @escaping (String?) -> Void) {
         guard let secret = UserDefaults.standard.string(forKey: Constants.appleClientSecret) else {return }
         guard let code = UserDefaults.standard.string(forKey: Constants.authorizationCode) else { return }
         
@@ -219,13 +219,10 @@ class AuthViewModel: ObservableObject {
         AF.request(url, method: .post, encoding: JSONEncoding.default, headers: header)
             .validate(statusCode: 200..<500)
             .responseData { response in
-                print("🗝 response - \(response.description)")
-                
                 switch response.result {
                 case .success(let output):
                     let decoder = JSONDecoder()
                     if let decodedData = try? decoder.decode(AppleTokenResponse.self, from: output) {
-                        
                         if decodedData.refreshToken == nil {
                             print("=== DEBUG: 토큰 생성 실패")
                         } else {
@@ -234,48 +231,44 @@ class AuthViewModel: ObservableObject {
                     }
                     
                 case .failure:
-                    // 로그아웃 후 재로그인하여
                     print("애플 토큰 발급 실패 - \(response.error.debugDescription)")
                 }
             }
     }
     
-    func revokeAppleToken(clientSecret: String, token: String, completion: @escaping () -> Void) {
+    private func revokeAppleToken(clientSecret: String, token: String, completion: @escaping () -> Void) {
         let url = "https://appleid.apple.com/auth/revoke?client_id=\(bundleID)&client_secret=\(clientSecret)&token=\(token)&token_type_hint=refresh_token"
         let header: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
         
-        AF.request(url,
-                   method: .post,
-                   headers: header)
-        .validate(statusCode: 200..<600)
-        .responseData { response in
-            guard let statusCode = response.response?.statusCode else { return }
-            if statusCode == 200 {
-                print("=== DEUBG: 애플 토큰 삭제 성공!")
-                completion()
+        AF.request(url, method: .post, headers: header)
+            .validate(statusCode: 200..<600)
+            .responseData { response in
+                guard let statusCode = response.response?.statusCode else { return }
+                if statusCode == 200 {
+                    print("=== DEUBG: 애플 토큰 삭제 성공!")
+                    completion()
+                }
+            }
+    }
+    
+    private func deleteUserFromPartner(pid: String, _ completion: @escaping() -> Void) {
+        Constants.userCollection.document(pid).updateData(["partnerId": nil])
+        Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, error in
+            if let error = error { print(error) }
+            guard let documents = snapshot?.documents else { return }
+            let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+            for item in data {
+                guard let docId = item.id else { return }
+                Constants.historyCollection.document(docId).delete { err in
+                    if let err = err {
+                        print("=== DEBUG: delete partner \(err)")
+                    }
+                }
             }
         }
     }
     
-    func deleteUser() {
-        guard let user = AuthViewModel.shared.user else { return }
-//        // MARK: - 파트너 연결끊고 히스토리 먼저 삭제
-        guard let authorizationCode = UserDefaults.standard.string(forKey: Constants.authorizationCode) else { return }
-        let jwtToken = AuthViewModel.shared.getJWT()
-        self.getAppleRefreshToken(code: authorizationCode) { token in
-            if let refreshToken = token {
-                print("=== DEBUG: client secret 🔑 \(jwtToken)")
-                print("=== DEBUG: refresh 🔑 \(refreshToken)")
-
-                self.revokeAppleToken(clientSecret: jwtToken, token: refreshToken) {
-                    print("=== DEBUG: Successully Apple revoke token")
-                }
-            } else {
-                print("=== DEBUG: failed to get apple refresh token 🔑")
-            }
-        }
-        guard let uid = user.id else { return }
-        Constants.userCollection.document(uid).updateData(["partnerId": nil])
+    private func deleteAllMyYomang(uid: String, _ completion: @escaping() -> Void) {
         Constants.historyCollection.whereField("senderUid", isEqualTo: uid).getDocuments { snapshot, error in
             if let error = error { print(error) }
             guard let documents = snapshot?.documents else { return }
@@ -289,23 +282,26 @@ class AuthViewModel: ObservableObject {
                 }
             }
         }
-        if let pid = user.partnerId {
-            Constants.userCollection.document(pid).updateData(["partnerId": nil])
-            Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, error in
-                if let error = error { print(error) }
-                guard let documents = snapshot?.documents else { return }
-                let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
-                for item in data {
-                    guard let docId = item.id else { return }
-                    Constants.historyCollection.document(docId).delete { err in
-                        if let err = err {
-                            print("=== DEBUG: delete partner \(err)")
-                        }
-                    }
+    }
+    
+    private func revokeToken(_ completion: @escaping() -> Void) {
+        guard let authorizationCode = UserDefaults.standard.string(forKey: Constants.authorizationCode) else { return }
+        let jwtToken = AuthViewModel.shared.getJWT()
+        self.getAppleRefreshToken(code: authorizationCode) { token in
+            if let refreshToken = token {
+                print("=== DEBUG: client secret 🔑 \(jwtToken)")
+                print("=== DEBUG: refresh 🔑 \(refreshToken)")
+                
+                self.revokeAppleToken(clientSecret: jwtToken, token: refreshToken) {
+                    print("=== DEBUG: Successully Apple revoke token")
                 }
+            } else {
+                print("=== DEBUG: failed to get apple refresh token 🔑")
             }
         }
-        
+    }
+    
+    private func deleteFromDB() {
         // MARK: - 유저 정보 삭제
         guard let currentUser = Auth.auth().currentUser else { return }
         Constants.userCollection.document(currentUser.uid).delete { err in
@@ -313,6 +309,22 @@ class AuthViewModel: ObservableObject {
             self.signOut {
                 currentUser.delete { err in
                     print("=== deleted error \(err)")
+                }
+            }
+        }
+    }
+    
+    func deleteUser() {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
+        revokeToken {
+            self.deleteAllMyYomang(uid: uid) {
+                if let pid = user.partnerId {
+                    self.deleteUserFromPartner(pid: pid) {
+                        self.deleteFromDB()
+                    }
+                } else {
+                    self.deleteFromDB()
                 }
             }
         }
