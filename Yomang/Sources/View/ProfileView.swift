@@ -73,16 +73,6 @@ struct ProfileView: View {
                     }
                 }
                 .disabled(isUploadInProgress)
-//                if isUploadInProgress {
-//
-//                    Circle()
-//                        .frame(width: 178, height: 178)
-//                        .foregroundColor(.black)
-//                        .opacity(0.7)
-//                    ProgressView()
-//                        .frame(width: 178, height: 178)
-//                        .clipShape(Circle())
-//                }
                 
                 HStack(spacing: 20) {
                     Text("이름")
