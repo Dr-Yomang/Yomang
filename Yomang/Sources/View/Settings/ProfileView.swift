@@ -81,7 +81,7 @@ struct ProfileView: View {
                     .font(.system(size: 16))
                 
                 VStack {
-                    TextField(viewModel.username!, text: $username)
+                    TextField(viewModel.username ?? "", text: $username)
                         .font(.system(size: 20))
                         .textInputAutocapitalization(.never)
                         .frame(width: 256)
