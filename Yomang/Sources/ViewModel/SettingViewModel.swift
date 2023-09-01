@@ -10,7 +10,6 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class SettingViewModel: ObservableObject {
-    let collection = Firestore.firestore().collection("ProfileImageDebugCollection")
     @Published var username: String?
     @Published var profileImageUrl: String?
     @Published var alertAuthorizationStatus = ""
@@ -24,7 +23,7 @@ class SettingViewModel: ObservableObject {
     func fetchUsername() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
-        Firestore.firestore().collection("UserDebugCollection").document(uid).getDocument { snapshot, _ in
+        Constants.userCollection.document(uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             self.username = user.username
@@ -34,7 +33,7 @@ class SettingViewModel: ObservableObject {
     func fetchProfileImageUrl() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
-        self.collection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
+        Constants.profileCollection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             if documents.count == 0 { return }
             guard let data = try? documents[0].data(as: ProfileImage.self) else { return }
@@ -44,7 +43,7 @@ class SettingViewModel: ObservableObject {
     
     func changeUsername(_ newUsername: String, completion: @escaping() -> Void) {
         guard let uid = AuthViewModel.shared.user?.id else { return }
-        Firestore.firestore().collection("UserDebugCollection").document(uid).updateData(["username": newUsername])
+        Constants.userCollection.document(uid).updateData(["username": newUsername])
         self.username = newUsername
         AuthViewModel.shared.username = newUsername
         completion()
@@ -57,12 +56,12 @@ class SettingViewModel: ObservableObject {
             let data = ["uid": uid,
                         "profileImageUrl": imageUrl]
             self.profileImageUrl = imageUrl
-            self.collection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
+            Constants.profileCollection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 if documents.count == 0 {
-                    self.collection.addDocument(data: data, completion: completion)
+                    Constants.profileCollection.addDocument(data: data, completion: completion)
                 } else {
-                    self.collection.document(documents[0].documentID).updateData(["profileImageUrl": imageUrl], completion: completion)
+                    Constants.profileCollection.document(documents[0].documentID).updateData(["profileImageUrl": imageUrl], completion: completion)
                 }
             }
         }
@@ -79,5 +78,9 @@ class SettingViewModel: ObservableObject {
                 self.alertAuthorizationStatus = ""
             }
         }
+    }
+    
+    func deletePartner() {
+        
     }
 }

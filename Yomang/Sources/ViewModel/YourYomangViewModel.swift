@@ -11,9 +11,6 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 
 class YourYomangViewModel: ObservableObject {
-    let userCollection = Firestore.firestore().collection("UserDebugCollection")
-    let historyCollection = Firestore.firestore().collection("HistoryDebugCollection")
-    let profileCollection = Firestore.firestore().collection("ProfileImageDebugCollection")
     @Published var data = [YomangData]()
     @Published var connectWithPartner = false
     @Published var partner: User?
@@ -27,7 +24,7 @@ class YourYomangViewModel: ObservableObject {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
         if user.partnerId == nil {
-            userCollection.document(uid).addSnapshotListener { snapshot, _ in
+            Constants.userCollection.document(uid).addSnapshotListener { snapshot, _ in
                 guard let document = snapshot else { return }
                 guard let userData = document.data() else { return }
                 guard let pid = userData["partnerId"] as? String else { return }
@@ -55,11 +52,11 @@ class YourYomangViewModel: ObservableObject {
     func fetchPartnerData() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
-        self.userCollection.document(pid).getDocument { snapshot, _ in
+        Constants.userCollection.document(pid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let partner = try? snapshot.data(as: User.self) else { return }
             self.partner = partner
-            self.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
+            Constants.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
                 if let err = err {
                     print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
                 }
@@ -74,7 +71,7 @@ class YourYomangViewModel: ObservableObject {
     func fetchYourYomang() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
-        self.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, _ in
+        Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
             self.data = data.sorted(by: { $0.uploadedDate > $1.uploadedDate })
@@ -86,7 +83,7 @@ class YourYomangViewModel: ObservableObject {
         guard user.partnerId != nil else { return }
         var appendEmoji = originEmoji
         appendEmoji.append(emojiName)
-        self.historyCollection.document(yomangId).updateData(["emoji": appendEmoji])
+        Constants.historyCollection.document(yomangId).updateData(["emoji": appendEmoji])
         self.fetchYourYomang()
     }
 }

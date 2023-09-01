@@ -63,6 +63,7 @@
 		ADAA91812AA028B800ABAEEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F89EDD42A9EE432002E6A5C /* GoogleService-Info.plist */; };
 		ADAA91852AA0418400ABAEEE /* ReactionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA91842AA0418400ABAEEE /* ReactionButtonView.swift */; };
 		ADAA91872AA0C99700ABAEEE /* yt_aeng.json in Resources */ = {isa = PBXBuildFile; fileRef = ADAA91862AA0C99700ABAEEE /* yt_aeng.json */; };
+		ADDF26CB2AA1731C00D2D9F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0ADC582A54503A0030B1F9 /* Constants.swift */; };
 		ADE9D17E2A5DB0F500F111BE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9D17D2A5DB0F500F111BE /* HistoryView.swift */; };
 		ADED59392A975FE4007E3EB9 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		ADF707562A8B313C002381F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ADF707552A8B313C002381F1 /* Kingfisher */; };
@@ -556,6 +557,7 @@
 				68CA76702A9DE8AD00FD5F52 /* Secrets.swift in Sources */,
 				AD7340882A9DFAEA0067EFFF /* User.swift in Sources */,
 				AD3805BD2A80E66600D02D54 /* String+Extension.swift in Sources */,
+				ADDF26CB2AA1731C00D2D9F6 /* Constants.swift in Sources */,
 				AD0ADC422A54444C0030B1F9 /* YomangWidgetExtension.swift in Sources */,
 				AD0ADC402A54444C0030B1F9 /* YomangWidgetExtensionBundle.swift in Sources */,
 			);

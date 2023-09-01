@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import FirebaseFirestore
 
 struct Constants {
     static let yomangPadding: CGFloat = 48
@@ -37,4 +38,9 @@ struct Constants {
             return CGSize(width: 292, height: 311)
         }
     }
+    
+    /// Firebase collections
+    static let userCollection = Firestore.firestore().collection("UserDebugCollection")
+    static let historyCollection = Firestore.firestore().collection("HistoryDebugCollection")
+    static let profileCollection = Firestore.firestore().collection("ProfileImageDebugCollection")
 }

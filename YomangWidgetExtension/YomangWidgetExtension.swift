@@ -47,15 +47,12 @@ struct Provider: TimelineProvider {
             completion(nil)
             return
         }
-        let userCollection = Firestore.firestore().collection("UserDebugCollection")
-        userCollection.document(user.uid).getDocument { snapshot, _ in
+        Constants.userCollection.document(user.uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             guard let partnerUid = user.partnerId else { return }
             
-            let collection = Firestore.firestore().collection("HistoryDebugCollection")
-            
-            collection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
+            Constants.historyCollection.whereField("senderUid", isEqualTo: partnerUid).getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 let data = documents.compactMap({ try? $0.data(as: YomangData.self) }).sorted(by: { $0.uploadedDate > $1.uploadedDate })
                 /// NSData로 변환해 저장

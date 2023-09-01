@@ -15,7 +15,6 @@ import FirebaseDynamicLinks
 class AuthViewModel: ObservableObject {
     
     static let shared = AuthViewModel()
-    let collection = Firestore.firestore().collection("UserDebugCollection")
     
     // 파이어베이스 서버 측으로부터 현재 로그인 세션 유지 중인 유저 정보가 있는지 확인
     @Published var userSession: FirebaseAuth.User?
@@ -36,7 +35,7 @@ class AuthViewModel: ObservableObject {
             return
         }
         
-        collection.document(uid).getDocument { snapshot, _ in
+        Constants.userCollection.document(uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             
@@ -67,12 +66,12 @@ class AuthViewModel: ObservableObject {
             //                        MARK: - cloud functions가 deploy되면 구조가 바뀝니다
             //                        "partnerToken": nil] as [String: Any?]
             
-            self.collection.document(user.uid).setData(data as [String: Any]) { _ in
+            Constants.userCollection.document(user.uid).setData(data as [String: Any]) { _ in
                 print("=== DEBUG: 회원 등록 완료 \n\(data) ")
                 self.userSession = Auth.auth().currentUser
                 self.fetchUser { _ in
                     if let partnerId = partnerId {
-                        self.collection.document(partnerId).updateData(["partnerId": user.uid])
+                        Constants.userCollection.document(partnerId).updateData(["partnerId": user.uid])
                     }
                     completion(user.uid)
                 }
@@ -90,20 +89,20 @@ class AuthViewModel: ObservableObject {
     
     func setUsername(username: String) {
         guard let uid = user?.id else { return }
-        collection.document(uid).updateData(["username": username])
+        Constants.userCollection.document(uid).updateData(["username": username])
         self.username = username
     }
     
     func matchTwoUser(partnerId: String) {
         guard let uid = user?.id else { return }
         self.user?.partnerId = partnerId
-        collection.document(partnerId).getDocument { snapshot, _ in
+        Constants.userCollection.document(partnerId).getDocument { snapshot, _ in
             guard let partner = snapshot else { return }
             guard let data = partner.data() else { return }
             guard data["partnerId"] != nil else { return }
         }
-        self.collection.document(uid).updateData(["partnerId": partnerId])
-        self.collection.document(partnerId).updateData(["partnerId": uid])
+        Constants.userCollection.document(uid).updateData(["partnerId": partnerId])
+        Constants.userCollection.document(partnerId).updateData(["partnerId": uid])
     }
     
     func signOut(_ completion: @escaping() -> Void) {
@@ -121,7 +120,7 @@ class AuthViewModel: ObservableObject {
     func deleteUser() {
         // TODO: - 해당 유저의 요망, 파트너 데이터 싹 지워야함, 왜인지 firebase 단에서 바로 auth().current 삭제가 안돼서 탈퇴하자마자 다시 로그인하는 경우 걸림
         guard let currentUser = Auth.auth().currentUser else { return }
-        self.collection.document(currentUser.uid).delete { err in
+        Constants.userCollection.document(currentUser.uid).delete { err in
             print("=== DEBUG: deleteUser() \(err)")
             self.signOut {
                 currentUser.delete { err in
