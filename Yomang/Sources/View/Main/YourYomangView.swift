@@ -108,8 +108,9 @@ struct YourYomangView: View {
                                     if let imageUrl = viewModel.partnerImageUrl {
                                         KFImage(URL(string: imageUrl))
                                             .resizable()
-                                            .frame(width: 80, height: 80)
-                                            .offset(x: 5)
+                                            .scaledToFill()
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
                                     } else {
                                         Image("Yotto")
                                             .resizable()

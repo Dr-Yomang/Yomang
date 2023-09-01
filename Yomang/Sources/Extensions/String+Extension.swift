@@ -57,5 +57,5 @@ extension String {
     static let bellFill = "bell.fill"
     static let chevronBackward = "chevron.backward"
     static let personFill = "person.fill"
-    static let person2Fill = "person.2.fill"
+    static let person2Slash = "person.2.slash"
 }

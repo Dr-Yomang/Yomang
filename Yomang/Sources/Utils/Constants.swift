@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import FirebaseFirestore
 
 struct Constants {
     static let yomangPadding: CGFloat = 48
@@ -38,6 +39,7 @@ struct Constants {
         }
     }
     
+
     static var offsetSize: Double {
             switch UIScreen.main.bounds.size {
             case CGSize(width: 430, height: 932): // 14 pro max
@@ -60,4 +62,13 @@ struct Constants {
                 return 24.0
             }
     }
+
+    // MARK: - Firebase collections
+    static let userCollection = Firestore.firestore().collection("UserDebugCollection")
+    static let historyCollection = Firestore.firestore().collection("HistoryDebugCollection")
+    static let profileCollection = Firestore.firestore().collection("ProfileImageDebugCollection")
+    
+    // MARK: - UserDefaults
+    static let appleClientSecret = "AppleClientSecret"
+    static let authorizationCode = "AuthorizationCode"
 }

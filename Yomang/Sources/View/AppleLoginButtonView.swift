@@ -81,15 +81,18 @@ struct AppleLoginButtonView: View {
                     guard let email = appleIDCredential.email else {
                         print("Already Signed in")
                         viewModel.signInUser(credential: credential) {
+                            UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
+                                                      forKey: Constants.authorizationCode)
                             isSignInInProgress = false
                         }
                         return
                     }
-                    
                     viewModel.signInUser(
                         credential: credential,
                         email: email,
                         partnerId: matchingIdFromUrl ?? nil) { result in
+                            UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
+                                                      forKey: Constants.authorizationCode)
                             isSignInInProgress = false
                         }
                 default:
