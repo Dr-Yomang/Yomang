@@ -54,7 +54,7 @@ struct Constants {
             case CGSize(width: 393, height: 852): // iPhone 14 Pro
                 return 30.0
             case CGSize(width: 390, height: 844): // iPhone 14, iPhone 13 Pro, iPhone 13, iPhone 12 Pro, iPhone 12
-                return 24.0
+                return 22.0
             case CGSize(width: 375, height: 812): // iPhone 11 Pro, iPhone XS, iPhone X, iPhone 13 mini, iPhone 12 mini,
                 return 22.0
             case CGSize(width: 375, height: 667): // iPhone SE (3rd & 2nd Gen), iPhone 8, iPhone 7, iPhone 6S

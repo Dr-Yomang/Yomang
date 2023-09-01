@@ -92,8 +92,17 @@ struct YourYomangView: View {
                     .frame(width: UIScreen.width - (Constants.widgetPadding * 2),
                            height: (UIScreen.width - (Constants.widgetPadding * 2)) * 1.05)
                 
-                if viewModel.data.count == 0 {
+                if !viewModel.connectWithPartner && viewModel.data.count == 0 {
                     Text("파트너와의 연결을\n기다리고 계시군요!")
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(.white)
+                        .scaleEffect(isScaleEffect ? 0.95 : 1)
+                }
+                
+                if viewModel.connectWithPartner && viewModel.data.count == 0 {
+                    Text("상대와 연결되었어요!\n첫 요망을 기다려볼까요?")
                         .multilineTextAlignment(.center)
                         .font(.title3)
                         .bold()
@@ -106,7 +115,7 @@ struct YourYomangView: View {
        
                 if viewModel.connectWithPartner {
                     if viewModel.data.count > 0 {
-                        ReactionView(viewModel: viewModel, yomangIndex: $index, lottieName: $lottieName, isLottiePlayed: $isLottiePlayed)
+                        ReactionView(viewModel: viewModel, lottieName: $lottieName, isLottiePlayed: $isLottiePlayed, data: viewModel.data[0])
                             .frame(width: UIScreen.width - (Constants.widgetPadding * 2))
                             .padding(.vertical)
                     }

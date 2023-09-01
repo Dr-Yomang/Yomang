@@ -11,9 +11,9 @@ struct ReactionView: View {
     @State private var isAnimationVisible: Bool = false
     @State var animationInProgress = false
     @ObservedObject var viewModel: YourYomangViewModel
-    @Binding var yomangIndex: Int
     @Binding var lottieName: String
     @Binding var isLottiePlayed: Bool
+    let data: YomangData
     
     var body: some View {
         ZStack {
@@ -58,19 +58,14 @@ struct ReactionView: View {
 //        if !originEmoji.contains(lottieName) {
 //            viewModel.reactToYourYomang(yomangId: yomangId, originEmoji: originEmoji, emojiName: lottieName)
 //        }
+        guard let id = data.id else { return }
         self.lottieName = lottieName
         self.isLottiePlayed = true
+        let originEmoji = data.emoji ?? []
+        viewModel.reactToYourYomang(yomangId: id, originEmoji: originEmoji, emojiName: lottieName)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.isLottiePlayed = false
+            
         }
-    }
-}
-
-struct ReactionView_Previews: PreviewProvider {
-    @State static var index = 0
-    @State static var isLottiePlayed = false
-    @State static var lottieName = "yt_love"
-    static var previews: some View {
-        ReactionView(viewModel: YourYomangViewModel(), yomangIndex: $index, lottieName: $lottieName, isLottiePlayed: $isLottiePlayed)
     }
 }

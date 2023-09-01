@@ -179,7 +179,10 @@ class AuthViewModel: ObservableObject {
         
         var myJWT = JWT(header: myHeader, claims: myClaims)
         
-        guard let url = Bundle.main.url(forResource: keyFileName, withExtension: "p8") else { return "" }
+        guard let url = Bundle.main.url(forResource: keyFileName, withExtension: "p8") else {
+            print("없어!!")
+            return ""
+        }
         let privateKey = try? Data(contentsOf: url, options: .alwaysMapped)
         
         let jwtSigner = JWTSigner.es256(privateKey: privateKey!)

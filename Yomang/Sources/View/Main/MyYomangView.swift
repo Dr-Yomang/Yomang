@@ -36,22 +36,23 @@ struct MyYomangView: View {
                         .frame(width: 80, height: 80)
                         .foregroundColor(.white)
                         .opacity(0.4)
-                        .overlay (
-                            //TODO: 조건문 변경 및 내 프로필이미지로 변경!!!
-//                            if let imageUrl = viewModel.partnerImageUrl {
-//                                KFImage(URL(string: imageUrl))
-//                                    .resizable()
-//                                    .frame(width: 80, height: 80)
-//                                    .clipShape(Circle())
-//                            } else {
-                                Image(.yottoGown2)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 80)
-                                    .offset(x: -5, y: 21)
-                                    .clipShape(Circle())
-//                            }
-                        )
+                        .overlay {
+                            Group {
+                                if let imageUrl = viewModel.imageUrl {
+                                    KFImage(URL(string: imageUrl))
+                                        .resizable()
+                                        .frame(width: 80, height: 80)
+                                        .clipShape(Circle())
+                                } else {
+                                    Image(.yottoGown2)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 80)
+                                        .offset(x: -5, y: 21)
+                                        .clipShape(Circle())
+                                }
+                            }
+                        }
                         .offset(y: 32)
                     
                     Text(AuthViewModel.shared.username ?? "나의 요망")
@@ -66,8 +67,14 @@ struct MyYomangView: View {
                         YomangImageView(data: viewModel.data, index: $index)
                             .overlay {
                                 ZStack {
-                                    if viewModel.data.count == 0 {
+                                    if AuthViewModel.shared.user?.partnerId == nil && viewModel.data.count == 0 {
                                         Text("기다리는 동안 상대에게 보여질\n내 프로필 사진을 설정해볼까요?")
+                                            .multilineTextAlignment(.center)
+                                            .font(.headline)
+                                            .foregroundColor(.white)
+                                    } else if AuthViewModel.shared.user?.partnerId != nil && viewModel.data.count == 0 {
+                                        Text("이제 요망을 보낼 수 있어요!\n\n 아래의 더하기 버튼을 눌러볼까요?")
+                                            .multilineTextAlignment(.center)
                                             .font(.headline)
                                             .foregroundColor(.white)
                                     }
@@ -100,6 +107,7 @@ struct MyYomangView: View {
                             ZStack {
                                 Circle()
                                     .frame(width: UIScreen.width * 0.2)
+                                    .tint(.gray001)
                                 Image(systemName: .plus)
                                     .foregroundColor(.white)
                                     .font(.largeTitle)
@@ -139,6 +147,6 @@ private struct PhotoPicker: View {
             matching: .images,
             photoLibrary: .shared()) {
                 AnyView(label)
-            }.tint(.gray001)
+            }.tint(.nav100)
     }
 }

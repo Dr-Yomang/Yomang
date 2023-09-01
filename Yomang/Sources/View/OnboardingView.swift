@@ -18,8 +18,8 @@ struct OnboardingView: View {
             
             LastOnboardingView(isShownSheet: $isShownSheet)
         }
-        .ignoresSafeArea()
-        .edgesIgnoringSafeArea(.all)
+//        .ignoresSafeArea()
+//        .edgesIgnoringSafeArea(.all)
         .presentationDragIndicator(.visible)
         
     }
@@ -29,7 +29,7 @@ struct FirstOnboardingView: View {
     var body: some View {
         VStack(alignment: .center) {
             
-            Spacer(minLength: 65)
+            Spacer()
             
             Text("기다리는 동안 \n 위젯을 설정해볼까요?")
                 .multilineTextAlignment(.center)
@@ -40,7 +40,8 @@ struct FirstOnboardingView: View {
             Text("요망은 당신과 파트너의 홈 화면에 \n 위젯으로 서로의 사진을 주고 받는 서비스예요. \n 아래 설명에 따라 위젯을 설정해주세요.")
                 .multilineTextAlignment(.center)
                 .font(.system(size: 16, weight: .medium))
-                .padding(.bottom, 15)
+                .lineSpacing(6)
+                .padding(.bottom)
             
             Spacer()
             
@@ -48,10 +49,9 @@ struct FirstOnboardingView: View {
                 .multilineTextAlignment(.center)
                 .font(.system(size: 24, weight: .bold))
             
-            Image("wid1")
-                .offset(y: 100)
-            
-        }
+            Image("wid1").offset(y: 40)
+                
+        }.offset(y: 30)
         .ignoresSafeArea()
         .edgesIgnoringSafeArea(.all)
     }
@@ -89,16 +89,16 @@ struct LastOnboardingView: View {
             
             Spacer()
             
-            Image("wid3")
+            Image("wid3").resizable().frame(width: UIScreen.width * 0.6, height: UIScreen.height * 0.5).scaledToFit()
             
             Spacer()
             
-            Button{
+            Button {
                 isShownSheet.toggle()
             } label: {
                 ZStack {
                     Rectangle()
-                        .frame(width: 350, height: 56)
+                        .frame(width: UIScreen.width * 0.9 , height: UIScreen.height * 0.08 )
                         .foregroundColor(.white)
                         .cornerRadius(12)
                     
@@ -115,8 +115,8 @@ struct LastOnboardingView: View {
     }
 }
 
-//struct OnboardingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnboardingView()
-//    }
-//}
+struct OnboardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView(isShownSheet: .constant(true))
+    }
+}
