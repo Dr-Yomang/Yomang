@@ -67,8 +67,14 @@ struct MyYomangView: View {
                         YomangImageView(data: viewModel.data, index: $index)
                             .overlay {
                                 ZStack {
-                                    if viewModel.data.count == 0 {
+                                    if AuthViewModel.shared.user?.partnerId == nil && viewModel.data.count == 0 {
                                         Text("기다리는 동안 상대에게 보여질\n내 프로필 사진을 설정해볼까요?")
+                                            .multilineTextAlignment(.center)
+                                            .font(.headline)
+                                            .foregroundColor(.white)
+                                    } else if AuthViewModel.shared.user?.partnerId != nil && viewModel.data.count == 0 {
+                                        Text("이제 요망을 보낼 수 있어요!\n\n 아래의 더하기 버튼을 눌러볼까요?")
+                                            .multilineTextAlignment(.center)
                                             .font(.headline)
                                             .foregroundColor(.white)
                                     }
