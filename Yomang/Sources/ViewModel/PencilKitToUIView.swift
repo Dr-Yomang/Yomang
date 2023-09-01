@@ -14,8 +14,9 @@ struct MyCanvas: UIViewRepresentable {
     
     func makeUIView(context: Context) -> PKCanvasView {
         canvasView.becomeFirstResponder()
-
         canvasView.drawing = PKDrawing()
+        
+        canvasView.frame = CGRect(x: 0, y: 0, width: UIScreen.width, height: Constants.widgetSize.height / Constants.widgetSize.width * UIScreen.width )
 
         canvasView.backgroundColor = .clear
         canvasView.isOpaque = false

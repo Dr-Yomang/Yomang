@@ -35,7 +35,7 @@ struct YomangImageView: View {
                             .opacity(0.5)
                             .frame(width: UIScreen.width - 40,
                                    height: Constants.widgetSize.height / Constants.widgetSize.width * (UIScreen.width - 40))
-                            .padding(.horizontal, 20)
+                        .padding(.horizontal, 20)
                     )
             } else {
                 KFImage(URL(string: data[index].imageUrl))
