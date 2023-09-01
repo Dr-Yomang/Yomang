@@ -8,9 +8,9 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class SettingViewModel: ObservableObject {
-    let collection = Firestore.firestore().collection("ProfileImageDebugCollection")
     @Published var username: String?
     @Published var profileImageUrl: String?
     @Published var alertAuthorizationStatus = ""
@@ -24,7 +24,7 @@ class SettingViewModel: ObservableObject {
     func fetchUsername() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
-        Firestore.firestore().collection("UserDebugCollection").document(uid).getDocument { snapshot, _ in
+        Constants.userCollection.document(uid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let user = try? snapshot.data(as: User.self) else { return }
             self.username = user.username
@@ -34,7 +34,7 @@ class SettingViewModel: ObservableObject {
     func fetchProfileImageUrl() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let uid = user.id else { return }
-        self.collection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
+        Constants.profileCollection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             if documents.count == 0 { return }
             guard let data = try? documents[0].data(as: ProfileImage.self) else { return }
@@ -44,7 +44,7 @@ class SettingViewModel: ObservableObject {
     
     func changeUsername(_ newUsername: String, completion: @escaping() -> Void) {
         guard let uid = AuthViewModel.shared.user?.id else { return }
-        Firestore.firestore().collection("UserDebugCollection").document(uid).updateData(["username": newUsername])
+        Constants.userCollection.document(uid).updateData(["username": newUsername])
         self.username = newUsername
         AuthViewModel.shared.username = newUsername
         completion()
@@ -57,12 +57,12 @@ class SettingViewModel: ObservableObject {
             let data = ["uid": uid,
                         "profileImageUrl": imageUrl]
             self.profileImageUrl = imageUrl
-            self.collection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
+            Constants.profileCollection.whereField("uid", isEqualTo: uid).getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 if documents.count == 0 {
-                    self.collection.addDocument(data: data, completion: completion)
+                    Constants.profileCollection.addDocument(data: data, completion: completion)
                 } else {
-                    self.collection.document(documents[0].documentID).updateData(["profileImageUrl": imageUrl], completion: completion)
+                    Constants.profileCollection.document(documents[0].documentID).updateData(["profileImageUrl": imageUrl], completion: completion)
                 }
             }
         }
@@ -77,6 +77,43 @@ class SettingViewModel: ObservableObject {
                 self.alertAuthorizationStatus = "켜짐"
             @unknown default:
                 self.alertAuthorizationStatus = ""
+            }
+        }
+    }
+    
+    func deletePartner(_ completion: @escaping() -> Void) {
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
+        guard let pid = user.partnerId else { return }
+        Constants.userCollection.document(uid).updateData(["partnerId": nil])
+        Constants.userCollection.document(pid).updateData(["partnerId": nil])
+        // MARK: - partner의 히스토리 먼저 삭제
+        Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, error in
+            if let error = error { print(error) }
+            guard let documents = snapshot?.documents else { return }
+            let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+            for item in data {
+                guard let docId = item.id else { return }
+                Constants.historyCollection.document(docId).delete { err in
+                    if let err = err {
+                        print("=== DEBUG: delete partner \(err)")
+                    }
+                }
+            }
+            // MARK: - 나의 히스토리 삭제
+            Constants.historyCollection.whereField("senderUid", isEqualTo: uid).getDocuments { snapshot, error in
+                if let error = error { print(error) }
+                guard let documents = snapshot?.documents else { return }
+                let data = documents.compactMap({ try? $0.data(as: YomangData.self) })
+                for item in data {
+                    guard let docId = item.id else { return }
+                    Constants.historyCollection.document(docId).delete { err in
+                        if let err = err {
+                            print("=== DEBUG: delete partner \(err)")
+                        }
+                    }
+                }
+                completion()
             }
         }
     }

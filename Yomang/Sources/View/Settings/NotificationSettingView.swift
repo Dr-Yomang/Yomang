@@ -93,3 +93,11 @@ struct NotificationSettingView: View {
         }
     }
 }
+
+
+struct NotificationSettingView_Previews: PreviewProvider {
+    @State static var index: Int = 0
+    static var previews: some View {
+        NotificationSettingView()
+    }
+}
