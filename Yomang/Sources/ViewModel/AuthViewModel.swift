@@ -232,6 +232,8 @@ class AuthViewModel: ObservableObject {
             .responseData { response in
                 guard let statusCode = response.response?.statusCode else { return }
                 if statusCode == 200 {
+                    UserDefaults.standard.removeObject(forKey: Constants.appleClientSecret)
+                    UserDefaults.standard.removeObject(forKey: Constants.authorizationCode)
                     print("=== DEUBG: 애플 토큰 삭제 성공!")
                     completion()
                 }
@@ -280,7 +282,7 @@ class AuthViewModel: ObservableObject {
             if let refreshToken = token {
                 print("=== DEBUG: client secret 🔑 \(jwtToken)")
                 print("=== DEBUG: refresh 🔑 \(refreshToken)")
-                
+
                 self.revokeAppleToken(clientSecret: jwtToken, token: refreshToken) {
                     print("=== DEBUG: Successully Apple revoke token")
                     completion()
