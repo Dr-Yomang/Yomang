@@ -232,8 +232,9 @@ class AuthViewModel: ObservableObject {
             .responseData { response in
                 guard let statusCode = response.response?.statusCode else { return }
                 if statusCode == 200 {
-                    UserDefaults.standard.removeObject(forKey: Constants.appleClientSecret)
-                    UserDefaults.standard.removeObject(forKey: Constants.authorizationCode)
+                    for key in UserDefaults.standard.dictionaryRepresentation().keys {
+                        UserDefaults.standard.removeObject(forKey: key.description)
+                    }
                     print("=== DEUBG: 애플 토큰 삭제 성공!")
                     completion()
                 }
