@@ -215,7 +215,7 @@ struct LinkView: View {
                         }
                         .disabled(displayedText < fullText || displayedText2 < fullText2)
                         .simultaneousGesture(TapGesture().onEnded {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 flowCount = 4
                             }
                         })
