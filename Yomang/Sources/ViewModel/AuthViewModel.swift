@@ -23,6 +23,9 @@ class AuthViewModel: ObservableObject {
     @Published var user: User?
     @Published var username: String?
     @Published var shareLink: String = "itms-apps://itunes.apple.com/app/6461822956"
+
+    // 회원탈퇴 시 사용
+    @Published var isQuit = false
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -303,6 +306,7 @@ class AuthViewModel: ObservableObject {
                 currentUser.delete { err in
                     try? Auth.auth().signOut()
                     print("=== deleted error \(err)")
+                    self.isQuit = true
                     completion()
                 }
             }

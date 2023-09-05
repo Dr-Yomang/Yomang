@@ -9,6 +9,8 @@ struct ContentView: View {
     @State var navigateToYomangView = false
     @State var nickname: String = "나의 닉네임"
     
+    @StateObject var authViewModelSingleton = AuthViewModel.shared
+    
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -43,6 +45,13 @@ struct ContentView: View {
                     navigateToYomangView = true
                 }
             })
+        }
+        .alert("회원탈퇴가 완료되었습니다.", isPresented: $authViewModelSingleton.isQuit) {
+            Button("확인", role: .cancel) {
+                exit(0)
+            }
+        } message: {
+            Text("애플리케이션을 종료합니다.\n다음에 또 만나요.")
         }
     }
 }
