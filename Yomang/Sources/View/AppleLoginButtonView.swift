@@ -15,6 +15,8 @@ struct AppleLoginButtonView: View {
     @Binding var isSignInInProgress: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     
+    @State var authCode = UserDefaults.standard.string(forKey: Constants.authorizationCode)
+    
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
         var randomBytes = [UInt8](repeating: 0, count: length)
@@ -50,59 +52,117 @@ struct AppleLoginButtonView: View {
     }
     
     var body: some View {
-        SignInWithAppleButton(.signIn) { request in
-            let nonce = randomNonceString()
-            currentNonce = nonce
-            request.requestedScopes = [.fullName, .email]
-            request.nonce = sha256(nonce)
-            isSignInInProgress = true
-        } onCompletion: { result in
-            switch result {
-            case .success(let authResults):
-                switch authResults.credential {
-                case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                    
-                    guard let nonce = currentNonce else {
-                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                    }
-                    guard let appleIDToken = appleIDCredential.identityToken else {
-                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                    }
-                    guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                        print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                        return
-                    }
-                    
-                    let credential = OAuthProvider.credential(
-                        withProviderID: "apple.com",
-                        idToken: idTokenString,
-                        rawNonce: nonce)
-                    
-                    guard let email = appleIDCredential.email else {
-                        print("Already Signed in")
-                        viewModel.signInUser(credential: credential) {
-                            UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
-                                                      forKey: Constants.authorizationCode)
-                            isSignInInProgress = false
+        if authCode == nil {
+            SignInWithAppleButton(.signIn) { request in
+                let nonce = randomNonceString()
+                currentNonce = nonce
+                request.requestedScopes = [.fullName, .email]
+                request.nonce = sha256(nonce)
+                isSignInInProgress = true
+            } onCompletion: { result in
+                switch result {
+                case .success(let authResults):
+                    switch authResults.credential {
+                    case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                        
+                        guard let nonce = currentNonce else {
+                            fatalError("Invalid state: A login callback was received, but no login request was sent.")
                         }
-                        return
-                    }
-                    viewModel.signInUser(
-                        credential: credential,
-                        email: email,
-                        partnerId: matchingIdFromUrl ?? nil) { result in
-                            UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
-                                                      forKey: Constants.authorizationCode)
-                            isSignInInProgress = false
+                        guard let appleIDToken = appleIDCredential.identityToken else {
+                            fatalError("Invalid state: A login callback was received, but no login request was sent.")
                         }
-                default:
+                        guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                            return
+                        }
+                        
+                        let credential = OAuthProvider.credential(
+                            withProviderID: "apple.com",
+                            idToken: idTokenString,
+                            rawNonce: nonce)
+                        
+                        guard let email = appleIDCredential.email else {
+                            print("Already Signed in")
+                            viewModel.signInUser(credential: credential) {
+                                UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
+                                                          forKey: Constants.authorizationCode)
+                                isSignInInProgress = false
+                            }
+                            return
+                        }
+                        viewModel.signInUser(
+                            credential: credential,
+                            email: email,
+                            partnerId: matchingIdFromUrl ?? nil) { result in
+                                UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
+                                                          forKey: Constants.authorizationCode)
+                                isSignInInProgress = false
+                            }
+                    default:
+                        isSignInInProgress = false
+                    }
+                case .failure(let error):
                     isSignInInProgress = false
+                    print("Authorization faild: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-                isSignInInProgress = false
-                print("Authorization faild: \(error.localizedDescription)")
+                
             }
-            
+        } else {
+            SignInWithAppleButton(.continue) { request in
+                let nonce = randomNonceString()
+                currentNonce = nonce
+                request.requestedScopes = [.fullName, .email]
+                request.nonce = sha256(nonce)
+                isSignInInProgress = true
+            } onCompletion: { result in
+                switch result {
+                case .success(let authResults):
+                    switch authResults.credential {
+                    case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                        
+                        guard let nonce = currentNonce else {
+                            fatalError("Invalid state: A login callback was received, but no login request was sent.")
+                        }
+                        guard let appleIDToken = appleIDCredential.identityToken else {
+                            fatalError("Invalid state: A login callback was received, but no login request was sent.")
+                        }
+                        guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                            return
+                        }
+                        
+                        let credential = OAuthProvider.credential(
+                            withProviderID: "apple.com",
+                            idToken: idTokenString,
+                            rawNonce: nonce)
+                        
+                        guard let email = appleIDCredential.email else {
+                            print("Already Signed in")
+                            viewModel.signInUser(credential: credential) {
+                                UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
+                                                          forKey: Constants.authorizationCode)
+                                isSignInInProgress = false
+                            }
+                            return
+                        }
+                        viewModel.signInUser(
+                            credential: credential,
+                            email: email,
+                            partnerId: matchingIdFromUrl ?? nil) { result in
+                                UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
+                                                          forKey: Constants.authorizationCode)
+                                isSignInInProgress = false
+                            }
+                    default:
+                        isSignInInProgress = false
+                    }
+                case .failure(let error):
+                    isSignInInProgress = false
+                    print("Authorization faild: \(error.localizedDescription)")
+                }
+                
+            }
         }
+        
     }
 }
