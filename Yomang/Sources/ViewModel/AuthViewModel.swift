@@ -134,9 +134,7 @@ class AuthViewModel: ObservableObject {
         linkBuilder.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
         linkBuilder.socialMetaTagParameters?.title = "상대가 요망 초대장을 보냈어요!"
         linkBuilder.socialMetaTagParameters?.descriptionText = "초대 수락하기"
-        // 여기에 앱 아이콘 미리보기 URL 들어가야 함
-        
-        //linkBuilder.socialMetaTagParameters?.imageURL = URL()
+        linkBuilder.socialMetaTagParameters?.imageURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/yomang-3610d.appspot.com/o/DynamicLinkPreviewImage%2FDynamicLinkPreviewImg.png?alt=media&token=1aefedd6-1dc0-4b35-90e2-81b6141c535a")
         
         guard let longURL = linkBuilder.url else { return }
         print("원본 다이나믹 링크 : \(longURL.absoluteString)")
