@@ -13,11 +13,8 @@ struct SettingView: View {
     
     @Environment(\.dismiss) private var dismiss
     @State private var isSignOutInProgress = false
-    @State private var selectedImage: PhotosPickerItem?
-    @State private var editUsername = false
     @State private var username = ""
     @State private var isUploadInProgress = false
-    @State private var sureToDeletePartner = false
     @ObservedObject var viewModel: SettingViewModel
     
     var body: some View {
