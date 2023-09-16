@@ -23,6 +23,7 @@ class AuthViewModel: ObservableObject {
     @Published var user: User?
     @Published var username: String?
     @Published var shareLink: String = "itms-apps://itunes.apple.com/app/6461822956"
+    @Published var matchingIdFromUrl: String?
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -44,7 +45,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func signInUser(credential: AuthCredential, email: String, partnerId: String?, _ completion: @escaping(String) -> Void) { // 최초 로그인
+    func signInUser(credential: AuthCredential, username: String, email: String, partnerId: String?, _ completion: @escaping(String) -> Void) { // 최초 로그인
         Auth.auth().signIn(with: credential) { (result, error) in
             if let error = error {
                 print("===DEBUG: failed to create user \(error.localizedDescription)")
@@ -55,7 +56,7 @@ class AuthViewModel: ObservableObject {
             self.user?.id = user.uid
             
             let data = ["uid": user.uid,
-                        "username": nil,
+                        "username": username,
                         "email": email,
                         "partnerId": partnerId ?? nil] as [String: Any?]
             
@@ -104,6 +105,7 @@ class AuthViewModel: ObservableObject {
             self.user = nil
             self.userSession = nil
             self.username = nil
+            self.matchingIdFromUrl = nil
             completion()
         } catch {
             print("== DEBUG: Error signing out \(error.localizedDescription)")
@@ -145,18 +147,16 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func parseDeepLinkComponents(from url: URL) -> String {
+    func parseDeepLinkComponents(from url: URL) {
         // url이 https로 시작 안하면 리턴 (잘못된 url)
-        guard url.scheme == "https" else {
-            return "NaN"
-        }
+        guard let _ = userSession else { return }
+        guard url.scheme == "https" else { return }
         
         let urlStr = url.absoluteString
         if urlStr.contains("https://yomanglabyomang.page.link/matchingLink?UserID=") {
             var splitedLink = urlStr.split(separator: "=")
-            return String(splitedLink[1])
-        } else {
-            return "NaN"
+            self.matchingIdFromUrl = String(splitedLink[1])
+            self.matchTwoUser(partnerId: self.matchingIdFromUrl ?? String(splitedLink[1]))
         }
     }
     
@@ -177,10 +177,7 @@ class AuthViewModel: ObservableObject {
         
         var myJWT = JWT(header: myHeader, claims: myClaims)
         
-        guard let url = Bundle.main.url(forResource: keyFileName, withExtension: "p8") else {
-            print("없어!!")
-            return ""
-        }
+        guard let url = Bundle.main.url(forResource: keyFileName, withExtension: "p8") else { return "" }
         let privateKey = try? Data(contentsOf: url, options: .alwaysMapped)
         
         let jwtSigner = JWTSigner.es256(privateKey: privateKey!)

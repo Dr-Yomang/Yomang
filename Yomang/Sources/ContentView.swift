@@ -5,7 +5,6 @@ struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSplash = true
-    @Binding var matchingIdFromUrl: String?
     @State var navigateToYomangView = false
     @State var nickname: String = "나의 닉네임"
     
@@ -15,33 +14,21 @@ struct ContentView: View {
             
             if showSplash {
                 SplashView()
-//                    .onAppear() {
-//                        print("current user")
-//                        try? Auth.auth().signOut()
-//                        print(Auth.auth().currentUser)
-//                        print(AuthViewModel.shared.user)
-//                        print(AuthViewModel.shared.userSession)
-//                        print(AuthViewModel.shared.username)
-//                    }
             } else { // hide splash
                 if viewModel.userSession != nil {
-                    if navigateToYomangView {
-                        YomangView(matchingIdFromUrl: $matchingIdFromUrl)
+                    if viewModel.matchingIdFromUrl != nil || navigateToYomangView {
+                        YomangView()
                     } else {
-                        LinkView(matchingIdFromUrl: $matchingIdFromUrl, navigateToYomangView: $navigateToYomangView)
+                        LinkView(navigateToYomangView: $navigateToYomangView)
                     }
                 } else {
-                    LoginView(matchingIdFromUrl: $matchingIdFromUrl)
-
+                    LoginView()
                 }
             }
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 showSplash.toggle()
-                if Auth.auth().currentUser != nil {
-                    navigateToYomangView = true
-                }
             })
         }
     }
