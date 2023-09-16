@@ -99,7 +99,7 @@ struct YomangWidget: Widget {
         }
         .configurationDisplayName("Yomang")
         .description("요망이들을 위한 위젯입니다 👀")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemLarge])
     }
 }
 
