@@ -34,7 +34,7 @@ class YourYomangViewModel: ObservableObject {
                     self.fetchYourYomang()
                     self.fetchPartnerData()
                 }
-//                    MARK: - cloud functions가 deploy되면 구조가 바뀝니다
+                // MARK: - cloud functions가 deploy되면 구조가 바뀝니다
 //                    collection.document(pid).getDocument { snapshot, _ in
 //                        guard let snapshot = snapshot else { return }
 //                        guard let partner = try? snapshot.data(as: User.self) else { return }

@@ -39,7 +39,6 @@ class AuthViewModel: ObservableObject {
             guard let user = try? snapshot.data(as: User.self) else { return }
             self.user = user
             self.username = user.username
-            print("=== DEBUG: fetch \(self.user)")
             self.matchingIdFromUrl = user.partnerId
             self.createInviteLink()
             completion()
@@ -150,12 +149,12 @@ class AuthViewModel: ObservableObject {
     
     func parseDeepLinkComponents(from url: URL) {
         // url이 https로 시작 안하면 리턴 (잘못된 url)
-        guard let _ = userSession else { return }
+        guard userSession != nil else { return }
         guard url.scheme == "https" else { return }
         
         let urlStr = url.absoluteString
         if urlStr.contains("https://yomanglabyomang.page.link/matchingLink?UserID=") {
-            var splitedLink = urlStr.split(separator: "=")
+            let splitedLink = urlStr.split(separator: "=")
             self.matchingIdFromUrl = String(splitedLink[1])
             self.matchTwoUser(partnerId: self.matchingIdFromUrl ?? String(splitedLink[1]))
         }
@@ -164,10 +163,8 @@ class AuthViewModel: ObservableObject {
     // MARK: - 회원 탈퇴
     private func getJWT() -> String {
         let myHeader = Header(kid: keyID) // sign in with
-        let nowDate = Date()
         var dateComponent = DateComponents()
         dateComponent.month = 6
-        let sixDate = Calendar.current.date(byAdding: dateComponent, to: nowDate) ?? Date()
         let iat = Int(Date().timeIntervalSince1970)
         let exp = iat + 3600
         let myClaims = MyClaims(iss: teamID,
@@ -195,7 +192,7 @@ class AuthViewModel: ObservableObject {
         let url = "https://appleid.apple.com/auth/token?client_id=\(bundleID)&client_secret=\(secret)&code=\(code)&grant_type=authorization_code"
         let header: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
         
-        print("🗝 clientSecret - \(UserDefaults.standard.string(forKey: Constants.appleClientSecret))")
+        print("🗝 clientSecret - \(String(describing: UserDefaults.standard.string(forKey: Constants.appleClientSecret)))")
         print("🗝 authCode - \(code)")
         
         AF.request(url, method: .post, encoding: JSONEncoding.default, headers: header)
@@ -293,12 +290,10 @@ class AuthViewModel: ObservableObject {
     private func deleteFromDB(_ completion: @escaping() -> Void) {
         // MARK: - 유저 정보 삭제
         guard let currentUser = Auth.auth().currentUser else { return }
-        Constants.userCollection.document(currentUser.uid).delete { err in
-            print("=== DEBUG: deleteUser() \(err)")
+        Constants.userCollection.document(currentUser.uid).delete { _ in
             self.signOut {
-                currentUser.delete { err in
+                currentUser.delete { _ in
                     try? Auth.auth().signOut()
-                    print("=== deleted error \(err)")
                     completion()
                 }
             }

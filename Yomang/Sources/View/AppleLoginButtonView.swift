@@ -91,7 +91,7 @@ struct AppleLoginButtonView: View {
                         credential: credential,
                         username: "\(appleIDCredential.fullName?.givenName?.string ?? "") \(appleIDCredential.fullName?.familyName?.string ?? "")",
                         email: email,
-                        partnerId: viewModel.matchingIdFromUrl ?? nil) { result in
+                        partnerId: viewModel.matchingIdFromUrl ?? nil) { _ in
                             UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
                                                       forKey: Constants.authorizationCode)
                             isSignInInProgress = false
