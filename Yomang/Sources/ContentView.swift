@@ -5,7 +5,6 @@ struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSplash = true
-    @State var navigateToYomangView = false
     @State var nickname: String = "나의 닉네임"
     
     var body: some View {
@@ -16,10 +15,10 @@ struct ContentView: View {
                 SplashView()
             } else { // hide splash
                 if viewModel.userSession != nil {
-                    if viewModel.matchingIdFromUrl != nil || navigateToYomangView {
+                    if viewModel.matchingIdFromUrl != nil {
                         YomangView()
                     } else {
-                        LinkView(navigateToYomangView: $navigateToYomangView)
+                        LinkView()
                     }
                 } else {
                     LoginView()

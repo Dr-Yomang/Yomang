@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LinkView: View {
-    @Binding var navigateToYomangView: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     
     @State private var displayedTextTop = ""
@@ -79,7 +78,7 @@ struct LinkView: View {
             VStack {
                 Spacer()
                 Button {
-                    navigateToYomangView = true
+                    viewModel.matchingIdFromUrl = ""
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(.white)

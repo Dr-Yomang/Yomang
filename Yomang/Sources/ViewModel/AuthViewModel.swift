@@ -40,6 +40,7 @@ class AuthViewModel: ObservableObject {
             self.user = user
             self.username = user.username
             print("=== DEBUG: fetch \(self.user)")
+            self.matchingIdFromUrl = user.partnerId
             self.createInviteLink()
             completion()
         }
