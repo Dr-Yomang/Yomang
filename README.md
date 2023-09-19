@@ -82,9 +82,9 @@
 
 ## 🛠️ Development
 
-![Generic badge](https://img.shields.io/badge/version-1.0.1-critical.svg)
-![Generic badge](https://img.shields.io/badge/iOS-16+-green.svg)
-![Generic badge](https://img.shields.io/badge/Xcode-14.3-blue.svg)
+![Generic badge](https://img.shields.io/badge/version-1.0.0-critical.svg)
+![Generic badge](https://img.shields.io/badge/iOS-16.0+-green.svg)
+![Generic badge](https://img.shields.io/badge/Xcode-14.2-blue.svg)
 
 </br>
 
