@@ -9,7 +9,6 @@ import SwiftUI
 import Kingfisher
 
 struct YomangView: View {
-    @Binding var matchingIdFromUrl: String?
     @State private var isHistoryButtonClicked: Bool = false
     @State private var selectedTag = 0
     @ObservedObject var viewModel = SettingViewModel()
@@ -23,7 +22,7 @@ struct YomangView: View {
                 TabView(selection: $selectedTag) {
                     HistoryView(isHistoryButtonClicked: $isHistoryButtonClicked)
                         .tag(0)
-                    YourYomangView(matchingIdFromUrl: $matchingIdFromUrl)
+                    YourYomangView()
                         .tag(1)
                     MyYomangView()
                         .tag(2)
@@ -41,22 +40,6 @@ struct YomangView: View {
                             .foregroundColor(.white)
                 })
                 .navigationBarItems(trailing:
-//                                        HStack {
-//                    NavigationLink {
-//                        HistoryView(selectedTag: $selectedTag, isHistoryButtonClicked: $isHistoryButtonClicked)
-//                            .navigationTitle(Text("히스토리"))
-//                            .navigationBarTitleDisplayMode(.inline)
-//                    } label: {
-//                        if selectedTag != 0 {
-//                            Image(systemName: "heart")
-//                                .foregroundColor(.white)
-//                                .font(.system(size: 20))
-//                        }
-//                    }
-//                    .simultaneousGesture(TapGesture().onEnded {
-//                        isHistoryButtonClicked = true
-//                    })
-                    
                     NavigationLink {
                         SettingView(viewModel: viewModel)
                     } label: {
@@ -74,7 +57,6 @@ struct YomangView: View {
                                 .clipShape(Circle())
                         }
                     }
-//                }
                 )
             }
         }

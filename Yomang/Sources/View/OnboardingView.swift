@@ -98,7 +98,7 @@ struct LastOnboardingView: View {
             } label: {
                 ZStack {
                     Rectangle()
-                        .frame(width: UIScreen.width * 0.9 , height: UIScreen.height * 0.08 )
+                        .frame(width: UIScreen.width * 0.9, height: UIScreen.height * 0.08 )
                         .foregroundColor(.white)
                         .cornerRadius(12)
                     

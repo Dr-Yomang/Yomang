@@ -4,7 +4,6 @@
 //
 //  Created by 최민규 on 2023/05/15.
 
-
 import SwiftUI
 import Lottie
 
@@ -46,34 +45,3 @@ struct LottieView: UIViewRepresentable {
         }
     }
 }
-
-
-
-////
-////  LottieView.swift
-////  MC3
-////
-////  Created by Niko Yejin Kim on 2023/07/21.
-////
-//import Lottie
-//import SwiftUI
-//import UIKit
-//
-//class ViewController: UIViewController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//
-//        let animationView: AnimationView = .init(name: "rainyD")
-//        self.view.addSubview(animationView)
-//
-//
-//        // animationView의 설정 작업은 알아서 하세요
-//        animationView.frame = self.view.bounds
-//        animationView.center = self.view.center
-//        animationView.contentMode = .scaleAspectFit
-//
-//    }
-//}
-//

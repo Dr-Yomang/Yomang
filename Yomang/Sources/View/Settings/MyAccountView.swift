@@ -21,6 +21,7 @@ struct MyAccountView: View {
     @State private var instantAlertTitle = ""
     @State private var instantAlertMessage = ""
     @State private var alertType = AlertType.signOut
+    @State private var warningFailToRevokeToken = ""
     
     var body: some View {
         ZStack {
@@ -94,7 +95,11 @@ struct MyAccountView: View {
             }
             if isUploadInProgress {
                 Color.black.opacity(0.7).ignoresSafeArea()
-                ProgressView()
+                VStack(spacing: 20) {
+                    ProgressView()
+                    Text(warningFailToRevokeToken)
+                        .foregroundColor(.white.opacity(0.7))
+                }
             }
         }
         .alert(instantAlertTitle, isPresented: $showInstantAlert) {
@@ -126,6 +131,7 @@ struct MyAccountView: View {
     
     private func signOutAction() {
         isUploadInProgress = true
+        warningFailToRevokeToken = ""
         AuthViewModel.shared.signOut {
             isUploadInProgress = false
         }
@@ -133,6 +139,7 @@ struct MyAccountView: View {
     
     private func deleteUserAction() {
         isUploadInProgress = true
+        warningFailToRevokeToken = "탈퇴가 계속 완료되지 않으면\n재로그인한 후 다시 시도하세요"
         AuthViewModel.shared.deleteUser {
             isUploadInProgress = false
         }
@@ -145,10 +152,3 @@ struct MyAccountView: View {
         self.alertType = type
     }
 }
-
-//struct MyAccountView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MyAccountView()
-//    }
-//}
-//

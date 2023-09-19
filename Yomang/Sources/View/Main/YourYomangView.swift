@@ -15,7 +15,6 @@ struct YourYomangView: View {
     @State private var isScaleEffect: Bool = false
     @State var isShownSheet = false
     @ObservedObject var viewModel = YourYomangViewModel()
-    @Binding var matchingIdFromUrl: String?
     @State private var lottieName: String = ""
     @State private var isLottiePlayed: Bool = false
     
@@ -155,13 +154,5 @@ struct YourYomangView: View {
         .sheet(isPresented: $isShownSheet) {
             OnboardingView(isShownSheet: $isShownSheet)
         }
-    }
-}
-
-struct YourYomangView_Previews: PreviewProvider {
-    @State static var matchingId: String? = "itms-apps://itunes.apple.com/app/6461822956"
-    
-    static var previews: some View {
-        YourYomangView(viewModel: YourYomangViewModel(), matchingIdFromUrl: $matchingId)
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @Binding var matchingIdFromUrl: String?
     @State private var isSignInInProgress = false
     
     var body: some View {
@@ -26,7 +25,7 @@ struct LoginView: View {
                     .bold()
                     .multilineTextAlignment(.center)
                 Spacer()
-                AppleLoginButtonView(matchingIdFromUrl: $matchingIdFromUrl, isSignInInProgress: $isSignInInProgress)
+                AppleLoginButtonView(isSignInInProgress: $isSignInInProgress)
                     .signInWithAppleButtonStyle(.white)
                     .frame(width: UIScreen.width - 40, height: 56)
                     .font(.title3)
@@ -47,6 +46,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(matchingIdFromUrl: .constant("YomanglabYomang://share?value=xTld2kfJ3kl"))
+        LoginView()
     }
 }

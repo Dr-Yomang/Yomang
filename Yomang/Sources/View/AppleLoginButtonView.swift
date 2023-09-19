@@ -11,7 +11,6 @@ import FirebaseAuth
 import AuthenticationServices
 
 struct AppleLoginButtonView: View {
-    @Binding var matchingIdFromUrl: String?
     @Binding var isSignInInProgress: Bool
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -87,10 +86,12 @@ struct AppleLoginButtonView: View {
                         }
                         return
                     }
+                    
                     viewModel.signInUser(
                         credential: credential,
+                        username: "\(appleIDCredential.fullName?.givenName?.string ?? "") \(appleIDCredential.fullName?.familyName?.string ?? "")",
                         email: email,
-                        partnerId: matchingIdFromUrl ?? nil) { result in
+                        partnerId: viewModel.matchingIdFromUrl ?? nil) { _ in
                             UserDefaults.standard.set(String(data: appleIDCredential.authorizationCode!, encoding: .utf8),
                                                       forKey: Constants.authorizationCode)
                             isSignInInProgress = false
@@ -100,7 +101,6 @@ struct AppleLoginButtonView: View {
                 }
             case .failure(let error):
                 isSignInInProgress = false
-                print("Authorization faild: \(error.localizedDescription)")
             }
             
         }

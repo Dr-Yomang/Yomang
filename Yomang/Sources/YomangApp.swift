@@ -11,12 +11,10 @@ import FirebaseDynamicLinks
 
 @main
 struct YomangApp: App {
-    @State private var matchingIdFromUrl: String?
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView(matchingIdFromUrl: $matchingIdFromUrl)
+            ContentView()
                 .environmentObject(AuthViewModel.shared)
                 .onOpenURL { url in
                     print("Incoming URL parameter is: \(url)")
@@ -45,11 +43,6 @@ struct YomangApp: App {
         guard let url = dynamicLink.url else { return }
         print("Your incoming link parameter is \(url.absoluteString)")
         guard dynamicLink.matchType == .unique || dynamicLink.matchType == .default else { return }
-        self.matchingIdFromUrl = AuthViewModel.shared.parseDeepLinkComponents(from: url)
-        print("Deep link: \(self.matchingIdFromUrl!)")
-        if AuthViewModel.shared.user != nil {
-            AuthViewModel.shared.matchTwoUser(partnerId: self.matchingIdFromUrl!)
-        }
     }
 }
 
