@@ -101,7 +101,6 @@ struct AppleLoginButtonView: View {
                 }
             case .failure(let error):
                 isSignInInProgress = false
-                print("Authorization faild: \(error.localizedDescription)")
             }
             
         }

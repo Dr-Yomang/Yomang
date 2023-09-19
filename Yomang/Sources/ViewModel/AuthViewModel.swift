@@ -291,9 +291,8 @@ class AuthViewModel: ObservableObject {
         // MARK: - 유저 정보 삭제
         guard let currentUser = Auth.auth().currentUser else { return }
         Constants.userCollection.document(currentUser.uid).delete { _ in
-            self.signOut {
-                currentUser.delete { _ in
-                    try? Auth.auth().signOut()
+            currentUser.delete { _ in
+                self.signOut {
                     completion()
                 }
             }
