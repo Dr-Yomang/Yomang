@@ -135,7 +135,7 @@ struct YourYomangView: View {
         }
         .onChange(of: self.selectedTag, perform: { tag in
             guard tag == 1 else { return }
-            viewModel.fetchYourYomang()
+            viewModel.fetchPartener()
         })
         .onAppear {
             if !hasSeenOnboarding {

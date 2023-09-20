@@ -31,8 +31,7 @@ class YourYomangViewModel: ObservableObject {
                 if pid == "null" { return }
                 self.connectWithPartner = true
                 AuthViewModel.shared.fetchUser {
-                    self.fetchYourYomang()
-                    self.fetchPartnerData()
+                    self.fetchPartener()
                 }
                 // MARK: - cloud functions가 deploy되면 구조가 바뀝니다
 //                    collection.document(pid).getDocument { snapshot, _ in
@@ -44,13 +43,18 @@ class YourYomangViewModel: ObservableObject {
             }
         } else {
             self.connectWithPartner = true
-            self.fetchYourYomang()
-            self.fetchPartnerData()
+            self.fetchPartener()
         }
     }
     
+    // MARK: - 파트너의 정보와 요망 기록을 불러옵니다
+    func fetchPartener() {
+        self.fetchYourYomang()
+        self.fetchPartnerData()
+    }
+    
     // MARK: - 파트너의 정보를 불러옵니다
-    func fetchPartnerData() {
+    private func fetchPartnerData() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
         Constants.userCollection.document(pid).getDocument { snapshot, _ in
@@ -70,7 +74,7 @@ class YourYomangViewModel: ObservableObject {
     }
     
     // MARK: - 파트너의 요망을 불러옵니다
-    func fetchYourYomang() {
+    private func fetchYourYomang() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
         Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, _ in
