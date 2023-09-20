@@ -108,7 +108,7 @@ struct LinkView: View {
                     }
                     .disabled(displayedTextTop.count < fullTextTop.count || displayedTextBottom.count < fullTextBottom.count)
                     .simultaneousGesture(TapGesture().onEnded {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             viewModel.matchingIdFromUrl = ""
                         }
                     })

@@ -60,15 +60,23 @@ class YourYomangViewModel: ObservableObject {
         Constants.userCollection.document(pid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let partner = try? snapshot.data(as: User.self) else { return }
-            self.partner = partner
-            Constants.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
-                if let err = err {
-                    print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
+            if partner.partnerId == nil {
+                // 연결 끊기 당한 경우, 연결된 파트너가 없는 경우
+                self.partner = nil
+                self.partnerImageUrl = nil
+                self.connectWithPartner = false
+                self.data.removeAll()
+            } else {
+                self.partner = partner
+                Constants.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
+                    if let err = err {
+                        print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
+                    }
+                    guard let snapshot = snapshot else { return }
+                    if snapshot.documents.count == 0 { return }
+                    guard let profile = try? snapshot.documents[0].data(as: ProfileImage.self) else { return }
+                    self.partnerImageUrl = profile.profileImageUrl
                 }
-                guard let snapshot = snapshot else { return }
-                if snapshot.documents.count == 0 { return }
-                guard let profile = try? snapshot.documents[0].data(as: ProfileImage.self) else { return }
-                self.partnerImageUrl = profile.profileImageUrl
             }
         }
     }
