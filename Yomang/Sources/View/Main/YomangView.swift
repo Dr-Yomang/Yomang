@@ -22,7 +22,7 @@ struct YomangView: View {
                 TabView(selection: $selectedTag) {
                     HistoryView(isHistoryButtonClicked: $isHistoryButtonClicked)
                         .tag(0)
-                    YourYomangView()
+                    YourYomangView(selectedTag: $selectedTag)
                         .tag(1)
                     MyYomangView()
                         .tag(2)
@@ -54,7 +54,12 @@ struct YomangView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 28)
+                                .offset(y: 10)
                                 .clipShape(Circle())
+                                .overlay {
+                                    Circle()
+                                        .stroke(.gray, lineWidth: 1.0)
+                                }
                         }
                     }
                 )

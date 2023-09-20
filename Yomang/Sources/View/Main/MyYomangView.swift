@@ -73,7 +73,7 @@ struct MyYomangView: View {
                                             .font(.headline)
                                             .foregroundColor(.white)
                                     } else if AuthViewModel.shared.user?.partnerId != nil && viewModel.data.count == 0 {
-                                        Text("이제 요망을 보낼 수 있어요!\n\n 아래의 더하기 버튼을 눌러볼까요?")
+                                        Text("이제 요망을 보낼 수 있어요!\n\n 아래 버튼을 눌러 요망을 보내볼까요?")
                                             .multilineTextAlignment(.center)
                                             .font(.headline)
                                             .foregroundColor(.white)

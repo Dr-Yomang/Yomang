@@ -28,12 +28,21 @@ struct SettingView: View {
                             .scaledToFill()
                             .frame(width: 112, height: 112)
                             .clipShape(Circle())
+                            .overlay {
+                                Circle()
+                                    .stroke(.gray, lineWidth: 1.0)
+                            }
                     } else {
                         Image("yt_surprise")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 112, height: 112)
+                            .offset(y: 30)
                             .clipShape(Circle())
+                            .overlay {
+                                Circle()
+                                    .stroke(.gray, lineWidth: 1.0)
+                            }
                     }
                     
                     Text(viewModel.username ?? "")

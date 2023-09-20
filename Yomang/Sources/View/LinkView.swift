@@ -81,11 +81,11 @@ struct LinkView: View {
                     viewModel.matchingIdFromUrl = ""
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(.white)
+                        .foregroundColor(.clear)
                         .frame(height: 56)
                         .overlay(
                             Text("요망 둘러보기")
-                                .foregroundColor(.black)
+                                .foregroundColor(.gray)
                                 .font(.title3)
                                 .bold()
                         )
@@ -96,17 +96,22 @@ struct LinkView: View {
                 if viewModel.matchingIdFromUrl == nil {
                     ShareLink(item: URL(string: viewModel.shareLink)!) {
                         RoundedRectangle(cornerRadius: 12)
-                            .foregroundColor(.clear)
+                            .foregroundColor(.white)
                             .frame(height: 56)
                             .overlay(
                                 Text("파트너 연결 링크 공유하기")
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.black)
                                     .font(.title3)
                                     .bold()
                             )
                             .opacity(displayedTextTop.count < fullTextTop.count || displayedTextBottom.count < fullTextBottom.count ? 0.3 : 1)
                     }
                     .disabled(displayedTextTop.count < fullTextTop.count || displayedTextBottom.count < fullTextBottom.count)
+                    .simultaneousGesture(TapGesture().onEnded {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            viewModel.matchingIdFromUrl = ""
+                        }
+                    })
                 }
             } // VStack
             .padding()

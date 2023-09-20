@@ -61,6 +61,7 @@ struct PartnerConnectionSettingView: View {
                 Spacer()
             }
         } // VStack
+        .onAppear(perform: viewModel.fetchPartnerUsername)
         .navigationTitle("파트너 연결")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)

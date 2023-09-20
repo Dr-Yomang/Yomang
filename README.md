@@ -107,5 +107,5 @@ import Kingfisher
 
 ## 🔏 License
 
-![Generic badge](https://img.shields.io/badge/MITLicense-yellow.svg)
+![Generic badge](https://img.shields.io/badge/Apache_License_2.0-yellow.svg)
 

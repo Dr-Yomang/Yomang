@@ -31,8 +31,7 @@ class YourYomangViewModel: ObservableObject {
                 if pid == "null" { return }
                 self.connectWithPartner = true
                 AuthViewModel.shared.fetchUser {
-                    self.fetchYourYomang()
-                    self.fetchPartnerData()
+                    self.fetchPartener()
                 }
                 // MARK: - cloud functions가 deploy되면 구조가 바뀝니다
 //                    collection.document(pid).getDocument { snapshot, _ in
@@ -44,31 +43,46 @@ class YourYomangViewModel: ObservableObject {
             }
         } else {
             self.connectWithPartner = true
-            self.fetchYourYomang()
-            self.fetchPartnerData()
+            self.fetchPartener()
         }
     }
     
-    func fetchPartnerData() {
+    // MARK: - 파트너의 정보와 요망 기록을 불러옵니다
+    func fetchPartener() {
+        self.fetchYourYomang()
+        self.fetchPartnerData()
+    }
+    
+    // MARK: - 파트너의 정보를 불러옵니다
+    private func fetchPartnerData() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
         Constants.userCollection.document(pid).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             guard let partner = try? snapshot.data(as: User.self) else { return }
-            self.partner = partner
-            Constants.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
-                if let err = err {
-                    print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
+            if partner.partnerId == nil {
+                // 연결 끊기 당한 경우, 연결된 파트너가 없는 경우
+                self.partner = nil
+                self.partnerImageUrl = nil
+                self.connectWithPartner = false
+                self.data.removeAll()
+            } else {
+                self.partner = partner
+                Constants.profileCollection.whereField("uid", isEqualTo: pid).getDocuments { snapshot, err in
+                    if let err = err {
+                        print("=== DEBUG: fetch partner's profile image \(err.localizedDescription)")
+                    }
+                    guard let snapshot = snapshot else { return }
+                    if snapshot.documents.count == 0 { return }
+                    guard let profile = try? snapshot.documents[0].data(as: ProfileImage.self) else { return }
+                    self.partnerImageUrl = profile.profileImageUrl
                 }
-                guard let snapshot = snapshot else { return }
-                if snapshot.documents.count == 0 { return }
-                guard let profile = try? snapshot.documents[0].data(as: ProfileImage.self) else { return }
-                self.partnerImageUrl = profile.profileImageUrl
             }
         }
     }
     
-    func fetchYourYomang() {
+    // MARK: - 파트너의 요망을 불러옵니다
+    private func fetchYourYomang() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
         Constants.historyCollection.whereField("senderUid", isEqualTo: pid).getDocuments { snapshot, _ in

@@ -43,6 +43,7 @@ struct YomangApp: App {
         guard let url = dynamicLink.url else { return }
         print("Your incoming link parameter is \(url.absoluteString)")
         guard dynamicLink.matchType == .unique || dynamicLink.matchType == .default else { return }
+        AuthViewModel.shared.parseDeepLinkComponents(from: url)
     }
 }
 
