@@ -31,12 +31,16 @@ struct ProfileView: View {
                         .padding(.top, 10)
                     
                 } else {
-                    Image(.yottoGown2)
+                    Image("yt_surprise")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 178, height: 178)
+                        .offset(y: 30)
                         .clipShape(Circle())
-                        .padding(.top, 10)
+                        .overlay {
+                            Circle()
+                                .stroke(.gray, lineWidth: 1.0)
+                        }
                 }
                 
                 if isUploadInProgress {
