@@ -107,6 +107,11 @@ struct LinkView: View {
                             .opacity(displayedTextTop.count < fullTextTop.count || displayedTextBottom.count < fullTextBottom.count ? 0.3 : 1)
                     }
                     .disabled(displayedTextTop.count < fullTextTop.count || displayedTextBottom.count < fullTextBottom.count)
+                    .simultaneousGesture(TapGesture().onEnded {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            viewModel.matchingIdFromUrl = ""
+                        }
+                    })
                 }
             } // VStack
             .padding()
