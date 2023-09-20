@@ -49,6 +49,7 @@ class YourYomangViewModel: ObservableObject {
         }
     }
     
+    // MARK: - 파트너의 정보를 불러옵니다
     func fetchPartnerData() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }
@@ -68,6 +69,7 @@ class YourYomangViewModel: ObservableObject {
         }
     }
     
+    // MARK: - 파트너의 요망을 불러옵니다
     func fetchYourYomang() {
         guard let user = AuthViewModel.shared.user else { return }
         guard let pid = user.partnerId else { return }

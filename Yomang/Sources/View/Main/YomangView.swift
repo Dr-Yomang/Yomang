@@ -22,7 +22,7 @@ struct YomangView: View {
                 TabView(selection: $selectedTag) {
                     HistoryView(isHistoryButtonClicked: $isHistoryButtonClicked)
                         .tag(0)
-                    YourYomangView()
+                    YourYomangView(selectedTag: $selectedTag)
                         .tag(1)
                     MyYomangView()
                         .tag(2)
