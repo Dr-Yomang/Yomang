@@ -18,10 +18,8 @@ struct OnboardingView: View {
             
             LastOnboardingView(isShownSheet: $isShownSheet)
         }
-//        .ignoresSafeArea()
-//        .edgesIgnoringSafeArea(.all)
-        .presentationDragIndicator(.visible)
-        
+        .tabViewStyle(PageTabViewStyle())
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }
 
